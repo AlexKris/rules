@@ -1,2 +1,2 @@
-# some_rule
+# rules
 一些规则
