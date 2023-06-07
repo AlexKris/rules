@@ -8,6 +8,7 @@
 
 # Changelog
 # [+]2023-06-06 1.初始化配置文件
+# [+]2023-06-07 2.调整分流
 
 port: 7890           # HTTP 代理端口
 socks-port: 7891     # Socks 端口
@@ -78,6 +79,7 @@ proxy-groups:
   - {name: OpenAi,      type: select, proxies: [US]             }
   - {name: GlobalMedia, <<: *a3                                 }
   - {name: Google,      <<: *a3                                 }
+  - {name: Microsoft,   <<: *a3                                 }
   - {name: Telegram,    <<: *a3                                 }
   - {name: Twitter,     <<: *a3                                 }
   - {name: Gamer,       <<: *a3                                 }
@@ -99,7 +101,7 @@ rule-providers:
   Lan:         {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml,                            path: ./ruleset/Lan.yaml          }
   Download:    {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml,                  path: ./ruleset/Download.yaml     }
   Ad:          {<<: *a5, url: https://anti-ad.net/clash.yaml,                                                                                     path: ./ruleset/anti-ad-clash.yaml}
-  OpenAi:      {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml,                      path: ./ruleset/OpenAi.yaml       }
+  OpenAI:      {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml,                      path: ./ruleset/OpenAi.yaml       }
   BiliBili:    {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml,                  path: ./ruleset/BiliBili.yaml     }
   GlobalMedia: {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml,  path: ./ruleset/GlobalMedia.yaml  }
   Apple:       {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml,              path: ./ruleset/Apple.yaml        }
@@ -118,16 +120,16 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
   - RULE-SET,Ad,AdBlock
-  - RULE-SET,OpenAi,OpenAi
+  - RULE-SET,OpenAI,OpenAi
   - RULE-SET,BiliBili,Bilibili
   - RULE-SET,GlobalMedia,GlobalMedia
   - RULE-SET,Apple,Apple
   - RULE-SET,Github,Global
-  - RULE-SET,Microsoft,Global
+  - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Google,Google
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Twitter,Global
-  - RULE-SET,Game,Game
+  - RULE-SET,Game,Gamer
   - RULE-SET,ProxyLite,Global
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
