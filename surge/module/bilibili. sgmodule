@@ -4,7 +4,7 @@
 #!upadteTime=2023-06-28
 
 [MITM]
-hostname = -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net,*biliapi.net
+hostname = %APPEND% -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net,*biliapi.net
 
 [URL Rewrite]
 # ======= BiliJson 播放页处理 ======= #

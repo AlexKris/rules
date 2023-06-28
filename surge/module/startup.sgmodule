@@ -1,0 +1,11 @@
+#!name=StartUp AdBlock
+#!desc=去开屏广告
+#!author=Chris
+#!upadteTime=2023-06-28
+
+[MITM]
+hostname = %APPEND% mage*.if.qidian.com
+
+[URL Rewrite]
+# > QiDianDuShu
+^https?:\/\/magev\d\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen url reject
