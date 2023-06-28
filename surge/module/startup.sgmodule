@@ -8,4 +8,4 @@ hostname = %APPEND% mage*.if.qidian.com
 
 [URL Rewrite]
 # > QiDianDuShu
-^https?:\/\/magev\d\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen url reject
+^https?:\/\/magev\d\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen - reject
