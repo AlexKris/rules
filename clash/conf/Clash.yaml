@@ -9,6 +9,7 @@
 # Changelog
 # [+]2023-06-06 1.初始化配置文件
 # [+]2023-06-07 2.调整分流
+# [+]2023-06-29 3.调整订阅
 
 port: 7890           # HTTP 代理端口
 socks-port: 7891     # Socks 端口
@@ -67,7 +68,7 @@ proxy-providers:
   Subscribe:
     <<: *a1
     url: 
-    path: ./proxy_providers/s1.yaml
+    path: ./proxy_providers/subscribe.yaml
 
 proxies: null
 proxy-groups:
@@ -92,7 +93,7 @@ proxy-groups:
   - {name: HK,   <<: *a4, filter: "港|HK|(?i)Hong"}  
   - {name: JP,   <<: *a4, filter: "日|东京|JP|(?i)Japan"}  
   - {name: TW,   <<: *a4, filter: "台|湾|TW|(?i)Taiwan"}  
-  - {name: US,   <<: *a4, filter: "美|US|(?i)States|American"}  
+  - {name: US,   <<: *a2, filter: "美|US|(?i)States|American"}  
   - {name: SG,   <<: *a4, filter: "新|坡|SG|(?i)Singapore"} 
 
 # 分流规则
