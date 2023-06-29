@@ -6,7 +6,7 @@
 hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
 
 [Map Local]
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/blank.txt" header="Content-Type: application/vnd.yt-ump"
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data="https://raw.githubusercontent.com/AlexKris/rule/main/surge/blank/blank.txt" header="Content-Type: application/vnd.yt-ump"
 
 [URL Rewrite]
 # 视频广告请求

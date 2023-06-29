@@ -5,21 +5,23 @@
 [MITM]
 hostname = %APPEND% api.weibo.*,*.api.weibo.*,mapi.weibo.*,*.uve.weibo.com,new.vip.weibo.cn,boot.biz.weibo.com
 
-[URL Rewrite]
+[Map Local]
 # 微博_用户推荐弹窗
-^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser - reject-dict
+^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser data="https://raw.githubusercontent.com/AlexKris/rule/main/surge/blank/blank_dict.json"
+# 微博_去除底部超话栏表层浮icon及tips
+^https?:\/\/api\.weibo\.cn\/\d\/!\/huati\/discovery_home_bottom_getdotinfo data="https://raw.githubusercontent.com/AlexKris/rule/main/surge/blank/blank_dict.json"
+# 微博_屏蔽首页左上角每日的弹窗tips
+^https?:\/\/m?api\.weibo\.c(n|om)\/\d/push/daily data="https://raw.githubusercontent.com/AlexKris/rule/main/surge/blank/blank_dict.json"
+# 微博_Spotlight
+^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight data="https://raw.githubusercontent.com/AlexKris/rule/main/surge/blank/blank_dict.json"
+
+[URL Rewrite]
 # 微博_每日一次的开屏广告请求
 ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime - reject
-# 微博_去除底部超话栏表层浮icon及tips
-^https?:\/\/api\.weibo\.cn\/\d\/!\/huati\/discovery_home_bottom_getdotinfo - reject-dict
-# 微博_屏蔽首页左上角每日的弹窗tips
-^https?:\/\/m?api\.weibo\.c(n|om)\/\d/push/daily - reject-dict
 # 微博_应用内弹窗广告
 ^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(interface\/wbpullad\/wbpullad_click\.php|wbapplua\/get_wbpullad_log\.lua) - reject
 # 微博_屏蔽sdkconfig请求
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
-# 微博_Spotlight
-^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight - reject-dict
 
 [Script]
 # 微博_开屏广告预加载处理
