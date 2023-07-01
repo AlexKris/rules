@@ -15,33 +15,97 @@ port: 7890           # HTTP 代理端口
 socks-port: 7891     # Socks 端口
 redir-port: 7892     # Redir 端口
 mixed-port: 7893     # 混合端口
-allow-lan: true      # 允许局域网连接
+allow-lan: false     # 允许局域网连接
 bind-address: "*"    # 地址绑定
 mode: rule           # 规则模式
 log-level: info      # 日志级别
 ipv6: false          # IPV6开关
+hosts:
+  services.googleapis.cn: 216.58.200.67
+  www.google.cn: 216.58.200.67
 external-controller: 127.0.0.1:9090
 
 dns:
   enable: true       # 不使用系统 DNS
-  ipv6: false        # 关闭 IPV6
   listen: 0.0.0.0:53 # dns 监听
+  default-nameserver:
+    - 223.5.5.5
+    - 1.0.0.1
+  ipv6: false        # 关闭 IPV6
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "*.lan"
+    - stun.*.*.*
+    - stun.*.*
+    - time.windows.com
+    - time.nist.gov
+    - time.apple.com
+    - time.asia.apple.com
+    - "*.ntp.org.cn"
+    - "*.openwrt.pool.ntp.org"
+    - time1.cloud.tencent.com
+    - time.ustc.edu.cn
+    - pool.ntp.org
+    - ntp.ubuntu.com
+    - ntp.aliyun.com
+    - ntp1.aliyun.com
+    - ntp2.aliyun.com
+    - ntp3.aliyun.com
+    - ntp4.aliyun.com
+    - ntp5.aliyun.com
+    - ntp6.aliyun.com
+    - ntp7.aliyun.com
+    - time1.aliyun.com
+    - time2.aliyun.com
+    - time3.aliyun.com
+    - time4.aliyun.com
+    - time5.aliyun.com
+    - time6.aliyun.com
+    - time7.aliyun.com
+    - "*.time.edu.cn"
+    - time1.apple.com
+    - time2.apple.com
+    - time3.apple.com
+    - time4.apple.com
+    - time5.apple.com
+    - time6.apple.com
+    - time7.apple.com
+    - time1.google.com
+    - time2.google.com
+    - time3.google.com
+    - time4.google.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
     - localhost.ptlogin2.qq.com
-    - +.srv.nintendo.net
-    - +.stun.playstation.net
-    - +.msftconnecttest.com
-    - +.msftncsi.com
-    - +.xboxlive.com
-    - msftconnecttest.com
-    - xbox.*.microsoft.com
-    - "*.battlenet.com.cn"
-    - "*.battlenet.com"
-    - "*.blzstatic.cn"
-    - "*.battle.net"
+    - "*.*.*.srv.nintendo.net"
+    - "*.*.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.ipv6.microsoft.com"
+    - "*.*.xboxlive.com"
+    - speedtest.cros.wr.pvp.net
   nameserver:        # 默认 DNS 服务
     - 223.5.5.5
     - 119.29.29.29
