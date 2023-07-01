@@ -88,7 +88,7 @@ proxy-groups:
   - {name: Final,       <<: *a3                                 }
 
 # 节点分组
-  # a4更改为a2，即为手动选择
+  # a4更改为a2, 即为手动选择
   - {name: AUTO, <<: *a4}
   - {name: HK,   <<: *a2, filter: "港|HK|(?i)Hong"              }
   - {name: JP,   <<: *a4, filter: "日|东京|JP|(?i)Japan"        }
