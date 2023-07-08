@@ -10,106 +10,43 @@
 # [+]2023-06-07 2.调整分流
 # [+]2023-06-29 3.调整订阅
 # [+]2023-07-01 4.微调
+# [+]2023-07-09 5.去掉引用
 
-port: 7890           # HTTP 代理端口
-socks-port: 7891     # Socks 端口
-redir-port: 7892     # Redir 端口
-mixed-port: 7893     # 混合端口
-allow-lan: false     # 允许局域网连接
-bind-address: "*"    # 地址绑定
-mode: rule           # 规则模式
-log-level: info      # 日志级别
-ipv6: false          # IPV6开关
-hosts:
-  services.googleapis.cn: 216.58.200.67
-  www.google.cn: 216.58.200.67
+port: 7890
+socks-port: 7891 
+redir-port: 7892
+mixed-port: 7893
+allow-lan: false
+bind-address: "*"
+mode: rule
+log-level: info
+ipv6: false
 external-controller: 127.0.0.1:9090
 
 dns:
-  enable: true       # 不使用系统 DNS
-  listen: 0.0.0.0:53 # dns 监听
-  default-nameserver:
-    - 223.5.5.5
-    - 1.0.0.1
-  ipv6: false        # 关闭 IPV6
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "*.lan"
-    - stun.*.*.*
-    - stun.*.*
-    - time.windows.com
-    - time.nist.gov
-    - time.apple.com
-    - time.asia.apple.com
-    - "*.ntp.org.cn"
-    - "*.openwrt.pool.ntp.org"
-    - time1.cloud.tencent.com
-    - time.ustc.edu.cn
-    - pool.ntp.org
-    - ntp.ubuntu.com
-    - ntp.aliyun.com
-    - ntp1.aliyun.com
-    - ntp2.aliyun.com
-    - ntp3.aliyun.com
-    - ntp4.aliyun.com
-    - ntp5.aliyun.com
-    - ntp6.aliyun.com
-    - ntp7.aliyun.com
-    - time1.aliyun.com
-    - time2.aliyun.com
-    - time3.aliyun.com
-    - time4.aliyun.com
-    - time5.aliyun.com
-    - time6.aliyun.com
-    - time7.aliyun.com
-    - "*.time.edu.cn"
-    - time1.apple.com
-    - time2.apple.com
-    - time3.apple.com
-    - time4.apple.com
-    - time5.apple.com
-    - time6.apple.com
-    - time7.apple.com
-    - time1.google.com
-    - time2.google.com
-    - time3.google.com
-    - time4.google.com
-    - music.163.com
-    - "*.music.163.com"
-    - "*.126.net"
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - "*.kuwo.cn"
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - joox.com
-    - y.qq.com
-    - "*.y.qq.com"
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - "*.xiami.com"
-    - "*.music.migu.cn"
-    - music.migu.cn
-    - "*.msftconnecttest.com"
-    - "*.msftncsi.com"
     - localhost.ptlogin2.qq.com
-    - "*.*.*.srv.nintendo.net"
-    - "*.*.stun.playstation.net"
-    - xbox.*.*.microsoft.com
-    - "*.ipv6.microsoft.com"
-    - "*.*.xboxlive.com"
-    - speedtest.cros.wr.pvp.net
-  nameserver:        # 默认 DNS 服务
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+  nameserver:
     - 223.5.5.5
     - 119.29.29.29
-  fallback:          # 国外 DNS 服务器
+  fallback:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
     - https://dns.alidns.com/dns-query
@@ -119,86 +56,197 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-# 策略组引用
-p:    &a1 {type: http,     interval: 86400,  health-check: {enable: true, url: http://www.gstatic.com/generate_204, interval: 1800} }
-use:  &a2 {type: select,   use: [Subscribe] }
-pr:   &a3 {type: select,   proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT] }
-auto: &a4 {type: url-test, lazy: true,  url: http://www.gstatic.com/generate_204, interval: 900, use: [Subscribe] }
-d:    &a5 {type: http,     behavior: domain,    interval: 86400}
-c:    &a6 {type: http,     behavior: classical, interval: 86400}
-i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
-
 proxy-providers:
-  Subscribe:
-    <<: *a1
+  sub:
+    type: http
     url: 
-    path: ./proxy_providers/subscribe.yaml
+    interval: 86400
+    path: ./proxy_providers/sub.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: http://www.gstatic.com/generate_204
 
 proxies: null
 proxy-groups:
-# 分流分组
-  - {name: Proxy,       <<: *a2                                 }
-  - {name: Global,      <<: *a3                                 }
-  - {name: Apple,       <<: *a3                                 }
-  - {name: Bilibili,    type: select, proxies: [DIRECT, HK, TW] }
-  - {name: OpenAi,      type: select, proxies: [US]             }
-  - {name: GlobalMedia, <<: *a3                                 }
-  - {name: Google,      <<: *a3                                 }
-  - {name: Microsoft,   <<: *a3                                 }
-  - {name: Telegram,    <<: *a3                                 }
-  - {name: Twitter,     <<: *a3                                 }
-  - {name: Gamer,       <<: *a3                                 }
-  - {name: AdBlock,     type: select, proxies: [REJECT]         }
-  - {name: Final,       <<: *a3                                 }
+  - name: Proxy
+    type: select
+    proxies: [Sub]
+  - name: Global
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Apple
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Bilibili
+    type: select
+    proxies: [DIRECT, HK, TW]
+  - name: OpenAi
+    type: select
+    proxies: [US]
+  - name: GlobalMedia
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Google
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Microsoft
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Telegram
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Twitter
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: Gamer
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  - name: AdBlock
+    type: select
+    proxies: [REJECT]
+  - name: Final
+    type: select
+    proxies: [AUTO, Proxy, HK, JP, US, TW, SG, DIRECT]
+  
+  - name: AUTO
+    type: url-test
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    use: [sub]
+  - name: HK
+    type: select
+    use: [sub]
+    filter: "港|HK|(?i)Hong"
+  - name: JP
+    type: url-test
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    use: [sub]
+    filter: "日|东京|JP|(?i)Japan"
+  - name: TW
+    type: url-test
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    use: [sub]
+    filter: "台|湾|TW|(?i)Taiwan"
+  - name: US
+    type: select
+    use: [sub]
+    filter: "美|US|(?i)States|American"
+  - name: SG
+    type: url-test
+    lazy: true
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    use: [sub]
+    filter: "新|坡|SG|(?i)Singapore"
 
-# 节点分组
-  # a4更改为a2, 即为手动选择
-  - {name: AUTO, <<: *a4}
-  - {name: HK,   <<: *a2, filter: "港|HK|(?i)Hong"              }
-  - {name: JP,   <<: *a4, filter: "日|东京|JP|(?i)Japan"        }
-  - {name: TW,   <<: *a4, filter: "台|湾|TW|(?i)Taiwan"         }
-  - {name: US,   <<: *a2, filter: "美|US|(?i)States|American"   }
-  - {name: SG,   <<: *a4, filter: "新|坡|SG|(?i)Singapore"      }
+  - name: Sub
+    type: select
+    use: [sub]
 
-# 分流规则
 rule-providers:
-  Direct:      {<<: *a5, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml,                      path: ./ruleset/Direct.yaml       }
-  Lan:         {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml,                            path: ./ruleset/Lan.yaml          }
-  Download:    {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml,                  path: ./ruleset/Download.yaml     }
-  Ad:          {<<: *a5, url: https://anti-ad.net/clash.yaml,                                                                                     path: ./ruleset/anti-ad-clash.yaml}
-  OpenAI:      {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml,                      path: ./ruleset/OpenAi.yaml       }
-  BiliBili:    {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml,                  path: ./ruleset/BiliBili.yaml     }
-  GlobalMedia: {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml,  path: ./ruleset/GlobalMedia.yaml  }
-  Apple:       {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml,              path: ./ruleset/Apple.yaml        }
-  Github:      {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml,                      path: ./ruleset/Github.yaml       }
-  Microsoft:   {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml,                path: ./ruleset/Microsoft.yaml    }
-  Google:      {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml,                      path: ./ruleset/Google.yaml       }
-  Telegram:    {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml,                  path: ./ruleset/Telegram.yaml     }
-  Twitter:     {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml,                    path: ./ruleset/Twitter.yaml      }
-  Game:        {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml,                          path: ./ruleset/Game.yaml         }
-  ChinaIP:     {<<: *a7, url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml,                                     path: ./ruleset/ChinaIP.yaml      }
-  ProxyLite:   {<<: *a6, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml,                path: ./ruleset/ProxyLite.yaml    }
+  Direct:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml
+    path: ./ruleset/Direct.yaml
+  Lan:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml
+    path: ./ruleset/Lan.yaml
+  Download:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml
+    path: ./ruleset/Download.yaml
+  Ad:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://anti-ad.net/clash.yaml
+    path: ./ruleset/Ad.yaml
+  OpenAI:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+  BiliBili:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml
+    path: ./ruleset/BiliBili.yaml
+  GlobalMedia:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
+    path: ./ruleset/GlobalMedia.yaml
+  Apple:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
+    path: ./ruleset/Apple.yaml
+  Github:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
+    path: ./ruleset/Github.yaml
+  Microsoft:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+  Google:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
+    path: ./ruleset/Google.yaml
+  Telegram:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+  Twitter:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
+    path: ./ruleset/Twitter.yaml
+  Game:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml
+    path: ./ruleset/Game.yaml
+  ChinaIP:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml
+    path: ./ruleset/ChinaIP.yaml
+  ProxyLite:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml
+    path: ./ruleset/ProxyLite.yaml
 
-# 分流规则
-# rule-providers:
-#   Direct:      {<<: *a5, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml,                      path: ./ruleset/Direct.yaml       }
-#   Lan:         {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml,                            path: ./ruleset/Lan.yaml          }
-#   Download:    {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml,                  path: ./ruleset/Download.yaml     }
-#   Ad:          {<<: *a5, url: https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml,                             path: ./ruleset/anti-ad-clash.yaml}
-#   OpenAI:      {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml,                      path: ./ruleset/OpenAi.yaml       }
-#   BiliBili:    {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml,                  path: ./ruleset/BiliBili.yaml     }
-#   GlobalMedia: {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml,  path: ./ruleset/GlobalMedia.yaml  }
-#   Apple:       {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml,              path: ./ruleset/Apple.yaml        }
-#   Github:      {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml,                      path: ./ruleset/Github.yaml       }
-#   Microsoft:   {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml,                path: ./ruleset/Microsoft.yaml    }
-#   Google:      {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml,                      path: ./ruleset/Google.yaml       }
-#   Telegram:    {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml,                  path: ./ruleset/Telegram.yaml     }
-#   Twitter:     {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml,                    path: ./ruleset/Twitter.yaml      }
-#   Game:        {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml,                          path: ./ruleset/Game.yaml         }
-#   ChinaIP:     {<<: *a7, url: https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml,                                     path: ./ruleset/ChinaIP.yaml      }
-#   ProxyLite:   {<<: *a6, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml,                path: ./ruleset/ProxyLite.yaml    }
-
-# 分流Policy
 rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Lan,DIRECT
@@ -208,13 +256,13 @@ rules:
   - RULE-SET,BiliBili,Bilibili
   - RULE-SET,GlobalMedia,GlobalMedia
   - RULE-SET,Apple,Apple
-  - RULE-SET,Github,Global
+  - RULE-SET,Github,Proxy
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Google,Google
   - RULE-SET,Telegram,Telegram
-  - RULE-SET,Twitter,Global
+  - RULE-SET,Twitter,Proxy
   - RULE-SET,Game,Gamer
-  - RULE-SET,ProxyLite,Global
+  - RULE-SET,ProxyLite,Proxy
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Final
