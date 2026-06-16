@@ -1,7 +1,7 @@
 # NAME: CITIC
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: CITIC financial direct routing overlay
-# RULES: 32
+# RULES: 33
 # SKIPPED: 0
 
 name = CITIC
@@ -38,6 +38,7 @@ name = CITIC
 2, goldstone-investment.com
 
 # Other CITIC financial services
+2, cfhc.citic
 2, citiccapital.com
 2, citiciam.com
 2, citicifh.com
