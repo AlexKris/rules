@@ -1,0 +1,19 @@
+# NAME: CITIC
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: CITIC Bank direct routing overlay
+# RULES: 12
+# SKIPPED: 0
+
+name = CITIC
+2, citicbank.com
+2, citicbank.com.cn
+2, citicbank.cn
+2, citiccard.com
+2, ecitic.com
+2, ecitic.net
+2, citicbank.net
+2, citicbank.net.cn
+2, citic-wealth.com
+2, citicleasing.com
+2, citicleasing.cn
+2, citicbank.citic
