@@ -5,6 +5,7 @@ Import the following custom rule sets and assign them to `DIRECT`:
 ```text
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 ```
 
 Recommended rule-set assignments:
@@ -23,12 +24,13 @@ AppleServices   -> DIRECT
 Direct          -> DIRECT
 Kuro            -> DIRECT
 CITIC           -> DIRECT
+Direct Extra    -> DIRECT
 ChinaDomain     -> DIRECT
 GeoIP_CN        -> DIRECT
 ```
 
 Notes:
 
-- `Kuro` and `CITIC` are intentionally separate rule sets.
+- `Kuro`, `CITIC`, and `Direct Extra` are intentionally separate rule sets.
 - `getui` is intentionally not included.
 - Keep private domains and proxy subscriptions out of this repository.

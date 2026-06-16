@@ -12,12 +12,14 @@ ios_rule_script. It is not intended to be a full mirror of those projects.
 
 - `anywhere/kuro.arrs`
 - `anywhere/citic.arrs`
+- `anywhere/direct-extra.arrs`
 
-Import the raw URLs in Anywhere and assign both rule sets to `DIRECT`:
+Import the raw URLs in Anywhere and assign these rule sets to `DIRECT`:
 
 ```text
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 ```
 
 ### Surge

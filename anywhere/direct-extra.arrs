@@ -1,0 +1,10 @@
+# NAME: Direct Extra
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: Additional direct routing overlay
+# RULES: 3
+# SKIPPED: 0
+
+name = Direct Extra
+2, servicewechat.com
+2, wxgateway.com
+2, videocc.net
