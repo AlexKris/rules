@@ -1,19 +1,44 @@
 # NAME: CITIC
 # GENERATED-FOR: Anywhere Routing Rule Set
-# DESCRIPTION: CITIC Bank direct routing overlay
-# RULES: 12
+# DESCRIPTION: CITIC financial direct routing overlay
+# RULES: 32
 # SKIPPED: 0
 
 name = CITIC
+# CITIC Bank and related services
+2, citic.com
+2, citic-wealth.com
+2, citicaibank.cn
+2, citicaibank.com
+2, citicbank.citic
+2, citicbank.cn
 2, citicbank.com
 2, citicbank.com.cn
-2, citicbank.cn
-2, citiccard.com
-2, ecitic.com
-2, ecitic.net
 2, citicbank.net
 2, citicbank.net.cn
-2, citic-wealth.com
-2, citicleasing.com
+2, citicbank.org
+2, citicbank.org.cn
+2, citicbankuser.com
+2, citiccard.com
 2, citicleasing.cn
-2, citicbank.citic
+2, citicleasing.com
+2, ecitic.com
+2, ecitic.net
+2, cncbinternational.com
+2, cncbic.com
+2, cncbpc.com
+
+# CITIC Securities and linked services
+2, chinaamc.com
+2, clsa.com
+2, citics.com
+2, citicsam.com
+2, citicsf.com
+2, citicsinfo.com
+2, goldstone-investment.com
+
+# Other CITIC financial services
+2, citiccapital.com
+2, citiciam.com
+2, citicifh.com
+2, eciticcfc.com
