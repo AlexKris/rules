@@ -1,0 +1,18 @@
+# NAME: Apple CN
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: Apple China direct routing overlay
+# RULES: 9
+# SKIPPED: 0
+# SOURCES:
+# - https://ruleset.skk.moe/List/non_ip/apple_cn.conf
+
+name = Apple CN
+2, gs-loc-cn.apple.com
+2, appleintelligencefeedback.care.apple.com
+2, gspe19-cn-ssl.ls.apple.com
+2, cn-ssl.ls.apple.com
+2, cn.ls.apple.com
+2, cn.apple.com
+2, api.smoot.apple.cn
+2, icloud.com.cn
+2, apple.com.cn

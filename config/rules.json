@@ -1,0 +1,132 @@
+{
+  "source_marker_domains": [
+    "this_rule_set_is_made_by_sukkaw",
+    "this_ruleset_is_made_by_sukkaw",
+    "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe",
+    "th1s_rule5et_1s_m4d3_by_5ukk4w_ruleset.skk.moe",
+    "this_rule_set_is_made_by_sukkaw.skk.moe",
+    "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"
+  ],
+  "sources": {
+    "cdn-domainset": {
+      "kind": "domainset",
+      "urls": [
+        "https://ruleset.skk.moe/List/domainset/cdn.conf"
+      ]
+    },
+    "cdn-non-ip": {
+      "kind": "non-ip",
+      "urls": [
+        "https://ruleset.skk.moe/List/non_ip/cdn.conf"
+      ]
+    },
+    "apple-cdn-domainset": {
+      "kind": "domainset",
+      "urls": [
+        "https://ruleset.skk.moe/List/domainset/apple_cdn.conf"
+      ]
+    },
+    "apple-cdn-non-ip": {
+      "kind": "non-ip",
+      "urls": [
+        "https://ruleset.skk.moe/List/non_ip/apple_cdn.conf"
+      ]
+    },
+    "apple-cn": {
+      "kind": "non-ip",
+      "urls": [
+        "https://ruleset.skk.moe/List/non_ip/apple_cn.conf"
+      ]
+    },
+    "apple-services": {
+      "kind": "non-ip",
+      "urls": [
+        "https://ruleset.skk.moe/List/non_ip/apple_services.conf"
+      ]
+    }
+  },
+  "outputs": {
+    "cdn": {
+      "name": "CDN",
+      "description": "SukkaW CDN proxy helper with personal exclusions",
+      "sources": [
+        "cdn-domainset",
+        "cdn-non-ip"
+      ],
+      "exclude": [
+        "time.apple.com",
+        "ocsp.digicert.com",
+        "cacerts.digicert.com",
+        "crl3.digicert.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/cdn.arrs"
+      }
+    },
+    "apple-cdn": {
+      "name": "Apple CDN",
+      "description": "Apple CDN direct routing overlay",
+      "sources": [
+        "apple-cdn-domainset",
+        "apple-cdn-non-ip"
+      ],
+      "add": [
+        "DOMAIN-SUFFIX,is1-ssl.mzstatic.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/apple-cdn.arrs"
+      }
+    },
+    "apple-cn": {
+      "name": "Apple CN",
+      "description": "Apple China direct routing overlay",
+      "sources": [
+        "apple-cn"
+      ],
+      "targets": {
+        "anywhere": "anywhere/apple-cn.arrs"
+      }
+    },
+    "apple-services": {
+      "name": "Apple Services",
+      "description": "Apple services direct routing overlay",
+      "sources": [
+        "apple-services"
+      ],
+      "add": [
+        "DOMAIN-SUFFIX,time.apple.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/apple-services.arrs"
+      }
+    },
+    "direct-extra": {
+      "name": "Direct Extra",
+      "description": "Additional direct routing overlay",
+      "rules": [
+        "DOMAIN-SUFFIX,servicewechat.com",
+        "DOMAIN-SUFFIX,wxgateway.com",
+        "DOMAIN-SUFFIX,videocc.net",
+        "DOMAIN-SUFFIX,ocsp.digicert.com",
+        "DOMAIN-SUFFIX,cacerts.digicert.com",
+        "DOMAIN-SUFFIX,crl3.digicert.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/direct-extra.arrs"
+      }
+    }
+  },
+  "surge": {
+    "domainset": {
+      "cdn": "cdn-domainset",
+      "apple-cdn": "apple-cdn-domainset"
+    },
+    "non-ip": {
+      "cdn": "cdn-non-ip",
+      "apple-cdn": "apple-cdn-non-ip",
+      "apple-cn": "apple-cn",
+      "apple-services": "apple-services",
+      "direct-extra": "direct-extra"
+    }
+  }
+}
