@@ -1,7 +1,7 @@
 # Google CN Redirect - Anywhere MITM RuleSet
+# GENERATED-FROM: anywhere/mitm/source/google-cn-redirect.js
 
-name = Google CN Redirect
-hostname = www.google.cn, google.cn, g.cn, ditu.google.cn, maps.google.cn
+name = Google CN 307 Redirect
+hostname = google.cn, g.cn
 
-0, 0, ^https?:\/\/(www\.)?(g|google)\.cn, 1, https://www.google.com
-0, 0, ^https?:\/\/(ditu|maps)\.google\.cn, 1, https://maps.google.com
+0, 100, ^https?:\/\/(?:(?:www\.)?(?:g|google)\.cn|(?:ditu|maps)\.google\.cn)(?=[:\/?#]|$), ZnVuY3Rpb24gcHJvY2VzcyhjdHgpIHsKICBpZiAoY3R4LnBoYXNlICE9PSAicmVxdWVzdCIgfHwgIWN0eC51cmwpIHJldHVybjsKCiAgdmFyIG9yaWdpbmFsID0gU3RyaW5nKGN0eC51cmwpOwogIHZhciB0YXJnZXQgPSBvcmlnaW5hbC5yZXBsYWNlKAogICAgL15odHRwcz86XC9cLyg/Ond3d1wuKT8oPzpnfGdvb2dsZSlcLmNuKD89WzpcLz8jXXwkKS9pLAogICAgImh0dHBzOi8vd3d3Lmdvb2dsZS5jb20iCiAgKTsKCiAgaWYgKHRhcmdldCA9PT0gb3JpZ2luYWwpIHsKICAgIHRhcmdldCA9IG9yaWdpbmFsLnJlcGxhY2UoCiAgICAgIC9eaHR0cHM/OlwvXC8oPzpkaXR1fG1hcHMpXC5nb29nbGVcLmNuKD89WzpcLz8jXXwkKS9pLAogICAgICAiaHR0cHM6Ly9tYXBzLmdvb2dsZS5jb20iCiAgICApOwogIH0KCiAgaWYgKHRhcmdldCA9PT0gb3JpZ2luYWwpIHJldHVybjsKCiAgQW55d2hlcmUucmVzcG9uZCh7CiAgICBzdGF0dXM6IDMwNywKICAgIGhlYWRlcnM6IFtbIkxvY2F0aW9uIiwgdGFyZ2V0XV0sCiAgICBib2R5OiAiIgogIH0pOwp9Cg==

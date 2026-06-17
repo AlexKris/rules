@@ -101,6 +101,7 @@ Regenerate rule files manually:
 
 ```sh
 python3 scripts/build_rules.py
+python3 scripts/build_mitm.py
 ```
 
 ## Scope
