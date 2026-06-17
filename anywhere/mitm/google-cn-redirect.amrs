@@ -1,0 +1,7 @@
+# Google CN Redirect - Anywhere MITM RuleSet
+
+name = Google CN Redirect
+hostname = www.google.cn, google.cn, g.cn, ditu.google.cn, maps.google.cn
+
+0, 0, ^https?:\/\/(www\.)?(g|google)\.cn, 1, https://www.google.com
+0, 0, ^https?:\/\/(ditu|maps)\.google\.cn, 1, https://maps.google.com

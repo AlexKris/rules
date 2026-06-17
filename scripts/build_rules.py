@@ -175,7 +175,7 @@ def load_source_rules(config: dict) -> tuple[dict[str, list[Rule]], dict[str, di
     loaded: dict[str, list[Rule]] = {}
     skipped_by_source: dict[str, dict[str, int]] = {}
     for source_id, source_config in config["sources"].items():
-        default_type = "DOMAIN-SUFFIX" if source_config.get("kind") == "domainset" else "DOMAIN-SUFFIX"
+        default_type = "DOMAIN" if source_config.get("kind") == "domainset" else "DOMAIN-SUFFIX"
         lines: list[str] = []
         for url in source_config["urls"]:
             lines.extend(fetch_lines(url))
@@ -286,7 +286,12 @@ def write_anywhere(path: Path, output_config: dict, rules: list[Rule], skipped: 
 
 
 def write_surge_domainset(path: Path, rules: list[Rule]) -> None:
-    lines = [rule.value for rule in rules if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX"}]
+    lines = []
+    for rule in rules:
+        if rule.rule_type == "DOMAIN":
+            lines.append(rule.value)
+        elif rule.rule_type == "DOMAIN-SUFFIX":
+            lines.append(f".{rule.value}")
     write_text(path, lines)
 
 

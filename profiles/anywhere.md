@@ -12,6 +12,12 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 ```
 
+Import the following MITM rule sets separately:
+
+```text
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-redirect.amrs
+```
+
 Recommended rule-set assignments:
 
 ```text
