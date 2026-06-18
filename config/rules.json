@@ -43,6 +43,12 @@
       "urls": [
         "https://ruleset.skk.moe/List/non_ip/apple_services.conf"
       ]
+    },
+    "crypto-category": {
+      "kind": "domainset",
+      "urls": [
+        "https://raw.githubusercontent.com/yuumimi/rules/release/surge/category-cryptocurrency.txt"
+      ]
     }
   },
   "outputs": {
@@ -113,6 +119,16 @@
       ],
       "targets": {
         "anywhere": "anywhere/direct-extra.arrs"
+      }
+    },
+    "crypto": {
+      "name": "Crypto",
+      "description": "Cryptocurrency services routing overlay based on v2fly domain-list-community",
+      "sources": [
+        "crypto-category"
+      ],
+      "targets": {
+        "anywhere": "anywhere/crypto.arrs"
       }
     }
   },

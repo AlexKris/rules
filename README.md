@@ -21,6 +21,7 @@ for Apple time sync and DigiCert certificate infrastructure domains.
 - `anywhere/kuro.arrs`
 - `anywhere/citic.arrs`
 - `anywhere/direct-extra.arrs`
+- `anywhere/crypto.arrs`
 - `anywhere/mitm/google-cn-redirect.amrs`
 
 Import the raw URLs in Anywhere and assign them as follows:
@@ -33,6 +34,7 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-services.ar
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs             -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs            -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs     -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs           -> proxy chain
 ```
 
 Import MITM rule sets separately in Anywhere MITM:

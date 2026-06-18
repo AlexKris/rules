@@ -10,6 +10,7 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-services.ar
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs
 ```
 
 Import the following MITM rule sets separately:
@@ -25,6 +26,7 @@ CDN             -> proxy chain
 AI              -> proxy chain
 Bahamut         -> proxy chain
 PayPal          -> proxy chain
+Crypto          -> proxy chain
 Binance         -> proxy chain
 Proxy           -> proxy chain
 
@@ -44,6 +46,6 @@ Notes:
 
 - Use this repository's `CDN` instead of `anywhere-rules` `CDN`; it excludes
   Apple time sync and DigiCert certificate infrastructure domains.
-- `Kuro`, `CITIC`, and `Direct Extra` are intentionally separate rule sets.
+- `Kuro`, `CITIC`, `Direct Extra`, and `Crypto` are intentionally separate rule sets.
 - `getui` is intentionally not included.
 - Keep private domains and proxy subscriptions out of this repository.
