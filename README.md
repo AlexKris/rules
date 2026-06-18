@@ -7,8 +7,9 @@ that complement upstream rulesets such as Sukka Ruleset, MetaCubeX
 meta-rules-dat, and blackmatrix7 ios_rule_script. It is not intended to be a
 full mirror of those projects.
 
-Generated CDN and Apple rules are based on Sukka Ruleset with local exclusions
-for Apple time sync and DigiCert certificate infrastructure domains.
+Generated CDN and Apple artifacts are based on Sukka Ruleset effective rules
+with explicit local add/exclude patches. Anywhere files are generated from the
+same sources in Anywhere's `.arrs` format.
 
 ## Rule Sets
 

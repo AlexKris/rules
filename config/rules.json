@@ -113,6 +113,7 @@
         "DOMAIN-SUFFIX,servicewechat.com",
         "DOMAIN-SUFFIX,wxgateway.com",
         "DOMAIN-SUFFIX,videocc.net",
+        "DOMAIN,cache.video.iqiyi.com",
         "DOMAIN-SUFFIX,ocsp.digicert.com",
         "DOMAIN-SUFFIX,cacerts.digicert.com",
         "DOMAIN-SUFFIX,crl3.digicert.com"
@@ -132,17 +133,49 @@
       }
     }
   },
-  "surge": {
+  "artifacts": {
     "domainset": {
-      "cdn": "cdn-domainset",
-      "apple-cdn": "apple-cdn-domainset"
+      "cdn": {
+        "source": "cdn-domainset",
+        "exclude": [
+          "time.apple.com",
+          "ocsp.digicert.com",
+          "cacerts.digicert.com",
+          "crl3.digicert.com"
+        ]
+      },
+      "apple-cdn": {
+        "source": "apple-cdn-domainset"
+      }
     },
     "non-ip": {
-      "cdn": "cdn-non-ip",
-      "apple-cdn": "apple-cdn-non-ip",
-      "apple-cn": "apple-cn",
-      "apple-services": "apple-services",
-      "direct-extra": "direct-extra"
+      "cdn": {
+        "source": "cdn-non-ip",
+        "exclude": [
+          "time.apple.com",
+          "ocsp.digicert.com",
+          "cacerts.digicert.com",
+          "crl3.digicert.com"
+        ]
+      },
+      "apple-cdn": {
+        "source": "apple-cdn-non-ip",
+        "add": [
+          "DOMAIN-SUFFIX,is1-ssl.mzstatic.com"
+        ]
+      },
+      "apple-cn": {
+        "source": "apple-cn"
+      },
+      "apple-services": {
+        "source": "apple-services",
+        "add": [
+          "DOMAIN-SUFFIX,time.apple.com"
+        ]
+      },
+      "direct-extra": {
+        "source": "direct-extra"
+      }
     }
   }
 }

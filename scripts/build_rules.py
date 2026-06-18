@@ -231,24 +231,24 @@ def collect_output_rules(
     return rules, skipped
 
 
-def apply_output_overrides(
+def apply_rule_overrides(
     rules: list[Rule],
-    output_config: dict | None,
+    overrides: dict | None,
     source_marker_domains: set[str]
 ) -> list[Rule]:
-    if output_config is None:
+    if overrides is None:
         return list(rules)
 
     result = list(rules)
     seen = {rule.key for rule in result}
 
-    for line in output_config.get("add", []):
+    for line in overrides.get("add", []):
         rule, _ = parse_rule(line, "DOMAIN-SUFFIX")
         if rule is not None and rule.value not in source_marker_domains and rule.key not in seen:
             result.append(rule)
             seen.add(rule.key)
 
-    excludes = {normalize_domain(value) for value in output_config.get("exclude", [])}
+    excludes = {normalize_domain(value) for value in overrides.get("exclude", [])}
     excludes.discard(None)
     if excludes:
         result = [rule for rule in result if rule.value not in excludes]
@@ -296,27 +296,26 @@ def write_surge_domainset(path: Path, rules: list[Rule]) -> None:
 
 
 def write_surge_non_ip(path: Path, rules: list[Rule]) -> None:
-    lines = [
+    write_text(path, domain_rule_lines(rules))
+
+
+def domain_rule_lines(rules: list[Rule]) -> list[str]:
+    return [
         f"{rule.rule_type},{rule.value}"
         for rule in rules
         if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"}
     ]
-    write_text(path, lines)
-
-
-def mihomo_text_for_domain_rules(rules: list[Rule]) -> str:
-    lines = [
-        f"{rule.rule_type},{rule.value}"
-        for rule in rules
-        if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"}
-    ]
-    return "\n".join(lines) + "\n"
 
 
 def write_mihomo_mrs(path: Path, rules: list[Rule]) -> None:
+    lines = domain_rule_lines(rules)
+    if not lines:
+        relative_path = path.relative_to(ROOT)
+        raise ValueError(f"{relative_path} has no domain rules for Mihomo MRS")
+
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False) as temp:
-        temp.write(mihomo_text_for_domain_rules(rules))
+        temp.write("\n".join(lines) + "\n")
         temp_path = Path(temp.name)
     try:
         subprocess.run(
@@ -369,21 +368,21 @@ def write_sing_box_srs(json_path: Path, srs_path: Path) -> None:
 
 
 def artifact_rules(
-    name: str,
-    source_id: str,
+    artifact_id: str,
+    artifact_config: dict,
     config: dict,
     source_rules: dict[str, list[Rule]],
     built_outputs: dict[str, list[Rule]]
 ) -> list[Rule]:
     source_marker_domains = set(config.get("source_marker_domains", []))
-    output_config = config["outputs"].get(name)
+    source_id = artifact_config["source"]
     if source_id in source_rules:
-        return apply_output_overrides(source_rules[source_id], output_config, source_marker_domains)
-    if source_id in built_outputs:
-        return built_outputs[source_id]
-    if name in built_outputs:
-        return built_outputs[name]
-    raise KeyError(f"unknown artifact source: {source_id}")
+        rules = source_rules[source_id]
+    elif source_id in built_outputs:
+        rules = built_outputs[source_id]
+    else:
+        raise KeyError(f"{artifact_id} uses unknown artifact source: {source_id}")
+    return apply_rule_overrides(rules, artifact_config, source_marker_domains)
 
 
 def write_generated_outputs(
@@ -408,16 +407,16 @@ def write_generated_outputs(
                 source_urls_for(output_config, config)
             )
 
-    for name, source_id in config["surge"]["domainset"].items():
-        rules = artifact_rules(name, source_id, config, source_rules, built_outputs)
+    for name, artifact_config in config["artifacts"]["domainset"].items():
+        rules = artifact_rules(name, artifact_config, config, source_rules, built_outputs)
         write_surge_domainset(ROOT / "surge" / "domainset" / f"{name}.conf", rules)
         write_mihomo_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", rules)
         json_path = ROOT / "sing-box" / "domainset" / f"{name}.json"
         write_sing_box_json(json_path, rules)
         write_sing_box_srs(json_path, json_path.with_suffix(".srs"))
 
-    for name, source_id in config["surge"]["non-ip"].items():
-        rules = artifact_rules(name, source_id, config, source_rules, built_outputs)
+    for name, artifact_config in config["artifacts"]["non-ip"].items():
+        rules = artifact_rules(name, artifact_config, config, source_rules, built_outputs)
         write_surge_non_ip(ROOT / "surge" / "non-ip" / f"{name}.conf", rules)
         write_mihomo_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", rules)
         json_path = ROOT / "sing-box" / "non-ip" / f"{name}.json"

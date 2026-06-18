@@ -2,6 +2,9 @@
   "version": 3,
   "rules": [
     {
+      "domain": [
+        "cache.video.iqiyi.com"
+      ],
       "domain_suffix": [
         "servicewechat.com",
         "wxgateway.com",
