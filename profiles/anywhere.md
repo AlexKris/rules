@@ -7,7 +7,6 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/proxy.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs
@@ -35,7 +34,6 @@ Recommended rule-set assignments:
 
 ```text
 Lan             -> DIRECT
-LAN IP          -> DIRECT
 China IP        -> DIRECT
 Direct Extra    -> DIRECT
 Kuro            -> DIRECT
@@ -70,9 +68,10 @@ Notes:
   match wins: domain suffix before keyword, deeper suffix before broader suffix,
   longer keyword before shorter keyword, and longer CIDR prefix before shorter
   CIDR prefix.
-- Domain and IP rules are independent. `LAN IP`, `China IP`, and the IP CIDR
-  rules inside `Telegram` match only literal or real destination IPs and do not
-  resolve domains. This is effectively `no-resolve` behavior by implementation.
+- Domain and IP rules are independent. The IP CIDR rules inside `Lan`,
+  `China IP`, and `Telegram` match only literal or real destination IPs and do
+  not resolve domains. This is effectively `no-resolve` behavior by
+  implementation.
 - If both a host and an IP are known, the domain decision wins over an IP-CIDR
   decision. Avoid putting identical rules in multiple custom sets with different
   targets, because exact duplicates can become last-write-wins.
@@ -83,6 +82,8 @@ Notes:
   compatibility.
 - `Telegram` contains both Telegram domain and IP CIDR rules. Legacy
   `Telegram IP` remains published for compatibility.
+- `Lan` contains both LAN domain and IP CIDR rules. Legacy `LAN IP` remains
+  published for compatibility.
 - `Proxy` is a broad CDN/global proxy fallback and overlaps with `Download`,
   `Telegram`, `PayPal`, and `Crypto`; keep those as separate sets so their
   assignments remain explicit.
@@ -91,7 +92,6 @@ Notes:
 - `cn-domain` is intentionally not published for Anywhere in the recommended
   set; keep precise domestic fixes in `Direct Extra` and use `China IP` or
   Anywhere Country Bypass for broad direct fallback.
-- `Lan` is a non-IP rule set; `LAN IP` is the separate CIDR set.
 - `Direct Extra` is the personal direct overlay.
 - `Kuro`, `CITIC`, `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
 - If `Binance` is a separate local rule set, assign it explicitly; if it uses

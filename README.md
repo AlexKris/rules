@@ -50,7 +50,6 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/proxy.arrs       
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs            -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs         -> Download
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs              -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs           -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> proxy chain
@@ -69,9 +68,10 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs   
 ```
 
 `proxy` replaces the old separate CDN/global runtime rules for new Anywhere
-profiles. `apple` replaces the split Apple rule sets. `telegram` contains both
-domain and IP CIDR rules. Legacy `cdn`, split Apple, and `telegram-ip` files
-remain published for compatibility but are not recommended for new profiles.
+profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram`
+contain both domain and IP CIDR rules. Legacy `cdn`, split Apple, `lan-ip`, and
+`telegram-ip` files remain published for compatibility but are not recommended
+for new profiles.
 
 `domestic` and `direct` are not published for Anywhere because their SKK
 sources include client-specific matchers that ARRS cannot represent.

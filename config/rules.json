@@ -326,9 +326,10 @@
     },
     "lan": {
       "name": "LAN",
-      "description": "LAN domain routing overlay based on SukkaW LAN rules",
+      "description": "LAN routing overlay based on SukkaW LAN domain and IP rules",
       "sources": [
-        "lan"
+        "lan",
+        "lan-ip-cidr"
       ],
       "targets": {
         "anywhere": "anywhere/lan.arrs"

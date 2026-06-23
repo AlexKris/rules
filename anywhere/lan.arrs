@@ -1,10 +1,11 @@
 # NAME: LAN
 # GENERATED-FOR: Anywhere Routing Rule Set
-# DESCRIPTION: LAN domain routing overlay based on SukkaW LAN rules
-# RULES: 49
+# DESCRIPTION: LAN routing overlay based on SukkaW LAN domain and IP rules
+# RULES: 60
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/lan.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf
 
 name = LAN
 2, localdomain
@@ -56,3 +57,14 @@ name = LAN
 2, router.asus.com
 2, aterm.me
 2, tplogin.cn
+0, 0.0.0.0/8
+0, 10.0.0.0/8
+0, 100.64.0.0/10
+0, 127.0.0.0/8
+0, 169.254.0.0/16
+0, 172.16.0.0/12
+0, 192.168.0.0/16
+0, 224.0.0.0/4
+1, ::1/128
+1, fc00::/7
+1, fe80::/10

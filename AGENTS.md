@@ -31,8 +31,8 @@ Current generated groups:
 - `download`: SKK Download domainset + non_ip. Do not merge Microsoft CDN into it.
 - `domestic`: SKK Domestic non_ip rules.
 - `direct`: SKK Direct non_ip rules. Do not merge `direct-extra` into it.
-- `lan`: SKK LAN non_ip rules.
-- `lan-ip`: SKK LAN IP CIDR rules.
+- `lan`: SKK LAN non_ip rules. The Anywhere `lan.arrs` output also includes SKK LAN IP CIDR rules.
+- `lan-ip`: SKK LAN IP CIDR rules, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `china-ip`: SKK China IP CIDR rules. Do not restore SKK `ip/domestic.conf`.
 - `cdn`: SKK CDN domainset + non_ip, excluding Apple time sync and DigiCert certificate infrastructure.
 - `apple-cdn`: SKK Apple CDN domainset + non_ip, with `is1-ssl.mzstatic.com` added.
@@ -69,7 +69,7 @@ Anywhere:
 - `domestic`, `direct`, `google`, `cn-domain`, `not-cn-domain`, `speedtest`, and Microsoft are intentionally not generated for Anywhere.
 - `domestic` and `direct` SKK sources include client-specific matchers that ARRS cannot represent.
 - `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.
-- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `cdn`, split Apple, and `telegram-ip` Anywhere files remain published only for compatibility.
+- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cdn`, split Apple, `lan-ip`, and `telegram-ip` Anywhere files remain published only for compatibility.
 - `cn-domain` is intentionally not published for Anywhere; keep precise domestic fixes in `direct-extra` and use `china-ip` or Anywhere Country Bypass for broad direct fallback.
 - `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
 - Format mapping in `scripts/build_rules.py`:
@@ -192,6 +192,9 @@ Expected behavior:
 - For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
   Keep `telegram-ip` published separately for non-Anywhere clients and legacy
   Anywhere subscriptions.
+- For Anywhere, `lan.arrs` combines LAN domain and IP CIDR rules. Keep
+  `lan-ip` published separately for non-Anywhere clients and legacy Anywhere
+  subscriptions.
 - Microsoft CDN remains separate from broad Microsoft.
 - PayPal remains separate from broad CDN and proxy rule sets.
 - Kuro and CITIC remain separate rule sets.
