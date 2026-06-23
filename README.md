@@ -34,6 +34,13 @@ derived from those plain text artifacts.
 - `anywhere/citic.arrs`
 - `anywhere/direct-extra.arrs`
 - `anywhere/crypto.arrs`
+- `anywhere/stream.arrs`
+- `anywhere/stream-hk.arrs`
+- `anywhere/stream-tw.arrs`
+- `anywhere/stream-jp.arrs`
+- `anywhere/stream-us.arrs`
+- `anywhere/stream-kr.arrs`
+- `anywhere/stream-eu.arrs`
 - `anywhere/mitm/google-cn-redirect.amrs`
 
 Import the raw URLs in Anywhere and assign them as follows:
@@ -45,22 +52,32 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs    
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs              -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs           -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cdn.arrs              -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cdn.arrs        -> DIRECT or AppleCDN
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cn.arrs         -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-services.arrs   -> DIRECT or AppleSvc
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram-ip.arrs      -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs           -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs             -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs            -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs     -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs           -> proxy chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream or proxy chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-hk.arrs        -> MediaHK
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-tw.arrs        -> MediaTW
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-jp.arrs        -> MediaJP
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-us.arrs        -> MediaUS
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-kr.arrs        -> MediaKR
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs        -> MediaEU
 ```
+
+`proxy` replaces the old separate CDN/global runtime rules for new Anywhere
+profiles. `apple` replaces the split Apple rule sets. `telegram` contains both
+domain and IP CIDR rules. Legacy `cdn`, split Apple, and `telegram-ip` files
+remain published for compatibility but are not recommended for new profiles.
 
 `domestic` and `direct` are not published for Anywhere because their SKK
 sources include client-specific matchers that ARRS cannot represent.
+`cn-domain` and `not-cn-domain` are intentionally not published for Anywhere;
+keep precise domestic fixes in `direct-extra` and use `china-ip` or Anywhere
+Country Bypass for broad direct fallback.
 
 Import MITM rule sets separately in Anywhere MITM:
 

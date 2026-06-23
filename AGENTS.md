@@ -44,8 +44,8 @@ Current generated groups:
 - `google`: v2fly `google`, generated only for Surge/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
 - `cn-domain`: v2fly `geolocation-cn`, generated only for Surge/plain.
 - `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/plain.
-- `telegram`: SKK Telegram domains.
-- `telegram-ip`: SKK Telegram IP CIDR.
+- `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
+- `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `paypal`: v2fly `paypal`.
 - `microsoft`: v2fly `microsoft`.
 - `microsoft-cdn`: SKK Microsoft CDN.
@@ -66,8 +66,11 @@ Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or m
 Anywhere:
 
 - Generated from `outputs[*].targets.anywhere` in `config/rules.json`.
-- `domestic`, `direct`, `google`, `cn-domain`, `not-cn-domain`, `speedtest`, `stream*`, and Microsoft are intentionally not generated for Anywhere.
+- `domestic`, `direct`, `google`, `cn-domain`, `not-cn-domain`, `speedtest`, and Microsoft are intentionally not generated for Anywhere.
 - `domestic` and `direct` SKK sources include client-specific matchers that ARRS cannot represent.
+- `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.
+- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `cdn`, split Apple, and `telegram-ip` Anywhere files remain published only for compatibility.
+- `cn-domain` is intentionally not published for Anywhere; keep precise domestic fixes in `direct-extra` and use `china-ip` or Anywhere Country Bypass for broad direct fallback.
 - `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
 - Format mapping in `scripts/build_rules.py`:
   - `0`: IPv4 CIDR
@@ -186,7 +189,9 @@ Expected behavior:
 - Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
 - Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
 - `cn-domain` and `not-cn-domain` are Surge/plain-only text fallback rules; do not generate local Mihomo or sing-box artifacts for them.
-- Telegram IP belongs in `telegram-ip`, not mixed into `telegram`.
+- For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
+  Keep `telegram-ip` published separately for non-Anywhere clients and legacy
+  Anywhere subscriptions.
 - Microsoft CDN remains separate from broad Microsoft.
 - PayPal remains separate from broad CDN and proxy rule sets.
 - Kuro and CITIC remain separate rule sets.

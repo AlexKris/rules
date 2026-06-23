@@ -1,0 +1,52 @@
+# NAME: Stream US
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: United States stream services routing overlay based on SukkaW Stream rules
+# RULES: 42
+# SKIPPED: 10
+# SKIPPED-TYPES: PROCESS-NAME=1, USER-AGENT=9
+# SOURCES:
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_us.conf
+
+name = Stream US
+2, staticasiafox.akamaized.net
+2, dashasiafox.akamaized.net
+2, bcbolt446c5271-a.akamaihd.net
+2, paramountplus.com
+2, discoveryplus.com
+2, theplatform.com
+2, hulustream.com
+2, cbsaavideo.com
+2, edge.api.brightcove.com
+2, peacocktv.com
+2, encoretvb.com
+2, disco-api.com
+2, cbsivideo.com
+2, showtime.com
+2, athome.fandango.com
+2, cbsplaylistserver.aws.syncbak.com
+2, cbsservice.aws.syncbak.com
+2, foxplus.com
+2, prod-api.crackle.com
+2, uplynk.com
+2, tubitv.com
+2, www.tubitv.com
+2, cbsi.live.ott.irdeto.com
+2, huluim.com
+2, foxdcg.com
+2, dnitv.com
+2, vudu.com
+2, hulu.com
+2, cbsi.com
+2, sho.com
+2, fox.com
+2, hulu.us
+2, discoveryplus.co.uk
+2, pluto.tv
+2, tubi.tv
+2, www.tubi.tv
+2, hulu.tv
+2, hjholdings.jp
+2, happyon.jp
+2, hulu.jp
+2, production-public.tubi.io
+2, discoveryplus.in

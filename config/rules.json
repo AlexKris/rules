@@ -378,12 +378,83 @@
     },
     "telegram": {
       "name": "Telegram",
-      "description": "Telegram domain routing overlay based on SukkaW Telegram rules",
+      "description": "Telegram routing overlay based on SukkaW Telegram domain and IP rules",
       "sources": [
-        "telegram"
+        "telegram",
+        "telegram-ip-cidr"
       ],
       "targets": {
         "anywhere": "anywhere/telegram.arrs"
+      }
+    },
+    "stream": {
+      "name": "Stream",
+      "description": "Stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream.arrs"
+      }
+    },
+    "stream-hk": {
+      "name": "Stream HK",
+      "description": "Hong Kong stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-hk"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-hk.arrs"
+      }
+    },
+    "stream-tw": {
+      "name": "Stream TW",
+      "description": "Taiwan stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-tw"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-tw.arrs"
+      }
+    },
+    "stream-jp": {
+      "name": "Stream JP",
+      "description": "Japan stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-jp"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-jp.arrs"
+      }
+    },
+    "stream-us": {
+      "name": "Stream US",
+      "description": "United States stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-us"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-us.arrs"
+      }
+    },
+    "stream-kr": {
+      "name": "Stream KR",
+      "description": "Korea stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-kr"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-kr.arrs"
+      }
+    },
+    "stream-eu": {
+      "name": "Stream EU",
+      "description": "Europe stream services routing overlay based on SukkaW Stream rules",
+      "sources": [
+        "stream-eu"
+      ],
+      "targets": {
+        "anywhere": "anywhere/stream-eu.arrs"
       }
     },
     "telegram-ip": {

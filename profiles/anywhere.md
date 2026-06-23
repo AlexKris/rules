@@ -9,18 +9,20 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cdn.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cdn.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cn.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-services.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-hk.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-tw.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-jp.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-us.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-kr.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs
 ```
 
 Import the following MITM rule sets separately:
@@ -44,15 +46,19 @@ Download        -> Download
 AI              -> proxy chain
 Bahamut         -> proxy chain
 Telegram        -> proxy chain
-Telegram IP     -> proxy chain
 Binance         -> proxy chain
 Crypto          -> proxy chain
 PayPal          -> proxy chain
 
-Proxy           -> proxy chain
+Stream          -> Stream / proxy chain
+Stream HK       -> MediaHK
+Stream TW       -> MediaTW
+Stream JP       -> MediaJP
+Stream US       -> MediaUS
+Stream KR       -> MediaKR
+Stream EU       -> MediaEU
 
-ChinaDomain     -> DIRECT
-GeoIP_CN        -> DIRECT
+Proxy           -> proxy chain
 ```
 
 Notes:
@@ -64,24 +70,32 @@ Notes:
   match wins: domain suffix before keyword, deeper suffix before broader suffix,
   longer keyword before shorter keyword, and longer CIDR prefix before shorter
   CIDR prefix.
-- Domain and IP rules are independent. `LAN IP`, `China IP`, and `Telegram IP`
-  match only literal or real destination IPs and do not resolve domains. This is
-  effectively `no-resolve` behavior by implementation.
+- Domain and IP rules are independent. `LAN IP`, `China IP`, and the IP CIDR
+  rules inside `Telegram` match only literal or real destination IPs and do not
+  resolve domains. This is effectively `no-resolve` behavior by implementation.
 - If both a host and an IP are known, the domain decision wins over an IP-CIDR
   decision. Avoid putting identical rules in multiple custom sets with different
   targets, because exact duplicates can become last-write-wins.
 - Use `Proxy` instead of separate CDN/global runtime rules. Legacy `CDN` and
   split Apple rule sets remain published for compatibility.
+- Use `Apple` instead of the split `Apple CDN`, `Apple CN`, and
+  `Apple Services` rule sets. The split Apple files remain published for
+  compatibility.
+- `Telegram` contains both Telegram domain and IP CIDR rules. Legacy
+  `Telegram IP` remains published for compatibility.
 - `Proxy` is a broad CDN/global proxy fallback and overlaps with `Download`,
   `Telegram`, `PayPal`, and `Crypto`; keep those as separate sets so their
   assignments remain explicit.
 - `Domestic` and upstream `Direct` are not published for Anywhere because ARRS cannot represent all upstream matchers.
 - `Google`, `cn-domain`, and `not-cn-domain` are not published for Anywhere.
+- `cn-domain` is intentionally not published for Anywhere in the recommended
+  set; keep precise domestic fixes in `Direct Extra` and use `China IP` or
+  Anywhere Country Bypass for broad direct fallback.
 - `Lan` is a non-IP rule set; `LAN IP` is the separate CIDR set.
 - `Direct Extra` is the personal direct overlay.
 - `Kuro`, `CITIC`, `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
 - If `Binance` is a separate local rule set, assign it explicitly; if it uses
   the same proxy chain as `Crypto`, `Crypto` alone is usually enough.
-- `Speedtest` and `Stream` are not published for Anywhere.
+- `Speedtest` is not published for Anywhere.
 - `getui` is intentionally not included.
 - Keep private domains and proxy subscriptions out of this repository.
