@@ -1,12 +1,12 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4524
+# RULES: 4536
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
-# - https://ruleset.skk.moe/List/domainset/cdn.conf
-# - https://ruleset.skk.moe/List/non_ip/cdn.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
 
 name = CDN
 2, static.microsoft
@@ -849,6 +849,7 @@ name = CDN
 2, ipfs.mttk.net
 2, loli.net
 2, texture.laby.net
+2, cdn1.espn.net
 2, static1.e621.net
 2, c-dn.net
 2, static.blip.net
@@ -1085,6 +1086,8 @@ name = CDN
 2, warnermediacdn.com
 2, static.global.visioncritical.com
 2, static.na1.visioncritical.com
+2, stories.usestoryteller.com
+2, cdn.usestoryteller.com
 2, trafficdeposit.com
 2, media.telanganatoday.com
 2, image.telanganatoday.com
@@ -1816,6 +1819,7 @@ name = CDN
 2, descopecdn.com
 2, cdn.delight-vr.com
 2, static.websites.data-crypt.com
+2, cursor-cdn.com
 2, static-beta.curseforge.com
 2, images.crunchbase.com
 2, cdn.conveythis.com
@@ -2109,6 +2113,7 @@ name = CDN
 2, static.assets-stash.eet-china.com
 2, design-system.economist.com
 2, marber-cdn.economist.com
+2, wall-ui-cdn.p.aws.economist.com
 2, cmp-cdn.p.aws.economist.com
 2, dummyjson.com
 2, dubassets.com
@@ -2659,6 +2664,7 @@ name = CDN
 2, cdn-main.plus500.com
 2, cdn.plus500.com
 2, cdn.pixabay.com
+2, assets.pingone.com
 2, static.pingcap.com
 2, phprcdn.com
 2, hawky.pcgamer.com
@@ -2859,7 +2865,9 @@ name = CDN
 2, image.comicbz.com
 2, cover.comicbz.com
 2, css.comicbz.com
+2, unleash.codeium.com
 2, player-frontend.cnevids.com
+2, embed-audio.cnevids.com
 2, player.cnevids.com
 2, cmail20.com
 2, cmail19.com
@@ -3101,6 +3109,7 @@ name = CDN
 2, static-main.moovit.com
 2, static.moomoo.com
 2, launchercontent.mojang.com
+2, bytescale.mobbin.com
 2, mngbcn.com
 2, mmtcdn.com
 2, img.ml0987.com
@@ -3555,6 +3564,7 @@ name = CDN
 2, assets.goat.com
 2, image.goat.com
 2, fsdn.com
+2, digitalhub.fifa.com
 2, img04.en25.com
 2, images.dmca.com
 2, website-media.deel.com
@@ -4349,6 +4359,7 @@ name = CDN
 2, mapserver.mapy.cz
 2, ipfs.slang.cx
 2, zpi.cx
+2, img.kemono.cr
 2, assets.openalternative.co
 2, cdn.stackoverflow.co
 2, cdn-lfs-us-1.huggingface.co
@@ -4374,6 +4385,7 @@ name = CDN
 2, ipfs.sloppyta.co
 2, assets.jolipage.co
 2, cdn.jolipage.co
+2, assets.churnkey.co
 2, cdn.inviter.co
 2, doodcdn.co
 2, img.decrypt.co

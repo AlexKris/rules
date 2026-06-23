@@ -11,43 +11,131 @@
     "cdn-domainset": {
       "kind": "domainset",
       "urls": [
-        "https://ruleset.skk.moe/List/domainset/cdn.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf"
       ]
     },
     "cdn-non-ip": {
       "kind": "non-ip",
       "urls": [
-        "https://ruleset.skk.moe/List/non_ip/cdn.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf"
       ]
     },
     "apple-cdn-domainset": {
       "kind": "domainset",
       "urls": [
-        "https://ruleset.skk.moe/List/domainset/apple_cdn.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/apple_cdn.conf"
       ]
     },
     "apple-cdn-non-ip": {
       "kind": "non-ip",
       "urls": [
-        "https://ruleset.skk.moe/List/non_ip/apple_cdn.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cdn.conf"
       ]
     },
     "apple-cn": {
       "kind": "non-ip",
       "urls": [
-        "https://ruleset.skk.moe/List/non_ip/apple_cn.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cn.conf"
       ]
     },
     "apple-services": {
       "kind": "non-ip",
       "urls": [
-        "https://ruleset.skk.moe/List/non_ip/apple_services.conf"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_services.conf"
+      ]
+    },
+    "speedtest-domainset": {
+      "kind": "domainset",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/speedtest.conf"
+      ]
+    },
+    "ai-v2fly": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "category-ai-!cn"
+      ]
+    },
+    "stream": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream.conf"
+      ]
+    },
+    "stream-hk": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_hk.conf"
+      ]
+    },
+    "stream-tw": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_tw.conf"
+      ]
+    },
+    "stream-jp": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_jp.conf"
+      ]
+    },
+    "stream-us": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_us.conf"
+      ]
+    },
+    "stream-kr": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_kr.conf"
+      ]
+    },
+    "stream-eu": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_eu.conf"
+      ]
+    },
+    "telegram": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/telegram.conf"
+      ]
+    },
+    "telegram-ip-cidr": {
+      "kind": "ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf"
       ]
     },
     "crypto-category": {
-      "kind": "domainset",
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "category-cryptocurrency"
+      ]
+    },
+    "paypal": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "paypal"
+      ]
+    },
+    "microsoft": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "microsoft"
+      ]
+    },
+    "microsoft-cdn": {
+      "kind": "non-ip",
       "urls": [
-        "https://raw.githubusercontent.com/yuumimi/rules/release/surge/category-cryptocurrency.txt"
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/microsoft_cdn.conf"
       ]
     }
   },
@@ -122,6 +210,48 @@
         "anywhere": "anywhere/direct-extra.arrs"
       }
     },
+    "ai": {
+      "name": "AI",
+      "description": "AI services routing overlay based on v2fly domain-list-community with Claude additions",
+      "sources": [
+        "ai-v2fly"
+      ],
+      "add": [
+        "DOMAIN-SUFFIX,anthropic.com",
+        "DOMAIN-SUFFIX,claude.ai",
+        "DOMAIN-SUFFIX,claude.com",
+        "DOMAIN-SUFFIX,clau.de",
+        "DOMAIN-SUFFIX,claudemcpclient.com",
+        "DOMAIN-SUFFIX,claudeusercontent.com",
+        "DOMAIN,servd-anthropic-website.b-cdn.net",
+        "DOMAIN,anthropic.com.cdn.cloudflare.net",
+        "DOMAIN,anthropic.auth0.com",
+        "DOMAIN,anthropic-com.ghost.io"
+      ],
+      "targets": {
+        "anywhere": "anywhere/ai.arrs"
+      }
+    },
+    "telegram": {
+      "name": "Telegram",
+      "description": "Telegram domain routing overlay based on SukkaW Telegram rules",
+      "sources": [
+        "telegram"
+      ],
+      "targets": {
+        "anywhere": "anywhere/telegram.arrs"
+      }
+    },
+    "telegram-ip": {
+      "name": "Telegram IP",
+      "description": "Telegram IP CIDR routing overlay based on SukkaW Telegram rules",
+      "sources": [
+        "telegram-ip-cidr"
+      ],
+      "targets": {
+        "anywhere": "anywhere/telegram-ip.arrs"
+      }
+    },
     "crypto": {
       "name": "Crypto",
       "description": "Cryptocurrency services routing overlay based on v2fly domain-list-community",
@@ -130,6 +260,16 @@
       ],
       "targets": {
         "anywhere": "anywhere/crypto.arrs"
+      }
+    },
+    "paypal": {
+      "name": "PayPal",
+      "description": "PayPal routing overlay based on v2fly domain-list-community",
+      "sources": [
+        "paypal"
+      ],
+      "targets": {
+        "anywhere": "anywhere/paypal.arrs"
       }
     }
   },
@@ -146,6 +286,9 @@
       },
       "apple-cdn": {
         "source": "apple-cdn-domainset"
+      },
+      "speedtest": {
+        "source": "speedtest-domainset"
       }
     },
     "non-ip": {
@@ -175,6 +318,54 @@
       },
       "direct-extra": {
         "source": "direct-extra"
+      },
+      "ai": {
+        "source": "ai"
+      },
+      "stream": {
+        "source": "stream",
+        "surge-client-rules": true
+      },
+      "stream-hk": {
+        "source": "stream-hk",
+        "surge-client-rules": true
+      },
+      "stream-tw": {
+        "source": "stream-tw",
+        "surge-client-rules": true
+      },
+      "stream-jp": {
+        "source": "stream-jp",
+        "surge-client-rules": true
+      },
+      "stream-us": {
+        "source": "stream-us",
+        "surge-client-rules": true
+      },
+      "stream-kr": {
+        "source": "stream-kr",
+        "surge-client-rules": true
+      },
+      "stream-eu": {
+        "source": "stream-eu",
+        "surge-client-rules": true
+      },
+      "telegram": {
+        "source": "telegram"
+      },
+      "paypal": {
+        "source": "paypal"
+      },
+      "microsoft": {
+        "source": "microsoft"
+      },
+      "microsoft-cdn": {
+        "source": "microsoft-cdn"
+      }
+    },
+    "ip": {
+      "telegram-ip": {
+        "source": "telegram-ip"
       }
     }
   }

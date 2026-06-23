@@ -7,6 +7,10 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cdn.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cdn.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cn.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-services.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram-ip.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
@@ -29,6 +33,8 @@ PayPal          -> proxy chain
 Crypto          -> proxy chain
 Binance         -> proxy chain
 Proxy           -> proxy chain
+Telegram        -> proxy chain
+Telegram IP     -> proxy chain
 
 Lan             -> DIRECT
 Apple CDN       -> DIRECT or AppleCDN
@@ -46,6 +52,7 @@ Notes:
 
 - Use this repository's `CDN` instead of `anywhere-rules` `CDN`; it excludes
   Apple time sync and DigiCert certificate infrastructure domains.
-- `Kuro`, `CITIC`, `Direct Extra`, and `Crypto` are intentionally separate rule sets.
+- `Kuro`, `CITIC`, `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
+- `Speedtest` and `Stream` are not published for Anywhere.
 - `getui` is intentionally not included.
 - Keep private domains and proxy subscriptions out of this repository.

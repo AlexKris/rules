@@ -1,11 +1,11 @@
 # NAME: Apple CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple CDN direct routing overlay
-# RULES: 157
+# RULES: 158
 # SKIPPED: 0
 # SOURCES:
-# - https://ruleset.skk.moe/List/domainset/apple_cdn.conf
-# - https://ruleset.skk.moe/List/non_ip/apple_cdn.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/apple_cdn.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cdn.conf
 
 name = Apple CDN
 2, store.apple.com.edgekey.net
@@ -58,6 +58,7 @@ name = Apple CDN
 2, publicassets.cdn-apple.com
 2, store.storeimages.cdn-apple.com
 2, updates.cdn-apple.com
+2, mensura.cdn-apple.com
 2, appleid.cdn-apple.com
 2, cstat.cdn-apple.com
 2, ml.cdn-apple.com

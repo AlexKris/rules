@@ -1,0 +1,23 @@
+# NAME: Telegram
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: Telegram domain routing overlay based on SukkaW Telegram rules
+# RULES: 14
+# SKIPPED: 0
+# SOURCES:
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/telegram.conf
+
+name = Telegram
+2, telegram.space
+2, cdn-telegram.org
+2, telegram.org
+2, graph.org
+2, telega.one
+2, telegram.dog
+2, tg.dev
+2, tdesktop.com
+2, telegra.ph
+2, legra.ph
+2, telesco.pe
+2, telegram.me
+2, tx.me
+2, t.me

@@ -1,0 +1,112 @@
+name: Build Rules
+
+on:
+  schedule:
+    - cron: "30 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-rules-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MIHOMO_VERSION: v1.19.27
+  SING_BOX_VERSION: v1.13.13
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install rule compilers
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl -fL --retry 3 \
+            -o /tmp/mihomo.gz \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-compatible-${MIHOMO_VERSION}.gz"
+          gunzip -c /tmp/mihomo.gz > /tmp/mihomo
+          sudo install -m 0755 /tmp/mihomo /usr/local/bin/mihomo
+
+          sing_box_asset="sing-box-${SING_BOX_VERSION#v}-linux-amd64.tar.gz"
+          curl -fL --retry 3 \
+            -o /tmp/sing-box.tar.gz \
+            "https://github.com/SagerNet/sing-box/releases/download/${SING_BOX_VERSION}/${sing_box_asset}"
+          mkdir -p /tmp/sing-box
+          tar -xzf /tmp/sing-box.tar.gz -C /tmp/sing-box
+          sudo install -m 0755 "$(find /tmp/sing-box -type f -name sing-box | head -n 1)" /usr/local/bin/sing-box
+
+          mihomo -v
+          sing-box version
+
+      - name: Static checks
+        run: |
+          python3 -m json.tool config/rules.json >/tmp/rules_config.json
+          python3 -m py_compile scripts/build_rules.py
+
+      - name: Build generated rules
+        run: python3 scripts/build_rules.py
+
+      - name: Validate sing-box rule sets
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          for file in sing-box/**/*.srs; do
+            sing-box rule-set decompile "$file" -o /tmp/sing-box-rule-set.json
+          done
+
+      - name: Validate Mihomo rule sets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          lines = ["rule-providers:"]
+          for directory, behavior in [
+              ("mihomo/domainset", "domain"),
+              ("mihomo/non-ip", "domain"),
+              ("mihomo/ip", "ipcidr"),
+          ]:
+              for path in sorted(Path(directory).glob("*.mrs")):
+                  name = path.with_suffix("").as_posix().replace("/", "-")
+                  lines.extend([
+                      f"  {name}:",
+                      "    type: file",
+                      f"    behavior: {behavior}",
+                      "    format: mrs",
+                      f"    path: ./{path.as_posix()}",
+                  ])
+          lines.append("rules: []")
+          Path("/tmp/mihomo-mrs-check.yaml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+          mihomo -d "$PWD" -t -f /tmp/mihomo-mrs-check.yaml
+
+      - name: Check diff
+        run: git diff --check
+
+      - name: Commit generated changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No generated changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: update generated rules"
+          git push

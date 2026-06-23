@@ -4,7 +4,7 @@
 # RULES: 9
 # SKIPPED: 0
 # SOURCES:
-# - https://ruleset.skk.moe/List/non_ip/apple_cn.conf
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cn.conf
 
 name = Apple CN
 2, gs-loc-cn.apple.com

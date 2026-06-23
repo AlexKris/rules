@@ -1,0 +1,7 @@
+DOMAIN-SUFFIX,servicewechat.com
+DOMAIN-SUFFIX,wxgateway.com
+DOMAIN-SUFFIX,videocc.net
+DOMAIN,cache.video.iqiyi.com
+DOMAIN-SUFFIX,ocsp.digicert.com
+DOMAIN-SUFFIX,cacerts.digicert.com
+DOMAIN-SUFFIX,crl3.digicert.com

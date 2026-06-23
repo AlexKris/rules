@@ -9,9 +9,10 @@ its original authors and projects.
 Known upstream sources used by the related profiles include:
 
 - Sukka Ruleset: https://github.com/SukkaW/Surge
+- Sukka Ruleset published files: https://github.com/SukkaLab/ruleset.skk.moe
+- v2fly domain-list-community: https://github.com/v2fly/domain-list-community
 - MetaCubeX meta-rules-dat: https://github.com/MetaCubeX/meta-rules-dat
 - blackmatrix7 ios_rule_script: https://github.com/blackmatrix7/ios_rule_script
-- yuumimi rules: https://github.com/yuumimi/rules
 
 Private domains, private media services, proxy nodes, subscription URLs, and
 tokens must not be committed to this repository.
