@@ -568,6 +568,12 @@
       "telegram": {
         "source": "telegram"
       },
+      "crypto": {
+        "source": "crypto-category",
+        "clients": [
+          "surge"
+        ]
+      },
       "paypal": {
         "source": "paypal"
       },

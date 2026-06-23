@@ -50,7 +50,7 @@ Current generated groups:
 - `microsoft`: v2fly `microsoft`.
 - `microsoft-cdn`: SKK Microsoft CDN.
 - `direct-extra`: explicit direct overlay for WeChat service domains, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure.
-- `crypto`: v2fly `category-cryptocurrency`.
+- `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/plain text only. Do not merge Dler's Crypto list.
 
 Manual overlays currently outside `config/rules.json`:
 
@@ -191,7 +191,7 @@ Expected behavior:
 - PayPal remains separate from broad CDN and proxy rule sets.
 - Kuro and CITIC remain separate rule sets.
 - `getui` remains intentionally excluded unless the user explicitly changes policy.
-- Crypto uses v2fly `category-cryptocurrency`; do not merge Dler's Crypto list unless the user explicitly accepts its unclear license risk.
+- Crypto uses v2fly `category-cryptocurrency`; it is generated for Anywhere and Surge/plain text only. Do not merge Dler's Crypto list unless the user explicitly accepts its unclear license risk.
 
 ## Change Rules
 

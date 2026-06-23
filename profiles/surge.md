@@ -80,6 +80,12 @@ RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/tele
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,extended-matching
 ```
 
+Crypto:
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/crypto.conf,Crypto,extended-matching
+```
+
 PayPal:
 
 ```ini
