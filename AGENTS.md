@@ -21,10 +21,19 @@ upstream URLs / explicit local rules in config/rules.json
 
 `outputs` controls Anywhere `.arrs` files. `artifacts` controls Surge,
 Mihomo, and sing-box files; artifact patches are explicit and do not inherit
-same-named Anywhere output patches.
+same-named Anywhere output patches. `artifacts[*].clients` can narrow client
+artifact generation while still writing the matching `plain/` file.
 
 Current generated groups:
 
+- `proxy`: SKK CDN domainset + non_ip + SKK Global, excluding Apple time sync and DigiCert certificate infrastructure.
+- `apple`: SKK Apple CDN + CN + Services, with `is1-ssl.mzstatic.com` and `time.apple.com` added.
+- `download`: SKK Download domainset + non_ip. Do not merge Microsoft CDN into it.
+- `domestic`: SKK Domestic non_ip rules.
+- `direct`: SKK Direct non_ip rules. Do not merge `direct-extra` into it.
+- `lan`: SKK LAN non_ip rules.
+- `lan-ip`: SKK LAN IP CIDR rules.
+- `china-ip`: SKK China IP CIDR rules. Do not restore SKK `ip/domestic.conf`.
 - `cdn`: SKK CDN domainset + non_ip, excluding Apple time sync and DigiCert certificate infrastructure.
 - `apple-cdn`: SKK Apple CDN domainset + non_ip, with `is1-ssl.mzstatic.com` added.
 - `apple-cn`: SKK Apple CN.
@@ -32,6 +41,9 @@ Current generated groups:
 - `speedtest`: SKK Speedtest domainset.
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions.
 - `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets.
+- `google`: v2fly `google`, generated only for Surge/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
+- `cn-domain`: v2fly `geolocation-cn`, generated only for Surge/plain.
+- `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/plain.
 - `telegram`: SKK Telegram domains.
 - `telegram-ip`: SKK Telegram IP CIDR.
 - `paypal`: v2fly `paypal`.
@@ -54,7 +66,9 @@ Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or m
 Anywhere:
 
 - Generated from `outputs[*].targets.anywhere` in `config/rules.json`.
-- `speedtest`, `stream*`, and Microsoft are intentionally not generated for Anywhere.
+- `domestic`, `direct`, `google`, `cn-domain`, `not-cn-domain`, `speedtest`, `stream*`, and Microsoft are intentionally not generated for Anywhere.
+- `domestic` and `direct` SKK sources include client-specific matchers that ARRS cannot represent.
+- `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
 - Format mapping in `scripts/build_rules.py`:
   - `0`: IPv4 CIDR
   - `1`: IPv6 CIDR
@@ -66,7 +80,10 @@ Surge / Shadowrocket:
 
 - `surge/domainset/*.conf` contains bare exact domains and leading-dot suffixes.
 - `surge/non-ip/*.conf` contains `DOMAIN`, `DOMAIN-SUFFIX`, and `DOMAIN-KEYWORD` rules.
-- `surge/non-ip/stream*.conf` also preserves SKK `USER-AGENT` and `PROCESS-NAME` rules.
+- `surge/non-ip/*.conf` can also contain `DOMAIN-WILDCARD` and `URL-REGEX` when upstream uses them.
+- `surge/non-ip/direct.conf`, `surge/non-ip/domestic.conf`, and
+  `surge/non-ip/stream*.conf` also preserve SKK `USER-AGENT` and
+  `PROCESS-NAME` rules.
 - `surge/ip/*.conf` contains `IP-CIDR` and `IP-CIDR6` rules with `no-resolve`.
 - Generated from `plain/domainset/*.txt` and `plain/non-ip/*.txt`.
 - Shadowrocket can use the same Surge text files where profile syntax allows it.
@@ -77,24 +94,30 @@ Mihomo:
 - Generated from `plain/domainset/*.txt`, `plain/non-ip/*.txt`, and `plain/ip/*.txt`.
 - Use `behavior: domain` for domain/non-ip `.mrs` files.
 - Use `behavior: ipcidr` for `mihomo/ip/*.mrs`.
+- Google and broad CN geosite fallback rules should use MetaCubeX official geosite files, not local generated `.mrs` files.
 
 sing-box:
 
 - Generated `.srs` rule sets require `sing-box` CLI.
 - JSON files are temporary build inputs and are not published.
 - Published remote rule sets should use `.srs` with `format: binary` in client profiles.
+- Google and broad CN geosite fallback rules should use SagerNet official geosite files, not local generated `.srs` files.
 
 Plain:
 
 - `plain/domainset/*.txt`, `plain/non-ip/*.txt`, and `plain/ip/*.txt` are generated observable artifacts.
 - Plain files use normalized rule syntax such as `DOMAIN` and `DOMAIN-SUFFIX`.
+- Plain domain files may include `DOMAIN-WILDCARD`; these are valid Mihomo domain rules and are converted to sing-box `domain_regex`.
+- `URL-REGEX` is preserved only in Surge output and is intentionally omitted from plain/Mihomo/sing-box artifacts.
 - Plain stream files intentionally omit `USER-AGENT` and `PROCESS-NAME`; those are preserved only in Surge outputs.
 - They are not sources; edit `config/rules.json` and regenerate instead.
 
 v2fly:
 
 - `kind: "v2fly"` sources read v2fly `data/*` files directly.
+- The default v2fly source is loaded from the GitHub source archive once per build, not fetched as many individual raw files.
 - `include:` is resolved recursively.
+- v2fly `google` includes YouTube upstream; profile ordering must keep Stream before Google when Google is a separate policy.
 - bare domains and `domain:` become `DOMAIN-SUFFIX`; `full:` becomes `DOMAIN`; `keyword:` becomes `DOMAIN-KEYWORD`.
 - `regexp:` is intentionally skipped and counted in generated headers.
 - v2fly attributes such as `@ads` and `@cn` are parsed for include filtering only and are not written to generated client files.
@@ -146,15 +169,23 @@ python3 scripts/build_mitm.py
 Spot-check important routing expectations after generation:
 
 ```sh
-rg -n "time\.apple\.com|ocsp\.digicert\.com|binance\.com|okx\.com|openrouter\.ai|paypal\.com|ctldl\.windowsupdate\.com|91\.108\.4\.0/22" anywhere surge plain
+rg -n "time\.apple\.com|ocsp\.digicert\.com|youtube\.com|google\.com|googleapis\.com|apple\.com|icloud\.com|mzstatic\.com|officecdn\.microsoft\.com|binance\.com|okx\.com|openrouter\.ai|paypal\.com|ctldl\.windowsupdate\.com|91\.108\.4\.0/22|10\.0\.0\.0/8|192\.168\.0\.0/16|1\.1\.8\.0/24" anywhere surge plain
 ```
 
 Expected behavior:
 
 - `time.apple.com` belongs in Apple Services, not CDN.
+- Unified `proxy` contains CDN and SKK Global rules, but excludes Apple time sync and DigiCert certificate infrastructure.
+- Unified `apple` contains Apple CDN, CN, Services, `is1-ssl.mzstatic.com`, and `time.apple.com`; it is intended for DIRECT.
+- `download` remains separate from `microsoft-cdn`.
+- `domestic`, `direct`, and `lan` are non-IP direct rule sets and belong before IP rule sets in profiles.
+- `lan-ip` and `china-ip` are IP/CIDR direct rule sets; Surge outputs include `no-resolve`.
+- `direct` is upstream base direct; `direct-extra` is the personal direct overlay.
 - DigiCert certificate infrastructure belongs in Direct Extra, not CDN.
 - AI uses v2fly `category-ai-!cn`; exact upstream `@ads` entries may be preserved, while `regexp:` entries are skipped.
 - Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
+- Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
+- `cn-domain` and `not-cn-domain` are Surge/plain-only text fallback rules; do not generate local Mihomo or sing-box artifacts for them.
 - Telegram IP belongs in `telegram-ip`, not mixed into `telegram`.
 - Microsoft CDN remains separate from broad Microsoft.
 - PayPal remains separate from broad CDN and proxy rule sets.

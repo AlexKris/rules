@@ -50,11 +50,80 @@
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/speedtest.conf"
       ]
     },
+    "global": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/global.conf"
+      ]
+    },
+    "download-domainset": {
+      "kind": "domainset",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf"
+      ]
+    },
+    "download-non-ip": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/download.conf"
+      ]
+    },
+    "domestic": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/domestic.conf"
+      ]
+    },
+    "direct": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/direct.conf"
+      ]
+    },
+    "lan": {
+      "kind": "non-ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/lan.conf"
+      ]
+    },
+    "lan-ip-cidr": {
+      "kind": "ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf"
+      ]
+    },
+    "china-ip-cidr": {
+      "kind": "ip",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/china_ip.conf"
+      ]
+    },
     "ai-v2fly": {
       "kind": "v2fly",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "category-ai-!cn"
+      ]
+    },
+    "google": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "google"
+      ]
+    },
+    "cn-domain": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "geolocation-cn"
+      ]
+    },
+    "not-cn-domain": {
+      "kind": "v2fly",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "geolocation-!cn"
       ]
     },
     "stream": {
@@ -157,6 +226,24 @@
         "anywhere": "anywhere/cdn.arrs"
       }
     },
+    "proxy": {
+      "name": "Proxy",
+      "description": "Proxy routing overlay based on SukkaW CDN and Global rules",
+      "sources": [
+        "cdn-domainset",
+        "cdn-non-ip",
+        "global"
+      ],
+      "exclude": [
+        "time.apple.com",
+        "ocsp.digicert.com",
+        "cacerts.digicert.com",
+        "crl3.digicert.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/proxy.arrs"
+      }
+    },
     "apple-cdn": {
       "name": "Apple CDN",
       "description": "Apple CDN direct routing overlay",
@@ -169,6 +256,23 @@
       ],
       "targets": {
         "anywhere": "anywhere/apple-cdn.arrs"
+      }
+    },
+    "apple": {
+      "name": "Apple",
+      "description": "Apple direct routing overlay",
+      "sources": [
+        "apple-cdn-domainset",
+        "apple-cdn-non-ip",
+        "apple-cn",
+        "apple-services"
+      ],
+      "add": [
+        "DOMAIN-SUFFIX,is1-ssl.mzstatic.com",
+        "DOMAIN-SUFFIX,time.apple.com"
+      ],
+      "targets": {
+        "anywhere": "anywhere/apple.arrs"
       }
     },
     "apple-cn": {
@@ -208,6 +312,46 @@
       ],
       "targets": {
         "anywhere": "anywhere/direct-extra.arrs"
+      }
+    },
+    "download": {
+      "name": "Download",
+      "description": "Download and large file hosting overlay based on SukkaW Download rules",
+      "sources": [
+        "download-domainset"
+      ],
+      "targets": {
+        "anywhere": "anywhere/download.arrs"
+      }
+    },
+    "lan": {
+      "name": "LAN",
+      "description": "LAN domain routing overlay based on SukkaW LAN rules",
+      "sources": [
+        "lan"
+      ],
+      "targets": {
+        "anywhere": "anywhere/lan.arrs"
+      }
+    },
+    "lan-ip": {
+      "name": "LAN IP",
+      "description": "LAN IP CIDR routing overlay based on SukkaW LAN IP rules",
+      "sources": [
+        "lan-ip-cidr"
+      ],
+      "targets": {
+        "anywhere": "anywhere/lan-ip.arrs"
+      }
+    },
+    "china-ip": {
+      "name": "China IP",
+      "description": "China IP CIDR routing overlay based on SukkaW China IP rules",
+      "sources": [
+        "china-ip-cidr"
+      ],
+      "targets": {
+        "anywhere": "anywhere/china-ip.arrs"
       }
     },
     "ai": {
@@ -287,6 +431,21 @@
       "apple-cdn": {
         "source": "apple-cdn-domainset"
       },
+      "proxy": {
+        "source": "cdn-domainset",
+        "exclude": [
+          "time.apple.com",
+          "ocsp.digicert.com",
+          "cacerts.digicert.com",
+          "crl3.digicert.com"
+        ]
+      },
+      "apple": {
+        "source": "apple-cdn-domainset"
+      },
+      "download": {
+        "source": "download-domainset"
+      },
       "speedtest": {
         "source": "speedtest-domainset"
       }
@@ -307,6 +466,44 @@
           "DOMAIN-SUFFIX,is1-ssl.mzstatic.com"
         ]
       },
+      "proxy": {
+        "sources": [
+          "cdn-non-ip",
+          "global"
+        ],
+        "exclude": [
+          "time.apple.com",
+          "ocsp.digicert.com",
+          "cacerts.digicert.com",
+          "crl3.digicert.com"
+        ],
+        "surge-client-rules": true
+      },
+      "apple": {
+        "sources": [
+          "apple-cdn-non-ip",
+          "apple-cn",
+          "apple-services"
+        ],
+        "add": [
+          "DOMAIN-SUFFIX,is1-ssl.mzstatic.com",
+          "DOMAIN-SUFFIX,time.apple.com"
+        ]
+      },
+      "download": {
+        "source": "download-non-ip"
+      },
+      "domestic": {
+        "source": "domestic",
+        "surge-client-rules": true
+      },
+      "direct": {
+        "source": "direct",
+        "surge-client-rules": true
+      },
+      "lan": {
+        "source": "lan"
+      },
       "apple-cn": {
         "source": "apple-cn"
       },
@@ -321,6 +518,24 @@
       },
       "ai": {
         "source": "ai"
+      },
+      "google": {
+        "source": "google",
+        "clients": [
+          "surge"
+        ]
+      },
+      "cn-domain": {
+        "source": "cn-domain",
+        "clients": [
+          "surge"
+        ]
+      },
+      "not-cn-domain": {
+        "source": "not-cn-domain",
+        "clients": [
+          "surge"
+        ]
       },
       "stream": {
         "source": "stream",
@@ -366,6 +581,12 @@
     "ip": {
       "telegram-ip": {
         "source": "telegram-ip"
+      },
+      "lan-ip": {
+        "source": "lan-ip-cidr"
+      },
+      "china-ip": {
+        "source": "china-ip-cidr"
       }
     }
   }

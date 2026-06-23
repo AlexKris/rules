@@ -4,11 +4,13 @@
 from __future__ import annotations
 
 import argparse
+import io
 import ipaddress
 import json
 import re
 import subprocess
 import sys
+import tarfile
 import tempfile
 import urllib.request
 from collections.abc import Callable
@@ -21,6 +23,9 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "rules.json"
 MAX_RULES_PER_SET = 100000
+V2FLY_DEFAULT_BASE_URL = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data"
+V2FLY_ARCHIVE_URL = "https://github.com/v2fly/domain-list-community/archive/refs/heads/master.tar.gz"
+V2FLY_ARCHIVE_CACHE: dict[str, list[str]] | None = None
 
 RULE_TYPE_TO_ARRS = {
     "IP-CIDR": 0,
@@ -82,6 +87,13 @@ def normalize_keyword(value: str) -> str | None:
     return keyword or None
 
 
+def normalize_wildcard(value: str) -> str | None:
+    wildcard = value.strip().lower()
+    if not wildcard or " " in wildcard or "/" in wildcard:
+        return None
+    return wildcard
+
+
 def normalize_cidr(value: str, rule_type: str) -> str | None:
     try:
         network = ipaddress.ip_network(value.strip(), strict=False)
@@ -128,18 +140,19 @@ def parse_rule(line: str, default_domain_type: str) -> tuple[Rule | None, str | 
     rule_type = ALIASES.get(fields[0].upper(), fields[0].upper())
     value = fields[1]
 
-    if rule_type == "DOMAIN-WILDCARD":
-        return None, rule_type
     if rule_type in {"DOMAIN", "DOMAIN-SUFFIX"}:
         normalized = normalize_domain(value)
         return (Rule(rule_type, normalized), None) if normalized else (None, rule_type)
     if rule_type == "DOMAIN-KEYWORD":
         normalized = normalize_keyword(value)
         return (Rule(rule_type, normalized), None) if normalized else (None, rule_type)
+    if rule_type == "DOMAIN-WILDCARD":
+        normalized = normalize_wildcard(value)
+        return (Rule(rule_type, normalized), None) if normalized else (None, rule_type)
     if rule_type in {"IP-CIDR", "IP-CIDR6"}:
         normalized = normalize_cidr(value, rule_type)
         return (Rule(rule_type, normalized), None) if normalized else (None, rule_type)
-    if rule_type in {"USER-AGENT", "PROCESS-NAME"}:
+    if rule_type in {"USER-AGENT", "PROCESS-NAME", "URL-REGEX"}:
         normalized = normalize_text_matcher(value)
         return (Rule(rule_type, normalized), None) if normalized else (None, rule_type)
     return None, rule_type
@@ -159,6 +172,47 @@ def fetch_lines(url: str) -> list[str]:
 
 def v2fly_data_url(base_url: str, list_name: str) -> str:
     return f"{base_url.rstrip('/')}/{quote(list_name, safe='!-._~/')}"
+
+
+def load_v2fly_archive() -> dict[str, list[str]]:
+    global V2FLY_ARCHIVE_CACHE
+    if V2FLY_ARCHIVE_CACHE is not None:
+        return V2FLY_ARCHIVE_CACHE
+
+    request = urllib.request.Request(
+        V2FLY_ARCHIVE_URL,
+        headers={"User-Agent": "AlexKris-rules-builder/1.0"}
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            archive_data = response.read()
+    except Exception as error:
+        raise RuntimeError(f"failed to fetch {V2FLY_ARCHIVE_URL}: {error}") from error
+
+    data_files: dict[str, list[str]] = {}
+    with tarfile.open(fileobj=io.BytesIO(archive_data), mode="r:gz") as archive:
+        for member in archive.getmembers():
+            if not member.isfile():
+                continue
+            parts = member.name.split("/", 2)
+            if len(parts) != 3 or parts[1] != "data":
+                continue
+            extracted = archive.extractfile(member)
+            if extracted is None:
+                continue
+            data_files[parts[2]] = extracted.read().decode("utf-8-sig", errors="replace").splitlines()
+
+    V2FLY_ARCHIVE_CACHE = data_files
+    return data_files
+
+
+def read_v2fly_lines(base_url: str, list_name: str) -> list[str]:
+    if base_url.rstrip("/") == V2FLY_DEFAULT_BASE_URL:
+        data_files = load_v2fly_archive()
+        if list_name not in data_files:
+            raise KeyError(f"v2fly list not found in archive: {list_name}")
+        return data_files[list_name]
+    return fetch_lines(v2fly_data_url(base_url, list_name))
 
 
 def split_v2fly_attrs(line: str) -> tuple[str, frozenset[str]]:
@@ -241,7 +295,7 @@ def parse_v2fly_list(
     skipped: dict[str, int] = {}
     seen: set[tuple[str, str, frozenset[str]]] = set()
 
-    for line in fetch_lines(v2fly_data_url(base_url, list_name)):
+    for line in read_v2fly_lines(base_url, list_name):
         cleaned = clean_line(line)
         if cleaned is None:
             continue
@@ -430,15 +484,19 @@ def write_anywhere(path: Path, output_config: dict, rules: list[Rule], skipped: 
         for rule in rules
         if rule.rule_type in RULE_TYPE_TO_ARRS
     ]
+    skipped_for_anywhere = dict(skipped)
+    for rule in rules:
+        if rule.rule_type not in RULE_TYPE_TO_ARRS:
+            skipped_for_anywhere[rule.rule_type] = skipped_for_anywhere.get(rule.rule_type, 0) + 1
     lines = [
         f"# NAME: {output_config['name']}",
         "# GENERATED-FOR: Anywhere Routing Rule Set",
         f"# DESCRIPTION: {output_config['description']}",
         f"# RULES: {len(arrs_lines)}",
-        f"# SKIPPED: {sum(skipped.values())}"
+        f"# SKIPPED: {sum(skipped_for_anywhere.values())}"
     ]
-    if skipped:
-        lines.append("# SKIPPED-TYPES: " + ", ".join(f"{key}={skipped[key]}" for key in sorted(skipped)))
+    if skipped_for_anywhere:
+        lines.append("# SKIPPED-TYPES: " + ", ".join(f"{key}={skipped_for_anywhere[key]}" for key in sorted(skipped_for_anywhere)))
     if sources:
         lines.append("# SOURCES:")
         lines.extend(f"# - {source}" for source in sources)
@@ -473,12 +531,12 @@ def domain_rule_lines(rules: list[Rule]) -> list[str]:
     return [
         f"{rule.rule_type},{rule.value}"
         for rule in rules
-        if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"}
+        if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "DOMAIN-WILDCARD"}
     ]
 
 
 def surge_non_ip_rule_lines(rules: list[Rule], include_client_rules: bool) -> list[str]:
-    rule_types = {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"}
+    rule_types = {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "DOMAIN-WILDCARD", "URL-REGEX"}
     if include_client_rules:
         rule_types.update({"USER-AGENT", "PROCESS-NAME"})
     return [
@@ -517,10 +575,15 @@ def write_mihomo_mrs(path: Path, plain_path: Path, behavior: str) -> None:
     )
 
 
+def wildcard_to_domain_regex(value: str) -> str:
+    return "^" + re.escape(value).replace("\\*", ".*").replace("\\?", ".") + "$"
+
+
 def sing_box_rule_set(rules: list[Rule]) -> dict:
     domain: list[str] = []
     domain_suffix: list[str] = []
     domain_keyword: list[str] = []
+    domain_regex: list[str] = []
     ip_cidr: list[str] = []
     for rule in rules:
         if rule.rule_type == "DOMAIN":
@@ -529,6 +592,8 @@ def sing_box_rule_set(rules: list[Rule]) -> dict:
             domain_suffix.append(rule.value)
         elif rule.rule_type == "DOMAIN-KEYWORD":
             domain_keyword.append(rule.value)
+        elif rule.rule_type == "DOMAIN-WILDCARD":
+            domain_regex.append(wildcard_to_domain_regex(rule.value))
         elif rule.rule_type in {"IP-CIDR", "IP-CIDR6"}:
             ip_cidr.append(rule.value)
 
@@ -539,6 +604,8 @@ def sing_box_rule_set(rules: list[Rule]) -> dict:
         rule_object["domain_suffix"] = domain_suffix
     if domain_keyword:
         rule_object["domain_keyword"] = domain_keyword
+    if domain_regex:
+        rule_object["domain_regex"] = domain_regex
     if ip_cidr:
         rule_object["ip_cidr"] = ip_cidr
 
@@ -581,13 +648,22 @@ def artifact_rules(
     built_outputs: dict[str, list[Rule]]
 ) -> list[Rule]:
     source_marker_domains = set(config.get("source_marker_domains", []))
-    source_id = artifact_config["source"]
-    if source_id in source_rules:
-        rules = source_rules[source_id]
-    elif source_id in built_outputs:
-        rules = built_outputs[source_id]
-    else:
-        raise KeyError(f"{artifact_id} uses unknown artifact source: {source_id}")
+    source_ids = artifact_config["sources"] if "sources" in artifact_config else [artifact_config["source"]]
+    rules: list[Rule] = []
+    seen: set[tuple[str, str]] = set()
+
+    for source_id in source_ids:
+        if source_id in source_rules:
+            source = source_rules[source_id]
+        elif source_id in built_outputs:
+            source = built_outputs[source_id]
+        else:
+            raise KeyError(f"{artifact_id} uses unknown artifact source: {source_id}")
+        for rule in source:
+            if rule.key not in seen:
+                rules.append(rule)
+                seen.add(rule.key)
+
     return apply_rule_overrides(rules, artifact_config, source_marker_domains)
 
 
@@ -599,6 +675,9 @@ def write_generated_outputs(
     source_marker_domains = set(config.get("source_marker_domains", []))
     built_outputs: dict[str, list[Rule]] = {}
     skipped_outputs: dict[str, dict[str, int]] = {}
+
+    def artifact_clients(artifact_config: dict) -> set[str]:
+        return set(artifact_config.get("clients", ["surge", "mihomo", "sing-box"]))
 
     for output_id, output_config in config["outputs"].items():
         rules, skipped = collect_output_rules(output_id, output_config, source_rules, source_skipped, source_marker_domains)
@@ -615,31 +694,43 @@ def write_generated_outputs(
 
     for name, artifact_config in config["artifacts"]["domainset"].items():
         rules = artifact_rules(name, artifact_config, config, source_rules, built_outputs)
+        clients = artifact_clients(artifact_config)
         plain_path = ROOT / "plain" / "domainset" / f"{name}.txt"
         write_plain_domainset(plain_path, rules)
-        write_surge_domainset(ROOT / "surge" / "domainset" / f"{name}.conf", rules)
-        write_mihomo_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", plain_path, "domain")
-        write_sing_box_srs(ROOT / "sing-box" / "domainset" / f"{name}.srs", rules)
+        if "surge" in clients:
+            write_surge_domainset(ROOT / "surge" / "domainset" / f"{name}.conf", rules)
+        if "mihomo" in clients:
+            write_mihomo_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", plain_path, "domain")
+        if "sing-box" in clients:
+            write_sing_box_srs(ROOT / "sing-box" / "domainset" / f"{name}.srs", rules)
 
     for name, artifact_config in config["artifacts"]["non-ip"].items():
         rules = artifact_rules(name, artifact_config, config, source_rules, built_outputs)
+        clients = artifact_clients(artifact_config)
         plain_path = ROOT / "plain" / "non-ip" / f"{name}.txt"
         write_plain_non_ip(plain_path, rules)
-        write_surge_non_ip(
-            ROOT / "surge" / "non-ip" / f"{name}.conf",
-            rules,
-            artifact_config.get("surge-client-rules", False)
-        )
-        write_mihomo_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", plain_path, "domain")
-        write_sing_box_srs(ROOT / "sing-box" / "non-ip" / f"{name}.srs", rules)
+        if "surge" in clients:
+            write_surge_non_ip(
+                ROOT / "surge" / "non-ip" / f"{name}.conf",
+                rules,
+                artifact_config.get("surge-client-rules", False)
+            )
+        if "mihomo" in clients:
+            write_mihomo_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", plain_path, "domain")
+        if "sing-box" in clients:
+            write_sing_box_srs(ROOT / "sing-box" / "non-ip" / f"{name}.srs", rules)
 
     for name, artifact_config in config["artifacts"].get("ip", {}).items():
         rules = artifact_rules(name, artifact_config, config, source_rules, built_outputs)
+        clients = artifact_clients(artifact_config)
         plain_path = ROOT / "plain" / "ip" / f"{name}.txt"
         write_plain_ip(plain_path, rules)
-        write_surge_ip(ROOT / "surge" / "ip" / f"{name}.conf", rules)
-        write_mihomo_mrs(ROOT / "mihomo" / "ip" / f"{name}.mrs", plain_path, "ipcidr")
-        write_sing_box_srs(ROOT / "sing-box" / "ip" / f"{name}.srs", rules)
+        if "surge" in clients:
+            write_surge_ip(ROOT / "surge" / "ip" / f"{name}.conf", rules)
+        if "mihomo" in clients:
+            write_mihomo_mrs(ROOT / "mihomo" / "ip" / f"{name}.mrs", plain_path, "ipcidr")
+        if "sing-box" in clients:
+            write_sing_box_srs(ROOT / "sing-box" / "ip" / f"{name}.srs", rules)
 
     return built_outputs
 

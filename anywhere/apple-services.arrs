@@ -2,7 +2,8 @@
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple services direct routing overlay
 # RULES: 18
-# SKIPPED: 0
+# SKIPPED: 8
+# SKIPPED-TYPES: PROCESS-NAME=8
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_services.conf
 

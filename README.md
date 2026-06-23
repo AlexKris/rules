@@ -16,6 +16,12 @@ derived from those plain text artifacts.
 
 ### Anywhere
 
+- `anywhere/proxy.arrs`
+- `anywhere/apple.arrs`
+- `anywhere/download.arrs`
+- `anywhere/lan.arrs`
+- `anywhere/lan-ip.arrs`
+- `anywhere/china-ip.arrs`
 - `anywhere/cdn.arrs`
 - `anywhere/apple-cdn.arrs`
 - `anywhere/apple-cn.arrs`
@@ -33,6 +39,12 @@ derived from those plain text artifacts.
 Import the raw URLs in Anywhere and assign them as follows:
 
 ```text
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/proxy.arrs            -> proxy chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs            -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs         -> Download
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs              -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs           -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cdn.arrs              -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cdn.arrs        -> DIRECT or AppleCDN
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cn.arrs         -> DIRECT
@@ -47,6 +59,9 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs           -> proxy chain
 ```
 
+`domestic` and `direct` are not published for Anywhere because their SKK
+sources include client-specific matchers that ARRS cannot represent.
+
 Import MITM rule sets separately in Anywhere MITM:
 
 ```text
@@ -55,6 +70,17 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-re
 
 ### Surge
 
+- `surge/domainset/proxy.conf`
+- `surge/non-ip/proxy.conf`
+- `surge/domainset/apple.conf`
+- `surge/non-ip/apple.conf`
+- `surge/domainset/download.conf`
+- `surge/non-ip/download.conf`
+- `surge/non-ip/domestic.conf`
+- `surge/non-ip/direct.conf`
+- `surge/non-ip/lan.conf`
+- `surge/ip/lan-ip.conf`
+- `surge/ip/china-ip.conf`
 - `surge/domainset/cdn.conf`
 - `surge/domainset/speedtest.conf`
 - `surge/non-ip/cdn.conf`
@@ -65,6 +91,9 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-re
 - `surge/non-ip/stream-us.conf`
 - `surge/non-ip/stream-kr.conf`
 - `surge/non-ip/stream-eu.conf`
+- `surge/non-ip/google.conf`
+- `surge/non-ip/cn-domain.conf`
+- `surge/non-ip/not-cn-domain.conf`
 - `surge/domainset/apple-cdn.conf`
 - `surge/non-ip/apple-cdn.conf`
 - `surge/non-ip/apple-cn.conf`
@@ -81,6 +110,17 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-re
 Use them as remote rule sets:
 
 ```ini
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/proxy.conf,Proxy,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/proxy.conf,Proxy,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple.conf,DIRECT,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/download.conf,Download,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/download.conf,Download,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/domestic.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/lan.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT,extended-matching
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/cdn.conf,CDN,extended-matching
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/speedtest.conf,Speedtest,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cdn.conf,CDN,extended-matching
@@ -91,6 +131,9 @@ RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stre
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-us.conf,MediaUS,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-kr.conf,MediaKR,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-eu.conf,MediaEU,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/google.conf,Google,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cn-domain.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/not-cn-domain.conf,Proxy,extended-matching
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple-cdn.conf,AppleCDN,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-cdn.conf,AppleCDN,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-cn.conf,DIRECT,extended-matching
@@ -99,11 +142,17 @@ RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.c
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/telegram.conf,Telegram,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Microsoft,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Proxy,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft-cdn.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/kuro.conf,DIRECT,extended-matching
 ```
+
+`domestic`, `direct`, and `lan` are non-IP direct rule sets and should stay
+before IP rule sets such as `lan-ip` and `china-ip` in profile order. `direct`
+is the upstream base direct rule set; `direct-extra` is the personal overlay.
+Put `stream*` before `google`; v2fly `google` includes YouTube, and stream
+rules should own YouTube routing.
 
 The same Surge text files can be used by Shadowrocket.
 
@@ -112,6 +161,15 @@ The same Surge text files can be used by Shadowrocket.
 Use the generated `.mrs` files with `behavior: domain` and `format: mrs`.
 
 ```yaml
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/proxy.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/proxy.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/apple.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/download.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/download.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/domestic.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/lan.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/cdn.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/speedtest.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/cdn.mrs
@@ -134,17 +192,32 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microso
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct-extra.mrs
 ```
 
-Use `behavior: ipcidr` and `format: mrs` for Telegram IP:
+Use `behavior: ipcidr` and `format: mrs` for IP rules:
 
 ```yaml
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/telegram-ip.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/lan-ip.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/china-ip.mrs
 ```
+
+Google and broad CN geosite fallback rules are not generated by this repository
+for Mihomo/Stash. Use MetaCubeX `geo/geosite/google.mrs`,
+`geo/geosite/cn.mrs`, and `geo/geosite/geolocation-!cn.mrs` directly.
 
 ### sing-box
 
 Use the generated `.srs` files as remote rule sets.
 
 ```text
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/proxy.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/proxy.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/apple.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/domestic.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/lan.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/cdn.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/speedtest.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cdn.srs
@@ -162,17 +235,24 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-serv
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/ai.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/telegram.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/telegram-ip.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/lan-ip.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/china-ip.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/paypal.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft-cdn.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct-extra.srs
 ```
 
+Google and broad CN geosite fallback rules are not generated by this repository
+for sing-box. Use SagerNet `geosite-google.srs`, `geosite-cn.srs`, and
+`geosite-geolocation-!cn.srs` directly.
+
 ### Plain
 
 Generated plain text files under `plain/` are the observable normalized rule
-sets used to build Surge, Mihomo, and sing-box artifacts. They use normalized
-rule syntax such as `DOMAIN` and `DOMAIN-SUFFIX`.
+sets used to build Surge, Mihomo, and sing-box artifacts. Domain files use
+normalized rule syntax such as `DOMAIN`, `DOMAIN-SUFFIX`, and
+`DOMAIN-WILDCARD`; IP files use normalized CIDR values.
 
 ## Build
 

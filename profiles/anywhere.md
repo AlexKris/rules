@@ -3,6 +3,12 @@
 Import the following generated and custom rule sets:
 
 ```text
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/proxy.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan-ip.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cdn.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cdn.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-cn.arrs
@@ -26,21 +32,20 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-re
 Recommended rule-set assignments:
 
 ```text
-CDN             -> proxy chain
+Proxy           -> proxy chain
 AI              -> proxy chain
 Bahamut         -> proxy chain
 PayPal          -> proxy chain
 Crypto          -> proxy chain
 Binance         -> proxy chain
-Proxy           -> proxy chain
 Telegram        -> proxy chain
 Telegram IP     -> proxy chain
 
 Lan             -> DIRECT
-Apple CDN       -> DIRECT or AppleCDN
-Apple CN        -> DIRECT
-Apple Services  -> DIRECT or AppleSvc
-Direct          -> DIRECT
+Apple           -> DIRECT
+Download        -> Download
+LAN IP          -> DIRECT
+China IP        -> DIRECT
 Kuro            -> DIRECT
 CITIC           -> DIRECT
 Direct Extra    -> DIRECT
@@ -50,8 +55,12 @@ GeoIP_CN        -> DIRECT
 
 Notes:
 
-- Use this repository's `CDN` instead of `anywhere-rules` `CDN`; it excludes
-  Apple time sync and DigiCert certificate infrastructure domains.
+- Use `Proxy` instead of separate CDN/global runtime rules. Legacy `CDN` and
+  split Apple rule sets remain published for compatibility.
+- `Domestic` and upstream `Direct` are not published for Anywhere because ARRS cannot represent all upstream matchers.
+- `Google`, `cn-domain`, and `not-cn-domain` are not published for Anywhere.
+- `Lan` is a non-IP rule set. Keep it before IP rule sets in profile order.
+- `Direct Extra` is the personal direct overlay.
 - `Kuro`, `CITIC`, `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
 - `Speedtest` and `Stream` are not published for Anywhere.
 - `getui` is intentionally not included.
