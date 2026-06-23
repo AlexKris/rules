@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4536
+# RULES: 4537
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -2638,7 +2638,9 @@ name = CDN
 2, cdn-rdstaticassets.readdle.com
 2, ravenjs.com
 2, static.rakuten.com
+2, luminaire.railway.com
 2, devicons.railway.com
+2, cms.railway.com
 2, rackcdn.com
 2, cdn.quadpay.com
 2, pxlecdn.com
@@ -2647,8 +2649,7 @@ name = CDN
 2, cdn.privacy.com
 2, app-static-prod.posthog.com
 2, app-static.eu.posthog.com
-2, us-assets.i.posthog.com
-2, eu-assets.i.posthog.com
+2, i.posthog.com
 2, cdn77-t.pornoxo.com
 2, cdn77.pornoxo.com
 2, pics.pornfhd.com

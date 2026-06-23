@@ -522,6 +522,7 @@ DOMAIN,www.club.cc.cmu.edu
 DOMAIN,mirror.cc.vt.edu
 DOMAIN,ftp.ussg.iu.edu
 DOMAIN,mirror.digitaloceans.dev
+DOMAIN-SUFFIX,t3.storageapi.dev
 DOMAIN,download.clashverge.dev
 DOMAIN,dl.getaurora.dev
 DOMAIN,cdn-updates.orbstack.dev

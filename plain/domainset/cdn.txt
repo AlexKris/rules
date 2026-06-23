@@ -2627,7 +2627,9 @@ DOMAIN,cdn.readmoo.com
 DOMAIN,cdn-rdstaticassets.readdle.com
 DOMAIN-SUFFIX,ravenjs.com
 DOMAIN,static.rakuten.com
+DOMAIN,luminaire.railway.com
 DOMAIN,devicons.railway.com
+DOMAIN,cms.railway.com
 DOMAIN-SUFFIX,rackcdn.com
 DOMAIN,cdn.quadpay.com
 DOMAIN-SUFFIX,pxlecdn.com
@@ -2636,8 +2638,7 @@ DOMAIN,st.prntscr.com
 DOMAIN,cdn.privacy.com
 DOMAIN,app-static-prod.posthog.com
 DOMAIN,app-static.eu.posthog.com
-DOMAIN,us-assets.i.posthog.com
-DOMAIN,eu-assets.i.posthog.com
+DOMAIN-SUFFIX,i.posthog.com
 DOMAIN,cdn77-t.pornoxo.com
 DOMAIN,cdn77.pornoxo.com
 DOMAIN,pics.pornfhd.com

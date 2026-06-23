@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1949
+# RULES: 1950
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -531,6 +531,7 @@ name = Download
 2, mirror.cc.vt.edu
 2, ftp.ussg.iu.edu
 2, mirror.digitaloceans.dev
+2, t3.storageapi.dev
 2, download.clashverge.dev
 2, dl.getaurora.dev
 2, cdn-updates.orbstack.dev
