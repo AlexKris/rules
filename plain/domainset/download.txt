@@ -119,6 +119,7 @@ DOMAIN,ciscobinary.openh264.org
 DOMAIN,cpan.metacpan.org
 DOMAIN,ubuntu.linux-bg.org
 DOMAIN,repo.debiancn.org
+DOMAIN,packages.codeberg.org
 DOMAIN-SUFFIX,artfiles.org
 DOMAIN,tukaani.org
 DOMAIN,s3.teckids.org
@@ -656,6 +657,7 @@ DOMAIN,desktop.parallels.com
 DOMAIN,update.parallels.com
 DOMAIN-SUFFIX,mirrors.omnilance.com
 DOMAIN,mirror.nevacloud.com
+DOMAIN,store.nethunter.com
 DOMAIN,mirror.navercorp.com
 DOMAIN,ubuntu.mobinhost.com
 DOMAIN,mirrors.mivocloud.com
@@ -1764,6 +1766,7 @@ DOMAIN,ftp.fu-berlin.de
 DOMAIN,mirrors.ae-online.de
 DOMAIN,ftp.stw-bonn.de
 DOMAIN,mirror.liquidrp.de
+DOMAIN,apt.izzysoft.de
 DOMAIN,mirror.informatik.hs-fulda.de
 DOMAIN,debian.charite.de
 DOMAIN,mirror.23media.de

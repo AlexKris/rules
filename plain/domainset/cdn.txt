@@ -301,6 +301,7 @@ DOMAIN,play.publicradio.org
 DOMAIN-SUFFIX,tile.opentopomap.org
 DOMAIN,covers.openlibrary.org
 DOMAIN,tiles.openfreemap.org
+DOMAIN,dlstats.izzyondroid.org
 DOMAIN,media.hentaifreak.org
 DOMAIN-SUFFIX,ipfs.genenetwork.org
 DOMAIN,ximage.c-spanvideo.org
@@ -1526,6 +1527,8 @@ DOMAIN,media.gettyimages.com
 DOMAIN-SUFFIX,cdn.getfeedback.com
 DOMAIN,assets.gemcommerce.com
 DOMAIN-SUFFIX,gauthstatic.com
+DOMAIN,static.fundraiseup.com
+DOMAIN,cdn.fundraiseup.com
 DOMAIN,stories.freepiklabs.com
 DOMAIN,static.foxbusiness.com
 DOMAIN,use.fortawesome.com
@@ -1890,6 +1893,7 @@ DOMAIN-SUFFIX,xhpingcdn.com
 DOMAIN-SUFFIX,xdaimages.com
 DOMAIN,cdn.scripts.wtwhmedia.com
 DOMAIN-SUFFIX,wowmodels.com
+DOMAIN-SUFFIX,workoscdn.com
 DOMAIN,hhhhhhome86227170.wordpress.com
 DOMAIN,jetpack.wordpress.com
 DOMAIN-SUFFIX,files.wordpress.com
@@ -2933,6 +2937,7 @@ DOMAIN,cdn.xvidzz.com
 DOMAIN,img.xhacgn.com
 DOMAIN,img.xbooru.com
 DOMAIN,website-prod.cache.wpscdn.com
+DOMAIN,frontend-apps-multi-region.workos.com
 DOMAIN,frontend-apps.workos.com
 DOMAIN-SUFFIX,cdn.workos.com
 DOMAIN-SUFFIX,wklcdn.com
@@ -4158,6 +4163,7 @@ DOMAIN-SUFFIX,pagecdn.io
 DOMAIN,favicons.nextdns.io
 DOMAIN,cdn.logbase.io
 DOMAIN,media.lantern.io
+DOMAIN,embed.lantern.io
 DOMAIN,cdn.ipwhois.io
 DOMAIN-SUFFIX,ipfscdn.io
 DOMAIN,cdn.icomoon.io
