@@ -8,11 +8,10 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs
@@ -35,9 +34,8 @@ Recommended rule-set assignments:
 ```text
 Lan             -> DIRECT
 China IP        -> DIRECT
+CN Domain       -> DIRECT
 Direct Extra    -> DIRECT
-Kuro            -> DIRECT
-CITIC           -> DIRECT
 Apple           -> DIRECT
 Download        -> Download
 
@@ -84,16 +82,19 @@ Notes:
   `Telegram IP` remains published for compatibility.
 - `Lan` contains both LAN domain and IP CIDR rules. Legacy `LAN IP` remains
   published for compatibility.
+- `CN Domain` is a broad direct fallback based on v2fly `geolocation-cn`. It is
+  not equivalent to SagerNet `geosite-cn.srs`.
 - `Proxy` is a broad CDN/global proxy fallback and overlaps with `Download`,
   `Telegram`, `PayPal`, and `Crypto`; keep those as separate sets so their
   assignments remain explicit.
 - `Domestic` and upstream `Direct` are not published for Anywhere because ARRS cannot represent all upstream matchers.
-- `Google`, `cn-domain`, and `not-cn-domain` are not published for Anywhere.
-- `cn-domain` is intentionally not published for Anywhere in the recommended
-  set; keep precise domestic fixes in `Direct Extra` and use `China IP` or
-  Anywhere Country Bypass for broad direct fallback.
-- `Direct Extra` is the personal direct overlay.
-- `Kuro`, `CITIC`, `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
+- `Google` and `not-cn-domain` are not published for Anywhere.
+- `Direct Extra` is the personal direct overlay and includes Kuro, CITIC,
+  `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate
+  infrastructure.
+- Legacy `Kuro` and `CITIC` files remain published for compatibility, but new
+  profiles should use `Direct Extra` instead.
+- `Direct Extra`, `PayPal`, and `Crypto` are intentionally separate rule sets.
 - If `Binance` is a separate local rule set, assign it explicitly; if it uses
   the same proxy chain as `Crypto`, `Crypto` alone is usually enough.
 - `Speedtest` is not published for Anywhere.

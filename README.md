@@ -22,6 +22,7 @@ derived from those plain text artifacts.
 - `anywhere/lan.arrs`
 - `anywhere/lan-ip.arrs`
 - `anywhere/china-ip.arrs`
+- `anywhere/cn-domain.arrs`
 - `anywhere/cdn.arrs`
 - `anywhere/apple-cdn.arrs`
 - `anywhere/apple-cn.arrs`
@@ -51,11 +52,10 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs       
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs         -> Download
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs              -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs        -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs           -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/kuro.arrs             -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/citic.arrs            -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs     -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs           -> proxy chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream or proxy chain
@@ -69,15 +69,16 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs   
 
 `proxy` replaces the old separate CDN/global runtime rules for new Anywhere
 profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram`
-contain both domain and IP CIDR rules. Legacy `cdn`, split Apple, `lan-ip`, and
-`telegram-ip` files remain published for compatibility but are not recommended
-for new profiles.
+contain both domain and IP CIDR rules. `cn-domain` is a broad direct fallback
+based on v2fly `geolocation-cn`. Legacy `cdn`, split Apple, `lan-ip`,
+`telegram-ip`, `kuro`, and `citic` files remain published for compatibility
+but are not recommended for new profiles.
 
 `domestic` and `direct` are not published for Anywhere because their SKK
 sources include client-specific matchers that ARRS cannot represent.
-`cn-domain` and `not-cn-domain` are intentionally not published for Anywhere;
-keep precise domestic fixes in `direct-extra` and use `china-ip` or Anywhere
-Country Bypass for broad direct fallback.
+`not-cn-domain` is intentionally not published for Anywhere. `direct-extra`
+keeps precise personal direct fixes, including Kuro, CITIC, `videocc.net`,
+`cache.video.iqiyi.com`, and DigiCert certificate infrastructure.
 
 Import MITM rule sets separately in Anywhere MITM:
 

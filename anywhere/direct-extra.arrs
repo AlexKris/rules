@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 7
+# RULES: 48
 # SKIPPED: 0
 
 name = Direct Extra
@@ -12,3 +12,44 @@ name = Direct Extra
 2, ocsp.digicert.com
 2, cacerts.digicert.com
 2, crl3.digicert.com
+2, kurogame.com
+2, kurogames.com
+2, kurobbs.com
+2, aki-game.com
+2, aki-game2.com
+2, kurogames-global.com
+2, kurogame.xyz
+2, citic
+2, citic.com
+2, citic-wealth.com
+2, citicaibank.cn
+2, citicaibank.com
+2, citicbank.citic
+2, citicbank.cn
+2, citicbank.com
+2, citicbank.com.cn
+2, citicbank.net
+2, citicbank.net.cn
+2, citicbank.org
+2, citicbank.org.cn
+2, citicbankuser.com
+2, citiccard.com
+2, citicleasing.cn
+2, citicleasing.com
+2, ecitic.com
+2, ecitic.net
+2, cncbinternational.com
+2, cncbic.com
+2, cncbpc.com
+2, chinaamc.com
+2, clsa.com
+2, citics.com
+2, citicsam.com
+2, citicsf.com
+2, citicsinfo.com
+2, goldstone-investment.com
+2, cfhc.citic
+2, citiccapital.com
+2, citiciam.com
+2, citicifh.com
+2, eciticcfc.com
