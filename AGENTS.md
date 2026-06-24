@@ -57,7 +57,7 @@ Manual overlays currently outside `config/rules.json`:
 - `anywhere/kuro.arrs`
 - `anywhere/citic.arrs`
 - `surge/domainset/kuro.conf`
-- `anywhere/mitm/source/google-cn-redirect.js`
+- `anywhere/mitm/google-cn-redirect.amrs`
 
 Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or manual overlays.
 
@@ -126,8 +126,8 @@ v2fly:
 
 MITM:
 
-- `scripts/build_mitm.py` builds `anywhere/mitm/google-cn-redirect.amrs` from `anywhere/mitm/source/google-cn-redirect.js`.
-- Edit the JS source, not the generated `.amrs`, then run the MITM build script.
+- `anywhere/mitm/google-cn-redirect.amrs` is maintained directly.
+- It uses native Anywhere transparent rewrite rules, not JavaScript.
 
 ## Build Commands
 
@@ -135,7 +135,6 @@ Run from the repository root:
 
 ```sh
 python3 scripts/build_rules.py
-python3 scripts/build_mitm.py
 ```
 
 `build_rules.py` requires network access and these local CLIs:
@@ -160,12 +159,6 @@ For generated rules:
 
 ```sh
 python3 scripts/build_rules.py
-```
-
-For MITM rules:
-
-```sh
-python3 scripts/build_mitm.py
 ```
 
 Spot-check important routing expectations after generation:

@@ -86,6 +86,9 @@ Import MITM rule sets separately in Anywhere MITM:
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-redirect.amrs
 ```
 
+`google-cn-redirect.amrs` uses native Anywhere transparent rewrite rules. It
+does not require a JavaScript MITM script.
+
 ### Surge
 
 - `surge/domainset/proxy.conf`
@@ -284,7 +287,6 @@ Regenerate rule files manually:
 
 ```sh
 python3 scripts/build_rules.py
-python3 scripts/build_mitm.py
 ```
 
 Generated rules are also built by GitHub Actions once per day after upstream
