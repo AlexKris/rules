@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5751
+# RULES: 5752
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3321,6 +3321,7 @@ name = Proxy
 2, twimg.com
 2, media1.tenor.com
 2, media.tenor.com
+2, c.tenor.com
 2, c.tadst.com
 2, tacdn.com
 2, t8cdn.com

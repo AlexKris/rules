@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7456
+# RULES: 7462
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3997,6 +3997,10 @@ name = CN Domain
 2, alipay
 2, taobao
 2, tmall
+2, account-cn.alibabacloud.com
+2, api.alibabacloud.com
+2, cn.alibabacloud.com
+2, status.alibabacloud.com
 2, alibabadns.com
 2, alicdn.com
 2, alicloudapi.com
@@ -4039,6 +4043,8 @@ name = CN Domain
 2, kunlunwe.com
 2, mxhichina.com
 2, myalicdn.com
+2, cn-hangzhou.aliyuncs.com
+2, cn-shanghai.aliyuncs.com
 2, oss-cn-beijing.aliyuncs.com
 2, oss-cn-chengdu.aliyuncs.com
 2, oss-cn-guangzhou.aliyuncs.com

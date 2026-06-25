@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4543
+# RULES: 4544
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3320,6 +3320,7 @@ name = CDN
 2, twimg.com
 2, media1.tenor.com
 2, media.tenor.com
+2, c.tenor.com
 2, c.tadst.com
 2, tacdn.com
 2, t8cdn.com

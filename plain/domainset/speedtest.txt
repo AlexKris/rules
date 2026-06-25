@@ -59,6 +59,7 @@ DOMAIN,speedtest1.sailweb.cloud
 DOMAIN,speedtest3.airbeam.cloud
 DOMAIN,speedtest.witcom.cloud
 DOMAIN,speedtest.net360.cloud
+DOMAIN,speedtest.zttcc.cloud
 DOMAIN,speedtest-rp.verte.cloud
 DOMAIN,speedtest.phx01.orion.cloud
 DOMAIN,srv1298003.hstgr.cloud
@@ -266,6 +267,7 @@ DOMAIN,sp1.scinternet.net
 DOMAIN,speedtest2.rainbowtel.net
 DOMAIN,sprk1.radiokable.net
 DOMAIN,speedtest4.plateautel.net
+DOMAIN,web01.onthepixel.net
 DOMAIN,speedtest.ontarionet.net
 DOMAIN,wybo-speedtest.northstate.net
 DOMAIN,asbn-speedtest.northstate.net
@@ -1903,6 +1905,7 @@ DOMAIN,speedtestwa1.sweet.tv
 DOMAIN,gigenet.tstt.net.tt
 DOMAIN,turknet16.residential.tr
 DOMAIN,speedtestacibadem.netspeed.tr
+DOMAIN,st34ata.netspeed.tr
 DOMAIN,st20.netspeed.tr
 DOMAIN,speedtest.pulse.web.tr
 DOMAIN,speedtest.layra.web.tr
@@ -2222,6 +2225,7 @@ DOMAIN,speedtest-valdagno.wifiweb.it
 DOMAIN,speedtest-brendola.wifiweb.it
 DOMAIN,speedtest-sossano.wifiweb.it
 DOMAIN,speedtest-bassano.wifiweb.it
+DOMAIN,speedtest-asiago.wifiweb.it
 DOMAIN,speedtest-schio.wifiweb.it
 DOMAIN,speedtest-ronca.wifiweb.it
 DOMAIN,speedtest-vr.wifiweb.it
@@ -2994,6 +2998,7 @@ DOMAIN,speedtest.roraimanet.com.br
 DOMAIN,teste.reatelecom.com.br
 DOMAIN,velocimetro.proveinter.com.br
 DOMAIN,sp1.poptelecom.com.br
+DOMAIN,speedtest.phlconnect.com.br
 DOMAIN,ookla.pgservicos.com.br
 DOMAIN,medidor.nortelecom.com.br
 DOMAIN,velocidade.niktelecom.com.br

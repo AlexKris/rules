@@ -3309,6 +3309,7 @@ DOMAIN,cdn.cloud.unity.com
 DOMAIN-SUFFIX,twimg.com
 DOMAIN,media1.tenor.com
 DOMAIN,media.tenor.com
+DOMAIN,c.tenor.com
 DOMAIN,c.tadst.com
 DOMAIN-SUFFIX,tacdn.com
 DOMAIN-SUFFIX,t8cdn.com

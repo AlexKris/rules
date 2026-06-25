@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1953
+# RULES: 1955
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -9,6 +9,7 @@
 name = Download
 2, fnbuilds.services
 2, ossmirror.mycloud.services
+2, dl.orangefox.download
 2, nitro.download
 2, kali.download
 2, mirror.kumi.systems
@@ -1491,6 +1492,7 @@ name = Download
 2, ubuntu.dts.mg
 2, mirror.klaus-uwe.me
 2, mirrors.cicku.me
+2, dl.twrp.me
 2, releases.obsidian.md
 2, mirror.ihost.md
 2, mirror.marwan.ma
