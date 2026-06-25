@@ -53,9 +53,12 @@ jobs:
         run: |
           python3 -m json.tool config/rules.json >/tmp/rules_config.json
           python3 -m py_compile scripts/build_rules.py
+          python3 -m py_compile scripts/build_mitm.py
 
       - name: Build generated rules
-        run: python3 scripts/build_rules.py
+        run: |
+          python3 scripts/build_rules.py
+          python3 scripts/build_mitm.py
 
       - name: Validate sing-box rule sets
         shell: bash

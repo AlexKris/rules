@@ -58,6 +58,8 @@ Manual overlays currently outside `config/rules.json`:
 - `anywhere/citic.arrs`
 - `surge/domainset/kuro.conf`
 - `anywhere/mitm/google-cn-redirect.amrs`
+- `anywhere/mitm/source/youtube-enhance-anywhere.js`
+- `anywhere/mitm/source/vendor/maasea-youtube.response.js`
 
 Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or manual overlays.
 
@@ -128,6 +130,10 @@ MITM:
 
 - `anywhere/mitm/google-cn-redirect.amrs` is maintained directly.
 - It uses native Anywhere transparent rewrite rules, not JavaScript.
+- `scripts/build_mitm.py` builds `anywhere/mitm/youtube-enhance-anywhere.amrs`
+  from local JavaScript sources under `anywhere/mitm/source/`.
+- Edit the JS sources, not the generated YouTube `.amrs`, then run the MITM
+  build script.
 
 ## Build Commands
 
@@ -135,6 +141,7 @@ Run from the repository root:
 
 ```sh
 python3 scripts/build_rules.py
+python3 scripts/build_mitm.py
 ```
 
 `build_rules.py` requires network access and these local CLIs:
@@ -159,6 +166,12 @@ For generated rules:
 
 ```sh
 python3 scripts/build_rules.py
+```
+
+For MITM rules:
+
+```sh
+python3 scripts/build_mitm.py
 ```
 
 Spot-check important routing expectations after generation:

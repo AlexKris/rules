@@ -27,10 +27,13 @@ Import the following MITM rule sets separately:
 
 ```text
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-redirect.amrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/youtube-enhance-anywhere.amrs
 ```
 
 `google-cn-redirect.amrs` uses native transparent rewrite rules and does not
 require a JavaScript MITM script.
+`youtube-enhance-anywhere.amrs` is generated from local JavaScript sources in
+this repository.
 
 Recommended rule-set assignments:
 

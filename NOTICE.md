@@ -13,6 +13,9 @@ Known upstream sources used by the related profiles include:
 - v2fly domain-list-community: https://github.com/v2fly/domain-list-community
 - MetaCubeX meta-rules-dat: https://github.com/MetaCubeX/meta-rules-dat
 - blackmatrix7 ios_rule_script: https://github.com/blackmatrix7/ios_rule_script
+- Maasea sgmodule: https://github.com/Maasea/sgmodule
+  - `anywhere/mitm/source/vendor/maasea-youtube.response.js` is derived from
+    Maasea's YouTube Enhance script, licensed under Apache-2.0.
 
 Private domains, private media services, proxy nodes, subscription URLs, and
 tokens must not be committed to this repository.

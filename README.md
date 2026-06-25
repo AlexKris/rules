@@ -43,6 +43,7 @@ derived from those plain text artifacts.
 - `anywhere/stream-kr.arrs`
 - `anywhere/stream-eu.arrs`
 - `anywhere/mitm/google-cn-redirect.amrs`
+- `anywhere/mitm/youtube-enhance-anywhere.amrs`
 
 Import the raw URLs in Anywhere and assign them as follows:
 
@@ -84,10 +85,13 @@ Import MITM rule sets separately in Anywhere MITM:
 
 ```text
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-redirect.amrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/youtube-enhance-anywhere.amrs
 ```
 
 `google-cn-redirect.amrs` uses native Anywhere transparent rewrite rules. It
 does not require a JavaScript MITM script.
+`youtube-enhance-anywhere.amrs` is generated from local JavaScript sources under
+`anywhere/mitm/source/`.
 
 ### Surge
 
@@ -287,6 +291,7 @@ Regenerate rule files manually:
 
 ```sh
 python3 scripts/build_rules.py
+python3 scripts/build_mitm.py
 ```
 
 Generated rules are also built by GitHub Actions once per day after upstream
