@@ -517,6 +517,18 @@ def write_surge_ip(path: Path, rules: list[Rule]) -> None:
     write_text(path, surge_ip_rule_lines(rules))
 
 
+def write_loon_domainset(path: Path, rules: list[Rule]) -> None:
+    write_text(path, loon_domainset_rule_lines(rules))
+
+
+def write_loon_non_ip(path: Path, rules: list[Rule], include_client_rules: bool = False) -> None:
+    write_text(path, loon_non_ip_rule_lines(rules, include_client_rules))
+
+
+def write_loon_ip(path: Path, rules: list[Rule]) -> None:
+    write_text(path, surge_ip_rule_lines(rules))
+
+
 def domainset_rule_lines(rules: list[Rule]) -> list[str]:
     lines = []
     for rule in rules:
@@ -532,6 +544,25 @@ def domain_rule_lines(rules: list[Rule]) -> list[str]:
         f"{rule.rule_type},{rule.value}"
         for rule in rules
         if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "DOMAIN-WILDCARD"}
+    ]
+
+
+def loon_domainset_rule_lines(rules: list[Rule]) -> list[str]:
+    return [
+        f"{rule.rule_type},{rule.value}"
+        for rule in rules
+        if rule.rule_type in {"DOMAIN", "DOMAIN-SUFFIX"}
+    ]
+
+
+def loon_non_ip_rule_lines(rules: list[Rule], include_client_rules: bool) -> list[str]:
+    rule_types = {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "URL-REGEX"}
+    if include_client_rules:
+        rule_types.add("USER-AGENT")
+    return [
+        f"{rule.rule_type},{rule.value}"
+        for rule in rules
+        if rule.rule_type in rule_types
     ]
 
 
@@ -677,7 +708,7 @@ def write_generated_outputs(
     skipped_outputs: dict[str, dict[str, int]] = {}
 
     def artifact_clients(artifact_config: dict) -> set[str]:
-        return set(artifact_config.get("clients", ["surge", "mihomo", "sing-box"]))
+        return set(artifact_config.get("clients", ["surge", "mihomo", "sing-box", "loon"]))
 
     for output_id, output_config in config["outputs"].items():
         rules, skipped = collect_output_rules(output_id, output_config, source_rules, source_skipped, source_marker_domains)
@@ -699,6 +730,8 @@ def write_generated_outputs(
         write_plain_domainset(plain_path, rules)
         if "surge" in clients:
             write_surge_domainset(ROOT / "surge" / "domainset" / f"{name}.conf", rules)
+        if "loon" in clients:
+            write_loon_domainset(ROOT / "loon" / "domainset" / f"{name}.list", rules)
         if "mihomo" in clients:
             write_mihomo_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", plain_path, "domain")
         if "sing-box" in clients:
@@ -715,6 +748,12 @@ def write_generated_outputs(
                 rules,
                 artifact_config.get("surge-client-rules", False)
             )
+        if "loon" in clients:
+            write_loon_non_ip(
+                ROOT / "loon" / "non-ip" / f"{name}.list",
+                rules,
+                artifact_config.get("surge-client-rules", False)
+            )
         if "mihomo" in clients:
             write_mihomo_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", plain_path, "domain")
         if "sing-box" in clients:
@@ -727,6 +766,8 @@ def write_generated_outputs(
         write_plain_ip(plain_path, rules)
         if "surge" in clients:
             write_surge_ip(ROOT / "surge" / "ip" / f"{name}.conf", rules)
+        if "loon" in clients:
+            write_loon_ip(ROOT / "loon" / "ip" / f"{name}.list", rules)
         if "mihomo" in clients:
             write_mihomo_mrs(ROOT / "mihomo" / "ip" / f"{name}.mrs", plain_path, "ipcidr")
         if "sing-box" in clients:

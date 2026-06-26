@@ -19,7 +19,7 @@ upstream URLs / explicit local rules in config/rules.json
   -> generated client artifacts
 ```
 
-`outputs` controls Anywhere `.arrs` files. `artifacts` controls Surge,
+`outputs` controls Anywhere `.arrs` files. `artifacts` controls Surge, Loon,
 Mihomo, and sing-box files; artifact patches are explicit and do not inherit
 same-named Anywhere output patches. `artifacts[*].clients` can narrow client
 artifact generation while still writing the matching `plain/` file.
@@ -41,16 +41,16 @@ Current generated groups:
 - `speedtest`: SKK Speedtest domainset.
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions.
 - `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets.
-- `google`: v2fly `google`, generated only for Surge/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
-- `cn-domain`: v2fly `geolocation-cn`, generated for Surge/plain and as an optional Anywhere direct fallback.
-- `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/plain.
+- `google`: v2fly `google`, generated only for Surge/Loon/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
+- `cn-domain`: v2fly `geolocation-cn`, generated for Surge/Loon/plain and as an optional Anywhere direct fallback.
+- `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/Loon/plain.
 - `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
 - `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `paypal`: v2fly `paypal`.
 - `microsoft`: v2fly `microsoft`.
 - `microsoft-cdn`: SKK Microsoft CDN.
 - `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure.
-- `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/plain text only. Do not merge Dler's Crypto list.
+- `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list.
 
 Manual overlays currently outside `config/rules.json`:
 
@@ -92,6 +92,18 @@ Surge / Shadowrocket:
 - Generated from `plain/domainset/*.txt` and `plain/non-ip/*.txt`.
 - Shadowrocket can use the same Surge text files where profile syntax allows it.
 
+Loon:
+
+- `loon/domainset/*.list` converts domainset rules to full `DOMAIN` and
+  `DOMAIN-SUFFIX` rules; it does not use Surge `DOMAIN-SET` bare-domain syntax.
+- `loon/non-ip/*.list` contains `DOMAIN`, `DOMAIN-SUFFIX`,
+  `DOMAIN-KEYWORD`, `URL-REGEX`, and `USER-AGENT` when upstream uses supported
+  client matchers.
+- `loon/non-ip/*.list` intentionally omits `DOMAIN-WILDCARD` and
+  `PROCESS-NAME` because they are not listed in Loon's official rule syntax.
+- `loon/ip/*.list` contains `IP-CIDR` and `IP-CIDR6` rules with `no-resolve`.
+- Use files in Loon `[Remote Rule]` as `URL,policy=<Policy>,enabled=true`.
+
 Mihomo:
 
 - Generated `.mrs` files require `mihomo` CLI.
@@ -112,8 +124,8 @@ Plain:
 - `plain/domainset/*.txt`, `plain/non-ip/*.txt`, and `plain/ip/*.txt` are generated observable artifacts.
 - Plain files use normalized rule syntax such as `DOMAIN` and `DOMAIN-SUFFIX`.
 - Plain domain files may include `DOMAIN-WILDCARD`; these are valid Mihomo domain rules and are converted to sing-box `domain_regex`.
-- `URL-REGEX` is preserved only in Surge output and is intentionally omitted from plain/Mihomo/sing-box artifacts.
-- Plain stream files intentionally omit `USER-AGENT` and `PROCESS-NAME`; those are preserved only in Surge outputs.
+- `URL-REGEX` is preserved only in Surge and Loon outputs and is intentionally omitted from plain/Mihomo/sing-box artifacts.
+- Plain stream files intentionally omit `USER-AGENT` and `PROCESS-NAME`; `USER-AGENT` is preserved in Surge and Loon outputs, while `PROCESS-NAME` is preserved only in Surge outputs.
 - They are not sources; edit `config/rules.json` and regenerate instead.
 
 v2fly:
@@ -177,7 +189,7 @@ python3 scripts/build_mitm.py
 Spot-check important routing expectations after generation:
 
 ```sh
-rg -n "time\.apple\.com|ocsp\.digicert\.com|youtube\.com|google\.com|googleapis\.com|apple\.com|icloud\.com|mzstatic\.com|officecdn\.microsoft\.com|binance\.com|okx\.com|openrouter\.ai|paypal\.com|ctldl\.windowsupdate\.com|91\.108\.4\.0/22|10\.0\.0\.0/8|192\.168\.0\.0/16|1\.1\.8\.0/24" anywhere surge plain
+rg -n "time\.apple\.com|ocsp\.digicert\.com|youtube\.com|google\.com|googleapis\.com|apple\.com|icloud\.com|mzstatic\.com|officecdn\.microsoft\.com|binance\.com|okx\.com|openrouter\.ai|paypal\.com|ctldl\.windowsupdate\.com|91\.108\.4\.0/22|10\.0\.0\.0/8|192\.168\.0\.0/16|1\.1\.8\.0/24" anywhere surge loon plain
 ```
 
 Expected behavior:
@@ -191,9 +203,9 @@ Expected behavior:
 - `direct` is upstream base direct; `direct-extra` is the personal direct overlay.
 - DigiCert certificate infrastructure belongs in Direct Extra, not CDN.
 - AI uses v2fly `category-ai-!cn`; exact upstream `@ads` entries may be preserved, while `regexp:` entries are skipped.
-- Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
+- Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; Loon outputs preserve `USER-AGENT` and skip `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
 - Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
-- `cn-domain` is generated for Surge/plain and as an optional Anywhere direct fallback; `not-cn-domain` is Surge/plain-only. Do not generate local Mihomo or sing-box artifacts for either.
+- `cn-domain` is generated for Surge/Loon/plain and as an optional Anywhere direct fallback; `not-cn-domain` is Surge/Loon/plain-only. Do not generate local Mihomo or sing-box artifacts for either.
 - For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
   Keep `telegram-ip` published separately for non-Anywhere clients and legacy
   Anywhere subscriptions.
@@ -204,7 +216,7 @@ Expected behavior:
 - PayPal remains separate from broad CDN and proxy rule sets.
 - Kuro and CITIC remain separate compatibility rule sets; their direct domains also belong in Direct Extra for new Anywhere profiles.
 - `getui` remains intentionally excluded unless the user explicitly changes policy.
-- Crypto uses v2fly `category-cryptocurrency`; it is generated for Anywhere and Surge/plain text only. Do not merge Dler's Crypto list unless the user explicitly accepts its unclear license risk.
+- Crypto uses v2fly `category-cryptocurrency`; it is generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list unless the user explicitly accepts its unclear license risk.
 
 ## Change Rules
 

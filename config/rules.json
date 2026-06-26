@@ -645,19 +645,22 @@
       "google": {
         "source": "google",
         "clients": [
-          "surge"
+          "surge",
+          "loon"
         ]
       },
       "cn-domain": {
         "source": "cn-domain",
         "clients": [
-          "surge"
+          "surge",
+          "loon"
         ]
       },
       "not-cn-domain": {
         "source": "not-cn-domain",
         "clients": [
-          "surge"
+          "surge",
+          "loon"
         ]
       },
       "stream": {
@@ -694,7 +697,8 @@
       "crypto": {
         "source": "crypto-category",
         "clients": [
-          "surge"
+          "surge",
+          "loon"
         ]
       },
       "paypal": {
