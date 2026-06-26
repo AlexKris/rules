@@ -116,6 +116,7 @@ DOMAIN,index.rubygems.org
 DOMAIN,static.redox-os.org
 DOMAIN,download.opensuse.org
 DOMAIN,cdn.opensuse.org
+DOMAIN,updates.openlogi.org
 DOMAIN,ciscobinary.openh264.org
 DOMAIN,cpan.metacpan.org
 DOMAIN,ubuntu.linux-bg.org
@@ -657,6 +658,7 @@ DOMAIN,download.parallels.com
 DOMAIN,desktop.parallels.com
 DOMAIN,update.parallels.com
 DOMAIN-SUFFIX,mirrors.omnilance.com
+DOMAIN,persistent.oaistatic.com
 DOMAIN,mirror.nevacloud.com
 DOMAIN,store.nethunter.com
 DOMAIN,mirror.navercorp.com

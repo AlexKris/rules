@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1955
+# RULES: 1957
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -125,6 +125,7 @@ name = Download
 2, static.redox-os.org
 2, download.opensuse.org
 2, cdn.opensuse.org
+2, updates.openlogi.org
 2, ciscobinary.openh264.org
 2, cpan.metacpan.org
 2, ubuntu.linux-bg.org
@@ -666,6 +667,7 @@ name = Download
 2, desktop.parallels.com
 2, update.parallels.com
 2, mirrors.omnilance.com
+2, persistent.oaistatic.com
 2, mirror.nevacloud.com
 2, store.nethunter.com
 2, mirror.navercorp.com
