@@ -329,6 +329,7 @@ DOMAIN,speedtest.ld7.fdcservers.net
 DOMAIN,speedtest.hnd.fdcservers.net
 DOMAIN,speedtest.atl.fdcservers.net
 DOMAIN,speedtest.ams.fdcservers.net
+DOMAIN,speedtest.sg.fdcservers.net
 DOMAIN,speedtest4.ekowebtech.net
 DOMAIN,ookla2.eaglecable.net
 DOMAIN,lon-hex-speedtest.cloudconnx.net

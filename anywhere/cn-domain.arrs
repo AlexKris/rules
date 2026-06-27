@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7462
+# RULES: 7478
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -54,13 +54,18 @@ name = CN Domain
 2, fanmingming.com
 2, huangyuhui.net
 2, lg3000.top
+2, misaka-net.top
+2, moliranran.com
 2, mryys.cn
 2, mryys.com
 2, mysqil.com
+2, pljzy.top
 2, skywt.cn
 2, soulteary.com
 2, tai3.cn
+2, tianhw.top
 2, topwd.top
+2, vtdd.vip
 2, zway.top
 2, aixcoder.com
 2, nnthink.com
@@ -199,6 +204,7 @@ name = CN Domain
 2, ejoy.com
 2, jinrishici.com
 2, kaihong.com
+2, oend.net
 2, openvela.com
 2, php.cn
 2, pingcode.com
@@ -553,8 +559,6 @@ name = CN Domain
 2, acfunchina.net
 2, aixifan.com
 2, apilog-web.acfun.cn
-2, acplay.net
-2, dandanplay.com
 2, bilicdn1.com
 2, bilicdn2.com
 2, bilicdn3.com
@@ -1492,6 +1496,9 @@ name = CN Domain
 2, ynet.com.cn
 2, 21jingji.com
 2, 3elife.net
+2, 71shi.net
+2, goodq.top
+2, haowenti.net
 2, admin5.com
 2, ahcjw.com
 2, ahcaijing.com
@@ -3218,6 +3225,7 @@ name = CN Domain
 2, dearedu.com
 2, dgjy.net
 2, dict.cn
+2, duifene.com
 2, eduei.com
 2, eoffcn.com
 2, jinrongren.net
@@ -3252,6 +3260,7 @@ name = CN Domain
 2, neoschool.com
 2, oldboyedu.com
 2, pigai.org
+2, qingtingai.net
 2, saduck.top
 2, unipus.cn
 2, weilaiyunxiao.com
@@ -3265,6 +3274,7 @@ name = CN Domain
 2, zxxk.com
 2, yunzhuxue.com
 2, ystbds.com
+2, zggx100.com
 2, zhan.com
 2, zhihuishu.com
 2, zjzs.net
@@ -3816,6 +3826,7 @@ name = CN Domain
 2, heweather.net
 2, qweather.com
 2, qweather.net
+2, qweatherapi.com
 2, renren.com
 2, renren-inc.com
 2, feidee.cn
@@ -3872,6 +3883,7 @@ name = CN Domain
 2, 7moor.com
 2, air-matters.com
 2, alookweb.com
+2, anixplayer.net
 2, antutu.com
 2, antutu.net
 2, appchina.com
@@ -6133,6 +6145,7 @@ name = CN Domain
 2, wechat.com
 2, wechatpay.cn
 2, weishi.com
+2, weixin.com
 2, wxaurl.cn
 2, wxcloudrun.com
 2, wxgateway.com
@@ -6384,6 +6397,7 @@ name = CN Domain
 2, fnnas.com
 2, fnnas.net
 2, fnos.net
+2, gugudata.com
 2, huaban.com
 2, huabanimg.com
 2, dancf.com
@@ -6488,6 +6502,9 @@ name = CN Domain
 2, 51kim.com
 2, zhuye.kim
 2, 6-u.com
+2, cilisouou.com
+2, jigecili.com
+2, wsjqnmmrmv.world
 2, imsyy.com
 2, infinitynewtab.com
 2, inftab.com
@@ -6604,6 +6621,7 @@ name = CN Domain
 2, 8264.com
 2, 84399.com
 2, 885.com
+2, 8m2.net
 2, 900.la
 2, 900cha.com
 2, 917.com
@@ -6951,6 +6969,7 @@ name = CN Domain
 2, jb51.com
 2, jb51.net
 2, jduoduo.com
+2, jfcoop.com
 2, jiameng.com
 2, jianbihua.com
 2, jiangningwater.com
@@ -7445,28 +7464,25 @@ name = CN Domain
 2, zuhaowan.com
 2, zysou.com
 2, zztfly.com
-2, jsw118.com
-2, sxcxldjy.com
-2, shanxijianzhuzizhi.com
-2, vhengdata.com
+2, bdcat.top
+2, bdmozon.com
 2, educoder.net
-2, tokcoder.com
+2, proj101.cn
 2, trustie.net
-2, merach.com
-2, taichuan.com
-2, taichuan.net
+2, gzyowin.com
 2, hitevision-solutions.com
 2, jslife.net
+2, jsw118.com
+2, merach.com
 2, nanhaicorp.com
 2, ozonabc.com
 2, qingping.co
 2, cleargrass.com
-2, bdmozon.com
-2, bdmyandex.com
-2, bdcat.top
-2, puddingcat.top
 2, qunliao.info
-2, ao-x.ac.cn
+2, shanxijianzhuzizhi.com
+2, sxcxldjy.com
+2, taichuan.com
+2, taichuan.net
+2, vhengdata.com
 2, wanji.net.cn
-2, gzyowin.com
 2, yebinnet.com
