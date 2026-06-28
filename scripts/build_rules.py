@@ -795,6 +795,14 @@ def write_generated_outputs(
             )
         if "mihomo" in clients:
             write_mihomo_domain_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", rules)
+            # DOMAIN-KEYWORD cannot live in a domain MRS; publish it as a
+            # classical text rule-set so Mihomo can keep keyword matching.
+            keyword_rules = [rule for rule in rules if rule.rule_type == "DOMAIN-KEYWORD"]
+            if keyword_rules:
+                write_text(
+                    ROOT / "mihomo" / "classical" / f"{name}.list",
+                    [f"DOMAIN-KEYWORD,{rule.value}" for rule in keyword_rules],
+                )
         if "sing-box" in clients:
             write_sing_box_srs(ROOT / "sing-box" / "non-ip" / f"{name}.srs", rules)
 
