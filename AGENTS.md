@@ -107,9 +107,10 @@ Loon:
 Mihomo:
 
 - Generated `.mrs` files require `mihomo` CLI.
-- Generated from `plain/domainset/*.txt`, `plain/non-ip/*.txt`, and `plain/ip/*.txt`.
-- Use `behavior: domain` for domain/non-ip `.mrs` files.
-- Use `behavior: ipcidr` for `mihomo/ip/*.mrs`.
+- Domain `.mrs` (`mihomo/domainset/*.mrs`, `mihomo/non-ip/*.mrs`) use `behavior: domain` and are built by `write_mihomo_domain_mrs`, which emits bare domain-set lines: exact domain, `+.` for suffix, `*`/`?` wildcards.
+- DO NOT feed the classical `DOMAIN,`/`DOMAIN-SUFFIX,`-prefixed `plain/*.txt` to `mihomo convert-ruleset domain`. Mihomo then stores each whole line (e.g. `domain-suffix,steamcontent.com`) as a single literal domain that never matches real queries, silently breaking the whole rule set (traffic falls through to geosite/GEOIP fallbacks). The domain-set format is mandatory.
+- `DOMAIN-KEYWORD` cannot be represented in a domain `.mrs` and is dropped from Mihomo output (still kept in Surge/Loon/plain).
+- IP `.mrs` (`mihomo/ip/*.mrs`) use `behavior: ipcidr`, generated from `plain/ip/*.txt`.
 - Google and broad CN geosite fallback rules should use MetaCubeX official geosite files, not local generated `.mrs` files.
 
 sing-box:
