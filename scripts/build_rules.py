@@ -539,6 +539,26 @@ def domainset_rule_lines(rules: list[Rule]) -> list[str]:
     return lines
 
 
+def mihomo_domain_lines(rules: list[Rule]) -> list[str]:
+    """Lines for `mihomo convert-ruleset domain text`.
+
+    Mihomo's domain behavior expects a bare domain-set (no DOMAIN/DOMAIN-SUFFIX
+    prefixes): `example.com` for exact, `+.example.com` for suffix, and `*`/`?`
+    wildcards. Feeding classical-prefixed lines makes Mihomo store the whole
+    string (e.g. `domain-suffix,example.com`) as a literal domain that never
+    matches. DOMAIN-KEYWORD cannot be represented in a domain MRS and is dropped.
+    """
+    lines = []
+    for rule in rules:
+        if rule.rule_type == "DOMAIN":
+            lines.append(rule.value)
+        elif rule.rule_type == "DOMAIN-SUFFIX":
+            lines.append(f"+.{rule.value}")
+        elif rule.rule_type == "DOMAIN-WILDCARD":
+            lines.append(rule.value)
+    return lines
+
+
 def domain_rule_lines(rules: list[Rule]) -> list[str]:
     return [
         f"{rule.rule_type},{rule.value}"
@@ -604,6 +624,25 @@ def write_mihomo_mrs(path: Path, plain_path: Path, behavior: str) -> None:
         cwd=ROOT,
         check=True
     )
+
+
+def write_mihomo_domain_mrs(path: Path, rules: list[Rule]) -> None:
+    lines = mihomo_domain_lines(rules)
+    if not lines:
+        relative_path = path.relative_to(ROOT)
+        raise ValueError(f"{relative_path} has no domain rules for Mihomo MRS")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    src_path = path.with_name(path.name + ".src.txt")
+    write_text(src_path, lines)
+    try:
+        subprocess.run(
+            ["mihomo", "convert-ruleset", "domain", "text", str(src_path), str(path)],
+            cwd=ROOT,
+            check=True
+        )
+    finally:
+        src_path.unlink(missing_ok=True)
 
 
 def wildcard_to_domain_regex(value: str) -> str:
@@ -733,7 +772,7 @@ def write_generated_outputs(
         if "loon" in clients:
             write_loon_domainset(ROOT / "loon" / "domainset" / f"{name}.list", rules)
         if "mihomo" in clients:
-            write_mihomo_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", plain_path, "domain")
+            write_mihomo_domain_mrs(ROOT / "mihomo" / "domainset" / f"{name}.mrs", rules)
         if "sing-box" in clients:
             write_sing_box_srs(ROOT / "sing-box" / "domainset" / f"{name}.srs", rules)
 
@@ -755,7 +794,7 @@ def write_generated_outputs(
                 artifact_config.get("surge-client-rules", False)
             )
         if "mihomo" in clients:
-            write_mihomo_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", plain_path, "domain")
+            write_mihomo_domain_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", rules)
         if "sing-box" in clients:
             write_sing_box_srs(ROOT / "sing-box" / "non-ip" / f"{name}.srs", rules)
 
