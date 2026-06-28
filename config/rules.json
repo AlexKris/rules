@@ -62,6 +62,12 @@
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf"
       ]
     },
+    "game-download-domainset": {
+      "kind": "domainset",
+      "urls": [
+        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/game-download.conf"
+      ]
+    },
     "download-non-ip": {
       "kind": "non-ip",
       "urls": [
@@ -365,6 +371,16 @@
         "anywhere": "anywhere/download.arrs"
       }
     },
+    "game-download": {
+      "name": "Game Download",
+      "description": "Game download CDN overlay based on SukkaW game-download rules",
+      "sources": [
+        "game-download-domainset"
+      ],
+      "targets": {
+        "anywhere": "anywhere/game-download.arrs"
+      }
+    },
     "lan": {
       "name": "LAN",
       "description": "LAN routing overlay based on SukkaW LAN domain and IP rules",
@@ -568,6 +584,9 @@
       },
       "download": {
         "source": "download-domainset"
+      },
+      "game-download": {
+        "source": "game-download-domainset"
       },
       "speedtest": {
         "source": "speedtest-domainset"
