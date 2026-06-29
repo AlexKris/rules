@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4544
+# RULES: 4546
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3740,6 +3740,7 @@ name = CDN
 2, video.bsky.app
 2, cdn.bsky.app
 2, web.app
+2, widget.rss.app
 2, images.rss.app
 2, csb.app
 2, cdn.7tv.app
@@ -4266,6 +4267,7 @@ name = CDN
 2, sdk.gleap.io
 2, cdn.filen.io
 2, ipfs.decoo.io
+2, changelog-widget.canny.io
 2, assets2.canny.io
 2, assets.canny.io
 2, cdn.bogos.io

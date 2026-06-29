@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5752
+# RULES: 5756
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3741,6 +3741,7 @@ name = Proxy
 2, video.bsky.app
 2, cdn.bsky.app
 2, web.app
+2, widget.rss.app
 2, images.rss.app
 2, csb.app
 2, cdn.7tv.app
@@ -4267,6 +4268,7 @@ name = Proxy
 2, sdk.gleap.io
 2, cdn.filen.io
 2, ipfs.decoo.io
+2, changelog-widget.canny.io
 2, assets2.canny.io
 2, assets.canny.io
 2, cdn.bogos.io
@@ -4775,6 +4777,7 @@ name = Proxy
 2, hsforms.net
 2, hanmail.net
 2, edgeapp.net
+2, cloudns.net
 2, blogjav.net
 2, behance.net
 2, av-wiki.net
@@ -5674,6 +5677,7 @@ name = Proxy
 2, split.io
 2, short.io
 2, logto.io
+2, desec.io
 2, airav.io
 2, mega.io
 2, itch.io

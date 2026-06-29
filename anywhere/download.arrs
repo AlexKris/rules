@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1957
+# RULES: 1958
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -228,6 +228,7 @@ name = Download
 2, ftp.gnome.org
 2, cdn.fwupd.org
 2, eclats.crans.org
+2, data.caida.org
 2, ftpmirror.your.org
 2, downloads.xiph.org
 2, kebo.vlsm.org
