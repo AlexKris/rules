@@ -222,6 +222,10 @@ fallback rules after dedicated policy rules.
 ### Mihomo
 
 Use the generated `.mrs` files with `behavior: domain` and `format: mrs`.
+Domain `.mrs` files cannot contain `DOMAIN-KEYWORD` rules. Rule sets that need
+keyword matching also publish keyword-only text providers under
+`mihomo/classical/*.list`; use those with `behavior: classical` and
+`format: text` alongside the matching `.mrs` provider.
 
 ```yaml
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/proxy.mrs
@@ -253,6 +257,16 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/paypal.
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microsoft.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microsoft-cdn.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct-extra.mrs
+```
+
+Keyword supplements currently exist for rule sets such as `proxy`, `cdn`,
+`direct`, and some `stream*` files:
+
+```yaml
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/proxy.list
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/cdn.list
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/direct.list
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/stream.list
 ```
 
 Use `behavior: ipcidr` and `format: mrs` for IP rules:

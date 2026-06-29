@@ -466,6 +466,15 @@ def write_text(path: Path, lines: list[str]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def clean_mihomo_classical() -> None:
+    directory = ROOT / "mihomo" / "classical"
+    if not directory.exists():
+        return
+    for path in directory.glob("*.list"):
+        if path.is_file():
+            path.unlink()
+
+
 def source_urls_for(output_config: dict, config: dict) -> list[str]:
     urls: list[str] = []
     for source_id in output_config.get("sources", []):
@@ -745,6 +754,7 @@ def write_generated_outputs(
     source_marker_domains = set(config.get("source_marker_domains", []))
     built_outputs: dict[str, list[Rule]] = {}
     skipped_outputs: dict[str, dict[str, int]] = {}
+    clean_mihomo_classical()
 
     def artifact_clients(artifact_config: dict) -> set[str]:
         return set(artifact_config.get("clients", ["surge", "mihomo", "sing-box", "loon"]))
