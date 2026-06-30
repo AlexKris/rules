@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4546
+# RULES: 4547
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3298,6 +3298,7 @@ name = CDN
 2, wixmp.com
 2, media.wired.com
 2, tiles.windy.com
+2, sat.windy.com
 2, ims.windy.com
 2, img.windy.com
 2, images.wikia.com

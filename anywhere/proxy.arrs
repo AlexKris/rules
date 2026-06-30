@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5756
+# RULES: 5757
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3299,6 +3299,7 @@ name = Proxy
 2, wixmp.com
 2, media.wired.com
 2, tiles.windy.com
+2, sat.windy.com
 2, ims.windy.com
 2, img.windy.com
 2, images.wikia.com

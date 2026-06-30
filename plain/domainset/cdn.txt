@@ -3287,6 +3287,7 @@ DOMAIN-SUFFIX,wsimg.com
 DOMAIN-SUFFIX,wixmp.com
 DOMAIN,media.wired.com
 DOMAIN,tiles.windy.com
+DOMAIN,sat.windy.com
 DOMAIN,ims.windy.com
 DOMAIN,img.windy.com
 DOMAIN,images.wikia.com

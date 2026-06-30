@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1958
+# RULES: 1959
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -220,6 +220,7 @@ name = Download
 2, static.adtidy.org
 2, mirror.siwoo.org
 2, registry.npmjs.org
+2, artifacts.nixos.org
 2, d2.myani.org
 2, d.myani.org
 2, repo1.maven.org

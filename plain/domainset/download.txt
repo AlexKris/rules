@@ -211,6 +211,7 @@ DOMAIN,repo.maven.apache.org
 DOMAIN,static.adtidy.org
 DOMAIN,mirror.siwoo.org
 DOMAIN,registry.npmjs.org
+DOMAIN,artifacts.nixos.org
 DOMAIN,d2.myani.org
 DOMAIN,d.myani.org
 DOMAIN,repo1.maven.org
