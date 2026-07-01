@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7478
+# RULES: 7529
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -60,6 +60,7 @@ name = CN Domain
 2, mryys.com
 2, mysqil.com
 2, pljzy.top
+2, runningcheese.com
 2, skywt.cn
 2, soulteary.com
 2, tai3.cn
@@ -79,6 +80,7 @@ name = CN Domain
 2, baltamatica.com
 2, blogjava.net
 2, cnblogs.com
+2, cnblogs.vip
 2, cnitblog.com
 2, cnweblog.com
 2, cppblog.com
@@ -518,6 +520,8 @@ name = CN Domain
 2, 9xgame.com
 2, arcaea.cn
 2, astral-vector.com
+2, 66rpg.com
+2, cgyouxi.com
 2, changyou.com
 2, cy.com
 2, playcool.com
@@ -536,16 +540,19 @@ name = CN Domain
 2, ledu.com
 2, longtugame.com
 2, morefreegame.com
+2, nalrer.cn
+2, tuyoo.com
 2, phira.cn
 2, sdo.com
 2, shengqugames.com
 2, zjshulong.com
 2, tgpro.top
 2, tgprocs.net
-2, tuyoo.com
 2, winegame.net
 2, wo1wan.com
 2, ycgame.com
+2, yjwujian.cn
+2, yysls.cn
 2, aamgame.net
 2, aamgame.com
 2, aamgame.mobi
@@ -679,6 +686,7 @@ name = CN Domain
 2, woaihuoshan.com
 2, wohst8.com
 2, douyinpay.com
+2, open-douyin.com
 2, douyu.com
 2, douyu.tv
 2, douyucdn.cn
@@ -997,6 +1005,16 @@ name = CN Domain
 2, v6-adashx.ut.youku.com
 2, yk-ssp.ad.youku.com
 2, ykad-data.youku.com
+2, aireads.cn
+2, chatdrama.cn
+2, chatdrama.net
+2, chatqidian.cn
+2, chatqidian.net
+2, chattext.cn
+2, chatwrite.net
+2, chatxiaoxiang.com
+2, chatyuewen.cn
+2, dishu3.com
 2, hongxiu.com
 2, qdmm.com
 2, qidian.com
@@ -1006,6 +1024,7 @@ name = CN Domain
 2, xs.cn
 2, xs8.cn
 2, xxsy.net
+2, xxsypro.com
 2, yuewen.com
 2, duowan.com
 2, dwstatic.com
@@ -1499,6 +1518,7 @@ name = CN Domain
 2, 71shi.net
 2, goodq.top
 2, haowenti.net
+2, 81.cn
 2, admin5.com
 2, ahcjw.com
 2, ahcaijing.com
@@ -1562,6 +1582,7 @@ name = CN Domain
 2, dzng.com
 2, dzwww.com
 2, eastday.com
+2, ebrun.com
 2, eeo.com.cn
 2, evolife.cn
 2, expreview.com
@@ -1628,6 +1649,8 @@ name = CN Domain
 2, kankannews.com
 2, kksmg.com
 2, statickksmg.com
+2, kjrb.com.cn
+2, stdaily.com
 2, knewsmart.com
 2, latepost.com
 2, leikeji.com
@@ -1694,6 +1717,7 @@ name = CN Domain
 2, tidenews.com.cn
 2, vbdata.cn
 2, vcbeat.top
+2, workercn.cn
 2, woshipm.com
 2, xhby.net
 2, xilu.com
@@ -2486,6 +2510,12 @@ name = CN Domain
 2, yfscdn.net
 2, yunfancdn.com
 2, 100ycdn.com
+2, admincdn.com
+2, cravatar.cn
+2, cravatar.com
+2, wenpai.org
+2, windfonts.com
+2, wpcy.com
 2, baijiayun.com
 2, cjjd19.com
 2, fdcyun.com
@@ -2938,6 +2968,8 @@ name = CN Domain
 2, btghotels.com
 2, bthhotels.com
 2, homeinns.com
+2, didachuxing.com
+2, didapinche.com
 2, dmall.com
 2, dmallcdn.com
 2, feiniu.com
@@ -3062,6 +3094,7 @@ name = CN Domain
 2, youlai.cn
 2, 12315.cn
 2, 12321.cn
+2, 12377.cn
 2, gov.cn
 2, acftu.org
 2, cma.cn
@@ -3217,6 +3250,7 @@ name = CN Domain
 2, bczeducation.cn
 2, banxiaoer.com
 2, banxiaoer.net
+2, beie.org
 2, biyehome.net
 2, burningvocabulary.cn
 2, burningvocabulary.com
@@ -3234,6 +3268,7 @@ name = CN Domain
 2, zgjsks.com
 2, zgsydw.com
 2, gk100.com
+2, guojibk.com
 2, huatu.com
 2, sydw8.com
 2, ictbda.cn
@@ -3554,6 +3589,7 @@ name = CN Domain
 2, 51pptmoban.com
 2, 51wendang.com
 2, 52ppt.com
+2, 777ppt.com
 2, badou.com
 2, book118.com
 2, daodoc.com
@@ -3563,6 +3599,7 @@ name = CN Domain
 2, goldhoe.com
 2, haohaodoc.com
 2, jinchutou.com
+2, keniu.com
 2, lazyer.net
 2, renrendoc.com
 2, safewk.com
@@ -3706,11 +3743,12 @@ name = CN Domain
 2, 123pan.cn
 2, 123pan.com
 2, 123panpay.com
+2, guangyacdn.com
+2, guangyapan.com
 2, cloud.189.cn
 2, ctfile.com
 2, feimaoyun.com
 2, filez.com
-2, guangyapan.com
 2, jianguoyun.com
 2, pan.baidu.com
 2, pan.quark.cn
@@ -3908,6 +3946,7 @@ name = CN Domain
 2, duanshu.com
 2, dui88.com
 2, duiba.com.cn
+2, faceid.com
 2, foundertype.com
 2, fxbaogao.com
 2, gongxiangjizhang.com
@@ -3956,6 +3995,7 @@ name = CN Domain
 2, wenjuan.com
 2, xbext.com
 2, yinxiang.com
+2, yunpian.com
 2, zaih.com
 2, zhaopin.cn
 2, zhaopin.com
@@ -4095,6 +4135,7 @@ name = CN Domain
 2, v6-adashx.ut.amap.com
 2, ddurl.to
 2, dingding.xin
+2, dingstore.cn
 2, dingtalk.cn
 2, dingtalk.com
 2, dingtalk.net
@@ -4854,6 +4895,7 @@ name = CN Domain
 2, byteq5k.com
 2, byteq8u.net
 2, bytescm.com
+2, bytespeech.com
 2, bytesslb.net
 2, bytetcc.com
 2, bytetech.info
@@ -5074,6 +5116,7 @@ name = CN Domain
 2, didichuxing.com
 2, didistatic.com
 2, diditaxi.com.cn
+2, hongyibo.com.cn
 2, udache.com
 2, xiaojukeji.com
 2, diiing.cn
@@ -5589,6 +5632,7 @@ name = CN Domain
 2, qiyukf.net
 2, qiyukf.net.cn
 2, static163.net
+2, weiyang.cn
 2, ydstatic.com
 2, yeah.net
 2, youdao.com
@@ -6124,6 +6168,7 @@ name = CN Domain
 2, gtimg.com.cn
 2, idqqimg.com
 2, imqq.com
+2, iot-tencent.com
 2, myapp.com
 2, qlivecdn.com
 2, qlogo.cn
@@ -6147,10 +6192,12 @@ name = CN Domain
 2, wechatpay.cn
 2, weishi.com
 2, weixin.com
+2, weixinsxy.com
 2, wxaurl.cn
 2, wxcloudrun.com
 2, wxgateway.com
 2, wxlivecdn.com
+2, wxmpurl.cn
 2, alloyteam.com
 2, imweb.io
 2, ivweb.io
@@ -6345,7 +6392,6 @@ name = CN Domain
 2, thundercdn.com
 2, xycloud.com
 2, xycdn.com
-2, guangyacdn.com
 2, aitcfw.com
 2, aizgtc.com
 2, hangzhouyq.cn
@@ -6387,6 +6433,7 @@ name = CN Domain
 2, erp198.com
 2, sunrocks.cn
 2, anquan.org
+2, hackernews.cc
 2, knownsec.com
 2, yunaq.com
 2, caocao.com.cn
@@ -6488,6 +6535,7 @@ name = CN Domain
 2, xgzb.top
 2, anytocopy.com
 2, osbdf.com
+2, boce.com
 2, chaziyu.com
 2, fofa.info
 2, icplishi.com
@@ -6499,6 +6547,7 @@ name = CN Domain
 2, ipshudi.com
 2, itdog.cn
 2, rdnsdb.com
+2, tol.vip
 2, webmasterhome.cn
 2, 51kim.com
 2, zhuye.kim
@@ -6833,7 +6882,6 @@ name = CN Domain
 2, eastsoo.com
 2, eayyou.com
 2, ebico.com
-2, ebrun.com
 2, ecjobhome.com
 2, eeyy.com
 2, eflycloud.com
@@ -7179,6 +7227,7 @@ name = CN Domain
 2, qugame.com
 2, qunjielong.com
 2, rockyenglish.com
+2, rrmj.plus
 2, rtbasia.com
 2, ruan8.com
 2, ruiwen.com
@@ -7301,6 +7350,7 @@ name = CN Domain
 2, videojj.com
 2, vobao.com
 2, vpgame.com
+2, vpsvs.com
 2, wangyangyang.vip
 2, wannianli8.com
 2, wanplus.com
@@ -7311,6 +7361,7 @@ name = CN Domain
 2, wdzj.com
 2, weand.com
 2, weavatar.com
+2, webportal.top
 2, weicaifu.com
 2, weilaicaijing.com
 2, weixing.com

@@ -1,7 +1,7 @@
 # NAME: Crypto
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Cryptocurrency services routing overlay based on v2fly domain-list-community
-# RULES: 222
+# RULES: 223
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-cryptocurrency
@@ -196,6 +196,7 @@ name = Crypto
 2, hyperliquid.xyz
 2, infura.io
 2, invity.io
+2, litecoin.org
 2, maple.finance
 2, megaeth.com
 2, merkl.xyz

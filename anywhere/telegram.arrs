@@ -8,20 +8,20 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf
 
 name = Telegram
-2, telegram.space
-2, cdn-telegram.org
-2, telegram.org
+2, t.me
+2, tx.me
+2, tg.dev
+2, legra.ph
 2, graph.org
 2, telega.one
-2, telegram.dog
-2, tg.dev
-2, tdesktop.com
 2, telegra.ph
-2, legra.ph
 2, telesco.pe
 2, telegram.me
-2, tx.me
-2, t.me
+2, tdesktop.com
+2, telegram.dog
+2, telegram.org
+2, telegram.space
+2, cdn-telegram.org
 0, 91.105.192.0/23
 0, 91.108.4.0/22
 0, 91.108.8.0/21

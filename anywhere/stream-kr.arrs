@@ -8,5 +8,5 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_kr.conf
 
 name = Stream KR
-2, smartmediarep.com
 2, tv.naver.com
+2, smartmediarep.com

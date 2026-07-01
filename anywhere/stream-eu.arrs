@@ -8,11 +8,11 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_eu.conf
 
 name = Stream EU
-2, itvpnpmobile-a.akamaihd.net
-2, bbc.mp-pxcdn.com
 2, itv.com
-2, tvlicensing.co.uk
-2, bbci.co.uk
 2, bbc.co.uk
+2, bbci.co.uk
+2, bbc.mp-pxcdn.com
+2, tvlicensing.co.uk
+2, itvpnpmobile-a.akamaihd.net
 3, bbcfmt
 3, uk-live
