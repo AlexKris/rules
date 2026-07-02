@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 162
+# RULES: 165
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -101,12 +101,14 @@ name = AI
 2, sora.com
 2, openai.com.cdn.cloudflare.net
 2, openaiapi-site.azureedge.net
+2, openaiassets.blob.core.windows.net
 2, openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
 2, openaicom.imgix.net
 2, openaicomproductionae4b.blob.core.windows.net
 2, production-openaicom-storage.azureedge.net
-2, o33249.ingest.sentry.io
 2, browser-intake-datadoghq.com
+2, o33249.ingest.sentry.io
+2, openai.qualtrics.com
 2, chatgpt.livekit.cloud
 2, host.livekit.cloud
 2, turn.livekit.cloud
@@ -131,6 +133,8 @@ name = AI
 2, coderabbit.gallery.vsassets.io
 2, cohere.ai
 2, cohere.com
+2, copilot.com
+2, copilot.microsoft.com
 2, clipdrop.co
 2, jasper.ai
 2, agentclientprotocol.com
@@ -138,7 +142,6 @@ name = AI
 2, arena.ai
 2, chutes.ai
 2, clawhub.ai
-2, copilot.microsoft.com
 2, crewai.com
 2, devin.ai
 2, diabrowser.com
