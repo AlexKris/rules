@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7529
+# RULES: 7536
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -1761,6 +1761,9 @@ name = CN Domain
 2, okjike.com
 2, okjk.co
 2, ruguoapp.com
+2, sina
+2, weibo
+2, xn--9krt00a
 2, 97973.com
 2, picself.cn
 2, sina.cn
@@ -5727,6 +5730,10 @@ name = CN Domain
 2, wztsy.cn
 2, wztsy.com
 2, yiwanzhushou.com
+2, anquan
+2, shouji
+2, xihuan
+2, yun
 2, 360.cn
 2, 360.com
 2, 360.net
