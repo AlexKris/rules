@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1961
+# RULES: 1962
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -615,6 +615,7 @@ name = Download
 2, debian.nautile.nc
 2, debian.osuosl.org
 2, debian.proxad.net
+2, desktop.figma.com
 2, directory.fsf.org
 2, dist.blizzard.com
 2, dist.creeper.host

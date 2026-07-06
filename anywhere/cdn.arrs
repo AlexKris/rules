@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4557
+# RULES: 4562
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -1035,6 +1035,7 @@ name = CDN
 2, skyearth8.xyz
 2, smmallcdn.net
 2, sp.replit.com
+2, squarecdn.com
 2, ss-domain.com
 2, st6-20.vk.com
 2, stackblitz.io
@@ -1109,11 +1110,13 @@ name = CDN
 2, c6.patreon.com
 2, c7.patreon.com
 2, c8.patreon.com
+2, cdn-o.suno.com
 2, cdn-spurit.com
 2, cdn.affine.pro
 2, cdn.aimerce.ai
 2, cdn.arduino.cc
 2, cdn.builder.io
+2, cdn.candid.org
 2, cdn.channel.io
 2, cdn.concert.io
 2, cdn.cwinfo.net
@@ -1452,6 +1455,7 @@ name = CDN
 2, cdn.jetboost.io
 2, cdn.jolipage.co
 2, cdn.mathjax.org
+2, cdn.mcp-use.com
 2, cdn.mercury.com
 2, cdn.metadata.io
 2, cdn.moeload.com
@@ -2427,6 +2431,7 @@ name = CDN
 2, assets.ontrack.com
 2, assets.pingone.com
 2, assets.porndig.com
+2, assets.ryanair.com
 2, assets.st-note.com
 2, assets.vidyard.com
 2, assets.zendesk.com
