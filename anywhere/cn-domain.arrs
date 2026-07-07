@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7665
+# RULES: 7687
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -54,6 +54,7 @@ name = CN Domain
 2, fanmingming.com
 2, huangyuhui.net
 2, lg3000.top
+2, lovestu.com
 2, misaka-net.top
 2, moliranran.com
 2, mryys.cn
@@ -67,6 +68,7 @@ name = CN Domain
 2, tianhw.top
 2, topwd.top
 2, vtdd.vip
+2, xrbk.cn
 2, zway.top
 2, aixcoder.com
 2, nnthink.com
@@ -363,6 +365,13 @@ name = CN Domain
 2, biligame.com
 2, biligame.net
 2, sl916.com
+2, 17173.com
+2, 17173cdn.com
+2, changyou.com
+2, cy.com
+2, playcool.com
+2, yeyou.com
+2, yeyoucdn.com
 2, cowlevel.net
 2, cdncl.net
 2, hero.com
@@ -522,9 +531,6 @@ name = CN Domain
 2, astral-vector.com
 2, 66rpg.com
 2, cgyouxi.com
-2, changyou.com
-2, cy.com
-2, playcool.com
 2, end-api.shallow.ink
 2, end.shallow.ink
 2, feihuo.com
@@ -542,10 +548,18 @@ name = CN Domain
 2, morefreegame.com
 2, nalrer.cn
 2, tuyoo.com
+2, nikkigames.cn
+2, nikkigames.com.cn
+2, papegames.cn
+2, papegames.com
 2, phira.cn
 2, sdo.com
 2, shengqugames.com
 2, zjshulong.com
+2, tanwan.com
+2, twyx.cn
+2, twyxh.com
+2, zx.com
 2, tgpro.top
 2, tgprocs.net
 2, winegame.net
@@ -1124,6 +1138,7 @@ name = CN Domain
 2, sfacg.com
 2, shuhai.com
 2, tadu.com
+2, vistopia.com.cn
 2, vsread.com
 2, xinlishumeng.com
 2, xyys.com
@@ -1135,8 +1150,6 @@ name = CN Domain
 2, zongheng.com
 2, tgbus.com
 2, vgtime.com
-2, 17173.com
-2, 17173cdn.com
 2, 18183.com
 2, 3dmgame.com
 2, ali213.net
@@ -1765,6 +1778,7 @@ name = CN Domain
 2, weibo
 2, xn--9krt00a
 2, 97973.com
+2, krcom.cn
 2, picself.cn
 2, sina.cn
 2, sina.com
@@ -2343,6 +2357,7 @@ name = CN Domain
 2, chuangcdn.com
 2, dfyun.com.cn
 2, funcdn.com
+2, hydun.com
 2, jiashule.com
 2, jiasule.com
 2, a2z.org.cn
@@ -2537,6 +2552,7 @@ name = CN Domain
 2, suufun.com
 2, suu-fun.com
 2, chinamcloud.com
+2, cjyun.org
 2, cnwza.cn
 2, govwza.cn
 2, rainyun.com
@@ -3520,6 +3536,10 @@ name = CN Domain
 2, tongyi.com
 2, antafu.com
 2, antaq.com
+2, aorizon.cn
+2, happyhorse.cn
+2, happyshrimp.cn
+2, sleeplesshorizon.cn
 2, yiyan.baidu.com
 2, dumate.cn
 2, miaoda.cn
@@ -4101,6 +4121,7 @@ name = CN Domain
 2, myalicdn.com
 2, cn-hangzhou.aliyuncs.com
 2, cn-shanghai.aliyuncs.com
+2, log-global.aliyuncs.com
 2, oss-cn-beijing.aliyuncs.com
 2, oss-cn-chengdu.aliyuncs.com
 2, oss-cn-guangzhou.aliyuncs.com
@@ -5162,6 +5183,7 @@ name = CN Domain
 2, zjcdn.com
 2, zjfcdn.com
 2, zjgslb.com
+2, zlinkurl.cn
 2, toutiao.com
 2, toutiaoapi.com
 2, toutiaocdn.com
