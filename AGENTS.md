@@ -143,9 +143,18 @@ v2fly:
 Upstream sources:
 
 - GitHub Actions checks out `SukkaLab/ruleset.skk.moe` to `.upstream/skk` and `v2fly/domain-list-community` to `.upstream/v2fly`.
+- GitHub Actions also checks out a strict whitelist of `AlexKris/profile` tool scripts to `.upstream/profile` for Pages distribution under `/profile/`.
 - `build_rules.py` reads configured `paths` / `local_dir` first and falls back to remote URLs only when local upstreams are absent.
 - CI must run `RULES_REQUIRE_LOCAL_SOURCES=1 python3 scripts/build_rules.py` so missing `.upstream` checkouts fail instead of silently using Raw URLs.
 - `.upstream/` is local build state and must not be committed.
+
+Profile tool distribution:
+
+- `scripts/build_site.py` publishes only the explicit `PROFILE_TOOL_FILES` whitelist from `.upstream/profile`.
+- Do not publish the entire `AlexKris/profile` repository from this project.
+- Do not publish untracked profile files or operational/private material such as `tool/openclaw`, `tool/proxy/routes.toml`, `tool/proxy/dns.yml`, `xboard`, or generated runtime configs.
+- If adding a profile tool to the whitelist, verify it contains no real token, key, node, subscription, or private infrastructure data.
+- If `.upstream/profile` is absent locally, `scripts/build_site.py` should skip `/profile/...` output instead of failing.
 
 MITM:
 
@@ -179,6 +188,9 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-
 git -C .upstream/v2fly sparse-checkout set data
 ```
 
+Profile tool output is optional locally. Point `.upstream/profile` at a checkout
+of `AlexKris/profile` only when verifying `/profile/...` Pages output.
+
 Without `.upstream/`, local `build_rules.py` falls back to remote upstream fetches.
 `build_rules.py` requires these local CLIs:
 
@@ -204,6 +216,9 @@ For generated rules:
 python3 scripts/build_rules.py
 python3 scripts/build_site.py
 ```
+
+For profile tool publication changes, run `bash -n` on every whitelisted
+profile script before building the site.
 
 For MITM rules:
 

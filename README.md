@@ -28,10 +28,16 @@ https://alexkris-rules.pages.dev/anywhere/proxy.arrs
 https://alexkris-rules.pages.dev/surge/non-ip/proxy.conf
 https://alexkris-rules.pages.dev/mihomo/non-ip/proxy.mrs
 https://alexkris-rules.pages.dev/sing-box/non-ip/proxy.srs
+https://alexkris-rules.pages.dev/profile/tool/setup.sh
+https://alexkris-rules.pages.dev/profile/tool/proxy/heki.sh
 ```
 
 GitHub Raw URLs remain usable as a fallback mirror, but client profiles should
 prefer the Cloudflare Pages endpoint once deployment is verified.
+
+Profile tool scripts are published from a strict whitelist in the separate
+`AlexKris/profile` repository. The Pages build does not publish the whole
+profile repository or untracked local files.
 
 ## Rule Sets
 
@@ -363,6 +369,7 @@ GitHub Actions checks out upstream sources into `.upstream/` before building:
 ```text
 .upstream/skk/List
 .upstream/v2fly/data
+.upstream/profile
 ```
 
 Local builds prefer the same `.upstream/` paths when present and fall back to
@@ -375,6 +382,11 @@ git -C .upstream/skk sparse-checkout set List
 git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-list-community.git .upstream/v2fly
 git -C .upstream/v2fly sparse-checkout set data
 ```
+
+Profile tool scripts are optional for local site builds. If `.upstream/profile`
+is absent, `scripts/build_site.py` skips `/profile/...` output. To test the
+Profile tool output locally, point `.upstream/profile` at a checkout of
+`AlexKris/profile` before running the site build.
 
 Regenerate rule files manually:
 
@@ -389,7 +401,8 @@ same no-fallback upstream behavior as CI.
 
 Generated rules are also built by GitHub Actions once per day after upstream
 SKK scheduled builds. The workflow requires local upstream checkouts in CI and
-commits only when generated files change.
+commits only when generated files change. It also checks out a strict whitelist
+of profile tool scripts for Pages distribution under `/profile/`.
 
 ## Scope
 

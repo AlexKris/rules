@@ -22,6 +22,19 @@ PUBLISHED_DIRS = [
     "plain",
     "profiles",
 ]
+PROFILE_TOOL_FILES = [
+    Path("tool/setup.sh"),
+    Path("tool/check_setup.sh"),
+    Path("tool/check/check_ssh_config.sh"),
+    Path("tool/check/check_firewall.sh"),
+    Path("tool/proxy/soga.sh"),
+    Path("tool/proxy/heki.sh"),
+    Path("tool/proxy/snell.sh"),
+    Path("tool/proxy/ssrust.sh"),
+    Path("tool/ddns/ddns.sh"),
+    Path("tool/ddns/nf_check.sh"),
+]
+SITE_GROUPS = PUBLISHED_DIRS + ["profile"]
 EXCLUDED_OUTPUTS = [
     Path("anywhere/mitm/source"),
 ]
@@ -56,10 +69,32 @@ def copy_published_dirs() -> None:
             shutil.rmtree(path)
 
 
+def copy_profile_tools() -> None:
+    source_root = ROOT / ".upstream/profile"
+    if not source_root.exists():
+        print("Skipping profile tools: .upstream/profile not found")
+        return
+    if not source_root.is_dir():
+        raise NotADirectoryError("profile upstream is not a directory: .upstream/profile")
+
+    missing = [path.as_posix() for path in PROFILE_TOOL_FILES if not (source_root / path).is_file()]
+    if missing:
+        raise FileNotFoundError(f"missing profile tool files: {', '.join(missing)}")
+
+    output_root = SITE_DIR / "profile"
+    for relative_path in PROFILE_TOOL_FILES:
+        source = source_root / relative_path
+        destination = output_root / relative_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+
+
 def site_files() -> list[Path]:
     files = []
-    for directory in PUBLISHED_DIRS:
-        files.extend(path for path in (SITE_DIR / directory).rglob("*") if path.is_file())
+    for directory in SITE_GROUPS:
+        directory_path = SITE_DIR / directory
+        if directory_path.is_dir():
+            files.extend(path for path in directory_path.rglob("*") if path.is_file())
     return sorted(files, key=lambda path: path.relative_to(SITE_DIR).as_posix())
 
 
@@ -101,7 +136,7 @@ def write_index(files: list[Path], generated_at: str) -> None:
         grouped.setdefault(group, []).append(relative_path)
 
     sections = []
-    for group in PUBLISHED_DIRS:
+    for group in SITE_GROUPS:
         links = grouped.get(group, [])
         if not links:
             continue
@@ -145,6 +180,7 @@ def write_index(files: list[Path], generated_at: str) -> None:
 def main() -> int:
     generated_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     copy_published_dirs()
+    copy_profile_tools()
     files = site_files()
     write_headers()
     write_manifest(files, generated_at)

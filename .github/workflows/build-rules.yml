@@ -42,6 +42,25 @@ jobs:
             data
           persist-credentials: false
 
+      - name: Checkout profile tools
+        uses: actions/checkout@v7
+        with:
+          repository: AlexKris/profile
+          path: .upstream/profile
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            tool/setup.sh
+            tool/check_setup.sh
+            tool/check/check_ssh_config.sh
+            tool/check/check_firewall.sh
+            tool/proxy/soga.sh
+            tool/proxy/heki.sh
+            tool/proxy/snell.sh
+            tool/proxy/ssrust.sh
+            tool/ddns/ddns.sh
+            tool/ddns/nf_check.sh
+          persist-credentials: false
+
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
@@ -74,6 +93,26 @@ jobs:
           python3 -m py_compile scripts/build_rules.py
           python3 -m py_compile scripts/build_mitm.py
           python3 -m py_compile scripts/build_site.py
+
+      - name: Validate profile tool scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          profile_tools=(
+            tool/setup.sh
+            tool/check_setup.sh
+            tool/check/check_ssh_config.sh
+            tool/check/check_firewall.sh
+            tool/proxy/soga.sh
+            tool/proxy/heki.sh
+            tool/proxy/snell.sh
+            tool/proxy/ssrust.sh
+            tool/ddns/ddns.sh
+            tool/ddns/nf_check.sh
+          )
+          for file in "${profile_tools[@]}"; do
+            bash -n ".upstream/profile/$file"
+          done
 
       - name: Build generated rules
         env:
