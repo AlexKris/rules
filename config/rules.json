@@ -10,102 +10,151 @@
   "sources": {
     "cdn-domainset": {
       "kind": "domainset",
+      "paths": [
+        ".upstream/skk/List/domainset/cdn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf"
       ]
     },
     "cdn-non-ip": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/cdn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf"
       ]
     },
     "apple-cdn-domainset": {
       "kind": "domainset",
+      "paths": [
+        ".upstream/skk/List/domainset/apple_cdn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/apple_cdn.conf"
       ]
     },
     "apple-cdn-non-ip": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/apple_cdn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cdn.conf"
       ]
     },
     "apple-cn": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/apple_cn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cn.conf"
       ]
     },
     "apple-services": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/apple_services.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_services.conf"
       ]
     },
     "speedtest-domainset": {
       "kind": "domainset",
+      "paths": [
+        ".upstream/skk/List/domainset/speedtest.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/speedtest.conf"
       ]
     },
     "global": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/global.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/global.conf"
       ]
     },
     "download-domainset": {
       "kind": "domainset",
+      "paths": [
+        ".upstream/skk/List/domainset/download.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf"
       ]
     },
     "game-download-domainset": {
       "kind": "domainset",
+      "paths": [
+        ".upstream/skk/List/domainset/game-download.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/game-download.conf"
       ]
     },
     "download-non-ip": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/download.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/download.conf"
       ]
     },
     "domestic": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/domestic.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/domestic.conf"
       ]
     },
     "direct": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/direct.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/direct.conf"
       ]
     },
     "lan": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/lan.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/lan.conf"
       ]
     },
     "lan-ip-cidr": {
       "kind": "ip",
+      "paths": [
+        ".upstream/skk/List/ip/lan.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf"
       ]
     },
     "china-ip-cidr": {
       "kind": "ip",
+      "paths": [
+        ".upstream/skk/List/ip/china_ip.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/china_ip.conf"
       ]
     },
     "ai-v2fly": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "category-ai-!cn"
@@ -113,6 +162,7 @@
     },
     "google": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "google"
@@ -120,6 +170,7 @@
     },
     "cn-domain": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "geolocation-cn"
@@ -127,6 +178,7 @@
     },
     "not-cn-domain": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "geolocation-!cn"
@@ -134,60 +186,88 @@
     },
     "stream": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream.conf"
       ]
     },
     "stream-hk": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_hk.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_hk.conf"
       ]
     },
     "stream-tw": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_tw.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_tw.conf"
       ]
     },
     "stream-jp": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_jp.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_jp.conf"
       ]
     },
     "stream-us": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_us.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_us.conf"
       ]
     },
     "stream-kr": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_kr.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_kr.conf"
       ]
     },
     "stream-eu": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/stream_eu.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_eu.conf"
       ]
     },
     "telegram": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/telegram.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/telegram.conf"
       ]
     },
     "telegram-ip-cidr": {
       "kind": "ip",
+      "paths": [
+        ".upstream/skk/List/ip/telegram.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf"
       ]
     },
     "crypto-category": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "category-cryptocurrency"
@@ -195,6 +275,7 @@
     },
     "paypal": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "paypal"
@@ -202,6 +283,7 @@
     },
     "microsoft": {
       "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "microsoft"
@@ -209,6 +291,9 @@
     },
     "microsoft-cdn": {
       "kind": "non-ip",
+      "paths": [
+        ".upstream/skk/List/non_ip/microsoft_cdn.conf"
+      ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/microsoft_cdn.conf"
       ]

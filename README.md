@@ -13,6 +13,26 @@ Generated artifacts are based on the normalized rule model in
 observable normalized text artifacts; client-specific files are generated from
 the same rule model.
 
+## Distribution
+
+Recommended rule distribution endpoint:
+
+```text
+https://alexkris-rules.pages.dev/
+```
+
+Example URLs:
+
+```text
+https://alexkris-rules.pages.dev/anywhere/proxy.arrs
+https://alexkris-rules.pages.dev/surge/non-ip/proxy.conf
+https://alexkris-rules.pages.dev/mihomo/non-ip/proxy.mrs
+https://alexkris-rules.pages.dev/sing-box/non-ip/proxy.srs
+```
+
+GitHub Raw URLs remain usable as a fallback mirror, but client profiles should
+prefer the Cloudflare Pages endpoint once deployment is verified.
+
 ## Rule Sets
 
 ### Anywhere
@@ -338,15 +358,38 @@ the shared rule model.
 
 ## Build
 
+GitHub Actions checks out upstream sources into `.upstream/` before building:
+
+```text
+.upstream/skk/List
+.upstream/v2fly/data
+```
+
+Local builds prefer the same `.upstream/` paths when present and fall back to
+remote upstream URLs when they are absent. To reproduce the CI path locally:
+
+```sh
+mkdir -p .upstream
+git clone --depth 1 --filter=blob:none --sparse https://github.com/SukkaLab/ruleset.skk.moe.git .upstream/skk
+git -C .upstream/skk sparse-checkout set List
+git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-list-community.git .upstream/v2fly
+git -C .upstream/v2fly sparse-checkout set data
+```
+
 Regenerate rule files manually:
 
 ```sh
 python3 scripts/build_rules.py
 python3 scripts/build_mitm.py
+python3 scripts/build_site.py
 ```
 
+Use `RULES_REQUIRE_LOCAL_SOURCES=1 python3 scripts/build_rules.py` to force the
+same no-fallback upstream behavior as CI.
+
 Generated rules are also built by GitHub Actions once per day after upstream
-SKK scheduled builds. The workflow commits only when generated files change.
+SKK scheduled builds. The workflow requires local upstream checkouts in CI and
+commits only when generated files change.
 
 ## Scope
 

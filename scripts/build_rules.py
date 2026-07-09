@@ -7,6 +7,7 @@ import argparse
 import io
 import ipaddress
 import json
+import os
 import re
 import subprocess
 import sys
@@ -26,6 +27,7 @@ MAX_RULES_PER_SET = 100000
 V2FLY_DEFAULT_BASE_URL = "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data"
 V2FLY_ARCHIVE_URL = "https://github.com/v2fly/domain-list-community/archive/refs/heads/master.tar.gz"
 V2FLY_ARCHIVE_CACHE: dict[str, list[str]] | None = None
+REQUIRE_LOCAL_SOURCES = os.environ.get("RULES_REQUIRE_LOCAL_SOURCES") == "1"
 
 RULE_TYPE_TO_ARRS = {
     "IP-CIDR": 0,
@@ -170,6 +172,43 @@ def fetch_lines(url: str) -> list[str]:
         raise RuntimeError(f"failed to fetch {url}: {error}") from error
 
 
+def root_path(path: str) -> Path:
+    local_path = Path(path)
+    if local_path.is_absolute():
+        return local_path
+    return ROOT / local_path
+
+
+def read_local_lines(path: Path) -> list[str]:
+    return path.read_text(encoding="utf-8-sig", errors="replace").splitlines()
+
+
+def read_configured_lines(source_id: str, source_config: dict) -> list[str]:
+    paths = [root_path(path) for path in source_config.get("paths", [])]
+    existing_paths = [path for path in paths if path.is_file()]
+
+    if paths and len(existing_paths) == len(paths):
+        lines: list[str] = []
+        for path in paths:
+            lines.extend(read_local_lines(path))
+            lines.append("")
+        return lines
+
+    if existing_paths:
+        missing = ", ".join(str(path.relative_to(ROOT)) for path in paths if not path.is_file())
+        raise FileNotFoundError(f"{source_id} has incomplete local sources, missing: {missing}")
+
+    if REQUIRE_LOCAL_SOURCES:
+        missing = ", ".join(str(path.relative_to(ROOT)) for path in paths) if paths else "no paths configured"
+        raise FileNotFoundError(f"{source_id} requires local sources, missing: {missing}")
+
+    lines: list[str] = []
+    for url in source_config["urls"]:
+        lines.extend(fetch_lines(url))
+        lines.append("")
+    return lines
+
+
 def v2fly_data_url(base_url: str, list_name: str) -> str:
     return f"{base_url.rstrip('/')}/{quote(list_name, safe='!-._~/')}"
 
@@ -206,7 +245,27 @@ def load_v2fly_archive() -> dict[str, list[str]]:
     return data_files
 
 
-def read_v2fly_lines(base_url: str, list_name: str) -> list[str]:
+def v2fly_local_dir(source_config: dict) -> Path | None:
+    local_dir = source_config.get("local_dir")
+    if local_dir is None:
+        if REQUIRE_LOCAL_SOURCES:
+            raise FileNotFoundError("v2fly source requires local_dir")
+        return None
+
+    path = root_path(local_dir)
+    if path.is_dir():
+        return path
+    if REQUIRE_LOCAL_SOURCES:
+        raise FileNotFoundError(f"v2fly local_dir not found: {path.relative_to(ROOT)}")
+    return None
+
+
+def read_v2fly_lines(base_url: str, list_name: str, local_dir: Path | None) -> list[str]:
+    if local_dir is not None:
+        path = local_dir / list_name
+        if not path.is_file():
+            raise KeyError(f"v2fly list not found in local_dir: {path.relative_to(ROOT)}")
+        return read_local_lines(path)
     if base_url.rstrip("/") == V2FLY_DEFAULT_BASE_URL:
         data_files = load_v2fly_archive()
         if list_name not in data_files:
@@ -282,6 +341,7 @@ def v2fly_include_filter(expression: str) -> tuple[str, Callable[[Rule], bool]]:
 def parse_v2fly_list(
     list_name: str,
     base_url: str,
+    local_dir: Path | None,
     cache: dict[str, tuple[list[Rule], dict[str, int]]],
     stack: tuple[str, ...] = ()
 ) -> tuple[list[Rule], dict[str, int]]:
@@ -295,14 +355,14 @@ def parse_v2fly_list(
     skipped: dict[str, int] = {}
     seen: set[tuple[str, str, frozenset[str]]] = set()
 
-    for line in read_v2fly_lines(base_url, list_name):
+    for line in read_v2fly_lines(base_url, list_name, local_dir):
         cleaned = clean_line(line)
         if cleaned is None:
             continue
 
         if cleaned.startswith("include:"):
             target, matches = v2fly_include_filter(cleaned)
-            included_rules, included_skipped = parse_v2fly_list(target, base_url, cache, (*stack, list_name))
+            included_rules, included_skipped = parse_v2fly_list(target, base_url, local_dir, cache, (*stack, list_name))
             for skipped_type, count in included_skipped.items():
                 skipped[skipped_type] = skipped.get(skipped_type, 0) + count
             for rule in included_rules:
@@ -329,13 +389,14 @@ def parse_v2fly_list(
 
 def parse_v2fly_source(source_config: dict) -> tuple[list[Rule], dict[str, int]]:
     base_url = source_config.get("base_url", "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data")
+    local_dir = v2fly_local_dir(source_config)
     cache: dict[str, tuple[list[Rule], dict[str, int]]] = {}
     rules: list[Rule] = []
     skipped: dict[str, int] = {}
     seen: set[tuple[str, str]] = set()
 
     for list_name in source_config["lists"]:
-        parsed_rules, parsed_skipped = parse_v2fly_list(list_name, base_url, cache)
+        parsed_rules, parsed_skipped = parse_v2fly_list(list_name, base_url, local_dir, cache)
         for skipped_type, count in parsed_skipped.items():
             skipped[skipped_type] = skipped.get(skipped_type, 0) + count
         for rule in parsed_rules:
@@ -382,10 +443,7 @@ def load_source_rules(config: dict) -> tuple[dict[str, list[Rule]], dict[str, di
             continue
 
         default_type = "DOMAIN" if source_config.get("kind") == "domainset" else "DOMAIN-SUFFIX"
-        lines: list[str] = []
-        for url in source_config["urls"]:
-            lines.extend(fetch_lines(url))
-            lines.append("")
+        lines = read_configured_lines(source_id, source_config)
         rules, skipped = parse_lines(lines, default_type, source_marker_domains)
         loaded[source_id] = rules
         skipped_by_source[source_id] = skipped

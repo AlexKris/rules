@@ -13,7 +13,7 @@ Respond in Simplified Chinese by default when discussing this repository.
 Pipeline:
 
 ```text
-upstream URLs / explicit local rules in config/rules.json
+local upstream checkouts / upstream URLs / explicit local rules in config/rules.json
   -> scripts/build_rules.py parses, normalizes, deduplicates, applies explicit add/exclude patches
   -> plain text rule artifacts
   -> generated client artifacts
@@ -132,12 +132,20 @@ Plain:
 v2fly:
 
 - `kind: "v2fly"` sources read v2fly `data/*` files directly.
-- The default v2fly source is loaded from the GitHub source archive once per build, not fetched as many individual raw files.
+- When `local_dir` exists, v2fly sources are loaded from `.upstream/v2fly/data`.
+- Without local upstream checkout, the default v2fly source falls back to the GitHub source archive once per build, not many individual raw files.
 - `include:` is resolved recursively.
 - v2fly `google` includes YouTube upstream; profile ordering must keep Stream before Google when Google is a separate policy.
 - bare domains and `domain:` become `DOMAIN-SUFFIX`; `full:` becomes `DOMAIN`; `keyword:` becomes `DOMAIN-KEYWORD`.
 - `regexp:` is intentionally skipped and counted in generated headers.
 - v2fly attributes such as `@ads` and `@cn` are parsed for include filtering only and are not written to generated client files.
+
+Upstream sources:
+
+- GitHub Actions checks out `SukkaLab/ruleset.skk.moe` to `.upstream/skk` and `v2fly/domain-list-community` to `.upstream/v2fly`.
+- `build_rules.py` reads configured `paths` / `local_dir` first and falls back to remote URLs only when local upstreams are absent.
+- CI must run `RULES_REQUIRE_LOCAL_SOURCES=1 python3 scripts/build_rules.py` so missing `.upstream` checkouts fail instead of silently using Raw URLs.
+- `.upstream/` is local build state and must not be committed.
 
 MITM:
 
@@ -155,9 +163,24 @@ Run from the repository root:
 ```sh
 python3 scripts/build_rules.py
 python3 scripts/build_mitm.py
+python3 scripts/build_site.py
 ```
 
-`build_rules.py` requires network access and these local CLIs:
+Use `RULES_REQUIRE_LOCAL_SOURCES=1 python3 scripts/build_rules.py` when verifying
+the CI path locally.
+
+For a local build that matches CI, prepare upstream checkouts first:
+
+```sh
+mkdir -p .upstream
+git clone --depth 1 --filter=blob:none --sparse https://github.com/SukkaLab/ruleset.skk.moe.git .upstream/skk
+git -C .upstream/skk sparse-checkout set List
+git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-list-community.git .upstream/v2fly
+git -C .upstream/v2fly sparse-checkout set data
+```
+
+Without `.upstream/`, local `build_rules.py` falls back to remote upstream fetches.
+`build_rules.py` requires these local CLIs:
 
 ```sh
 mihomo
@@ -179,6 +202,7 @@ For generated rules:
 
 ```sh
 python3 scripts/build_rules.py
+python3 scripts/build_site.py
 ```
 
 For MITM rules:

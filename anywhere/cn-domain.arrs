@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7687
+# RULES: 7727
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -60,6 +60,7 @@ name = CN Domain
 2, mryys.cn
 2, mryys.com
 2, mysqil.com
+2, mystery0.vip
 2, pljzy.top
 2, runningcheese.com
 2, skywt.cn
@@ -274,6 +275,7 @@ name = CN Domain
 2, szlcsc.com
 2, zs-jlc.com
 2, zxhgroup.com
+2, listenai.com
 2, quecmall.cn
 2, quectel.com.cn
 2, iotronic.tech
@@ -1227,6 +1229,7 @@ name = CN Domain
 2, yihaikerry.net.cn
 2, luhua.cn
 2, shuanghui.net
+2, micun.com
 2, logger.qmai.cn
 2, tracking.mcdonalds.com.cn
 2, trackingprd.hwwt8.com
@@ -2253,6 +2256,7 @@ name = CN Domain
 2, taikanglife.com
 2, taikangzhijia.com
 2, tkhealthcare.com
+2, baicaf.com
 2, cc-pay.cn
 2, daikuan.com
 2, helipay.com
@@ -3275,6 +3279,7 @@ name = CN Domain
 2, burningvocabulary.com
 2, centuryenglish.com
 2, cugbonline.cn
+2, dcshfu.com
 2, dearedu.com
 2, dgjy.net
 2, dict.cn
@@ -3776,6 +3781,7 @@ name = CN Domain
 2, pan.baidu.com
 2, pan.quark.cn
 2, pan.xunlei.com
+2, share123.top
 2, weiyun.com
 2, yun.139.com
 2, yunpan.com
@@ -4420,6 +4426,30 @@ name = CN Domain
 2, eufycn.com
 2, eufymake.com.cn
 2, soundcore.com.cn
+2, aux-home.com
+2, auxauto.com.cn
+2, auxcss.com
+2, auxgroup.com
+2, auxshop.cn
+2, auxshop.com
+2, auxsmart.com.cn
+2, auxsol.com
+2, auxsolar.com.cn
+2, auxsolcloud.com
+2, auxtelecom.com
+2, auxwy.com
+2, auxyl.com
+2, mzgjbj.com
+2, mzyyfck.com
+2, mzyygb.com
+2, mzyygk.com
+2, mzyyzl.com
+2, nbmzyl.com
+2, nbmzyy.com
+2, nbyzfeyy.com
+2, sanxing.com
+2, shuyifuwu.com.cn
+2, solarcloud.top
 2, zuoyebang.cc
 2, zuoyebang.com
 2, zybang.com
@@ -6614,6 +6644,9 @@ name = CN Domain
 2, xsbapp.cn
 2, juziwulian.com
 2, kaadas.com
+2, lulian.cn
+2, ugnas.cloud
+2, ugnas.com
 2, onedns.net
 2, shellpub.com
 2, threatbook.cn
@@ -7081,6 +7114,7 @@ name = CN Domain
 2, gdrc.com
 2, geektool.top
 2, gezida.com
+2, gifpay.com
 2, globrand.com
 2, gm86.com
 2, gmz88.com
@@ -7141,6 +7175,7 @@ name = CN Domain
 2, hongyuanqh.com
 2, houdao.com
 2, houyuantuan.com
+2, hprtupgrade.com
 2, hteacher.net
 2, huashengdaili.com
 2, huize.com
@@ -7163,8 +7198,10 @@ name = CN Domain
 2, imacos.top
 2, imgcdc.com
 2, imooc.com
+2, indeedpower.com
 2, indienova.com
 2, infini-fantasy.com
+2, iposl.com
 2, iranshao.com
 2, irs01.com
 2, istoreos.com
@@ -7458,6 +7495,8 @@ name = CN Domain
 2, taoche.com
 2, te5.com
 2, tenxcloud.com
+2, tggfl.com
+2, thispx.com
 2, thmnet.com
 2, tianlailive.com
 2, tianlala.com
@@ -7469,6 +7508,7 @@ name = CN Domain
 2, titanar.com
 2, tjjt360.com
 2, tmcdn.net
+2, tmwanba.com
 2, tobosu.com
 2, tom.com
 2, tongdun.net

@@ -23,6 +23,24 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Checkout SKK ruleset
+        uses: actions/checkout@v7
+        with:
+          repository: SukkaLab/ruleset.skk.moe
+          path: .upstream/skk
+          sparse-checkout: |
+            List
+          persist-credentials: false
+
+      - name: Checkout v2fly domain list
+        uses: actions/checkout@v7
+        with:
+          repository: v2fly/domain-list-community
+          path: .upstream/v2fly
+          sparse-checkout: |
+            data
+          persist-credentials: false
+
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
@@ -54,8 +72,11 @@ jobs:
           python3 -m json.tool config/rules.json >/tmp/rules_config.json
           python3 -m py_compile scripts/build_rules.py
           python3 -m py_compile scripts/build_mitm.py
+          python3 -m py_compile scripts/build_site.py
 
       - name: Build generated rules
+        env:
+          RULES_REQUIRE_LOCAL_SOURCES: "1"
         run: |
           python3 scripts/build_rules.py
           python3 scripts/build_mitm.py
@@ -77,6 +98,7 @@ jobs:
           from pathlib import Path
 
           lines = ["rule-providers:"]
+          providers = []
           for directory, behavior in [
               ("mihomo/domainset", "domain"),
               ("mihomo/non-ip", "domain"),
@@ -84,6 +106,7 @@ jobs:
           ]:
               for path in sorted(Path(directory).glob("*.mrs")):
                   name = path.with_suffix("").as_posix().replace("/", "-")
+                  providers.append(name)
                   lines.extend([
                       f"  {name}:",
                       "    type: file",
@@ -91,7 +114,19 @@ jobs:
                       "    format: mrs",
                       f"    path: ./{path.as_posix()}",
                   ])
-          lines.append("rules: []")
+          for path in sorted(Path("mihomo/classical").glob("*.list")):
+              name = path.with_suffix("").as_posix().replace("/", "-")
+              providers.append(name)
+              lines.extend([
+                  f"  {name}:",
+                  "    type: file",
+                  "    behavior: classical",
+                  "    format: text",
+                  f"    path: ./{path.as_posix()}",
+              ])
+          lines.append("rules:")
+          lines.extend(f"  - RULE-SET,{name},DIRECT" for name in providers)
+          lines.append("  - MATCH,DIRECT")
           Path("/tmp/mihomo-mrs-check.yaml").write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
           mihomo -d "$PWD" -t -f /tmp/mihomo-mrs-check.yaml
@@ -113,3 +148,14 @@ jobs:
           git add -A
           git commit -m "chore: update generated rules"
           git push
+
+      - name: Build Pages site
+        run: python3 scripts/build_site.py
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
