@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4562
+# RULES: 4563
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -4060,6 +4060,7 @@ name = CDN
 2, gibs-c.earthdata.nasa.gov
 2, global-assets.fitch.group
 2, gn-web-assets.api.bbc.com
+2, hls-svod.itunes.apple.com
 2, hub-assets.displaycal.net
 2, hv-monsterdb-data.skk.moe
 2, im.np-payment-gateway.com

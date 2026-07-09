@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5772
+# RULES: 5773
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -4061,6 +4061,7 @@ name = Proxy
 2, gibs-c.earthdata.nasa.gov
 2, global-assets.fitch.group
 2, gn-web-assets.api.bbc.com
+2, hls-svod.itunes.apple.com
 2, hub-assets.displaycal.net
 2, hv-monsterdb-data.skk.moe
 2, im.np-payment-gateway.com
