@@ -1,7 +1,7 @@
 # NAME: Crypto
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Cryptocurrency services routing overlay based on v2fly domain-list-community
-# RULES: 223
+# RULES: 232
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-cryptocurrency
@@ -9,6 +9,9 @@
 name = Crypto
 2, asproex.com
 2, asproexapi.com
+2, bestchange.com
+2, bestchange.net
+2, bestchange.ru
 2, binance.cc
 2, binance.charity
 2, binance.cloud
@@ -181,6 +184,7 @@ name = Crypto
 2, curve.fi
 2, cyberx.com
 2, debank.com
+2, delets.online
 2, dogecoin.com
 2, drpc.org
 2, dydx.exchange
@@ -208,11 +212,16 @@ name = Crypto
 2, mytokenapi.com
 2, nodereal.io
 2, oasis.io
+2, onemoment.cc
 2, onfinality.io
 2, opensea.io
 2, osl.com
 2, paxful.com
+2, payget.pro
+2, platov.co
 2, polymarket.com
+2, ramon.cash
+2, ramon.money
 2, ripple.com
 2, rsk.co
 2, satoshilabs.com

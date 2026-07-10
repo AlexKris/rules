@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7727
+# RULES: 7728
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3348,6 +3348,7 @@ name = CN Domain
 2, lingkou.cn
 2, 51nod.com
 2, acwing.com
+2, adacpp.com
 2, hihocoder.com
 2, jisuanke.com
 2, kidsccshow.com
