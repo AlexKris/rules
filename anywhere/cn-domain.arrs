@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7728
+# RULES: 7783
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -533,6 +533,10 @@ name = CN Domain
 2, astral-vector.com
 2, 66rpg.com
 2, cgyouxi.com
+2, duoyi.com
+2, duoyigroup.cn
+2, duoyiwangluo.com
+2, ygduoyi.com
 2, end-api.shallow.ink
 2, end.shallow.ink
 2, feihuo.com
@@ -540,6 +544,8 @@ name = CN Domain
 2, fxt365.com
 2, gameabc.com
 2, gamemei.com
+2, happyelements.com
+2, leyuansu.com
 2, heavenlywind.cc
 2, laohu.com
 2, wanmei.com
@@ -623,6 +629,7 @@ name = CN Domain
 2, biligo.com
 2, huasheng.cn
 2, im9.com
+2, updream.cn
 2, yo9.com
 2, ciweimao.com
 2, hbooker.com
@@ -1493,6 +1500,7 @@ name = CN Domain
 2, sohucs.com
 2, 56.com
 2, 56img.com
+2, kuaizhan.com
 2, adnet.sohu.com
 2, ads.sohu.com
 2, adv-sv-show.focus.cn
@@ -1557,13 +1565,20 @@ name = CN Domain
 2, ce.cn
 2, cfgw.net.cn
 2, cheaa.com
+2, chenshipin.com
+2, xxcb.cn
 2, chinaaet.com
 2, chinabyte.com
 2, tianjimedia.com
 2, yesky.com
 2, chinadevelopment.com.cn
+2, chuanbaoguancha.cn
+2, scol.com.cn
+2, scdaily.cn
 2, cnfol.com
 2, cnfolimg.com
+2, cnhubei.com
+2, hubeidaily.net
 2, cnr.cn
 2, cnstock.com
 2, cnwest.com
@@ -1604,6 +1619,7 @@ name = CN Domain
 2, expreview.com
 2, fjsen.com
 2, freebuf.com
+2, fromgeek.com
 2, geekbang.org
 2, infoq.cn
 2, geekpark.net
@@ -1704,6 +1720,7 @@ name = CN Domain
 2, qingdaonews.com
 2, qianzhan.com
 2, qingdaochina.org
+2, qzwb.com
 2, rednet.cn
 2, scgchc.com
 2, sctv-tf.com
@@ -1712,6 +1729,8 @@ name = CN Domain
 2, secrss.com
 2, sfccn.com
 2, shangyexinzhi.com
+2, shedunews.net
+2, snxw.com
 2, solidot.org
 2, sootoo.com
 2, southcn.com
@@ -2555,10 +2574,13 @@ name = CN Domain
 2, pkoplink.com
 2, suufun.com
 2, suu-fun.com
+2, yisu.com
 2, chinamcloud.com
 2, cjyun.org
 2, cnwza.cn
 2, govwza.cn
+2, newaircloud.com
+2, quklive.com
 2, rainyun.com
 2, szhdy.com
 2, 300.cn
@@ -3019,6 +3041,8 @@ name = CN Domain
 2, kujiale.com
 2, intime.com.cn
 2, linkheer.com
+2, lawtime.cn
+2, lawtimeimg.com
 2, manmanbuy.com
 2, maxonesoft.com
 2, meiwulist.com
@@ -3111,6 +3135,10 @@ name = CN Domain
 2, haodf.com
 2, hdfimg.com
 2, jsehealth.com
+2, 39yst.com
+2, mfk.com
+2, miaoshou.net
+2, miaoshoucdn.com
 2, mingxuan.store
 2, wenwo.com
 2, yayi360.com
@@ -3168,6 +3196,9 @@ name = CN Domain
 2, ccrgt.com
 2, bmac.com.cn
 2, chelaile.net.cn
+2, 133.cn
+2, gtgjtrip.com
+2, rsscc.cn
 2, kuajing84.com
 2, mygolbs.com
 2, ningtingche.com
@@ -3575,6 +3606,8 @@ name = CN Domain
 2, ai.zhaomi.cn
 2, miaoyanai.com
 2, faxingbao.com
+2, kechuangai.com
+2, kling-ai.com
 2, klingai.com
 2, meta.law
 2, metaso.cn
@@ -3628,7 +3661,6 @@ name = CN Domain
 2, goldhoe.com
 2, haohaodoc.com
 2, jinchutou.com
-2, keniu.com
 2, lazyer.net
 2, renrendoc.com
 2, safewk.com
@@ -3830,6 +3862,10 @@ name = CN Domain
 2, chinaz.net
 2, caiyunai.com
 2, caiyunapp.com
+2, caiyuncdn.com
+2, colorfulclouds.com
+2, colorfulclouds.net
+2, xiaomengai.com
 2, allflow.cn
 2, flowus.cn
 2, geetest.com
@@ -3881,8 +3917,13 @@ name = CN Domain
 2, whee.com
 2, wink.cn
 2, zcool.com.cn
+2, airnut.com
 2, moji.com
+2, moji001.com
+2, moji002.com
+2, mojicdn.com
 2, mojichina.com
+2, ad.api.moji.com
 2, moonvy.com
 2, moonvy.cool
 2, newcoder.com
@@ -4030,6 +4071,8 @@ name = CN Domain
 2, zaih.com
 2, zhaopin.cn
 2, zhaopin.com
+2, zmtqsh.cn
+2, zmtqsh.com
 2, ewdcloud.com
 2, webterren.com
 2, chinapost.com.cn
@@ -5110,7 +5153,6 @@ name = CN Domain
 2, iluckysf.net
 2, itmanager.club
 2, itoutiaoliving.com
-2, jianying.com
 2, jokecommunity.cn
 2, jokecommunity.com
 2, jokecommunity.net
@@ -5215,6 +5257,11 @@ name = CN Domain
 2, zjfcdn.com
 2, zjgslb.com
 2, zlinkurl.cn
+2, jianying.com
+2, jimeng.com
+2, vlabimg.com
+2, vlabstatic.com
+2, vlabvod.com
 2, toutiao.com
 2, toutiaoapi.com
 2, toutiaocdn.com
@@ -5683,12 +5730,15 @@ name = CN Domain
 2, guanggaotongapp.cn
 2, jutongbao.online
 2, jutongbao.top
+2, cheetahfun.com
 2, cmcm.com
 2, cmcmcdn.com
 2, liebao.cn
+2, drivergenius.com
 2, duba.com
 2, duba.net
 2, ijinshan.com
+2, keniu.com
 2, wps.cn
 2, wps.com
 2, wpscdn.cn
@@ -6632,10 +6682,18 @@ name = CN Domain
 2, ishijue.com
 2, vcg.com
 2, vcgapi.com
+2, cvte.com
+2, maxhub.com
+2, seewo.com
 2, fnnas.com
 2, fnnas.net
 2, fnos.net
 2, gugudata.com
+2, 2345.cc
+2, 2345.cn
+2, 2345.com
+2, 2345cdn.net
+2, hao774.com
 2, huaban.com
 2, huabanimg.com
 2, dancf.com
@@ -6696,6 +6754,7 @@ name = CN Domain
 2, chinatelecom.com.cn
 2, chntel.com
 2, dlife.cn
+2, play.cn
 2, vnet.cn
 2, chinatowercom.cn
 2, china-tower.com
@@ -6793,7 +6852,6 @@ name = CN Domain
 2, 1zhe.com
 2, 2265.com
 2, 2288.org
-2, 2345.com
 2, 258.com
 2, 263.net
 2, 289.com
@@ -7060,7 +7118,6 @@ name = CN Domain
 2, downxia.com
 2, downyi.com
 2, dreams-travel.com
-2, drivergenius.com
 2, duomai.com
 2, duoshuo.com
 2, duote.com
@@ -7266,7 +7323,6 @@ name = CN Domain
 2, kuaaa.com
 2, kuaihou.com
 2, kuaiji.com
-2, kuaizhan.com
 2, kuqin.com
 2, kuyiso.com
 2, lady8844.com
@@ -7647,7 +7703,6 @@ name = CN Domain
 2, yinzhaowang.com
 2, yiqifa.com
 2, yiqifa.org
-2, yisu.com
 2, yitaifang.com
 2, yiwan.com
 2, yixi.tv
