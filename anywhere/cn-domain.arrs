@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7783
+# RULES: 7785
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -2278,6 +2278,7 @@ name = CN Domain
 2, baicaf.com
 2, cc-pay.cn
 2, daikuan.com
+2, dulupay.com
 2, helipay.com
 2, hsqh.net
 2, iboxpay.com
@@ -3620,6 +3621,7 @@ name = CN Domain
 2, safeskill.cn
 2, zhiexa.com
 2, linka2a.net
+2, yzsgo.com
 2, asklink.com
 2, easytier.cn
 2, feihengip.com
