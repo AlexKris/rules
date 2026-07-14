@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7785
+# RULES: 7793
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -214,6 +214,7 @@ name = CN Domain
 2, php.cn
 2, pingcode.com
 2, tipdm.org
+2, weboss.hk
 2, zuidaima.com
 2, analog.com
 2, arrow.cn
@@ -1144,6 +1145,12 @@ name = CN Domain
 2, mtime.com
 2, pearvideo.com
 2, pipi.cn
+2, rrmj.plus
+2, rrsp.app
+2, rrsp.com.cn
+2, qwapp.top
+2, qwdjapp.com
+2, yichengwlkj.com
 2, sfacg.com
 2, shuhai.com
 2, tadu.com
@@ -3323,8 +3330,10 @@ name = CN Domain
 2, zggqzp.com
 2, zgjsks.com
 2, zgsydw.com
+2, gaojidata.com
 2, gk100.com
 2, guojibk.com
+2, gzasc.com
 2, huatu.com
 2, sydw8.com
 2, ictbda.cn
@@ -7481,7 +7490,6 @@ name = CN Domain
 2, qugame.com
 2, qunjielong.com
 2, rockyenglish.com
-2, rrmj.plus
 2, rtbasia.com
 2, ruan8.com
 2, ruiwen.com

@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1962
+# RULES: 1972
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -898,7 +898,9 @@ name = Download
 2, apt.tetaneutral.net
 2, artifacts.nixos.org
 2, cache.agilebits.com
+2, cdn-fi-1.comaps.app
 2, cdn-patch.swtor.com
+2, cdn-us-1.comaps.app
 2, cdn.evolution-x.org
 2, cdn.organicmaps.app
 2, cesium.di.uminho.pt
@@ -1022,6 +1024,7 @@ name = Download
 2, release.runcloud.io
 2, replicate.npmjs.com
 2, repo.extreme-ix.org
+2, s3-website.cloud.ru
 2, s3.fr-par.scw.cloud
 2, s3.nl-ams.scw.cloud
 2, s3.pl-waw.scw.cloud
@@ -1054,10 +1057,12 @@ name = Download
 2, assets1.xboxlive.com
 2, assets2.xboxlive.com
 2, cdn-builds.paw.cloud
+2, cdn-us-2.comaps.tech
 2, cdn.repo.cloudeka.id
 2, charts.verdaccio.org
 2, circle-artifacts.com
 2, cloud.daporkchop.net
+2, comaps-it1.unfoxo.it
 2, cpan.cpantesters.org
 2, cpan.excellmedia.net
 2, ctan.tetaneutral.net
@@ -1288,6 +1293,7 @@ name = Download
 2, ir.ubuntu.sindad.cloud
 2, launchpadlibrarian.net
 2, linux-mirrors.fnal.gov
+2, mapgen-fi-1.comaps.app
 2, meta.prismlauncher.org
 2, mirror.ams.macarne.com
 2, mirror.as.kamatera.com
@@ -1356,6 +1362,9 @@ name = Download
 2, bigfiles.virustotal.com
 2, cas-bridge.xethub.hf.co
 2, cdn-images.orbstack.dev
+2, cdn-nl1.organicmaps.app
+2, cdn-uk1.organicmaps.app
+2, comaps.openstreetmap.fr
 2, ctldl.windowsupdate.com
 2, debian.ccns.ncku.edu.tw
 2, debian.netforce.hosting
@@ -1526,6 +1535,7 @@ name = Download
 2, updates.bravesoftware.com
 2, blizzard.gcdn.cloudn.co.kr
 2, blzddistkr1-a.akamaihd.net
+2, comaps.firewall-gateway.de
 2, componentupdater.brave.com
 2, cos.ap-mumbai.myqcloud.com
 2, debian-mirror.sakura.ne.jp
