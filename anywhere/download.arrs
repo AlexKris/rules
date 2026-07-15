@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1972
+# RULES: 1964
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -160,7 +160,6 @@ name = Download
 2, apache.uib.no
 2, bn.d.miui.com
 2, cdn.fwupd.org
-2, centos.nic.cz
 2, cpan.inode.at
 2, cpan.pair.com
 2, cpan.rinet.ru
@@ -207,7 +206,6 @@ name = Download
 2, kambing.uu.sg
 2, kebo.vlsm.org
 2, linorg.usp.br
-2, lug.mines.edu
 2, mirror.ati.tn
 2, mirror.dkm.cz
 2, mirror.dst.ca
@@ -376,7 +374,6 @@ name = Download
 2, ftp.jaist.ac.jp
 2, ftp.kaist.ac.kr
 2, ftp.kddilabs.jp
-2, ftp.ludd.ltu.se
 2, ftp.rpmfind.net
 2, ftp.rz.tu-bs.de
 2, ftp.stw-bonn.de
@@ -537,7 +534,6 @@ name = Download
 2, mirror.ionos.com
 2, mirror.it.ubc.ca
 2, mirror.kakao.com
-2, mirror.kernel.ir
 2, mirror.kku.ac.th
 2, mirror.lagoon.nc
 2, mirror.limda.net
@@ -557,6 +553,7 @@ name = Download
 2, mirror.ufscar.br
 2, mirror.veesp.com
 2, mirror.yandex.ru
+2, mirror1.hcgen.de
 2, mirror1.ku.ac.th
 2, mirrors.asnet.am
 2, mirrors.blix.com
@@ -682,7 +679,6 @@ name = Download
 2, mcr.microsoft.com
 2, mirror.0x626b.com
 2, mirror.23media.de
-2, mirror.battern.eu
 2, mirror.bg.host.ag
 2, mirror.chmuri.net
 2, mirror.cs.jmu.edu
@@ -697,7 +693,6 @@ name = Download
 2, mirror.hostnet.nl
 2, mirror.insacom.cl
 2, mirror.its-tps.fr
-2, mirror.its.dal.ca
 2, mirror.kkg.berlin
 2, mirror.koddos.net
 2, mirror.krfoss.org
@@ -1078,7 +1073,6 @@ name = Download
 2, docker.cloudsmith.io
 2, download.amelabs.net
 2, download.anydesk.com
-2, download.fosshub.com
 2, download.maxmind.com
 2, download.mersenne.ca
 2, download.mozilla.org
@@ -1172,7 +1166,6 @@ name = Download
 2, www.gtlib.gatech.edu
 2, blob.core.windows.net
 2, cache.pack.google.com
-2, cdn-ota.azureedge.net
 2, cloudflare.docker.com
 2, cloudflaremirrors.com
 2, cloudflarestorage.com
@@ -1407,7 +1400,6 @@ name = Download
 2, mirror.primelink.net.id
 2, mirror.tw.ossplanet.net
 2, mirror.us.oneandone.net
-2, mirror1.hs-esslingen.de
 2, mirrors.arpnetworks.com
 2, mirrors.binaryracks.com
 2, mirrors.concertpass.com
