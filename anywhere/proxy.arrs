@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5778
+# RULES: 5779
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -650,6 +650,7 @@ name = Proxy
 2, corsproxy.io
 2, crossbell.io
 2, css.4jpg.top
+2, data.peer.as
 2, david-dm.org
 2, dditsadn.com
 2, dditscdn.com

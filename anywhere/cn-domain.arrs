@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7793
+# RULES: 7795
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -4003,6 +4003,7 @@ name = CN Domain
 2, 7moor-fs1.com
 2, 7moor.com
 2, air-matters.com
+2, api.blipsandchitz.me
 2, alookweb.com
 2, anixplayer.net
 2, antutu.com
@@ -7801,3 +7802,4 @@ name = CN Domain
 2, vhengdata.com
 2, wanji.net.cn
 2, yebinnet.com
+2, hrsecn.com
