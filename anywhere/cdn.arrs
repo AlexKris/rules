@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4569
+# RULES: 4571
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -285,6 +285,7 @@ name = CDN
 2, imagee.top
 2, imagef.top
 2, imageg.top
+2, img.aso.fr
 2, img.gmo.jp
 2, img.reg.ru
 2, img.xjh.me
@@ -1812,6 +1813,7 @@ name = CDN
 2, cdn.roboflow.com
 2, cdn.roseperl.com
 2, cdn.scaleflex.it
+2, cdn.seedance2.ai
 2, cdn.signalfx.com
 2, cdn.simplesat.io
 2, cdn.skymavis.com
