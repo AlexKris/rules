@@ -1862,6 +1862,7 @@ DOMAIN,speedtest.pentanet.com.au
 DOMAIN,speedtest.pimcommcorp.com
 DOMAIN,speedtest.plasmanodes.com
 DOMAIN,speedtest.powernet.com.ru
+DOMAIN,speedtest.puraknet.com.br
 DOMAIN,speedtest.rajeshcable.com
 DOMAIN,speedtest.rtm.t-mobile.nl
 DOMAIN,speedtest.samparkinfo.com

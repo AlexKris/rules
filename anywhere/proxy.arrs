@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5781
+# RULES: 5782
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -2514,6 +2514,7 @@ name = Proxy
 2, cdni.iconscout.com
 2, cdnstatic.w1mp.com
 2, cms-cdn.linear.app
+2, code.trygravity.ai
 2, colliderimages.com
 2, content.arduino.cc
 2, content.gapinc.com
