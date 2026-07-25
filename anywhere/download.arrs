@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1964
+# RULES: 1965
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -725,6 +725,7 @@ name = Download
 2, mirrors.ucr.ac.cr
 2, mirrorservice.org
 2, mvnrepository.com
+2, omtapp.garmin.com
 2, opfiles.b-cdn.net
 2, ota.googlezip.net
 2, packages.sury.org

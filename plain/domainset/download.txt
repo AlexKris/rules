@@ -716,6 +716,7 @@ DOMAIN,mirrors.sonic.net
 DOMAIN,mirrors.ucr.ac.cr
 DOMAIN-SUFFIX,mirrorservice.org
 DOMAIN-SUFFIX,mvnrepository.com
+DOMAIN,omtapp.garmin.com
 DOMAIN,opfiles.b-cdn.net
 DOMAIN,ota.googlezip.net
 DOMAIN,packages.sury.org
