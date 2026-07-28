@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7860
+# RULES: 7861
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3450,6 +3450,7 @@ name = CN Domain
 2, rqnoj.cn
 2, uoj.ac
 2, vijos.org
+2, xmoj.tech
 2, csdl.ac.cn
 2, iscas.ac.cn
 2, las.ac.cn

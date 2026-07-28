@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 169
+# RULES: 170
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -127,6 +127,7 @@ name = AI
 2, windsurf.com
 2, grok.com
 2, grok.x.com
+2, grokipedia.com
 2, x.ai
 2, youmind.ai
 2, youmind.com
