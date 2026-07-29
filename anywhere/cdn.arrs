@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4575
+# RULES: 4583
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -1909,6 +1909,10 @@ name = CDN
 2, img.jsdelivr.com
 2, img.kbhgames.com
 2, img.moviefap.com
+2, img.novipnoad.ca
+2, img.novipnoad.cc
+2, img.novipnoad.uk
+2, img.novipnoad.us
 2, img.olympics.com
 2, img.sooplive.com
 2, img.sparemin.com
@@ -2274,6 +2278,9 @@ name = CDN
 2, images.vexels.com
 2, img.haiwaikan.com
 2, img.imoutomoe.net
+2, img.novipnoad.com
+2, img.novipnoad.net
+2, img.novipnoad.xyz
 2, img.picacomic.com
 2, img.riskified.com
 2, img2.gelbooru.com
@@ -2985,6 +2992,7 @@ name = CDN
 2, static.euronews.com
 2, static.formula1.com
 2, static.getbutton.io
+2, static.giffgaff.com
 2, static.gigabyte.com
 2, static.goaffpro.com
 2, static.mendeley.com

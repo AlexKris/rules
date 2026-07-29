@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7861
+# RULES: 7862
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3568,6 +3568,7 @@ name = CN Domain
 2, guoxuedashi.com
 2, guoxuemi.com
 2, kepuchina.cn
+2, lubiao.wiki
 2, nlc.cn
 2, sckg.com
 2, wzlib.cn
