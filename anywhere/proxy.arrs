@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5796
+# RULES: 5797
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -4450,6 +4450,7 @@ name = Proxy
 2, cdn.playersupport.riotgames.com
 2, cdn.techcommunity.microsoft.com
 2, clientmetrics-pa.googleapis.com
+2, community-cdn.openstreetmap.org
 2, external-content.duckduckgo.com
 2, files.mastodon.ktachibana.party
 2, hhhhhhome86227170.wordpress.com

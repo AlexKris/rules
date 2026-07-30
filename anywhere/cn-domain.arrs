@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 7862
+# RULES: 7912
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -865,6 +865,16 @@ name = CN Domain
 2, lizhiinc.com
 2, lz310.com
 2, lzpipi.com
+2, 1kkk.com
+2, cdndm5.com
+2, dm5.cn
+2, dm5.com
+2, dm9.com
+2, gmanhua.com
+2, hkmanga.com
+2, manben.com
+2, manbenapi.com
+2, manhuaren.com
 2, pplive.cn
 2, pplive.com
 2, pptv.com
@@ -1016,12 +1026,12 @@ name = CN Domain
 2, podcast.xyz
 2, 9xsecndns.cn
 2, kumiao.com
-2, mmstat.com
 2, soku.com
 2, tudou.com
 2, ykimg.com
 2, youku.com
 2, youkuhonor.com
+2, ykimg.alicdn.com
 2, ad.api.3g.youku.com
 2, ad.api.mobile.youku.com
 2, ad.mobile.youku.com
@@ -1449,6 +1459,7 @@ name = CN Domain
 2, cntv.cn
 2, cntv.com.cn
 2, cntvwb.cn
+2, cri.cn
 2, gjgbdszt.cn
 2, gjgbdszt.com.cn
 2, gjgbdszt.net.cn
@@ -1591,6 +1602,7 @@ name = CN Domain
 2, cankaoxiaoxi.com
 2, ckxx.net
 2, cbinews.com
+2, ccidcom.com
 2, ce.cn
 2, cfgw.net.cn
 2, cheaa.com
@@ -1623,6 +1635,7 @@ name = CN Domain
 2, ctdsb.net
 2, ctdsb.clouddiffuse.xyz
 2, ctoutiao.com
+2, cww.net.cn
 2, cyol.com
 2, cyol.net
 2, cyzone.cn
@@ -1647,6 +1660,8 @@ name = CN Domain
 2, eastday.com
 2, ebrun.com
 2, eeo.com.cn
+2, egsea.com
+2, stcn.com
 2, evolife.cn
 2, expreview.com
 2, fjsen.com
@@ -1661,6 +1676,9 @@ name = CN Domain
 2, guangmingdaily.cn
 2, guancha.cn
 2, guigu.org
+2, gxnews.com.cn
+2, gxxw.com
+2, gxrb.com.cn
 2, gxtv.cn
 2, gxxmt.com
 2, liangtv.cn
@@ -1703,6 +1721,8 @@ name = CN Domain
 2, wallstreetcn.com
 2, jin10.com
 2, jfdaily.com
+2, jfdaily.com.cn
+2, shobserver.cn
 2, shobserver.com
 2, jinantimes.com.cn
 2, jiqizhixin.com
@@ -1757,6 +1777,7 @@ name = CN Domain
 2, qingdaonews.com
 2, qianzhan.com
 2, qingdaochina.org
+2, qstheory.cn
 2, qzwb.com
 2, rednet.cn
 2, scgchc.com
@@ -1776,7 +1797,6 @@ name = CN Domain
 2, ssajax.cn
 2, ssimg.cn
 2, stockstar.com
-2, stcn.com
 2, szhk.com
 2, sznews.com
 2, szpgm.com
@@ -1796,6 +1816,7 @@ name = CN Domain
 2, xinmin.cn
 2, xinminweekly.com.cn
 2, xkb.com.cn
+2, xuexi.cn
 2, ycwb.com
 2, yicai.com
 2, yunnan.cn
@@ -2332,6 +2353,8 @@ name = CN Domain
 2, rong360.com
 2, pospal.cn
 2, shfft.com
+2, shouqianba.com
+2, wosaimg.com
 2, bsclink.cn
 2, qingcdn.com
 2, trpcdn.net
@@ -2629,6 +2652,8 @@ name = CN Domain
 2, newaircloud.com
 2, quklive.com
 2, rainyun.com
+2, rongcloud.cn
+2, ronghub.com
 2, szhdy.com
 2, 300.cn
 2, thefastfile.com
@@ -3048,9 +3073,13 @@ name = CN Domain
 2, vancl.com
 2, vanclimg.com
 2, vcimg.com
+2, daogou.ai
+2, koudaitong.com
+2, quntuantuan.cn
+2, xinlingshou.com
 2, youzan.com
-2, yzcdn.cn
 2, youzanyun.com
+2, yzcdn.cn
 2, ziroom.com
 2, ziroomapartment.com
 2, 51selling.com
@@ -3102,6 +3131,8 @@ name = CN Domain
 2, qyer.com
 2, qyerstatic.com
 2, ruseer.com
+2, 51sole.com
+2, solepic.com
 2, to8to.com
 2, tuniu.com
 2, tuniu.net
@@ -3183,6 +3214,8 @@ name = CN Domain
 2, dxy.cn
 2, dxycdn.com
 2, boohee.com
+2, chunyu.mobi
+2, chunyuyisheng.com
 2, haodf.com
 2, hdfimg.com
 2, jsehealth.com
@@ -3196,6 +3229,7 @@ name = CN Domain
 2, youlai.cn
 2, 12315.cn
 2, 12321.cn
+2, 12371.cn
 2, 12377.cn
 2, gov.cn
 2, mil.cn
@@ -4301,6 +4335,7 @@ name = CN Domain
 2, elemecdn.cn
 2, elemecdn.com
 2, elenet.me
+2, fengniaojipei.net
 2, adashx.ut.ele.me
 2, h-adashx.ut.ele.me
 2, v6-adashx.ut.ele.me
@@ -4357,9 +4392,12 @@ name = CN Domain
 2, alibaba.com
 2, alibabacapital.com
 2, alibabachengdun.com
+2, alibabachengdun.net
 2, alibabacorp.com
 2, alibabadesign.com
 2, alibabadoctor.com
+2, alibabafonts.com
+2, alibabafoundation.com
 2, alibabafuturehotel.com
 2, alibabagroup.com
 2, alibabapictures.com
@@ -4397,6 +4435,7 @@ name = CN Domain
 2, alixiaomi.com
 2, alizhaopin.com
 2, alyms.cn
+2, alysm.cn
 2, asczwa.com
 2, asczxcefsv.com
 2, asmlink.cn
@@ -4416,6 +4455,8 @@ name = CN Domain
 2, emas-poc.com
 2, gongyi.xin
 2, hupan.com
+2, hzchengdun.com
+2, hzchengdun.net
 2, ialicdn.com
 2, iconfont.cn
 2, ics.design
@@ -4432,6 +4473,7 @@ name = CN Domain
 2, mei.com
 2, miaostreet.com
 2, miaoya.cn
+2, mmstat.com
 2, mshare.cc
 2, nic.xin
 2, philanthropy.xin
@@ -4449,6 +4491,7 @@ name = CN Domain
 2, ttpod.com
 2, xin.xin
 2, xinlingshou.cn
+2, xixikf.cn
 2, yowhale.com
 2, yunos-inc.com
 2, yunos.com
@@ -4469,6 +4512,7 @@ name = CN Domain
 2, antgroup.com
 2, antgroup-inc.cn
 2, sm.cn
+2, yisou.com
 2, 1688.com
 2, duanqu.com
 2, etao.com
@@ -4482,6 +4526,7 @@ name = CN Domain
 2, taobaocdn.com
 2, taobizhong.com
 2, taopiaopiao.com
+2, taotian.com
 2, tb.cn
 2, tbcache.com
 2, tbcdn.cn
@@ -5305,6 +5350,7 @@ name = CN Domain
 2, voleai.com
 2, wtturl.cn
 2, xsgtvacct.com
+2, yhgfb-cn-static.com
 2, zijieapi.cn
 2, zijieapi.com
 2, zijieapi.net
@@ -5395,12 +5441,14 @@ name = CN Domain
 2, ad.toutiao.com
 2, bds.snssdk.com
 2, byteadverts.com
+2, csjplatform.com
 2, ctobsnssdk.com
 2, dig.bdurl.net
 2, extlog.snssdk.com
 2, i.snssdk.com
 2, log.zijieapi.com
 2, mcs.snssdk.com
+2, pangle.cn
 2, pangolin-dsp-toutiao-b.com
 2, pangolin-dsp-toutiao.com
 2, pangolin-hl.snssdk.com
@@ -5930,6 +5978,7 @@ name = CN Domain
 2, 188.com
 2, 321fenx.com
 2, haowu.link
+2, kada.com
 2, lf126.net
 2, lf127.net
 2, lofter.com
@@ -6749,6 +6798,7 @@ name = CN Domain
 2, tp-link.com.cn
 2, udesk.cn
 2, ysjf.com
+2, yunxi.tv
 2, allday.work
 2, cangpeng.com
 2, erp198.com
@@ -6774,6 +6824,7 @@ name = CN Domain
 2, 2345.cn
 2, 2345.com
 2, 2345cdn.net
+2, 2345tianqi.cn
 2, hao774.com
 2, huaban.com
 2, huabanimg.com
@@ -6881,6 +6932,7 @@ name = CN Domain
 2, ipshu.com
 2, ipshudi.com
 2, itdog.cn
+2, iwangding.com
 2, rdnsdb.com
 2, tol.vip
 2, webmasterhome.cn
@@ -6975,7 +7027,6 @@ name = CN Domain
 2, 51hejia.com
 2, 51jingying.com
 2, 51meishu.com
-2, 51sole.com
 2, 51yes.com
 2, 5253.com
 2, 52hxw.com
@@ -7589,7 +7640,6 @@ name = CN Domain
 2, shijiexia.com
 2, shmetro.com
 2, shoujihuifu.com
-2, shouqianba.com
 2, shouyoubus.com
 2, shssp.org
 2, shuidichou.com
