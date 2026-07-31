@@ -1,13 +1,14 @@
 # NAME: Stream TW
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Taiwan stream services routing overlay based on SukkaW Stream rules
-# RULES: 33
+# RULES: 34
 # SKIPPED: 5
 # SKIPPED-TYPES: PROCESS-NAME=1, USER-AGENT=4
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_tw.conf
 
 name = Stream TW
+2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, 4gtv.tv
 2, kktv.me
 2, kk.stream

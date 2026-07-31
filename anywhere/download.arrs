@@ -1,12 +1,13 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1965
+# RULES: 1966
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
 
 name = Download
+2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, gcr.io
 2, ghp.ci
 2, k8s.io

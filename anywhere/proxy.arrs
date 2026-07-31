@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5797
+# RULES: 5798
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -10,6 +10,7 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/global.conf
 
 name = Proxy
+2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, 0x0.st
 2, eep.io
 2, esm.sh

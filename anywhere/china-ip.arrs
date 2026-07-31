@@ -1,12 +1,13 @@
 # NAME: China IP
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China IP CIDR routing overlay based on SukkaW China IP rules
-# RULES: 3905
+# RULES: 3909
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/china_ip.conf
 
 name = China IP
+2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 0, 1.1.8.0/24
 0, 1.2.4.0/24
 0, 1.8.1.0/24
@@ -2002,7 +2003,10 @@ name = China IP
 0, 118.193.96.0/19
 0, 118.194.32.0/19
 0, 118.194.134.0/23
-0, 118.194.240.0/21
+0, 118.194.240.0/24
+0, 118.194.242.0/23
+0, 118.194.244.0/24
+0, 118.194.246.0/23
 0, 118.195.128.0/17
 0, 118.196.0.0/16
 0, 118.197.0.0/18
@@ -2694,7 +2698,7 @@ name = China IP
 0, 163.61.202.0/23
 0, 163.61.214.0/23
 0, 163.125.0.0/16
-0, 163.128.254.0/23
+0, 163.128.254.0/24
 0, 163.142.0.0/16
 0, 163.177.0.0/16
 0, 163.179.0.0/16
