@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8029
+# RULES: 8030
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -2340,6 +2340,7 @@ name = CN Domain
 2, cc-pay.cn
 2, 51106.cn
 2, chengquan.cn
+2, cqtk.com.cn
 2, daikuan.com
 2, dulupay.com
 2, helipay.com

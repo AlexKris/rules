@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4585
+# RULES: 4588
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -2484,6 +2484,7 @@ name = CDN
 2, cdn.conveythis.com
 2, cdn.datatables.net
 2, cdn.delight-vr.com
+2, cdn.dictionary.com
 2, cdn.discordapp.com
 2, cdn.document360.io
 2, cdn.fourthwall.com
@@ -2836,6 +2837,7 @@ name = CDN
 2, cdn.starapps.studio
 2, cdn.tailwindcss.com
 2, cdn.theatlantic.com
+2, cdn.theregister.com
 2, cdn.thingiverse.com
 2, cdn.trustedsite.com
 2, cdn.webclicks24.com
@@ -3426,6 +3428,7 @@ name = CDN
 2, icms-image.slatic.net
 2, image-cdn.porndig.com
 2, image.ship.vercel.com
+2, image.theregister.com
 2, image.worthepenny.com
 2, images-sports.now.com
 2, images.contentful.com

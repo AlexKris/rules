@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 170
+# RULES: 174
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -67,6 +67,7 @@ name = AI
 2, daily-cloudcode-pa.googleapis.com
 2, notebooklm-pa.googleapis.com
 2, notebooklm.googleapis.com
+2, notebook.google.com
 2, notebooklm.google
 2, notebooklm.google.com
 2, jules.google
@@ -88,6 +89,9 @@ name = AI
 2, hf.co
 2, hf.space
 2, huggingface.co
+2, grazie.ai
+2, grazie.aws.intellij.net
+2, jetbrains.ai
 2, liveperson.net
 2, lpsnmedia.net
 2, manus.im
