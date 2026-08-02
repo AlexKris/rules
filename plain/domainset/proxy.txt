@@ -1938,6 +1938,7 @@ DOMAIN,lm.visualon.info
 DOMAIN,magic.scalar.com
 DOMAIN-SUFFIX,mangadex.network
 DOMAIN,maps.gstatic.com
+DOMAIN,maps.hereapi.com
 DOMAIN,maps.wplace.live
 DOMAIN,mcdns.vrporn.com
 DOMAIN-SUFFIX,media-amazon.com
@@ -4317,6 +4318,7 @@ DOMAIN,checkout-sdk.bigcommerce.com
 DOMAIN,cms-assets.webediamovies.pro
 DOMAIN,code.buywithprime.amazon.com
 DOMAIN,components.cyclingfactory.be
+DOMAIN,connectcache20.azureedge.net
 DOMAIN-SUFFIX,csp-reporting.cloudflare.com
 DOMAIN,doppler-config.cbsivideo.com
 DOMAIN,fastly-cloud.typenetwork.com

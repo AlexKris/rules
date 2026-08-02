@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4588
+# RULES: 4590
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -1949,6 +1949,7 @@ name = CDN
 2, magic.scalar.com
 2, mangadex.network
 2, maps.gstatic.com
+2, maps.hereapi.com
 2, maps.wplace.live
 2, mcdns.vrporn.com
 2, media-amazon.com
@@ -4328,6 +4329,7 @@ name = CDN
 2, cms-assets.webediamovies.pro
 2, code.buywithprime.amazon.com
 2, components.cyclingfactory.be
+2, connectcache20.azureedge.net
 2, csp-reporting.cloudflare.com
 2, doppler-config.cbsivideo.com
 2, fastly-cloud.typenetwork.com
