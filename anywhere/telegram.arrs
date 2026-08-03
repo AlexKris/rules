@@ -1,14 +1,13 @@
 # NAME: Telegram
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Telegram routing overlay based on SukkaW Telegram domain and IP rules
-# RULES: 30
+# RULES: 29
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/telegram.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf
 
 name = Telegram
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, t.me
 2, tx.me
 2, tg.dev

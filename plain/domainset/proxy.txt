@@ -1,4 +1,3 @@
-DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 DOMAIN,0x0.st
 DOMAIN,eep.io
 DOMAIN-SUFFIX,esm.sh
@@ -3744,6 +3743,7 @@ DOMAIN-SUFFIX,w-corp-staticblitz.com
 DOMAIN,weather.istatmenus.app
 DOMAIN,web-assets.zendesk.com
 DOMAIN,web-static.archive.org
+DOMAIN,webdist.data.apnic.net
 DOMAIN,website-media.deel.com
 DOMAIN,widget.prod.equally.ai
 DOMAIN,widgets.automizely.com
@@ -3937,6 +3937,7 @@ DOMAIN,assets.geeksforgeeks.org
 DOMAIN,assets.nationbuilder.com
 DOMAIN,assets.prowritingaid.com
 DOMAIN,assets.static-upwork.com
+DOMAIN,assets.trainingpeaks.com
 DOMAIN,assets10.lottiefiles.com
 DOMAIN,atl-global.atlassian.com
 DOMAIN,axiecdn.axieinfinity.com

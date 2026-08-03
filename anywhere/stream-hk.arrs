@@ -1,14 +1,13 @@
 # NAME: Stream HK
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Hong Kong stream services routing overlay based on SukkaW Stream rules
-# RULES: 30
+# RULES: 29
 # SKIPPED: 7
 # SKIPPED-TYPES: PROCESS-NAME=5, USER-AGENT=2
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_hk.conf
 
 name = Stream HK
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, viu.tv
 2, tvb.com
 2, viu.com

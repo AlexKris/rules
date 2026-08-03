@@ -1,14 +1,13 @@
 # NAME: Apple CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple CDN direct routing overlay
-# RULES: 159
+# RULES: 158
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/apple_cdn.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cdn.conf
 
 name = Apple CDN
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, xp.apple.com
 2, cds.apple.com
 2, cl1.apple.com

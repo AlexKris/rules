@@ -1,13 +1,12 @@
 # NAME: Telegram IP
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Telegram IP CIDR routing overlay based on SukkaW Telegram rules
-# RULES: 16
+# RULES: 15
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf
 
 name = Telegram IP
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 0, 91.105.192.0/23
 0, 91.108.4.0/22
 0, 91.108.8.0/21

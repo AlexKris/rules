@@ -1,14 +1,13 @@
 # NAME: LAN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: LAN routing overlay based on SukkaW LAN domain and IP rules
-# RULES: 61
+# RULES: 60
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/lan.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf
 
 name = LAN
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, lan
 2, home
 2, local

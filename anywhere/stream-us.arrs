@@ -1,14 +1,13 @@
 # NAME: Stream US
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: United States stream services routing overlay based on SukkaW Stream rules
-# RULES: 43
+# RULES: 42
 # SKIPPED: 10
 # SKIPPED-TYPES: PROCESS-NAME=1, USER-AGENT=9
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_us.conf
 
 name = Stream US
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, fox.com
 2, hulu.jp
 2, hulu.tv

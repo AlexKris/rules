@@ -1,14 +1,13 @@
 # NAME: Stream EU
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Europe stream services routing overlay based on SukkaW Stream rules
-# RULES: 9
+# RULES: 8
 # SKIPPED: 2
 # SKIPPED-TYPES: USER-AGENT=2
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_eu.conf
 
 name = Stream EU
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, itv.com
 2, bbc.co.uk
 2, bbci.co.uk

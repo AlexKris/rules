@@ -1,13 +1,12 @@
 # NAME: Apple CN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple China direct routing overlay
-# RULES: 10
+# RULES: 9
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_cn.conf
 
 name = Apple CN
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, apple.com.cn
 2, cn.apple.com
 2, icloud.com.cn

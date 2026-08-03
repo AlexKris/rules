@@ -1,13 +1,12 @@
 # NAME: LAN IP
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: LAN IP CIDR routing overlay based on SukkaW LAN IP rules
-# RULES: 12
+# RULES: 11
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf
 
 name = LAN IP
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 0, 0.0.0.0/8
 0, 10.0.0.0/8
 0, 100.64.0.0/10

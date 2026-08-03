@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4590
+# RULES: 4591
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -9,7 +9,6 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
 
 name = CDN
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, 0x0.st
 2, eep.io
 2, esm.sh
@@ -3755,6 +3754,7 @@ name = CDN
 2, weather.istatmenus.app
 2, web-assets.zendesk.com
 2, web-static.archive.org
+2, webdist.data.apnic.net
 2, website-media.deel.com
 2, widget.prod.equally.ai
 2, widgets.automizely.com
@@ -3948,6 +3948,7 @@ name = CDN
 2, assets.nationbuilder.com
 2, assets.prowritingaid.com
 2, assets.static-upwork.com
+2, assets.trainingpeaks.com
 2, assets10.lottiefiles.com
 2, atl-global.atlassian.com
 2, axiecdn.axieinfinity.com

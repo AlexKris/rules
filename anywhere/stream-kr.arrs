@@ -1,13 +1,12 @@
 # NAME: Stream KR
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Korea stream services routing overlay based on SukkaW Stream rules
-# RULES: 3
+# RULES: 2
 # SKIPPED: 1
 # SKIPPED-TYPES: USER-AGENT=1
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/stream_kr.conf
 
 name = Stream KR
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, tv.naver.com
 2, smartmediarep.com

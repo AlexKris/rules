@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5803
+# RULES: 5805
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -10,7 +10,6 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/global.conf
 
 name = Proxy
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, 0x0.st
 2, eep.io
 2, esm.sh
@@ -3756,6 +3755,7 @@ name = Proxy
 2, weather.istatmenus.app
 2, web-assets.zendesk.com
 2, web-static.archive.org
+2, webdist.data.apnic.net
 2, website-media.deel.com
 2, widget.prod.equally.ai
 2, widgets.automizely.com
@@ -3949,6 +3949,7 @@ name = Proxy
 2, assets.nationbuilder.com
 2, assets.prowritingaid.com
 2, assets.static-upwork.com
+2, assets.trainingpeaks.com
 2, assets10.lottiefiles.com
 2, atl-global.atlassian.com
 2, axiecdn.axieinfinity.com
@@ -5740,6 +5741,7 @@ name = Proxy
 2, stackexchange.com
 2, stackoverflow.com
 2, thaiheadlines.com
+2, trainingpeaks.com
 2, trycloudflare.com
 2, wikifunctions.org
 2, xpressunblock.com

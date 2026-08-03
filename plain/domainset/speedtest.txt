@@ -1,4 +1,3 @@
-DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 DOMAIN-SUFFIX,fast.com
 DOMAIN,fastme.ir
 DOMAIN-SUFFIX,nperf.net
@@ -949,6 +948,7 @@ DOMAIN,speedtest.pfalzkom.de
 DOMAIN,speedtest.philasd.org
 DOMAIN,speedtest.planetel.it
 DOMAIN,speedtest.por-aire.es
+DOMAIN,speedtest.reticule.in
 DOMAIN,speedtest.rfchost.net
 DOMAIN,speedtest.rpmgllc.com
 DOMAIN,speedtest.sercomm.com
@@ -2043,6 +2043,7 @@ DOMAIN,speedtest.archtopfiber.com
 DOMAIN,speedtest.axclusive.com.sg
 DOMAIN,speedtest.barcconnects.net
 DOMAIN-SUFFIX,speedtest.bhaukaalbaba.com
+DOMAIN,speedtest.bne.ozvps.com.au
 DOMAIN,speedtest.bouwhuis.network
 DOMAIN,speedtest.brightstar.cloud
 DOMAIN,speedtest.cg.shawcable.net
@@ -2074,6 +2075,7 @@ DOMAIN,speedtest.lumischvps.cloud
 DOMAIN,speedtest.markahost.com.tr
 DOMAIN,speedtest.maxnetdigital.in
 DOMAIN,speedtest.megahertz.net.in
+DOMAIN,speedtest.milanfiber.co.tz
 DOMAIN,speedtest.msk.ertelecom.ru
 DOMAIN,speedtest.multicablehn.com
 DOMAIN,speedtest.n4ubroadband.com

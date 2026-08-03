@@ -1,13 +1,12 @@
 # NAME: Game Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Game download CDN overlay based on SukkaW game-download rules
-# RULES: 53
+# RULES: 52
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/game-download.conf
 
 name = Game Download
-2, 7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 2, cdn.ea.com
 2, cdn.ubi.com
 2, dyn.riotcdn.net
