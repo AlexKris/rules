@@ -28,6 +28,7 @@ V2FLY_DEFAULT_BASE_URL = "https://raw.githubusercontent.com/v2fly/domain-list-co
 V2FLY_ARCHIVE_URL = "https://github.com/v2fly/domain-list-community/archive/refs/heads/master.tar.gz"
 V2FLY_ARCHIVE_CACHE: dict[str, list[str]] | None = None
 REQUIRE_LOCAL_SOURCES = os.environ.get("RULES_REQUIRE_LOCAL_SOURCES") == "1"
+SKK_RULESET_REPOSITORY = "sukkalab/ruleset.skk.moe"
 
 RULE_TYPE_TO_ARRS = {
     "IP-CIDR": 0,
@@ -427,6 +428,25 @@ def parse_lines(
     return rules, skipped
 
 
+def is_skk_ruleset_source(source_config: dict) -> bool:
+    return any(
+        SKK_RULESET_REPOSITORY in url.lower()
+        for url in source_config.get("urls", [])
+    )
+
+
+def detect_skk_marker_domain(lines: Iterable[str], default_domain_type: str) -> str | None:
+    """Return SKK's rotating first-rule marker without filtering other *.skk.moe domains."""
+    for line in lines:
+        if clean_line(line) is None:
+            continue
+        rule, _ = parse_rule(line, default_domain_type)
+        if rule is not None and rule.rule_type == "DOMAIN" and rule.value.endswith(".skk.moe"):
+            return rule.value
+        return None
+    return None
+
+
 def read_config(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -444,7 +464,12 @@ def load_source_rules(config: dict) -> tuple[dict[str, list[Rule]], dict[str, di
 
         default_type = "DOMAIN" if source_config.get("kind") == "domainset" else "DOMAIN-SUFFIX"
         lines = read_configured_lines(source_id, source_config)
-        rules, skipped = parse_lines(lines, default_type, source_marker_domains)
+        marker_domains = source_marker_domains
+        if is_skk_ruleset_source(source_config):
+            detected_marker = detect_skk_marker_domain(lines, default_type)
+            if detected_marker is not None:
+                marker_domains = source_marker_domains | {detected_marker}
+        rules, skipped = parse_lines(lines, default_type, marker_domains)
         loaded[source_id] = rules
         skipped_by_source[source_id] = skipped
     return loaded, skipped_by_source

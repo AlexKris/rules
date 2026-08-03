@@ -93,6 +93,7 @@ jobs:
           python3 -m py_compile scripts/build_rules.py
           python3 -m py_compile scripts/build_mitm.py
           python3 -m py_compile scripts/build_site.py
+          python3 -m unittest discover -s tests
 
       - name: Validate profile tool scripts
         shell: bash
