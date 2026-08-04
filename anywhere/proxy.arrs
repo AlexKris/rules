@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5805
+# RULES: 5806
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3347,6 +3347,7 @@ name = Proxy
 2, assets.sendinblue.com
 2, assets.tatlerasia.com
 2, assets.unicorn.studio
+2, assets.unredacted.org
 2, assets.vodafone.co.uk
 2, assets0.headwayapp.co
 2, badges.greenkeeper.io

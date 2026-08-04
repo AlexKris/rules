@@ -3335,6 +3335,7 @@ DOMAIN,assets.northflank.com
 DOMAIN,assets.sendinblue.com
 DOMAIN,assets.tatlerasia.com
 DOMAIN,assets.unicorn.studio
+DOMAIN,assets.unredacted.org
 DOMAIN,assets.vodafone.co.uk
 DOMAIN,assets0.headwayapp.co
 DOMAIN,badges.greenkeeper.io

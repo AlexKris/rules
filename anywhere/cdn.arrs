@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4591
+# RULES: 4592
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3346,6 +3346,7 @@ name = CDN
 2, assets.sendinblue.com
 2, assets.tatlerasia.com
 2, assets.unicorn.studio
+2, assets.unredacted.org
 2, assets.vodafone.co.uk
 2, assets0.headwayapp.co
 2, badges.greenkeeper.io
