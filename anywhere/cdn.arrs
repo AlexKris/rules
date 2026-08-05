@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4592
+# RULES: 4597
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3073,6 +3073,7 @@ name = CDN
 2, attach2.mobile01.com
 2, avatars.dicebear.com
 2, avatars.dzeninfra.ru
+2, basemap.beacondb.net
 2, bcdn.starapps.studio
 2, bcmedia.bitchute.com
 2, boards.greenhouse.io
@@ -3301,6 +3302,7 @@ name = CDN
 2, thumbnail.missav.com
 2, thumbnails.cbsig.net
 2, tile.opentopomap.org
+2, tiles.locationiq.com
 2, tiles.mapterhorn.com
 2, tiles.openseamap.org
 2, tiles.openskimap.org
@@ -3555,6 +3557,7 @@ name = CDN
 2, www-res.cablelabs.com
 2, yammerusercontent.com
 2, 3dna.nationbuilder.com
+2, a-tiles.locationiq.com
 2, account-cdn.svc.ui.com
 2, api.pwnedpasswords.com
 2, assets-cdn.abcnews.com
@@ -3578,8 +3581,10 @@ name = CDN
 2, avatar2.bahamut.com.tw
 2, avatars.mds.yandex.net
 2, az700632.vo.msecnd.net
+2, b-tiles.locationiq.com
 2, backinstock.useamp.com
 2, brick.a.ssl.fastly.net
+2, c-tiles.locationiq.com
 2, cache-05.filehippo.net
 2, cached.rebuyengine.com
 2, cdn-c.leavemealone.com

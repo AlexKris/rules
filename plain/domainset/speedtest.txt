@@ -470,6 +470,7 @@ DOMAIN,speedtest.dcnord.ca
 DOMAIN,speedtest.dvois.com
 DOMAIN,speedtest.exatel.pl
 DOMAIN,speedtest.excom.net
+DOMAIN,speedtest.fibrat.es
 DOMAIN,speedtest.flynet.it
 DOMAIN,speedtest.fonira.at
 DOMAIN,speedtest.ftth.wien
@@ -3251,6 +3252,7 @@ DOMAIN,speedtest.mumbai.charotarbroadband.in
 DOMAIN,speedtest01-cty-gfld-ma-prod.gcet.net
 DOMAIN,speedtest1.ric1.va.hostedbackbone.net
 DOMAIN,speedtestbirpara.meghbelabroadband.in
+DOMAIN,7h15_ru1353t_1s_m4d3_by_5ukk4w.skk.moe
 DOMAIN,los-angeles-speedtest.reliablesite.net
 DOMAIN,navegaooklafortaleza.navegamais.com.br
 DOMAIN,speedtest-tesa.coelhotecnologia.com.br

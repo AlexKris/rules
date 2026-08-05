@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8030
+# RULES: 8044
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -1442,6 +1442,7 @@ name = CN Domain
 2, 36kr.com
 2, 36krcdn.com
 2, 36krcnd.com
+2, adx.36kr.com
 2, cctv.cn
 2, cctv.com
 2, cctv4g.com
@@ -4217,6 +4218,14 @@ name = CN Domain
 2, sinopecgroup.com
 2, sinopecnews.com.cn
 2, sinopecsales.com
+2, 95598.cn
+2, 95598pay.com
+2, echargenet.com
+2, esgcc.com.cn
+2, sgcc.com.cn
+2, csg.cn
+2, ecsg.com.cn
+2, poweremarket.com
 2, 1tyy.cn
 2, bbdc.cn
 2, beingfine.cn
@@ -5497,6 +5506,11 @@ name = CN Domain
 2, djiservice.org
 2, skypixel.com
 2, robomaster.com
+2, focuschina.com
+2, made-in-china.com
+2, micstatic.com
+2, trademessenger.com
+2, vemic.com
 2, gree.cn
 2, gree.com
 2, gree.com.cn
