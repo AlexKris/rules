@@ -960,6 +960,7 @@ DOMAIN,speedtest.slbcloud.fr
 DOMAIN,speedtest.sogetel.net
 DOMAIN-SUFFIX,speedtest.soraxus.com
 DOMAIN,speedtest.spacenet.ru
+DOMAIN,speedtest.speedcom.in
 DOMAIN,speedtest.speedfi.xyz
 DOMAIN,speedtest.sstelco.com
 DOMAIN-SUFFIX,speedtest.starhub.com
@@ -1226,6 +1227,7 @@ DOMAIN,speedtest.toros.edu.tr
 DOMAIN,speedtest.tri-cogo.com
 DOMAIN,speedtest.trunet.co.in
 DOMAIN,speedtest.tularosa.net
+DOMAIN,speedtest.tvtcable.com
 DOMAIN,speedtest.verycloud.fr
 DOMAIN,speedtest.voiceone.dev
 DOMAIN,speedtest.vt.mycci.net
@@ -2011,6 +2013,7 @@ DOMAIN,speedtest-fkt-eqx.retn.net
 DOMAIN,speedtest-fra.melbicom.net
 DOMAIN,speedtest-ga2.truvista.net
 DOMAIN,speedtest-gwn24.tele-ag.de
+DOMAIN,speedtest-iad.sectrify.com
 DOMAIN,speedtest-jax.gowifast.com
 DOMAIN,speedtest-jgn.galaxynet.in
 DOMAIN,speedtest-la.getonward.com
@@ -2028,6 +2031,7 @@ DOMAIN,speedtest-schio.wifiweb.it
 DOMAIN,speedtest-sev.masmovil.com
 DOMAIN,speedtest-sg.napinfo.co.id
 DOMAIN,speedtest-sin.melbicom.net
+DOMAIN,speedtest-sjc.sectrify.com
 DOMAIN,speedtest-tek.teksavvy.com
 DOMAIN,speedtest-txg.infinirc.net
 DOMAIN,speedtest-val.masmovil.com

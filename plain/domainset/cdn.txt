@@ -207,6 +207,7 @@ DOMAIN-SUFFIX,angular.io
 DOMAIN-SUFFIX,ant.design
 DOMAIN-SUFFIX,aolcdn.com
 DOMAIN-SUFFIX,avximg.com
+DOMAIN-SUFFIX,awxcdn.com
 DOMAIN-SUFFIX,badgen.net
 DOMAIN-SUFFIX,balley.top
 DOMAIN-SUFFIX,bblcdn.com
@@ -649,6 +650,7 @@ DOMAIN,e.linear.app
 DOMAIN,e3.365dm.com
 DOMAIN,eightcha.com
 DOMAIN,eslint.style
+DOMAIN-SUFFIX,fast-sfc.com
 DOMAIN-SUFFIX,favicone.com
 DOMAIN-SUFFIX,fembeqv2.xyz
 DOMAIN,file.ahu.moe
@@ -2788,6 +2790,7 @@ DOMAIN,badges.frapsoft.com
 DOMAIN,before.good-apps.co
 DOMAIN,bundle.trysavvy.com
 DOMAIN,cdn-blocks.karte.io
+DOMAIN,cdn-city.livere.com
 DOMAIN,cdn-fck.tnaflix.com
 DOMAIN,cdn.amgreatness.com
 DOMAIN,cdn.announcekit.app
@@ -4236,6 +4239,7 @@ DOMAIN,antiqua-ux-cdn.monotype.com
 DOMAIN,app-static-prod.posthog.com
 DOMAIN,article-image-ix.nikkei.com
 DOMAIN,assets.braintreegateway.com
+DOMAIN,assets.weather-forecast.com
 DOMAIN-SUFFIX,cdn-lfs-us-1.huggingface.co
 DOMAIN,cdn-live.foreignaffairs.com
 DOMAIN,cdn-static-push.porndig.com

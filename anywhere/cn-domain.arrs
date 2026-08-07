@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8044
+# RULES: 8081
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -724,7 +724,10 @@ name = CN Domain
 2, ultracachenode.com
 2, woaihuoshan.com
 2, wohst8.com
+2, douyinec.com
 2, douyinpay.com
+2, ulpay.com
+2, lifexue.com
 2, open-douyin.com
 2, douyu.com
 2, douyu.tv
@@ -2341,7 +2344,6 @@ name = CN Domain
 2, cc-pay.cn
 2, 51106.cn
 2, chengquan.cn
-2, cqtk.com.cn
 2, daikuan.com
 2, dulupay.com
 2, helipay.com
@@ -3245,8 +3247,18 @@ name = CN Domain
 2, redcross.org.cn
 2, zgbznet.com.cn
 2, zgjx.cn
+2, airchina.cn
+2, airchina.com
 2, airchina.com.cn
 2, airchinacargo.com
+2, airchinagroup.com
+2, airchinalimited.cn
+2, airchinalimited.com
+2, airchinalimited.com.cn
+2, fly-airchina.com
+2, phoenixmiles.cn
+2, phoenixmiles.com
+2, phoenixmiles.com.cn
 2, hainanairlines.com
 2, hnacargo.com
 2, hnair.com
@@ -3273,6 +3285,14 @@ name = CN Domain
 2, tibetairlines.com.cn
 2, urumqi-air.com
 2, xiamenair.com
+2, bmac.com.cn
+2, cqtk.com.cn
+2, ruubypay.com
+2, sctcd.com
+2, sptcc.com
+2, shenzhentong.com
+2, nfcos.cn
+2, snowballtech.com
 2, caac.gov.cn
 2, travelsky.com.cn
 2, travelskymobile.cn
@@ -3284,7 +3304,6 @@ name = CN Domain
 2, 12306.cn
 2, 95306.cn
 2, ccrgt.com
-2, bmac.com.cn
 2, chelaile.net.cn
 2, 133.cn
 2, gtgjtrip.com
@@ -4293,8 +4312,12 @@ name = CN Domain
 2, kunlunwe.com
 2, mxhichina.com
 2, myalicdn.com
+2, cn-beijing.aliyuncs.com
+2, cn-chengdu.aliyuncs.com
+2, cn-guangzhou.aliyuncs.com
 2, cn-hangzhou.aliyuncs.com
 2, cn-shanghai.aliyuncs.com
+2, hotfix-api.aliyuncs.com
 2, log-global.aliyuncs.com
 2, oss-cn-beijing.aliyuncs.com
 2, oss-cn-chengdu.aliyuncs.com
@@ -4308,6 +4331,7 @@ name = CN Domain
 2, oss-cn-shenzhen.aliyuncs.com
 2, oss-cn-wulanchabu.aliyuncs.com
 2, oss-cn-zhangjiakou.aliyuncs.com
+2, registry.aliyuncs.com
 2, acjs.aliyun.com
 2, adash-emas.cn-hangzhou.aliyuncs.com
 2, adash.man.aliyuncs.com
@@ -5267,6 +5291,7 @@ name = CN Domain
 2, bytetraffic.net
 2, bytetstatic.com
 2, bytetstatic.net
+2, byteurl.cn
 2, bytevalk.com
 2, bytevcloudapi.com
 2, bytevcloudvod.com
@@ -5399,6 +5424,7 @@ name = CN Domain
 2, vlabimg.com
 2, vlabstatic.com
 2, vlabvod.com
+2, capcut.cn
 2, toutiao.com
 2, toutiaoapi.com
 2, toutiaocdn.com
@@ -5448,13 +5474,19 @@ name = CN Domain
 2, ppxstatic.com
 2, ppxvod.com
 2, xiaoxiaapi.com
-2, douyinec.com
+2, dailygn.com
+2, nvsgames.cn
+2, buydouke.com
 2, ecombdapi.com
+2, ecombdimg.com
 2, ecombdstatic.com
+2, ecombdvod.com
 2, jinritemai.com
 2, faceu.com
+2, faceu.mobi
 2, ulikecam.com
 2, rsproxy.cn
+2, oceanengine.com
 2, ad.toutiao.com
 2, bds.snssdk.com
 2, byteadverts.com
@@ -6901,6 +6933,11 @@ name = CN Domain
 2, fetionpic.com
 2, mmarket.com
 2, mmarket6.com
+2, chinamobiledevice.com
+2, cmdcxls.com
+2, cxzx10086.cn
+2, fxltsbl.com
+2, zdsdp.com
 2, 189.cn
 2, 189smarthome.com
 2, 21cn.com
