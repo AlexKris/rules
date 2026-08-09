@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1967
+# RULES: 1964
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -109,6 +109,7 @@ name = Download
 2, d2.myani.org
 2, deb.sury.org
 2, debian.a1.bg
+2, dl.pikpak.io
 2, ftp.agdsn.de
 2, ftp.antik.sk
 2, ftp.arnes.si
@@ -223,6 +224,7 @@ name = Download
 2, ossplanet.org
 2, packagist.org
 2, repository.su
+2, s3.yandex.net
 2, sft.if.usp.br
 2, ubuntu.dts.mg
 2, ubuntu.nic.cz
@@ -452,7 +454,6 @@ name = Download
 2, tux.rainside.sk
 2, ubuntu.grena.ge
 2, ubuntu.lagis.at
-2, ubuntu.syxpi.fr
 2, ubuntu.uvigo.es
 2, updates.64gr.am
 2, www-ftp.lip6.fr
@@ -496,7 +497,6 @@ name = Download
 2, download.kde.org
 2, download.nust.na
 2, eclats.crans.org
-2, edge.zerofs.link
 2, epicgamescdn.com
 2, fedorapeople.org
 2, formulae.brew.sh
@@ -554,7 +554,6 @@ name = Download
 2, mirror.ufscar.br
 2, mirror.veesp.com
 2, mirror.yandex.ru
-2, mirror1.hcgen.de
 2, mirror1.ku.ac.th
 2, mirrors.asnet.am
 2, mirrors.blix.com
@@ -919,7 +918,6 @@ name = Download
 2, download.edovia.com
 2, download.garmin.com
 2, download.mxfast.com
-2, download.nus.edu.sg
 2, download.nvidia.com
 2, download.osmand.net
 2, download.sketch.com
@@ -1113,7 +1111,6 @@ name = Download
 2, mirror.ftn.uns.ac.rs
 2, mirror.gotmyhost.com
 2, mirror.hashy0917.net
-2, mirror.hyperdedic.ru
 2, mirror.infomaniak.ch
 2, mirror.its.umich.edu
 2, mirror.low-orbit.net
@@ -1181,6 +1178,7 @@ name = Download
 2, distcache.freebsd.org
 2, dl.orangefox.download
 2, download.autodesk.com
+2, download.fcitx-im.org
 2, download.geofabrik.de
 2, download.gigabyte.com
 2, download.iboysoft.com
@@ -1232,7 +1230,6 @@ name = Download
 2, mirrors.rpmfusion.org
 2, mirrors.spacedump.net
 2, mirrors.us.kernel.org
-2, mirrors.wikimedia.org
 2, mirrors.xmissions.com
 2, origin-a.akamaihd.net
 2, os-cdn.virtfusion.net

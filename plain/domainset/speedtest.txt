@@ -2042,6 +2042,7 @@ DOMAIN,speedtest.a4telecom.com.br
 DOMAIN,speedtest.actelecom.com.br
 DOMAIN,speedtest.agw1.as49436.net
 DOMAIN,speedtest.agw2.as49436.net
+DOMAIN,speedtest.alanyanet.com.tr
 DOMAIN,speedtest.ams1.macarne.com
 DOMAIN,speedtest.antisatelecom.es
 DOMAIN,speedtest.apexbroadband.in
