@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5842
+# RULES: 5848
 # SKIPPED: 61
 # SKIPPED-TYPES: DOMAIN-WILDCARD=60, USER-AGENT=1
 # SOURCES:
@@ -493,6 +493,7 @@ name = Proxy
 2, img.agrd.eu
 2, img.skk.moe
 2, img.toto.im
+2, imgcdn8.com
 2, imgikzy.com
 2, imglink.win
 2, imgsmail.ru
@@ -1559,6 +1560,7 @@ name = Proxy
 2, fonts.bunny.net
 2, fonts.gishan.cc
 2, fonts.upset.dev
+2, fonts.wd40.info
 2, gannett-cdn.com
 2, gauthstatic.com
 2, gdb.voanews.com
@@ -1617,6 +1619,7 @@ name = Proxy
 2, media.licdn.com
 2, media.smooch.io
 2, media.tenor.com
+2, media.wd40.asia
 2, media.webtoo.ls
 2, media.wired.com
 2, metrics.kapa.ai
@@ -1776,6 +1779,7 @@ name = Proxy
 2, bugly.qcloud.com
 2, bundlephobia.com
 2, cache.ip-api.com
+2, cache.sgvafs.com
 2, capcutstatic.com
 2, cdn-1.porn87.com
 2, cdn-1.strava.com
@@ -1881,6 +1885,7 @@ name = Proxy
 2, getaroom-cdn.com
 2, gis.pinkbike.org
 2, githubassets.com
+2, githubstatus.com
 2, glass.adidas.com
 2, glyph.medium.com
 2, gravatar.cat.net
@@ -2409,6 +2414,8 @@ name = Proxy
 2, static.vinted.com
 2, static.vocadb.net
 2, static.zaobao.com
+2, status.claude.com
+2, status.openai.com
 2, stbff.newfold.com
 2, steemitimages.com
 2, storage.ko-fi.com
@@ -3151,6 +3158,7 @@ name = Proxy
 2, cdnjs.cloudflare.com
 2, chart.googleapis.com
 2, cloud.influxdata.com
+2, cloudflarestatus.com
 2, cloudflarestream.com
 2, cloudinary.vpsvc.com
 2, cms.socialinsider.io
@@ -5734,7 +5742,6 @@ name = Proxy
 2, freecodecamp.org
 2, generated.photos
 2, girlsgogames.com
-2, githubstatus.com
 2, hentaistream.com
 2, knowyourmeme.com
 2, launchdarkly.com
@@ -5814,7 +5821,6 @@ name = Proxy
 2, xn--ngstr-lra8j.com
 2, bleepingcomputer.com
 2, cloudflareaccess.com
-2, cloudflarestatus.com
 2, cloudflaretunnel.com
 2, elasticbeanstalk.com
 2, fastly-analytics.com
