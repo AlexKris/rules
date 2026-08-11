@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8081
+# RULES: 8083
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -6612,10 +6612,12 @@ name = CN Domain
 2, weishi.com
 2, weixin.com
 2, weixinsxy.com
-2, wxaurl.cn
 2, wxcloudrun.com
 2, wxgateway.com
 2, wxlivecdn.com
+2, mmbizurl.cn
+2, url.cn
+2, wxaurl.cn
 2, wxmpurl.cn
 2, alloyteam.com
 2, imweb.io

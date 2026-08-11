@@ -1298,6 +1298,7 @@ DOMAIN-SUFFIX,nelreports.net
 DOMAIN-SUFFIX,newscdn.com.au
 DOMAIN-SUFFIX,nincontent.com
 DOMAIN-SUFFIX,ninjastream.to
+DOMAIN,node.windy.com
 DOMAIN,null.jsbin.com
 DOMAIN,optimizely.com
 DOMAIN-SUFFIX,patientpop.com
@@ -2586,6 +2587,7 @@ DOMAIN,img.4gamers.com.tw
 DOMAIN,img.fastcybers.com
 DOMAIN,img.hellofresh.com
 DOMAIN,img.sparknotes.com
+DOMAIN,imgproxy.windy.com
 DOMAIN,imgrs.apkcombo.com
 DOMAIN,imgs3.hcaptcha.com
 DOMAIN-SUFFIX,intercomassets.com
@@ -3363,6 +3365,7 @@ DOMAIN,assets.sendinblue.com
 DOMAIN,assets.tatlerasia.com
 DOMAIN,assets.unicorn.studio
 DOMAIN,assets.unredacted.org
+DOMAIN,assets.userstyles.org
 DOMAIN,assets.vodafone.co.uk
 DOMAIN,assets0.headwayapp.co
 DOMAIN,assets2.freshdesk.com
