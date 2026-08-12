@@ -367,6 +367,7 @@ DOMAIN,speedtest1.ptd.net
 DOMAIN,speedtest2.grm.net
 DOMAIN,speedtest2.mdcc.de
 DOMAIN,speedtest2.prtc.us
+DOMAIN,speedtest3.ptd.net
 DOMAIN,speedtestd.kpn.com
 DOMAIN-SUFFIX,speedtestkorea.com
 DOMAIN,spt.valexcloud.com
@@ -1586,6 +1587,7 @@ DOMAIN,ookla.sy1.neptune.net.au
 DOMAIN,ookla1.ccspublichost.com
 DOMAIN,reflector.aberythmic.com
 DOMAIN,riorancho1.cabospeed.com
+DOMAIN,seacaftest.aptalaska.net
 DOMAIN,sg-speedtest.fast.net.id
 DOMAIN,siouxcity1.cabospeed.com
 DOMAIN,sirsa.softechinfosol.com
@@ -1831,6 +1833,7 @@ DOMAIN,speedtest.ams.t-mobile.nl
 DOMAIN,speedtest.apnet-rr.com.br
 DOMAIN-SUFFIX,speedtest.brightspeed.com
 DOMAIN,speedtest.bursabil.com.tr
+DOMAIN,speedtest.ca1.colobix.com
 DOMAIN,speedtest.cascadecomm.com
 DOMAIN-SUFFIX,speedtest.centurylink.net
 DOMAIN,speedtest.chi.gigenet.com
