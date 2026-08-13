@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5857
+# RULES: 5859
 # SKIPPED: 61
 # SKIPPED-TYPES: DOMAIN-WILDCARD=60, USER-AGENT=1
 # SOURCES:
@@ -1281,6 +1281,7 @@ name = Proxy
 2, imgs.plurk.com
 2, imgsrc.dmm.com
 2, infura-ipfs.io
+2, insightcdn.net
 2, int.mwbbiz.com
 2, intercomcdn.io
 2, ipfs.infura.io
@@ -3288,6 +3289,7 @@ name = Proxy
 2, sigma9.scpwikicn.com
 2, snippet.growsumo.com
 2, spreadshirtmedia.com
+2, sso-static.razer.com
 2, static-act.imoim.net
 2, static-cdn.123rf.com
 2, static-cdn.jtvnw.net

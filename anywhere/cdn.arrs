@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4645
+# RULES: 4647
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=60
 # SOURCES:
@@ -1280,6 +1280,7 @@ name = CDN
 2, imgs.plurk.com
 2, imgsrc.dmm.com
 2, infura-ipfs.io
+2, insightcdn.net
 2, int.mwbbiz.com
 2, intercomcdn.io
 2, ipfs.infura.io
@@ -3287,6 +3288,7 @@ name = CDN
 2, sigma9.scpwikicn.com
 2, snippet.growsumo.com
 2, spreadshirtmedia.com
+2, sso-static.razer.com
 2, static-act.imoim.net
 2, static-cdn.123rf.com
 2, static-cdn.jtvnw.net

@@ -1269,6 +1269,7 @@ DOMAIN-SUFFIX,imgikuncdn.com
 DOMAIN,imgs.plurk.com
 DOMAIN,imgsrc.dmm.com
 DOMAIN-SUFFIX,infura-ipfs.io
+DOMAIN-SUFFIX,insightcdn.net
 DOMAIN,int.mwbbiz.com
 DOMAIN-SUFFIX,intercomcdn.io
 DOMAIN-SUFFIX,ipfs.infura.io
@@ -3276,6 +3277,7 @@ DOMAIN,shell.cdn.office.net
 DOMAIN,sigma9.scpwikicn.com
 DOMAIN,snippet.growsumo.com
 DOMAIN-SUFFIX,spreadshirtmedia.com
+DOMAIN,sso-static.razer.com
 DOMAIN,static-act.imoim.net
 DOMAIN,static-cdn.123rf.com
 DOMAIN,static-cdn.jtvnw.net
