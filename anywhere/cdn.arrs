@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4647
+# RULES: 4648
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=60
 # SOURCES:
@@ -722,6 +722,7 @@ name = CDN
 2, line-cdn.net
 2, lllcdn.autos
 2, lowescdn.com
+2, manuscdn.com
 2, media.dev.to
 2, media.fs.com
 2, media.mas.to
