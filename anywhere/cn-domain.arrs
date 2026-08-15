@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8146
+# RULES: 8148
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -5230,6 +5230,7 @@ name = CN Domain
 2, ali-gtm-01.net
 2, ali-gtm-pressure.com
 2, ali-restore.net
+2, applogcdn.com
 2, arco.design
 2, baikevod.com
 2, bdactivity.com
@@ -5392,6 +5393,7 @@ name = CN Domain
 2, qingfuwucdn.net
 2, qualitycloud.top
 2, samasty.com
+2, searchpstatp.com
 2, searchstatic.com
 2, searchtoutiaolive.com
 2, shidianguji.com
