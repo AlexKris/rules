@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8148
+# RULES: 8161
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -597,14 +597,6 @@ name = CN Domain
 2, aamgame.mobi
 2, aamsmart.com
 2, singworld.net
-2, ac.fun
-2, acfun.cn
-2, acfun.net
-2, acfunchina.cn
-2, acfunchina.com
-2, acfunchina.net
-2, aixifan.com
-2, apilog-web.acfun.cn
 2, bilicdn1.com
 2, bilicdn2.com
 2, bilicdn3.com
@@ -653,12 +645,14 @@ name = CN Domain
 2, kuangxiangit.com
 2, biji.com
 2, ddmogo.com
+2, dedao.cn
 2, igetget.cn
 2, igetget.com
 2, luojilab.com
 2, mogoo.com
 2, sao.cn
 2, saolife.com
+2, umiwi.com
 2, activity-wbsj.com
 2, aihst8.com
 2, amemv.cn
@@ -677,6 +671,7 @@ name = CN Domain
 2, douyincdn.com
 2, douyinfe.com
 2, douyinliving.com
+2, douyinmusicpromotion.com
 2, douyinpic.com
 2, douyinstatic.com
 2, douyinvod.com
@@ -711,7 +706,6 @@ name = CN Domain
 2, ihuoshanlive.com
 2, ihuoshanstatic.com
 2, ihuoshanvod.com
-2, kesong.co
 2, kolbuyer.cn
 2, nextvid.net
 2, ppkankan01.com
@@ -826,6 +820,15 @@ name = CN Domain
 2, kkmh.com
 2, kuaikanmanhua.com
 2, v3mh.com
+2, ac.fun
+2, acfun.cn
+2, acfun.net
+2, acfunchina.cn
+2, acfunchina.com
+2, acfunchina.net
+2, aixifan.com
+2, apilog-web.acfun.cn
+2, eckwai.com
 2, ecukwai.com
 2, gifshow.com
 2, inkuai.com
@@ -839,10 +842,15 @@ name = CN Domain
 2, kuaishoupay.com
 2, kuaishouzt.com
 2, kwaicdn.com
+2, kwaishop.com
+2, kwaixiaodian.com
+2, kwaiying.com
 2, kwaizt.com
 2, kwimgs.com
+2, mojidoc.com
 2, qingque.cn
 2, viviv.com
+2, wskwai.com
 2, wsukwai.com
 2, yximgs.com
 2, adbkwai.com
@@ -1014,9 +1022,6 @@ name = CN Domain
 2, stat.y.qq.com
 2, tmead.y.qq.com
 2, tmeadcomm.y.qq.com
-2, u17.com
-2, u17i.com
-2, u17t.com
 2, 1xhh.cn
 2, accxiaoheihe.com
 2, chat.top
@@ -3731,6 +3736,7 @@ name = CN Domain
 2, tapnow.top
 2, qianwen.aliyun.com
 2, qianwen.com
+2, qianwenai.com
 2, qwen.ai
 2, qwenlm.ai
 2, tongyi.aliyun.com
@@ -5372,6 +5378,7 @@ name = CN Domain
 2, jokecommunity.net
 2, jstti.com
 2, jtamac.com
+2, letsign.com
 2, livecdnstatic.com
 2, local-ip.online
 2, luckysf.net
@@ -5445,6 +5452,8 @@ name = CN Domain
 2, volcdns-test.net
 2, voleai.com
 2, wtturl.cn
+2, xiaohe.cn
+2, xingtu.cn
 2, xsgtvacct.com
 2, yhgfb-cn-static.com
 2, zijieapi.cn
@@ -5538,6 +5547,7 @@ name = CN Domain
 2, jinritemai.com
 2, faceu.com
 2, faceu.mobi
+2, kesong.co
 2, ulikecam.com
 2, rsproxy.cn
 2, oceanengine.com
@@ -6986,6 +6996,7 @@ name = CN Domain
 2, cmpay.com
 2, cmcc-cs.cn
 2, online-cmcc.cn
+2, 5gxcx.net
 2, andfx.cn
 2, andfx.net
 2, cmicapm.com
@@ -6995,8 +7006,10 @@ name = CN Domain
 2, cytxl.com.cn
 2, fetion-portal.com
 2, fetionpic.com
+2, hfx.net
 2, mmarket.com
 2, mmarket6.com
+2, komect.com
 2, chinamobiledevice.com
 2, cmdcxls.com
 2, cxzx10086.cn
