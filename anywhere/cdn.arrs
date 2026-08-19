@@ -1,9 +1,9 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4648
-# SKIPPED: 60
-# SKIPPED-TYPES: DOMAIN-WILDCARD=60
+# RULES: 4646
+# SKIPPED: 59
+# SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
@@ -4654,6 +4654,4 @@ name = CDN
 3, -thumbs.worldsex.com
 3, 99avcdn
 3, -images.disco-api.com
-3, vdownload.hanime1
-3, fonts.hanime1
 3, static.grammarly.com

@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1964
+# RULES: 1965
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -66,6 +66,7 @@ name = Download
 2, npm.jsr.io
 2, osl.ugr.es
 2, archive.org
+2, cdn.dyn.com
 2, cdn.kde.org
 2, cdn.ubi.com
 2, cdn.zoom.us

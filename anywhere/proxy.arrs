@@ -1,9 +1,9 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5860
-# SKIPPED: 61
-# SKIPPED-TYPES: DOMAIN-WILDCARD=60, USER-AGENT=1
+# RULES: 5858
+# SKIPPED: 60
+# SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
@@ -4655,8 +4655,6 @@ name = Proxy
 3, -thumbs.worldsex.com
 3, 99avcdn
 3, -images.disco-api.com
-3, vdownload.hanime1
-3, fonts.hanime1
 3, static.grammarly.com
 2, ac
 2, ai

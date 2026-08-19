@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8161
+# RULES: 8160
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3758,7 +3758,6 @@ name = CN Domain
 2, zhipuai.cn
 2, zhipucn.com
 2, kimi.com
-2, moonshot.ai
 2, moonshot.cn
 2, xinghuo.xfyun.cn
 2, hailuoai.com

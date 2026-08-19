@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 176
+# RULES: 182
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -148,6 +148,8 @@ name = AI
 2, deepwiki.org
 2, clipdrop.co
 2, jasper.ai
+2, kimi.ai
+2, moonshot.ai
 2, agentclientprotocol.com
 2, anythingllm.com
 2, arena.ai
@@ -158,6 +160,7 @@ name = AI
 2, diabrowser.com
 2, diabrowser.engineering
 2, dify.ai
+2, dreamgen.com
 2, duck.ai
 2, gateway.ai.cloudflare.com
 2, h2o.ai
@@ -170,6 +173,8 @@ name = AI
 2, minimax.io
 2, mistral.ai
 2, mozilla.ai
+2, notegpt.io
+2, novelai.net
 2, ollama.com
 2, openart.ai
 2, openclaw.ai
@@ -179,6 +184,7 @@ name = AI
 2, qoder.com
 2, sider.ai
 2, spicywriter.com
+2, talkai.info
 2, tapnow.ai
 2, tripo3d.ai
 2, anthropic.com.cdn.cloudflare.net
