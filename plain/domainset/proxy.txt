@@ -540,7 +540,6 @@ DOMAIN-SUFFIX,reactjs.org
 DOMAIN,s.gishan.cc
 DOMAIN,s.imgur.com
 DOMAIN,s.plurk.com
-DOMAIN,s3.aaaaa.io
 DOMAIN,s3.masto.ai
 DOMAIN-SUFFIX,skypack.dev
 DOMAIN-SUFFIX,smilecdn.co
@@ -1466,6 +1465,7 @@ DOMAIN,cdn.iporntv.net
 DOMAIN,cdn.javmiku.com
 DOMAIN,cdn.jetboost.io
 DOMAIN,cdn.jolipage.co
+DOMAIN,cdn.leonardo.ai
 DOMAIN,cdn.mathjax.org
 DOMAIN,cdn.mcp-use.com
 DOMAIN,cdn.mercury.com
@@ -1552,6 +1552,7 @@ DOMAIN-SUFFIX,firebaseapp.com
 DOMAIN-SUFFIX,fontawesome.com
 DOMAIN,fonts.bunny.net
 DOMAIN,fonts.gishan.cc
+DOMAIN,fonts.reown.com
 DOMAIN,fonts.upset.dev
 DOMAIN,fonts.wd40.info
 DOMAIN-SUFFIX,gannett-cdn.com
@@ -1662,7 +1663,6 @@ DOMAIN,sprig.figma.com
 DOMAIN,ssl.gstatic.com
 DOMAIN-SUFFIX,stack.imgur.com
 DOMAIN-SUFFIX,stackassets.com
-DOMAIN,static.bad.news
 DOMAIN,static.blip.net
 DOMAIN,static.fboom.me
 DOMAIN,static.ietf.org
@@ -1798,6 +1798,7 @@ DOMAIN,cdn.equalweb.com
 DOMAIN,cdn.firebase.com
 DOMAIN,cdn.foxycart.com
 DOMAIN,cdn.getkoala.com
+DOMAIN,cdn.getmerlin.in
 DOMAIN,cdn.ghostery.com
 DOMAIN,cdn.gofundme.com
 DOMAIN,cdn.hashnode.com
@@ -2462,7 +2463,6 @@ DOMAIN,assets.jolipage.co
 DOMAIN,assets.mailgun.com
 DOMAIN,assets.nflxext.com
 DOMAIN,assets.nxtrace.org
-DOMAIN,assets.onestore.ms
 DOMAIN,assets.ontrack.com
 DOMAIN,assets.pingone.com
 DOMAIN,assets.porndig.com
@@ -2494,7 +2494,6 @@ DOMAIN,cdn.boldmethod.com
 DOMAIN,cdn.britannica.com
 DOMAIN,cdn.bullwhip.cloud
 DOMAIN,cdn.cmcmarkets.com
-DOMAIN,cdn.commandbar.com
 DOMAIN,cdn.contentful.com
 DOMAIN,cdn.convertbox.com
 DOMAIN,cdn.conveythis.com
@@ -4155,6 +4154,7 @@ DOMAIN-SUFFIX,push.services.mozilla.com
 DOMAIN-SUFFIX,ravencoinipfs-gateway.com
 DOMAIN,report-uri.cloudflare.com
 DOMAIN,resource.tnlmediagene.com
+DOMAIN,s3.beta.coinmarketcap.com
 DOMAIN,scripts.scriptwrapper.com
 DOMAIN,simplicity.trustpilot.com
 DOMAIN-SUFFIX,smartscreen.microsoft.com
@@ -4583,7 +4583,6 @@ DOMAIN,cdn-yotpo-images-production.yotpo.com
 DOMAIN,cdn.us-east-1.prod.moon.dubai.aws.dev
 DOMAIN-SUFFIX,content-storage-upload.googleapis.com
 DOMAIN,firefox.settings.services.mozilla.com
-DOMAIN,frames-commandbar-prod.commandbar.com
 DOMAIN,frontend-apps-multi-region.workos.com
 DOMAIN,pplx-next-static-public.perplexity.ai
 DOMAIN,prod-packager-packages.codesandbox.io
