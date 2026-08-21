@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4645
+# RULES: 4646
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -3731,6 +3731,7 @@ name = CDN
 2, proxy.joinmastodon.org
 2, public.flourish.studio
 2, res-geo.cdn.office.net
+2, resource.logitechg.com
 2, resource.video.nimg.jp
 2, resources.allstate.com
 2, rv-assets.softonic.com

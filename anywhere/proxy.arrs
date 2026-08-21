@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5857
+# RULES: 5858
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3732,6 +3732,7 @@ name = Proxy
 2, proxy.joinmastodon.org
 2, public.flourish.studio
 2, res-geo.cdn.office.net
+2, resource.logitechg.com
 2, resource.video.nimg.jp
 2, resources.allstate.com
 2, rv-assets.softonic.com
