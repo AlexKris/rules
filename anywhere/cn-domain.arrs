@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8160
+# RULES: 8161
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -7713,6 +7713,7 @@ name = CN Domain
 2, meilishuo.com
 2, meimingteng.com
 2, meiqia.com
+2, metax-tech.com
 2, meloong.com
 2, mengtuoshi.wang
 2, miaobolive.com

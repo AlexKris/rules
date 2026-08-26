@@ -1,7 +1,7 @@
 # NAME: Apple
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple direct routing overlay
-# RULES: 184
+# RULES: 185
 # SKIPPED: 8
 # SKIPPED-TYPES: PROCESS-NAME=8
 # SOURCES:
@@ -126,6 +126,7 @@ name = Apple
 2, store.apple.com.edgekey.net
 2, swdist.apple.com.akadns.net
 2, download.developer.apple.com
+2, gspe11-2-cn-ssl.ls.apple.com
 2, gspe19-2-cn-ssl.ls.apple.com
 2, iosapps.itunes.g.aaplimg.com
 2, osxapps.itunes.g.aaplimg.com
