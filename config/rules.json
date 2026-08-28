@@ -366,6 +366,31 @@
         "anywhere": "anywhere/apple.arrs"
       }
     },
+    "apple-proxy": {
+      "name": "Apple Proxy",
+      "description": "Apple domains that must not take the unified Apple direct route",
+      "rules": [
+        "DOMAIN,news-assets.apple.com",
+        "DOMAIN,events-live.apple.com",
+        "DOMAIN,events-delivery.apple.com",
+        "DOMAIN,static.ess.apple.com",
+        "DOMAIN,pba.apple.com",
+        "DOMAIN,statici.icloud.com",
+        "DOMAIN-SUFFIX,apple.news",
+        "DOMAIN-SUFFIX,news-edge.apple.com",
+        "DOMAIN-SUFFIX,news-client.apple.com",
+        "DOMAIN-SUFFIX,news-events.apple.com",
+        "DOMAIN-SUFFIX,mask.icloud.com",
+        "DOMAIN-SUFFIX,mask-h2.icloud.com",
+        "DOMAIN-SUFFIX,mask-api.icloud.com",
+        "DOMAIN-SUFFIX,developer.apple.com",
+        "DOMAIN-SUFFIX,appstoreconnect.apple.com",
+        "DOMAIN-SUFFIX,discussions.apple.com",
+        "DOMAIN-SUFFIX,devstreaming-cdn.apple.com",
+        "DOMAIN-SUFFIX,devimages-cdn.apple.com",
+        "DOMAIN-SUFFIX,adcdownload.apple.com"
+      ]
+    },
     "apple-cn": {
       "name": "Apple CN",
       "description": "Apple China direct routing overlay",
@@ -440,7 +465,115 @@
         "DOMAIN-SUFFIX,citiccapital.com",
         "DOMAIN-SUFFIX,citiciam.com",
         "DOMAIN-SUFFIX,citicifh.com",
-        "DOMAIN-SUFFIX,eciticcfc.com"
+        "DOMAIN-SUFFIX,eciticcfc.com",
+        "DOMAIN-SUFFIX,aadrm.cn",
+        "DOMAIN-SUFFIX,apihub-internal.cn",
+        "DOMAIN-SUFFIX,appserviceenvironment.cn",
+        "DOMAIN-SUFFIX,azcrmc-test.cn",
+        "DOMAIN-SUFFIX,azcrmc.cn",
+        "DOMAIN-SUFFIX,azk8s.cn",
+        "DOMAIN-SUFFIX,aznbcontent.cn",
+        "DOMAIN-SUFFIX,aztask.cn",
+        "DOMAIN-SUFFIX,azure-api.cn",
+        "DOMAIN-SUFFIX,azure-apihub.cn",
+        "DOMAIN-SUFFIX,azure-automation.cn",
+        "DOMAIN-SUFFIX,azure-connectedvehicles-stage.cn",
+        "DOMAIN-SUFFIX,azure-connectedvehicles.cn",
+        "DOMAIN-SUFFIX,azure-devices-provisioning.cn",
+        "DOMAIN-SUFFIX,azure-devices.cn",
+        "DOMAIN-SUFFIX,azure-dns-1.cn",
+        "DOMAIN-SUFFIX,azure-dns-10.cn",
+        "DOMAIN-SUFFIX,azure-dns-2.cn",
+        "DOMAIN-SUFFIX,azure-dns-3.cn",
+        "DOMAIN-SUFFIX,azure-dns-4.cn",
+        "DOMAIN-SUFFIX,azure-dns-5.cn",
+        "DOMAIN-SUFFIX,azure-dns-6.cn",
+        "DOMAIN-SUFFIX,azure-dns-7.cn",
+        "DOMAIN-SUFFIX,azure-dns-8.cn",
+        "DOMAIN-SUFFIX,azure-dns-9.cn",
+        "DOMAIN-SUFFIX,azure-dns.cn",
+        "DOMAIN-SUFFIX,azure-mobile.cn",
+        "DOMAIN-SUFFIX,azure.cn",
+        "DOMAIN-SUFFIX,azurecr-test.cn",
+        "DOMAIN-SUFFIX,azurecr.cn",
+        "DOMAIN-SUFFIX,azurehdinsight.cn",
+        "DOMAIN-SUFFIX,azureiotsuite.cn",
+        "DOMAIN-SUFFIX,azuremresolver.cn",
+        "DOMAIN-SUFFIX,azureprivatedns.cn",
+        "DOMAIN-SUFFIX,azurerms.cn",
+        "DOMAIN-SUFFIX,azuresandbox.cn",
+        "DOMAIN-SUFFIX,b2clogin.cn",
+        "DOMAIN-SUFFIX,b3itech.cn",
+        "DOMAIN-SUFFIX,bing.com.cn",
+        "DOMAIN-SUFFIX,cegid-cloud.cn",
+        "DOMAIN-SUFFIX,chinacloud-mobile.cn",
+        "DOMAIN-SUFFIX,chinacloudapi.cn",
+        "DOMAIN-SUFFIX,chinacloudapp.cn",
+        "DOMAIN-SUFFIX,chinacloudsites.cn",
+        "DOMAIN-SUFFIX,dynamics.cn",
+        "DOMAIN-SUFFIX,hdinsightservices.cn",
+        "DOMAIN-SUFFIX,lync.cn",
+        "DOMAIN-SUFFIX,management-azure-devices-provisioning.cn",
+        "DOMAIN-SUFFIX,management-azure-devices.cn",
+        "DOMAIN-SUFFIX,mgmt-azure-api.cn",
+        "DOMAIN-SUFFIX,microsoft-smb.cn",
+        "DOMAIN-SUFFIX,microsoftazurestatus.cn",
+        "DOMAIN-SUFFIX,microsoftmetrics.cn",
+        "DOMAIN-SUFFIX,microsoftnews.cn",
+        "DOMAIN-SUFFIX,microsoftonline-i.cn",
+        "DOMAIN-SUFFIX,microsoftonline-m-i.cn",
+        "DOMAIN-SUFFIX,microsoftonline-m.cn",
+        "DOMAIN-SUFFIX,microsoftonline-p-i.cn",
+        "DOMAIN-SUFFIX,microsoftonline-p-i.net.cn",
+        "DOMAIN-SUFFIX,microsoftonline-p.cn",
+        "DOMAIN-SUFFIX,microsoftonline-p.net.cn",
+        "DOMAIN-SUFFIX,microsoftonline.cn",
+        "DOMAIN-SUFFIX,microsoftreactor.cn",
+        "DOMAIN-SUFFIX,microsoftreactor.com.cn",
+        "DOMAIN-SUFFIX,microsoftstore.com.cn",
+        "DOMAIN-SUFFIX,microsofttranslator-int.cn",
+        "DOMAIN-SUFFIX,mncmsidlab1.cn",
+        "DOMAIN-SUFFIX,msappproxy.cn",
+        "DOMAIN-SUFFIX,msauth.cn",
+        "DOMAIN-SUFFIX,msauthimages.cn",
+        "DOMAIN-SUFFIX,msftauth.cn",
+        "DOMAIN-SUFFIX,msftauthimages.cn",
+        "DOMAIN-SUFFIX,msftcloudes.cn",
+        "DOMAIN-SUFFIX,msidentity.cn",
+        "DOMAIN-SUFFIX,msidlabpbmc.cn",
+        "DOMAIN-SUFFIX,msn.cn",
+        "DOMAIN-SUFFIX,mspil.cn",
+        "DOMAIN-SUFFIX,msra.cn",
+        "DOMAIN-SUFFIX,o365files.cn",
+        "DOMAIN-SUFFIX,office365-net.cn",
+        "DOMAIN-SUFFIX,office365.cn",
+        "DOMAIN-SUFFIX,officeplus.cn",
+        "DOMAIN-SUFFIX,officewebapps.cn",
+        "DOMAIN-SUFFIX,onmschina.cn",
+        "DOMAIN-SUFFIX,outlook.cn",
+        "DOMAIN-SUFFIX,pbiwebcontent.cn",
+        "DOMAIN-SUFFIX,powerapps.cn",
+        "DOMAIN-SUFFIX,powerappsportals.cn",
+        "DOMAIN-SUFFIX,powerautomate.cn",
+        "DOMAIN-SUFFIX,powerbi.cn",
+        "DOMAIN-SUFFIX,reactorms.com.cn",
+        "DOMAIN-SUFFIX,sharepoint.cn",
+        "DOMAIN-SUFFIX,sovcloud-mx.cn",
+        "DOMAIN-SUFFIX,sovcloud-static.cn",
+        "DOMAIN-SUFFIX,sovcloud-usercontent.cn",
+        "DOMAIN-SUFFIX,sovcloud.cn",
+        "DOMAIN-SUFFIX,trafficmanager.cn",
+        "DOMAIN-SUFFIX,trustcenter.cn",
+        "DOMAIN-SUFFIX,windowsazure.cn",
+        "DOMAIN-SUFFIX,windowsazurestatus.cn",
+        "DOMAIN-SUFFIX,xboxlive.cn",
+        "DOMAIN,speedtest.bmcc.com.cn",
+        "DOMAIN,ookla.speedtest.cnix.cn",
+        "DOMAIN,cesu-hz.zjtelecom.com.cn",
+        "DOMAIN,cesu-nb.zjtelecom.com.cn",
+        "DOMAIN,speedtest-net.xjtlu.edu.cn",
+        "DOMAIN,speedtest.dukekunshan.edu.cn",
+        "DOMAIN,cn.download.nvidia.com"
       ],
       "targets": {
         "anywhere": "anywhere/direct-extra.arrs"
@@ -525,6 +658,9 @@
         "DOMAIN,anthropic.auth0.com",
         "DOMAIN,anthropic-com.ghost.io"
       ],
+      "exclude": [
+        "hf.co"
+      ],
       "targets": {
         "anywhere": "anywhere/ai.arrs"
       }
@@ -545,6 +681,10 @@
       "description": "Stream services routing overlay based on SukkaW Stream rules",
       "sources": [
         "stream"
+      ],
+      "add": [
+        "DOMAIN,tv.apple.com",
+        "DOMAIN,hls-svod.itunes.apple.com"
       ],
       "targets": {
         "anywhere": "anywhere/stream.arrs"
@@ -717,6 +857,13 @@
           "DOMAIN-SUFFIX,time.apple.com"
         ]
       },
+      "apple-proxy": {
+        "source": "apple-proxy",
+        "clients": [
+          "surge",
+          "mihomo"
+        ]
+      },
       "download": {
         "source": "download-non-ip"
       },
@@ -769,6 +916,10 @@
       },
       "stream": {
         "source": "stream",
+        "add": [
+          "DOMAIN,tv.apple.com",
+          "DOMAIN,hls-svod.itunes.apple.com"
+        ],
         "surge-client-rules": true
       },
       "stream-hk": {

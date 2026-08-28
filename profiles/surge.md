@@ -1,19 +1,32 @@
 # Surge Profile
 
-Use the generated unified proxy and direct rules before broad domestic/global
-fallback rules.
+Rule sets are matched in profile order, so the sections below are listed in the
+order they must appear in `[Rule]`. Narrow overlays come first, broad
+domestic/global fallbacks come last.
 
-Proxy:
+The unified `proxy` set is a *fallback*, not a lead rule: it sits after the
+per-service sets and after `cn-domain`, so a service-specific set can claim its
+own domains first.
+
+Kuro / Direct Extra:
 
 ```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/proxy.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/proxy.conf,Proxy,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/kuro.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
 ```
 
 Speedtest:
 
 ```ini
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/speedtest.conf,Speedtest,extended-matching
+```
+
+AI / PayPal / Crypto:
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.conf,AI,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/crypto.conf,Crypto,extended-matching
 ```
 
 Stream:
@@ -28,82 +41,72 @@ RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stre
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-eu.conf,MediaEU,extended-matching
 ```
 
-Google:
+Telegram:
 
 ```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/telegram.conf,Telegram,extended-matching
+```
+
+Apple:
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-proxy.conf,Proxy,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple.conf,DIRECT,extended-matching
+```
+
+`apple-proxy` must come before `apple`. The unified `apple` set carries the
+broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK
+Apple Services, so anything not carved out ahead of it takes the direct route.
+Keep Stream before `apple-proxy` as well, so Apple TV+ playback stays on the
+Stream policy.
+
+Microsoft CDN / Download:
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft-cdn.conf,DIRECT,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/download.conf,Download,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/download.conf,Download,extended-matching
+```
+
+Microsoft / Google:
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Proxy,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/google.conf,Google,extended-matching
 ```
 
 Keep Stream before Google. The Google upstream includes YouTube, and Stream
 should own YouTube routing.
 
-Apple:
-
-```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple.conf,DIRECT,extended-matching
-```
-
-Download:
-
-```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/download.conf,Download,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/download.conf,Download,extended-matching
-```
-
 Base direct:
 
 ```ini
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/domestic.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/lan.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cn-domain.conf,DIRECT,extended-matching
+```
+
+Proxy fallback:
+
+```ini
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/proxy.conf,Proxy,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/proxy.conf,Proxy,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/lan.conf,DIRECT
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/not-cn-domain.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT,extended-matching
 ```
 
-Keep non-IP direct rule sets before IP rule sets in profile order.
-`not-cn-domain` is a broad proxy fallback for text-rule clients.
+`not-cn-domain` is a broad proxy fallback for text-rule clients. `lan` must be ordered before it, otherwise a broad `DOMAIN-SUFFIX` in `not-cn-domain` can steal a LAN management domain and send it to the proxy.
 
-AI:
+IP rules:
 
 ```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.conf,AI,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,no-resolve
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT
 ```
 
-Telegram:
-
-```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/telegram.conf,Telegram,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,extended-matching
-```
-
-Crypto:
-
-```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/crypto.conf,Crypto,extended-matching
-```
-
-PayPal:
-
-```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
-```
-
-Microsoft:
-
-```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft-cdn.conf,DIRECT,extended-matching
-```
-
-Kuro:
-
-```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/kuro.conf,DIRECT,extended-matching
-```
+Keep non-IP rule sets before IP rule sets in profile order.
 
 Do not add private domains, private media services, proxy nodes, subscription
 URLs, or tokens to this repository.

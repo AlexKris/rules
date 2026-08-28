@@ -35,12 +35,13 @@ Current generated groups:
 - `lan-ip`: SKK LAN IP CIDR rules, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `china-ip`: SKK China IP CIDR rules. Do not restore SKK `ip/domestic.conf`.
 - `cdn`: SKK CDN domainset + non_ip, excluding Apple time sync and DigiCert certificate infrastructure.
+- `apple-proxy`: explicit carve-out of Apple domains that must not take the unified `apple` direct route. Generated for Surge and Mihomo only. It must be ordered before `apple` in every profile.
 - `apple-cdn`: SKK Apple CDN domainset + non_ip, with `is1-ssl.mzstatic.com` added.
 - `apple-cn`: SKK Apple CN.
 - `apple-services`: SKK Apple Services, with `time.apple.com` added.
 - `speedtest`: SKK Speedtest domainset.
-- `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions.
-- `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets.
+- `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions. `hf.co` is excluded so that the Hugging Face bulk-download hosts `cdn.hf.co` and `cas-bridge.xethub.hf.co` fall through to `download` instead of the region-restricted AIGC policy; `huggingface.co` stays in `ai`.
+- `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy.
 - `google`: v2fly `google`, generated only for Surge/Loon/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
 - `cn-domain`: v2fly `geolocation-cn`, generated for Surge/Loon/plain and as an optional Anywhere direct fallback.
 - `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/Loon/plain.
@@ -49,7 +50,7 @@ Current generated groups:
 - `paypal`: v2fly `paypal`.
 - `microsoft`: v2fly `microsoft`.
 - `microsoft-cdn`: SKK Microsoft CDN.
-- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure.
+- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries three carve-outs that would otherwise be stolen by a proxy policy because their rule set is ordered earlier: the 21Vianet China Microsoft `.cn` domains (`microsoft` routes them to a proxy policy), the six mainland speedtest endpoints inside `speedtest`, and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). Because `direct-extra` is the first rule set in every profile, these take effect on every client without a per-profile edit.
 - `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list.
 
 Manual overlays currently outside `config/rules.json`:
@@ -237,6 +238,10 @@ Expected behavior:
 - `time.apple.com` belongs in Apple Services, not CDN.
 - Unified `proxy` contains CDN and SKK Global rules, but excludes Apple time sync and DigiCert certificate infrastructure.
 - Unified `apple` contains Apple CDN, CN, Services, `is1-ssl.mzstatic.com`, and `time.apple.com`; it is intended for DIRECT.
+- `apple` inherits the broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK Apple Services, so it captures every Apple subdomain not claimed earlier. `apple-proxy` must be ordered before it, and Stream must be ordered before `apple-proxy` so Apple TV+ playback stays on the Stream policy.
+- `apple-proxy` covers Apple domains SKK routes through CDN/Global (`news-assets.apple.com`, `events-live.apple.com`, `events-delivery.apple.com`, `static.ess.apple.com`, `pba.apple.com`, `statici.icloud.com`), services unavailable in mainland China (Apple News, iCloud Private Relay `mask*.icloud.com`), and developer endpoints with no mainland CDN presence.
+- Apple TV+ belongs to `stream`, not `apple-proxy`. `tv.apple.com` and `hls-svod.itunes.apple.com` are added to `stream` so the whole TV+ chain (`uts-api`, `play-edge`, `linear.tv`, `hls*`) shares one policy. Splitting the chain across two policy groups with different exit regions breaks TV+ region validation.
+- Keep `time.apple.com`, `gs-loc.apple.com`, `gsp*-cn.ls.apple.com`, `*-courier.push.apple.com`, `albert.apple.com`, Apple software update CDNs, and `*.apple.com.cn` on DIRECT. Do not add them to `apple-proxy`.
 - `download` remains separate from `microsoft-cdn`.
 - `domestic`, `direct`, and `lan` are non-IP direct rule sets and belong before IP rule sets in profiles.
 - `lan-ip` and `china-ip` are IP/CIDR direct rule sets; Surge outputs include `no-resolve`.
