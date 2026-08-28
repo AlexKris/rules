@@ -103,12 +103,29 @@ RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/not-
 IP rules:
 
 ```ini
+IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,no-resolve
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT
 ```
 
 Keep non-IP rule sets before IP rule sets in profile order.
+
+`IP-CIDR,17.0.0.0/8,DIRECT,no-resolve` must lead the IP section. iOS opens QUIC
+connections to iCloud and migrates them across the server pool; only the first
+packet carries an SNI, so the migrated paths reach the rule engine as bare IPs and
+match no domain rule. Without this line they fall through `china-ip` and `GEOIP,CN`
+to `FINAL` and land on a proxy policy. Surge's `block-quic` option defaults to
+`per-policy`, under which proxy policies block QUIC and DIRECT does not, so those
+paths are dropped and logged as `17.248.x.x:443 (Port Map)` / `QUIC-BLOCK`. This is
+`block-quic`, not `udp-policy-not-supported-behaviour`; the latter governs UDP that
+hits a policy without relay support and is unrelated here.
+
+The visible symptom is a half-completed iCloud account session: the Apple ID avatar
+does not render in iOS Settings and iCloud reports `家人共享信息不可用`. Global
+direct mode hides the bug because every path then matches DIRECT. `no-resolve` keeps
+the rule from claiming domain requests, which the Apple domain sets above already
+handle.
 
 Do not add private domains, private media services, proxy nodes, subscription
 URLs, or tokens to this repository.
