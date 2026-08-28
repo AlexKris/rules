@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 156
+# RULES: 158
 # SKIPPED: 0
 
 name = Direct Extra
@@ -161,3 +161,5 @@ name = Direct Extra
 2, speedtest-net.xjtlu.edu.cn
 2, speedtest.dukekunshan.edu.cn
 2, cn.download.nvidia.com
+2, apple-dns.cn
+2, idms-apple.com.akadns.net

@@ -154,3 +154,5 @@ DOMAIN,cesu-nb.zjtelecom.com.cn
 DOMAIN,speedtest-net.xjtlu.edu.cn
 DOMAIN,speedtest.dukekunshan.edu.cn
 DOMAIN,cn.download.nvidia.com
+DOMAIN-SUFFIX,apple-dns.cn
+DOMAIN-SUFFIX,idms-apple.com.akadns.net
