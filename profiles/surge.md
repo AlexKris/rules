@@ -8,12 +8,14 @@ The unified `proxy` set is a *fallback*, not a lead rule: it sits after the
 per-service sets and after `cn-domain`, so a service-specific set can claim its
 own domains first.
 
-Kuro / Direct Extra:
+Direct Extra:
 
 ```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/kuro.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
 ```
+
+Do not add `surge/domainset/kuro.conf` here. `direct-extra` already carries all seven Kuro
+domains; the standalone set is published only for legacy subscriptions.
 
 Speedtest:
 

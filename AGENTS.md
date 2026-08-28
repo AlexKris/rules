@@ -57,7 +57,9 @@ Manual overlays currently outside `config/rules.json`:
 
 - `anywhere/kuro.arrs`
 - `anywhere/citic.arrs`
-- `surge/domainset/kuro.conf`
+- `surge/domainset/kuro.conf` (superseded by `direct-extra`, which covers all seven Kuro
+  domains; kept published only for compatibility with older subscriptions. No profile in the
+  `profile` repository references it anymore.)
 - `anywhere/mitm/google-cn-redirect.amrs`
 - `anywhere/mitm/source/youtube-enhance-anywhere.js`
 - `anywhere/mitm/source/vendor/maasea-youtube.response.js`
