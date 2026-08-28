@@ -127,5 +127,11 @@ direct mode hides the bug because every path then matches DIRECT. `no-resolve` k
 the rule from claiming domain requests, which the Apple domain sets above already
 handle.
 
+Place this rule first in the IP section of *every* client profile (Surge,
+Shadowrocket, Loon, Mihomo, Stash, sing-box), not just Surge. `17.0.0.0/8` does not
+overlap `telegram-ip`, `lan-ip`, or `china-ip`, so its position among them is
+behaviourally free — but keep the order uniform across profiles so the sections stay
+diffable.
+
 Do not add private domains, private media services, proxy nodes, subscription
 URLs, or tokens to this repository.
