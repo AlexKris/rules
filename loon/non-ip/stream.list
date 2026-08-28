@@ -319,3 +319,5 @@ USER-AGENT,com.google.ios.youtube*
 USER-AGENT,YouTube*
 USER-AGENT,com.google.ios.youtubemusic*
 USER-AGENT,YouTubeMusic*
+DOMAIN,tv.apple.com
+DOMAIN,hls-svod.itunes.apple.com

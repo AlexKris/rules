@@ -270,3 +270,5 @@ DOMAIN-KEYWORD,apiproxy-device-prod-nlb-
 DOMAIN-KEYWORD,-spotify-com
 DOMAIN-KEYWORD,-tiktokcdn-com
 DOMAIN-KEYWORD,tvbanywhere
+DOMAIN,tv.apple.com
+DOMAIN,hls-svod.itunes.apple.com

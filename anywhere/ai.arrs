@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 182
+# RULES: 181
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -86,7 +86,6 @@ name = AI
 2, antigravity-unleash.goog
 2, stitch.withgoogle.com
 2, groq.com
-2, hf.co
 2, hf.space
 2, huggingface.co
 2, grazie.ai

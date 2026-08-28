@@ -1,7 +1,7 @@
 # NAME: Stream
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Stream services routing overlay based on SukkaW Stream rules
-# RULES: 272
+# RULES: 274
 # SKIPPED: 63
 # SKIPPED-TYPES: PROCESS-NAME=14, USER-AGENT=49
 # SOURCES:
@@ -280,3 +280,5 @@ name = Stream
 3, -spotify-com
 3, -tiktokcdn-com
 3, tvbanywhere
+2, tv.apple.com
+2, hls-svod.itunes.apple.com
