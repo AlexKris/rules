@@ -50,7 +50,15 @@ Current generated groups:
 - `paypal`: v2fly `paypal`.
 - `microsoft`: v2fly `microsoft`.
 - `microsoft-cdn`: SKK Microsoft CDN.
-- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries three carve-outs that would otherwise be stolen by a proxy policy because their rule set is ordered earlier: the 21Vianet China Microsoft `.cn` domains (`microsoft` routes them to a proxy policy), the six mainland speedtest endpoints inside `speedtest`, and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). Because `direct-extra` is the first rule set in every profile, these take effect on every client without a per-profile edit.
+- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries three carve-outs that would otherwise be stolen by a proxy policy because their rule set is ordered earlier: the 21Vianet China Microsoft `.cn` domains (`microsoft` routes them to a proxy policy), the six mainland speedtest endpoints inside `speedtest`, and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). It also
+carries `apple-dns.cn` and `idms-apple.com.akadns.net`: these are Apple CNAME-target infrastructure
+domains that `not-cn-domain` would otherwise send to a proxy policy. The `apple` set already covers the
+sibling names `apple-dns.net`, `aaplimg.com`, and `itunes-apple.com.akadns.net`, so the `.cn` and IDMS
+names were a coverage gap. Because `direct-extra` is the first rule set in every profile, these take
+effect on every client without a per-profile edit.
+
+`apple-proxy` must not contain `statici.icloud.com`. It serves iCloud static assets including the Apple
+ID avatar shown in iOS Settings, and a mainland-China Apple ID needs it direct.
 - `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list.
 
 Manual overlays currently outside `config/rules.json`:
