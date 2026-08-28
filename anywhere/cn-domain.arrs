@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8161
+# RULES: 8165
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -3116,6 +3116,7 @@ name = CN Domain
 2, ziroom.com
 2, ziroomapartment.com
 2, 51selling.com
+2, aigefurniture.com
 2, aihuishou.com
 2, appsimg.com
 2, appvipshop.com
@@ -3159,6 +3160,7 @@ name = CN Domain
 2, linkheer.com
 2, lawtime.cn
 2, lawtimeimg.com
+2, lingxing.com
 2, lumiai.com
 2, manmanbuy.com
 2, maxonesoft.com
@@ -3179,6 +3181,7 @@ name = CN Domain
 2, xiamai.net
 2, yaduo.com
 2, zhuge.com
+2, ziniao.com
 2, b3log.org
 2, b3logfile.com
 2, hacpai.com
@@ -7121,6 +7124,7 @@ name = CN Domain
 2, 1nongjing.com
 2, 1ting.com
 2, 1zhe.com
+2, 20130123.com
 2, 2265.com
 2, 2288.org
 2, 258.com

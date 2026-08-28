@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4651
+# RULES: 4652
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -2361,6 +2361,7 @@ name = CDN
 2, public.zoorix.com
 2, purehalo.logto.io
 2, r2.gear4music.com
+2, reconvert-cdn.com
 2, res.office365.com
 2, res2.weblium.site
 2, rescript-lang.org

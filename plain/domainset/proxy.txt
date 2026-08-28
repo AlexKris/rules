@@ -2350,6 +2350,7 @@ DOMAIN,public.linear.app
 DOMAIN,public.zoorix.com
 DOMAIN,purehalo.logto.io
 DOMAIN,r2.gear4music.com
+DOMAIN-SUFFIX,reconvert-cdn.com
 DOMAIN-SUFFIX,res.office365.com
 DOMAIN,res2.weblium.site
 DOMAIN-SUFFIX,rescript-lang.org

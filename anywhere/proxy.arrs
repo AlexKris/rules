@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5863
+# RULES: 5864
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -2362,6 +2362,7 @@ name = Proxy
 2, public.zoorix.com
 2, purehalo.logto.io
 2, r2.gear4music.com
+2, reconvert-cdn.com
 2, res.office365.com
 2, res2.weblium.site
 2, rescript-lang.org
