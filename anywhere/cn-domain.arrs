@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8165
+# RULES: 8213
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -1951,6 +1951,8 @@ name = CN Domain
 2, xiaochuankeji.cn
 2, maimai.cn
 2, taou.com
+2, uneed.com
+2, uneedx.com
 2, zsxq.com
 2, gepush.com
 2, getui.cn
@@ -3249,6 +3251,7 @@ name = CN Domain
 2, cd120.com
 2, cd120.info
 2, hnxzctec.com
+2, ba-hospital.com
 2, 39.net
 2, ahfda.com
 2, biomart.cn
@@ -7128,6 +7131,7 @@ name = CN Domain
 2, 2265.com
 2, 2288.org
 2, 258.com
+2, 25mao.com
 2, 263.net
 2, 289.com
 2, 2cto.com
@@ -7176,12 +7180,14 @@ name = CN Domain
 2, 52miji.com
 2, 52muban.com
 2, 52pk.com
+2, 52youzai.com
 2, 52z.com
 2, 53kf.com
 2, 55.com
 2, 55555.ink
 2, 5577.com
 2, 55bbs.com
+2, 56tvc.com
 2, 5bite.com
 2, 5ddd.com
 2, 5fun.com
@@ -7222,6 +7228,9 @@ name = CN Domain
 2, a9vg.com
 2, acetaffy.club
 2, acepanel.net
+2, acgdraw.com
+2, adhuanxiao.com
+2, adosmo.com
 2, adxvip.com
 2, afeica.com
 2, afzhan.com
@@ -7239,12 +7248,14 @@ name = CN Domain
 2, allyes.com
 2, anfensi.com
 2, anruan.com
+2, anvnjmc.com
 2, anycubic.com
 2, aotrip.net
 2, aoyou.com
 2, apk3.com
 2, apk8.com
 2, aplaybox.com
+2, appracle.com
 2, arpun.com
 2, atticus.vip
 2, awstme.top
@@ -7286,8 +7297,10 @@ name = CN Domain
 2, bojianger.com
 2, bokecc.com
 2, boosj.com
+2, bowenkj.com
 2, boyuemobile.com
 2, btgtravel.com
+2, bvmlt.top
 2, cabbagebox.com
 2, caijingwu.com
 2, caiyun.com
@@ -7295,6 +7308,7 @@ name = CN Domain
 2, canghaiip.com
 2, cardbaobao.com
 2, carnoc.com
+2, cdut.top
 2, cecdc.com
 2, cecport.com
 2, centanet.com
@@ -7368,6 +7382,7 @@ name = CN Domain
 2, cwxzx.com
 2, cyagen.com
 2, cybtc.com
+2, cydiabc.top
 2, cyts.com
 2, dadajiasu.com
 2, dadighost.com
@@ -7455,13 +7470,16 @@ name = CN Domain
 2, feizhiyi.com
 2, fengsutb.com
 2, fengxian110.com
+2, fffff.games
 2, fhldns.com
 2, fimmu.com
 2, finchina.com
 2, fixdown.com
 2, fofuai.com
 2, fqjob.net
+2, fsjiaoyubang.com
 2, fugetech.com
+2, funmob.top
 2, fuwj.com
 2, fxxz.com
 2, fzaqjy.com
@@ -7477,6 +7495,7 @@ name = CN Domain
 2, gdliontech.com
 2, gdrc.com
 2, geektool.top
+2, gei6.com
 2, gelaiyun.net
 2, gezida.com
 2, ghoxz.com
@@ -7511,6 +7530,7 @@ name = CN Domain
 2, gwdang.com
 2, gxb.io
 2, gzcqs.com
+2, gzjkoa.com
 2, gzwanju.com
 2, h5uc.com
 2, hack520.com
@@ -7520,6 +7540,7 @@ name = CN Domain
 2, hanboshi.com
 2, handanjob.com
 2, hangjiayun.com
+2, hanqiuming888.com
 2, haojieyun.com
 2, haolietou.com
 2, haote.com
@@ -7534,8 +7555,10 @@ name = CN Domain
 2, henkuai.com
 2, herostart.com
 2, hezuvip.com
+2, higgsweb.com
 2, hiido.com
 2, hijin.vip
+2, hiocloud.com
 2, hitokoto.cn
 2, hiyd.com
 2, hktheone.com
@@ -7635,11 +7658,13 @@ name = CN Domain
 2, kantianqi.net
 2, kanzhun.com
 2, kaopu001.com
+2, kcttpa.com
 2, kejet.net
 2, keyoo.com
 2, kf5.com
 2, kimiss.com
 2, kingdee.com
+2, kiwiot.com
 2, kiyuu.club
 2, kkzj.com
 2, kmeila.com
@@ -7651,6 +7676,8 @@ name = CN Domain
 2, kuaicha888.com
 2, kuaihou.com
 2, kuaiji.com
+2, kudashi.com
+2, kukongjian.com
 2, kuqin.com
 2, kuyiso.com
 2, lady8844.com
@@ -7693,6 +7720,7 @@ name = CN Domain
 2, longzhu.com
 2, lotpc.com
 2, loupan.com
+2, loveutips.com
 2, lsbj365.com
 2, lunwengo.net
 2, luyouqi.com
@@ -7713,6 +7741,7 @@ name = CN Domain
 2, mechina.org
 2, megawords.cc
 2, meifang.com
+2, meijian.com
 2, meika360.com
 2, meilishuo.com
 2, meimingteng.com
@@ -7732,12 +7761,14 @@ name = CN Domain
 2, mjia.cc
 2, mmbang.com
 2, mmbang.info
+2, modaiyun.com
 2, mofang.com
 2, mofazhu.com
 2, mokahr.com
 2, moleecel.com
 2, moocollege.com
 2, mop.com
+2, mrtdephoto.net
 2, msanjia.com
 2, mscbsc.com
 2, mslmc.net
@@ -7779,6 +7810,8 @@ name = CN Domain
 2, onlinesjtu.com
 2, onlylady.com
 2, opdown.com
+2, openevai.com
+2, orence.net
 2, oupeng.com
 2, ourschool.cc
 2, p2peye.com
@@ -7787,6 +7820,7 @@ name = CN Domain
 2, paopaoche.net
 2, paperang.com
 2, pc6.com
+2, pcwatch.com
 2, peccn.com
 2, pgzs.com
 2, pharmacodia.com
@@ -7798,6 +7832,7 @@ name = CN Domain
 2, pipaw.com
 2, pipaw.net
 2, pixcheese.com
+2, ppt28.com
 2, pptbest.com
 2, pubyun.com
 2, pwithe.com
@@ -7814,6 +7849,7 @@ name = CN Domain
 2, qie.tv
 2, qifeiye.com
 2, qijiayoudao.net
+2, qingjiansoft.com
 2, qinglue.com
 2, qingsongchou.com
 2, qiumibao.com
@@ -7845,7 +7881,9 @@ name = CN Domain
 2, scratch5.com
 2, scyol.com
 2, sczsxx.com
+2, senachina.com
 2, senlinjimore.com
+2, senmuse.com
 2, shang360.com
 2, shangc.net
 2, shanghairc.com
@@ -7912,8 +7950,10 @@ name = CN Domain
 2, thinkerride.com
 2, thispx.com
 2, thmnet.com
+2, threep.top
 2, tianlailive.com
 2, tianlala.com
+2, tianruo.xyz
 2, tietuku.com
 2, tiexue.net
 2, timbrd.com
@@ -7966,6 +8006,7 @@ name = CN Domain
 2, videojj.com
 2, vobao.com
 2, vpgame.com
+2, vpsjyz.com
 2, vpsvs.com
 2, wangyangyang.vip
 2, wannianli8.com
@@ -8063,6 +8104,7 @@ name = CN Domain
 2, yaozh.com
 2, yeepay.com
 2, yh31.com
+2, yibanbianji.com
 2, yigao.com
 2, yigoonet.com
 2, yihedoors.com
@@ -8081,6 +8123,7 @@ name = CN Domain
 2, yizhibo.com
 2, yjbys.com
 2, ynhr.com
+2, ynsj001.com
 2, yocajr.com
 2, youboy.com
 2, youke.co
@@ -8139,15 +8182,20 @@ name = CN Domain
 2, zhuayoukong.com
 2, zixiaomao.com
 2, zixuntop.com
+2, zjjslawyer.com
 2, zjxhedu.com
+2, zllinks.com
 2, zmengzhu.com
 2, znnu.com
 2, znztv.com
 2, zpb365.com
 2, zuhaowan.com
 2, zysou.com
+2, zyyct.com
 2, zzclass.com
 2, zztfly.com
+2, zzzcaculator.top
+2, zzzmap.com
 2, bdcat.top
 2, bdmozon.com
 2, educoder.net

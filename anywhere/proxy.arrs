@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5871
+# RULES: 5877
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -1527,9 +1527,11 @@ name = Proxy
 2, cdn2.hextom.com
 2, cdn2.macpaw.com
 2, cdn2.stamped.io
+2, cdn2.telesco.pe
 2, cdn2.ttloli.com
 2, cdn3.hextom.com
 2, cdn3.stamped.io
+2, cdn3.telesco.pe
 2, cdn4.telesco.pe
 2, cdn5.hextom.com
 2, cdn5.telesco.pe
@@ -2165,6 +2167,7 @@ name = Proxy
 2, cdn.blogarama.com
 2, cdn.brandfetch.io
 2, cdn.buttercms.com
+2, cdn.candycode.com
 2, cdn.cds.dmm.co.jp
 2, cdn.changelog.com
 2, cdn.cloudcraft.co
@@ -2886,9 +2889,11 @@ name = Proxy
 2, cdn1.tubeteen18.com
 2, cdn2.editmysite.com
 2, cdn2.iconfinder.com
+2, cdn2.telegram.space
 2, cdn2.tubeteen18.com
 2, cdn2.turboviplay.cc
 2, cdn3.iconfinder.com
+2, cdn3.telegram.space
 2, cdn3.tubeteen18.com
 2, cdn4.iconfinder.com
 2, cdn4.telegram.space
@@ -3595,6 +3600,7 @@ name = Proxy
 2, wac-cdn.atlassian.com
 2, web-assets.strava.com
 2, website-cdn.ipinfo.io
+2, websiteres.nmteam.xyz
 2, widget.allkeyshop.com
 2, widget.automizely.com
 2, widget.freshworks.com
