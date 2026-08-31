@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5877
+# RULES: 5878
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -4581,6 +4581,7 @@ name = Proxy
 2, categoriespages-cdn.trustpilot.net
 2, cdn-a.sonyentertainmentnetwork.com
 2, cdn.prod.ext.web.purview.azure.com
+2, client-log-forwarder.1password.com
 2, consumersite-assets.trustpilot.net
 2, content-management-files.canva.com
 2, disco-static.productessentials.app

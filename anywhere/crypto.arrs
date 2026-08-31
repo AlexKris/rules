@@ -1,7 +1,7 @@
 # NAME: Crypto
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Cryptocurrency services routing overlay based on v2fly domain-list-community
-# RULES: 232
+# RULES: 235
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-cryptocurrency
@@ -87,7 +87,10 @@ name = Crypto
 2, ethereum.foundation
 2, ethereum.org
 2, etherscan.io
+2, gate.com
 2, gate.io
+2, gate.tv
+2, gateapi.io
 2, gatedata.org
 2, gateimg.com
 2, gateio.live

@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8213
+# RULES: 8222
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -2157,6 +2157,8 @@ name = CN Domain
 2, shrbank.com
 2, mybank.cn
 2, ms-bank.cn
+2, tctpwebankcdn.net
+2, wbweilicai.com
 2, webank.com
 2, webankcdn.net
 2, csxbank.com
@@ -3687,6 +3689,7 @@ name = CN Domain
 2, zjlib.cn
 2, zyh365.com
 2, deepseek.com
+2, deepseeksvc.com
 2, butterfly-static.cn
 2, butterflyai.cn
 2, coze-dns-01.com
@@ -3770,6 +3773,7 @@ name = CN Domain
 2, minimaxi.com
 2, xingyeai.com
 2, codebuddy.cn
+2, workbuddy.cn
 2, hunyuan.tencent.com
 2, yuanbao.tencent.com
 2, yuanqi.tencent.com
@@ -6229,6 +6233,7 @@ name = CN Domain
 2, 360panyun.cn
 2, 360qhcdn.com
 2, 360safe.com
+2, 360scdn.com
 2, 360shouji.com
 2, 360so.com
 2, 360sou.cn
@@ -6477,7 +6482,9 @@ name = CN Domain
 2, tencentcdb.cn
 2, tencentcdb.com
 2, tencentcdb.com.cn
+2, tencentclb.cn
 2, tencentclb.com
+2, tencentclb.com.cn
 2, tencentcloud-aiot.com
 2, tencentcloudapi.com
 2, tencentcloudclub.com
@@ -6676,6 +6683,8 @@ name = CN Domain
 2, tencent.com.cn
 2, tencent.net
 2, tencent.net.cn
+2, tencentmiying.com
+2, tengmed.com
 2, tenpay.com
 2, tfogc.com
 2, wechat.com
