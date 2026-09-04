@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4670
+# RULES: 4671
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -1824,6 +1824,7 @@ name = CDN
 2, cdn.hero-sms.com
 2, cdn.highporn.net
 2, cdn.hinative.com
+2, cdn.imgchest.com
 2, cdn.imghaste.com
 2, cdn.jwplayer.com
 2, cdn.kinopio.club

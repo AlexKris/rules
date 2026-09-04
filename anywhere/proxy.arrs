@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5882
+# RULES: 5883
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -1825,6 +1825,7 @@ name = Proxy
 2, cdn.hero-sms.com
 2, cdn.highporn.net
 2, cdn.hinative.com
+2, cdn.imgchest.com
 2, cdn.imghaste.com
 2, cdn.jwplayer.com
 2, cdn.kinopio.club
