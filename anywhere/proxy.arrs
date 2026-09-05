@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5883
+# RULES: 5885
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -328,6 +328,7 @@ name = Proxy
 2, odycdn.com
 2, p.sda1.dev
 2, pagecdn.io
+2, pgimgs.com
 2, phncdn.com
 2, pinimg.com
 2, pixhost.to
@@ -2397,6 +2398,7 @@ name = Proxy
 2, st.deviantart.net
 2, static-id.fc2.com
 2, static-sv.fc2.com
+2, static-upwork.com
 2, static.ahrefs.com
 2, static.anysex.com
 2, static.bbci.co.uk
@@ -3583,6 +3585,7 @@ name = Proxy
 2, static.chessarena.com
 2, static.clips4sale.com
 2, static.getpostman.com
+2, static.idp.sph.com.sg
 2, static.mytonwallet.io
 2, static.openreplay.com
 2, static.pfrt.yna.co.kr
@@ -4018,7 +4021,6 @@ name = Proxy
 2, assets.geeksforgeeks.org
 2, assets.nationbuilder.com
 2, assets.prowritingaid.com
-2, assets.static-upwork.com
 2, assets.trainingpeaks.com
 2, assets10.lottiefiles.com
 2, atl-global.atlassian.com

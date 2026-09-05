@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4671
+# RULES: 4673
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -327,6 +327,7 @@ name = CDN
 2, odycdn.com
 2, p.sda1.dev
 2, pagecdn.io
+2, pgimgs.com
 2, phncdn.com
 2, pinimg.com
 2, pixhost.to
@@ -2396,6 +2397,7 @@ name = CDN
 2, st.deviantart.net
 2, static-id.fc2.com
 2, static-sv.fc2.com
+2, static-upwork.com
 2, static.ahrefs.com
 2, static.anysex.com
 2, static.bbci.co.uk
@@ -3582,6 +3584,7 @@ name = CDN
 2, static.chessarena.com
 2, static.clips4sale.com
 2, static.getpostman.com
+2, static.idp.sph.com.sg
 2, static.mytonwallet.io
 2, static.openreplay.com
 2, static.pfrt.yna.co.kr
@@ -4017,7 +4020,6 @@ name = CDN
 2, assets.geeksforgeeks.org
 2, assets.nationbuilder.com
 2, assets.prowritingaid.com
-2, assets.static-upwork.com
 2, assets.trainingpeaks.com
 2, assets10.lottiefiles.com
 2, atl-global.atlassian.com
