@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8222
+# RULES: 8224
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -5983,11 +5983,13 @@ name = CN Domain
 2, cmcm.com
 2, cmcmcdn.com
 2, liebao.cn
+2, zhhainiao.com
 2, drivergenius.com
 2, duba.com
 2, duba.net
 2, ijinshan.com
 2, keniu.com
+2, yuanqidesk.com
 2, wps.cn
 2, wps.com
 2, wpscdn.cn
