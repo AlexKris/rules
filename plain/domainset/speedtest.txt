@@ -431,6 +431,7 @@ DOMAIN,ooklaserver.aryk.fr
 DOMAIN,ooklaspeed.ttron.eu
 DOMAIN,purtel39.purtel.com
 DOMAIN,purtel70.purtel.com
+DOMAIN,serv8.a2jnetwork.in
 DOMAIN,sg.st.spacecore.pro
 DOMAIN,sp.merkurnet.com.tr
 DOMAIN,sp01.rbfibra.net.br
@@ -710,6 +711,7 @@ DOMAIN,speedtest.n4uspl.net
 DOMAIN,speedtest.neitel.net
 DOMAIN,speedtest.netafy.com
 DOMAIN,speedtest.nethiz.net
+DOMAIN,speedtest.netpool.in
 DOMAIN,speedtest.netrack.ru
 DOMAIN,speedtest.oopaya.com
 DOMAIN,speedtest.quadro.net

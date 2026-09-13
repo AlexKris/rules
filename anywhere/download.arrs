@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1966
+# RULES: 1967
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -249,6 +249,7 @@ name = Download
 2, disks.webvm.io
 2, dl.devmate.com
 2, dl.flathub.org
+2, dl.gl-inet.com
 2, dl.nssurge.com
 2, dl.pikpak.site
 2, dl2.osmand.net

@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4673
+# RULES: 4681
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -599,6 +599,7 @@ name = CDN
 2, aimg.fc2.com
 2, ajax.cat.net
 2, apperoni.top
+2, axiom-cdn.io
 2, axis-cdn.net
 2, b.peatio.com
 2, b.sf-syn.com
@@ -1059,6 +1060,7 @@ name = CDN
 2, static.dw.com
 2, static.ffx.io
 2, static.iyf.tv
+2, static.jup.ag
 2, static.k2s.cc
 2, static.nrk.no
 2, static.ui.com
@@ -3074,6 +3076,8 @@ name = CDN
 2, sync.getpublica.com
 2, tag.unifyintent.com
 2, tags.nationwide.com
+2, thumb.wikimedia.org
+2, thumbnails.padre.gg
 2, thumbs.onlyfans.com
 2, thumbs2.sendvid.com
 2, tile2.intervals.icu
@@ -3287,6 +3291,7 @@ name = CDN
 2, rapid-cdn.yottaa.com
 2, reload.getsentry.net
 2, res-3.cdn.office.net
+2, resources.redbull.tv
 2, resources.whatwg.org
 2, rs-cdn.splashtop.com
 2, rules1.clearurls.xyz
@@ -4122,6 +4127,7 @@ name = CDN
 2, tools-static.wmflabs.org
 2, typescript.azureedge.net
 2, ubistatic2-a.ubisoft.com
+2, ugc.production.linktr.ee
 2, viu-static.akamaized.net
 2, web-assets.zendesk.co.jp
 2, wl-apps.yourwebsite.life
@@ -4145,6 +4151,7 @@ name = CDN
 2, cdn.registerdisney.go.com
 2, changelog-widget.canny.io
 2, chunk-composing.canva.com
+2, coin-images.coingecko.com
 2, components.justanswer.com
 2, cors-proxy.htmldriven.com
 2, crashlytics2.l.google.com
@@ -4317,6 +4324,7 @@ name = CDN
 2, app-static-prod.posthog.com
 2, article-image-ix.nikkei.com
 2, assets.braintreegateway.com
+2, assets.production.linktr.ee
 2, assets.weather-forecast.com
 2, cdn-lfs-us-1.huggingface.co
 2, cdn-live.foreignaffairs.com
