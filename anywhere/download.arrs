@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1967
+# RULES: 1968
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -224,6 +224,7 @@ name = Download
 2, mirrors.up.pt
 2, ossplanet.org
 2, packagist.org
+2, repo.xtom.com
 2, repository.su
 2, s3.yandex.net
 2, sft.if.usp.br

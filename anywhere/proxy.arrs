@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5894
+# RULES: 5897
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -355,6 +355,7 @@ name = Proxy
 2, sc-cdn.com
 2, scene7.com
 2, seecdn.com
+2, seecdn.net
 2, sftcdn.net
 2, shgcdn.com
 2, shields.io
@@ -572,7 +573,6 @@ name = Proxy
 2, tile.osm.be
 2, tile.osm.ch
 2, tn.vjav.com
-2, tripcdn.com
 2, ttcache.com
 2, turbo.build
 2, tutu1.space
@@ -1372,6 +1372,7 @@ name = Proxy
 2, static.itch.io
 2, static.j51.net
 2, static.lwn.net
+2, static.okou.io
 2, static.okx.cab
 2, static.okx.com
 2, static.reo.dev
@@ -1818,6 +1819,7 @@ name = Proxy
 2, cdn.easyling.com
 2, cdn.ecomm.ui.com
 2, cdn.equalweb.com
+2, cdn.eye-able.com
 2, cdn.firebase.com
 2, cdn.foxycart.com
 2, cdn.getkoala.com
@@ -3714,6 +3716,7 @@ name = Proxy
 2, images.contentstack.io
 2, images.hothardware.com
 2, images.newrepublic.com
+2, images.radio-canada.ca
 2, images.socialblade.com
 2, images.wsjcommerce.net
 2, images.wurstclient.net
