@@ -276,6 +276,7 @@ DOMAIN-SUFFIX,qhres.com
 DOMAIN-SUFFIX,qiniu.com
 DOMAIN-SUFFIX,qixin.com
 DOMAIN-SUFFIX,qzone.com
+DOMAIN-SUFFIX,rnote.com
 DOMAIN-SUFFIX,roblox.cn
 DOMAIN-SUFFIX,sifou.com
 DOMAIN-SUFFIX,sinajs.cn
@@ -863,4 +864,4 @@ DOMAIN,media.cdn.queniuqe.com
 DOMAIN,cdnstatic.tencentcs.com
 DOMAIN-SUFFIX,kingsoft-office-service.com
 DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com
-DOMAIN-WILDCARD,*.qhimgs?.com
+DOMAIN-WILDCARD,qhimgs?.com

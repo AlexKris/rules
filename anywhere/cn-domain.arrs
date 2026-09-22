@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8328
+# RULES: 8329
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -8336,3 +8336,4 @@ name = CN Domain
 2, vxhcm.com
 2, wanji.net.cn
 2, yebinnet.com
+2, sjfls6.com
