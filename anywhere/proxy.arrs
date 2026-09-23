@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5906
+# RULES: 5907
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -1768,6 +1768,7 @@ name = Proxy
 2, appsflyersdk.com
 2, assets.bnidx.com
 2, assets.brevo.com
+2, assets.byokey.io
 2, assets.gcore.pro
 2, assets.hackmd.io
 2, assets.humix.com
