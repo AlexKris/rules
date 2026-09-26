@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5907
+# RULES: 5908
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -1208,6 +1208,7 @@ name = Proxy
 2, d.newsweek.com
 2, dc-cdn.cdw.com
 2, descopecdn.com
+2, dma.canyon.com
 2, doppiocdn.live
 2, dummyimage.com
 2, ebaystatic.com
@@ -2332,7 +2333,6 @@ name = Proxy
 2, img4.airdroid.com
 2, img6.airdroid.com
 2, imgcdn.cna.com.tw
-2, ipfs.ecolatam.com
 2, js.chilipiper.com
 2, js.convertflow.co
 2, js1.chargebee.com
@@ -2995,6 +2995,7 @@ name = Proxy
 2, media.breitbart.com
 2, media.crazyshit.com
 2, media.glassdoor.com
+2, media.karousell.com
 2, media.newyorker.com
 2, media.shopimind.com
 2, media.strapiapp.com
