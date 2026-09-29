@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4695
+# RULES: 4696
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -2057,6 +2057,7 @@ name = CDN
 2, static.fc2cn.com
 2, static.fc2id.com
 2, static.figma.com
+2, static.gamma.app
 2, static.gnome.org
 2, static.gopro.com
 2, static.ifunny.co

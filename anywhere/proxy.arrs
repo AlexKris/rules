@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5908
+# RULES: 5909
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -2058,6 +2058,7 @@ name = Proxy
 2, static.fc2cn.com
 2, static.fc2id.com
 2, static.figma.com
+2, static.gamma.app
 2, static.gnome.org
 2, static.gopro.com
 2, static.ifunny.co
