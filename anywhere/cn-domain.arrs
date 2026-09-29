@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly geolocation-cn
-# RULES: 8329
+# RULES: 8330
 # SKIPPED: 3
 # SKIPPED-TYPES: REGEXP=3
 # SOURCES:
@@ -181,6 +181,7 @@ name = CN Domain
 2, sxlcdn.cn
 2, sxlcdn.com
 2, cnb.cool
+2, cnb.space
 2, coding.me
 2, coding.net
 2, openmidas.com

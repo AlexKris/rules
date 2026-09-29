@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 183
+# RULES: 189
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -62,11 +62,14 @@ name = AI
 2, gemini.google
 2, gemini.google.com
 2, gemini.gstatic.com
+2, geminiweb-pa.clients.google.com
+2, geminiweb-pa.clients6.google.com
 2, cloudaicompanion.googleapis.com
 2, cloudcode-pa.googleapis.com
 2, daily-cloudcode-pa.googleapis.com
 2, notebooklm-pa.googleapis.com
 2, notebooklm.googleapis.com
+2, labstailwind.pa.googleapis.com
 2, notebook.google
 2, notebook.google.com
 2, notebooklm.google
@@ -151,6 +154,9 @@ name = AI
 2, jasper.ai
 2, kimi.ai
 2, moonshot.ai
+2, meta.ai
+2, metaaivm.com
+2, muse.ai
 2, agentclientprotocol.com
 2, anythingllm.com
 2, arena.ai
@@ -169,7 +175,6 @@ name = AI
 2, langchain.com
 2, lmstudio.ai
 2, lovart.ai
-2, meta.ai
 2, midjourney.com
 2, minimax.io
 2, mistral.ai
@@ -179,6 +184,7 @@ name = AI
 2, ollama.com
 2, openart.ai
 2, openclaw.ai
+2, opencode.ai
 2, openrouter.ai
 2, openspec.dev
 2, plannotator.ai
