@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1968
+# RULES: 1970
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -110,6 +110,7 @@ name = Download
 2, d2.myani.org
 2, deb.sury.org
 2, debian.a1.bg
+2, dl.heycue.io
 2, dl.pikpak.io
 2, ftp.agdsn.de
 2, ftp.antik.sk
@@ -625,6 +626,7 @@ name = Download
 2, dlcdnets.asus.com
 2, download.cnet.com
 2, download.gimp.org
+2, download.manus.im
 2, download.xbox.com
 2, fastly.docker.com
 2, files.ghostty.org

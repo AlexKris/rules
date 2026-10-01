@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5909
+# RULES: 5912
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -3925,6 +3925,7 @@ name = Proxy
 2, imagecdn.clips4sale.com
 2, imagizer.imageshack.com
 2, img.api.tryprofound.com
+2, img.helpnetsecurity.com
 2, img0.socialshopwave.com
 2, img1.ak.crunchyroll.com
 2, img1.socialshopwave.com
@@ -4093,6 +4094,7 @@ name = Proxy
 2, images.indianexpress.com
 2, images.purevpn-tools.com
 2, images.spectrumnews1.com
+2, img2.helpnetsecurity.com
 2, integrations.gitbook.com
 2, ipfs0.sjc.cloudsigma.com
 2, keyframe-cdn.abcnews.com
@@ -5090,6 +5092,7 @@ name = Proxy
 2, tenor.com
 2, tesco.com
 2, tfbnw.net
+2, tokens.ci
 2, tube8.com
 2, twitch.tv
 2, typora.io
