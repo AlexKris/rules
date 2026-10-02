@@ -916,12 +916,46 @@ def write_generated_outputs(
     return built_outputs
 
 
+def sync_sing_box_mirrors(config: dict) -> None:
+    validated: dict[Path, bytes] = {}
+    with tempfile.TemporaryDirectory(prefix="sing-box-mirrors-") as directory:
+        candidate = Path(directory) / "rules.srs"
+        decoded = Path(directory) / "rules.json"
+        for target, source in config.get("sing_box_mirrors", {}).items():
+            path = root_path(source["path"])
+            if path.is_file():
+                data = path.read_bytes()
+            elif REQUIRE_LOCAL_SOURCES:
+                raise FileNotFoundError(f"{target} requires local source: {source['path']}")
+            else:
+                request = urllib.request.Request(
+                    source["url"], headers={"User-Agent": "AlexKris-rules-builder/1.0"}
+                )
+                with urllib.request.urlopen(request, timeout=30) as response:
+                    data = response.read()
+            candidate.write_bytes(data)
+            subprocess.run(
+                ["sing-box", "rule-set", "decompile", str(candidate), "-o", str(decoded)],
+                check=True, capture_output=True, text=True,
+            )
+            if not json.loads(decoded.read_text(encoding="utf-8")).get("rules"):
+                raise ValueError(f"empty mirrored rule set: {target}")
+            validated[ROOT / "sing-box" / target] = data
+
+    # Preserve upstream bytes and publish only after every mirror validates.
+    for path, data in validated.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        print(f"{path.relative_to(ROOT)}: mirrored {len(data)} bytes")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=CONFIG_PATH)
     args = parser.parse_args()
 
     config = read_config(args.config)
+    sync_sing_box_mirrors(config)
     source_rules, source_skipped = load_source_rules(config)
     built_outputs = write_generated_outputs(config, source_rules, source_skipped)
     for output_id, rules in built_outputs.items():

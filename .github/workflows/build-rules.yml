@@ -42,6 +42,33 @@ jobs:
             data
           persist-credentials: false
 
+      - name: Checkout sing-box geosite mirrors
+        uses: actions/checkout@v7
+        with:
+          repository: SagerNet/sing-geosite
+          ref: rule-set
+          path: .upstream/sing-geosite
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /geosite-private.srs
+            /geosite-cn.srs
+            /geosite-geolocation-!cn.srs
+            /geosite-telegram.srs
+            /geosite-category-cryptocurrency.srs
+            /geosite-google.srs
+          persist-credentials: false
+
+      - name: Checkout sing-box geoip mirror
+        uses: actions/checkout@v7
+        with:
+          repository: SagerNet/sing-geoip
+          ref: rule-set
+          path: .upstream/sing-geoip
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /geoip-cn.srs
+          persist-credentials: false
+
       - name: Checkout profile tools
         uses: actions/checkout@v7
         with:
@@ -179,14 +206,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet; then
+          git add anywhere surge loon mihomo sing-box plain
+          if git diff --cached --quiet; then
             echo "No generated changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
           git commit -m "chore: update generated rules"
           git push
 

@@ -7,6 +7,36 @@
     "this_rule_set_is_made_by_sukkaw.skk.moe",
     "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"
   ],
+  "sing_box_mirrors": {
+    "geosite/geosite-private.srs": {
+      "path": ".upstream/sing-geosite/geosite-private.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs"
+    },
+    "geosite/geosite-cn.srs": {
+      "path": ".upstream/sing-geosite/geosite-cn.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs"
+    },
+    "geosite/geosite-geolocation-!cn.srs": {
+      "path": ".upstream/sing-geosite/geosite-geolocation-!cn.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
+    },
+    "geosite/geosite-telegram.srs": {
+      "path": ".upstream/sing-geosite/geosite-telegram.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs"
+    },
+    "geosite/geosite-category-cryptocurrency.srs": {
+      "path": ".upstream/sing-geosite/geosite-category-cryptocurrency.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-cryptocurrency.srs"
+    },
+    "geosite/geosite-google.srs": {
+      "path": ".upstream/sing-geosite/geosite-google.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs"
+    },
+    "geoip/geoip-cn.srs": {
+      "path": ".upstream/sing-geoip/geoip-cn.srs",
+      "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
+    }
+  },
   "sources": {
     "cdn-domainset": {
       "kind": "domainset",

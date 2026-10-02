@@ -129,7 +129,14 @@ sing-box:
 - Generated `.srs` rule sets require `sing-box` CLI.
 - JSON files are temporary build inputs and are not published.
 - Published remote rule sets should use `.srs` with `format: binary` in client profiles.
-- Google and broad CN geosite fallback rules should use SagerNet official geosite files, not local generated `.srs` files.
+- Preserve SagerNet semantics for the seven foundation rule sets listed in
+  `config/rules.json` under `sing_box_mirrors`. Copy and validate upstream `.srs`
+  bytes into `sing-box/geosite/` and `sing-box/geoip/`, published via our Pages.
+- Do not feed these mirrors through the normalized converter: it skips v2fly
+  regex rules, and SagerNet's CN category merging differs from `cn-domain`.
+- CI checks out the whitelisted `rule-set` branch files into
+  `.upstream/sing-geosite` and `.upstream/sing-geoip`; strict local-source mode
+  must fail if any source is missing. Invalid or empty SRS must fail the build.
 
 Plain:
 
