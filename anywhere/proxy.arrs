@@ -1,7 +1,7 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5912
+# RULES: 5914
 # SKIPPED: 60
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
 # SOURCES:
@@ -128,6 +128,7 @@ name = Proxy
 2, erocdn.co
 2, eth.sucks
 2, f-cdn.com
+2, fal.media
 2, fbcdn.com
 2, fbcdn.net
 2, fbsbx.com
@@ -3870,6 +3871,7 @@ name = Proxy
 2, assets.lemonsqueezy.com
 2, assets.mcp.corespeed.io
 2, assets.science.nasa.gov
+2, assets.singaporeair.com
 2, assets.streamlinehq.com
 2, assets.xboxservices.com
 2, assets1.lottiefiles.com

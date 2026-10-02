@@ -1,7 +1,7 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4698
+# RULES: 4700
 # SKIPPED: 59
 # SKIPPED-TYPES: DOMAIN-WILDCARD=59
 # SOURCES:
@@ -127,6 +127,7 @@ name = CDN
 2, erocdn.co
 2, eth.sucks
 2, f-cdn.com
+2, fal.media
 2, fbcdn.com
 2, fbcdn.net
 2, fbsbx.com
@@ -3869,6 +3870,7 @@ name = CDN
 2, assets.lemonsqueezy.com
 2, assets.mcp.corespeed.io
 2, assets.science.nasa.gov
+2, assets.singaporeair.com
 2, assets.streamlinehq.com
 2, assets.xboxservices.com
 2, assets1.lottiefiles.com
