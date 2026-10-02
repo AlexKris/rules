@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 189
+# RULES: 190
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -12,6 +12,7 @@ name = AI
 2, clau.de
 2, claude.ai
 2, claude.com
+2, claude.dev
 2, claudemcpclient.com
 2, claudemcpcontent.com
 2, claudeusercontent.com
