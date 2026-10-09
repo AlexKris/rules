@@ -1,9 +1,9 @@
 # NAME: Proxy
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Proxy routing overlay based on SukkaW CDN and Global rules
-# RULES: 5914
-# SKIPPED: 60
-# SKIPPED-TYPES: DOMAIN-WILDCARD=59, USER-AGENT=1
+# RULES: 5921
+# SKIPPED: 61
+# SKIPPED-TYPES: DOMAIN-WILDCARD=60, USER-AGENT=1
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
@@ -1787,6 +1787,7 @@ name = Proxy
 2, assets.toot.cafe
 2, assets.twitch.tv
 2, assets.upload.io
+2, assets.vanta.com
 2, assets.vogue.com
 2, assets.volvo.com
 2, assets.xmind.net
@@ -2357,6 +2358,7 @@ name = Proxy
 2, media.zestyio.com
 2, mediadelivery.net
 2, monitor.azure.com
+2, n.approveit.today
 2, netlify.apollo.io
 2, notion-static.com
 2, ocsp.comodoca.com
@@ -4395,6 +4397,7 @@ name = Proxy
 2, prego-cache.prod.sketch.com
 2, public-pages.cbinsights.com
 2, resources-live.sketch.cloud
+2, rum-ingest.us1.signalfx.com
 2, safebrowsing.googleapis.com
 2, sessions-bugsnag.docker.com
 2, siteintercept.qualtrics.com
@@ -4404,6 +4407,7 @@ name = Proxy
 2, static-mh.content.disney.io
 2, static-production.npmjs.com
 2, static-webfonts.myfonts.com
+2, static.acm.account.sony.com
 2, static.captcha-delivery.com
 2, sts.online.visualstudio.com
 2, tvdownloaddw-a.akamaihd.net
@@ -5102,6 +5106,7 @@ name = Proxy
 2, upjav.org
 2, v2fly.org
 2, v2ray.com
+2, vanta.com
 2, viber.com
 2, vimeo.com
 2, waymo.com
@@ -5735,6 +5740,7 @@ name = Proxy
 2, wikisource.org
 2, wikivoyage.org
 2, wiktionary.org
+2, approveit.today
 2, ccmdl.adobe.com
 2, cosplay-jav.com
 2, crashlytics.com
@@ -5822,6 +5828,7 @@ name = Proxy
 2, shutterstock.com
 2, spankingtube.com
 2, surfsharkdns.com
+2, surveymonkey.com
 2, thepiratebay.org
 2, tokto-motion.net
 2, vesselfinder.com

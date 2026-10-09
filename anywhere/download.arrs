@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1970
+# RULES: 1971
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -1022,6 +1022,7 @@ name = Download
 2, packages.termux.dev
 2, pubmirror.plutex.de
 2, release.runcloud.io
+2, releases.claude.com
 2, replicate.npmjs.com
 2, repo.extreme-ix.org
 2, s3-website.cloud.ru

@@ -1,9 +1,9 @@
 # NAME: CDN
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: SukkaW CDN proxy helper with personal exclusions
-# RULES: 4700
-# SKIPPED: 59
-# SKIPPED-TYPES: DOMAIN-WILDCARD=59
+# RULES: 4704
+# SKIPPED: 60
+# SKIPPED-TYPES: DOMAIN-WILDCARD=60
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf
@@ -1786,6 +1786,7 @@ name = CDN
 2, assets.toot.cafe
 2, assets.twitch.tv
 2, assets.upload.io
+2, assets.vanta.com
 2, assets.vogue.com
 2, assets.volvo.com
 2, assets.xmind.net
@@ -2356,6 +2357,7 @@ name = CDN
 2, media.zestyio.com
 2, mediadelivery.net
 2, monitor.azure.com
+2, n.approveit.today
 2, netlify.apollo.io
 2, notion-static.com
 2, ocsp.comodoca.com
@@ -4394,6 +4396,7 @@ name = CDN
 2, prego-cache.prod.sketch.com
 2, public-pages.cbinsights.com
 2, resources-live.sketch.cloud
+2, rum-ingest.us1.signalfx.com
 2, safebrowsing.googleapis.com
 2, sessions-bugsnag.docker.com
 2, siteintercept.qualtrics.com
@@ -4403,6 +4406,7 @@ name = CDN
 2, static-mh.content.disney.io
 2, static-production.npmjs.com
 2, static-webfonts.myfonts.com
+2, static.acm.account.sony.com
 2, static.captcha-delivery.com
 2, sts.online.visualstudio.com
 2, tvdownloaddw-a.akamaihd.net
