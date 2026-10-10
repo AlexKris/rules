@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 190
+# RULES: 191
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -192,6 +192,7 @@ name = AI
 2, qoder.com
 2, sider.ai
 2, spicywriter.com
+2, syntx.ai
 2, talkai.info
 2, tapnow.ai
 2, tripo3d.ai
