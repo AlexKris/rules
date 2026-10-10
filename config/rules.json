@@ -12,21 +12,9 @@
       "path": ".upstream/sing-geosite/geosite-private.srs",
       "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs"
     },
-    "geosite/geosite-cn.srs": {
-      "path": ".upstream/sing-geosite/geosite-cn.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs"
-    },
-    "geosite/geosite-geolocation-!cn.srs": {
-      "path": ".upstream/sing-geosite/geosite-geolocation-!cn.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
-    },
     "geosite/geosite-telegram.srs": {
       "path": ".upstream/sing-geosite/geosite-telegram.srs",
       "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs"
-    },
-    "geosite/geosite-category-cryptocurrency.srs": {
-      "path": ".upstream/sing-geosite/geosite-category-cryptocurrency.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-cryptocurrency.srs"
     },
     "geosite/geosite-google.srs": {
       "path": ".upstream/sing-geosite/geosite-google.srs",
@@ -901,7 +889,8 @@
         "source": "apple-proxy",
         "clients": [
           "surge",
-          "mihomo"
+          "mihomo",
+          "sing-box"
         ]
       },
       "download": {
@@ -949,7 +938,8 @@
         "clients": [
           "surge",
           "loon",
-          "mihomo"
+          "mihomo",
+          "sing-box"
         ]
       },
       "not-cn-domain": {

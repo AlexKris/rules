@@ -317,10 +317,12 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/proxy.s
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/proxy.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/apple.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-proxy.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/download.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/download.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/domestic.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cn-domain.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/lan.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/cdn.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/speedtest.srs
@@ -347,23 +349,19 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft-
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct-extra.srs
 ```
 
-Seven foundation rule sets are mirrored byte-for-byte from SagerNet, validated
+Four foundation rule sets are mirrored byte-for-byte from SagerNet, validated
 with sing-box, and published through our Pages endpoint:
 
 ```text
 https://alexkris-rules.pages.dev/sing-box/geosite/geosite-private.srs
-https://alexkris-rules.pages.dev/sing-box/geosite/geosite-cn.srs
-https://alexkris-rules.pages.dev/sing-box/geosite/geosite-geolocation-!cn.srs
 https://alexkris-rules.pages.dev/sing-box/geosite/geosite-telegram.srs
-https://alexkris-rules.pages.dev/sing-box/geosite/geosite-category-cryptocurrency.srs
 https://alexkris-rules.pages.dev/sing-box/geosite/geosite-google.srs
 https://alexkris-rules.pages.dev/sing-box/geoip/geoip-cn.srs
 ```
 
 `config/rules.json` lists the exact sources under `sing_box_mirrors`. These
-files bypass the normalized converter, preserving regex rules and SagerNet's
-CN category merging. They are not aliases for `cn-domain`, SKK Telegram, or
-SKK China IP. Other generated formats and their matching behavior are unchanged.
+files bypass the normalized converter, preserving regex rules. They are not
+aliases for SKK Telegram or SKK China IP. Other generated formats and their matching behavior are unchanged.
 See `sing-box/NOTICE.md` for upstream attribution.
 
 ### Plain

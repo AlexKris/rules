@@ -51,10 +51,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /geosite-private.srs
-            /geosite-cn.srs
-            /geosite-geolocation-!cn.srs
             /geosite-telegram.srs
-            /geosite-category-cryptocurrency.srs
             /geosite-google.srs
           persist-credentials: false
 
