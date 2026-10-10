@@ -85,6 +85,18 @@ class RedundantDomainRuleTests(unittest.TestCase):
         result = build_rules.artifact_rules("t", artifact, config, source_rules, {})
         self.assertEqual([("DOMAIN-SUFFIX", "example.com")], values(result))
 
+    def test_artifact_rules_merge_sources_and_dedupe_across_them(self) -> None:
+        config = {"source_marker_domains": []}
+        v2fly, _ = build_rules.parse_lines(["DOMAIN-SUFFIX,qq.com", "DOMAIN,end.shallow.ink"], "DOMAIN-SUFFIX", set())
+        domainset, _ = build_rules.parse_lines([".cn", ".qq.com", "www.qq.com", ".b.cn"], "DOMAIN", set())
+        source_rules = {"v2fly": v2fly, "domainset": domainset}
+        artifact = {"sources": ["v2fly", "domainset"]}
+        result = build_rules.artifact_rules("t", artifact, config, source_rules, {})
+        self.assertEqual(
+            [("DOMAIN-SUFFIX", "qq.com"), ("DOMAIN", "end.shallow.ink"), ("DOMAIN-SUFFIX", "cn")],
+            values(result),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

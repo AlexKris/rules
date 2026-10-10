@@ -21,6 +21,9 @@ Known upstream sources used by the related profiles include:
   - SagerNet's generator projects are GPL-3.0-or-later. See the published
     `sing-box/NOTICE.md` for attribution and upstream source/license links.
 - MetaCubeX meta-rules-dat: https://github.com/MetaCubeX/meta-rules-dat
+- Loyalsoldier surge-rules: https://github.com/Loyalsoldier/surge-rules
+  - `direct.txt` (GPL-3.0) is merged into `cn-domain`; its data comes mainly
+    from felixonmars dnsmasq-china-list: https://github.com/felixonmars/dnsmasq-china-list
 - blackmatrix7 ios_rule_script: https://github.com/blackmatrix7/ios_rule_script
 - Maasea sgmodule: https://github.com/Maasea/sgmodule
   - `anywhere/mitm/source/vendor/maasea-youtube.response.js` is derived from

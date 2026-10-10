@@ -944,26 +944,23 @@ def write_generated_outputs(
     return built_outputs
 
 
-def read_mirror_bytes(target: str, source: dict) -> bytes:
-    path = root_path(source["path"])
-    if path.is_file():
-        return path.read_bytes()
-    if REQUIRE_LOCAL_SOURCES:
-        raise FileNotFoundError(f"{target} requires local source: {source['path']}")
-    request = urllib.request.Request(
-        source["url"], headers={"User-Agent": "AlexKris-rules-builder/1.0"}
-    )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return response.read()
-
-
 def sync_sing_box_mirrors(config: dict) -> None:
     validated: dict[Path, bytes] = {}
     with tempfile.TemporaryDirectory(prefix="sing-box-mirrors-") as directory:
         candidate = Path(directory) / "rules.srs"
         decoded = Path(directory) / "rules.json"
         for target, source in config.get("sing_box_mirrors", {}).items():
-            data = read_mirror_bytes(target, source)
+            path = root_path(source["path"])
+            if path.is_file():
+                data = path.read_bytes()
+            elif REQUIRE_LOCAL_SOURCES:
+                raise FileNotFoundError(f"{target} requires local source: {source['path']}")
+            else:
+                request = urllib.request.Request(
+                    source["url"], headers={"User-Agent": "AlexKris-rules-builder/1.0"}
+                )
+                with urllib.request.urlopen(request, timeout=30) as response:
+                    data = response.read()
             candidate.write_bytes(data)
             subprocess.run(
                 ["sing-box", "rule-set", "decompile", str(candidate), "-o", str(decoded)],
@@ -980,37 +977,6 @@ def sync_sing_box_mirrors(config: dict) -> None:
         print(f"{path.relative_to(ROOT)}: mirrored {len(data)} bytes")
 
 
-MRS_MAGIC = b"MRS\x01"
-MRS_BEHAVIOR_DOMAIN = 0
-
-
-def validate_domain_mrs(target: str, data: bytes) -> None:
-    """Check a Mihomo MRS file: zstd stream, MRS v1 magic, domain behavior, rule count > 0."""
-    result = subprocess.run(["zstd", "-dc"], input=data, capture_output=True, check=False)
-    if result.returncode != 0:
-        raise ValueError(f"invalid mirrored MRS (zstd): {target}")
-    header = result.stdout[:13]
-    if len(header) < 13 or header[:4] != MRS_MAGIC:
-        raise ValueError(f"invalid mirrored MRS (magic): {target}")
-    if header[4] != MRS_BEHAVIOR_DOMAIN:
-        raise ValueError(f"mirrored MRS is not domain behavior: {target}")
-    if int.from_bytes(header[5:13], "big") <= 0:
-        raise ValueError(f"empty mirrored rule set: {target}")
-
-
-def sync_mihomo_mirrors(config: dict) -> None:
-    validated: dict[Path, bytes] = {}
-    for target, source in config.get("mihomo_mirrors", {}).items():
-        data = read_mirror_bytes(target, source)
-        validate_domain_mrs(target, data)
-        validated[ROOT / "mihomo" / target] = data
-
-    # Preserve upstream bytes and publish only after every mirror validates.
-    for path, data in validated.items():
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(data)
-        print(f"{path.relative_to(ROOT)}: mirrored {len(data)} bytes")
-
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=CONFIG_PATH)
@@ -1018,7 +984,6 @@ def main() -> int:
 
     config = read_config(args.config)
     sync_sing_box_mirrors(config)
-    sync_mihomo_mirrors(config)
     source_rules, source_skipped = load_source_rules(config)
     built_outputs = write_generated_outputs(config, source_rules, source_skipped)
     for output_id, rules in built_outputs.items():

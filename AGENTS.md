@@ -44,7 +44,7 @@ Current generated groups:
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions. `hf.co` is excluded so that the Hugging Face bulk-download hosts `cdn.hf.co` and `cas-bridge.xethub.hf.co` fall through to `download` instead of the region-restricted AIGC policy; `huggingface.co` stays in `ai`.
 - `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy.
 - `google`: v2fly `google`, generated for Surge/Loon/Mihomo/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
-- `cn-domain`: v2fly `geolocation-cn`, generated for Surge/Loon/plain and as an optional Anywhere direct fallback.
+- `cn-domain`: v2fly `geolocation-cn` plus Loyalsoldier `surge-rules` `direct.txt` (felixonmars dnsmasq-china-list with Apple/Google China domains and Loyalsoldier's own additions; it drops felixonmars' whole-`.top` entry), generated for Surge/Loon/Mihomo/plain. The Anywhere `cn-domain.arrs` output stays v2fly-only. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
 - `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/Loon/plain.
 - `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
 - `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
@@ -123,8 +123,7 @@ Mihomo:
 - DO NOT feed the classical `DOMAIN,`/`DOMAIN-SUFFIX,`-prefixed `plain/*.txt` to `mihomo convert-ruleset domain`. Mihomo then stores each whole line (e.g. `domain-suffix,steamcontent.com`) as a single literal domain that never matches real queries, silently breaking the whole rule set (traffic falls through to geosite/GEOIP fallbacks). The domain-set format is mandatory.
 - `DOMAIN-KEYWORD` cannot be represented in a domain `.mrs`. For non-ip sets that contain keywords it is published separately as a `behavior: classical` text rule-set at `mihomo/classical/<name>.list` (keyword lines only), so profiles can keep keyword matching via a classical rule-provider. It is still kept inline in Surge/Loon/plain and as `domain_keyword` in sing-box.
 - IP `.mrs` (`mihomo/ip/*.mrs`) use `behavior: ipcidr`, generated from `plain/ip/*.txt`.
-- `mihomo/non-ip/google.mrs` is generated locally like other domain sets.
-- `mihomo/geosite/cn.mrs` and `mihomo/geosite/geolocation-!cn.mrs` are byte-for-byte mirrors of MetaCubeX `meta-rules-dat` (`meta` branch) via `mihomo_mirrors` in `config/rules.json`. They are not converted; `sync_mihomo_mirrors` only validates them (zstd, `MRS\x01` magic, domain behavior, non-empty) before writing all of them. Upstream data: `cn` is felixonmars dnsmasq-china-list via blackmatrix7 ChinaMax; `geolocation-!cn` is GFWList plus Loyalsoldier extras. Mirror validation requires `zstd` CLI.
+- `mihomo/non-ip/google.mrs` and `mihomo/non-ip/cn-domain.mrs` are generated locally like other domain sets.
 
 sing-box:
 
@@ -206,6 +205,8 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/SukkaLab/rule
 git -C .upstream/skk sparse-checkout set List
 git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-list-community.git .upstream/v2fly
 git -C .upstream/v2fly sparse-checkout set data
+git clone --depth 1 --filter=blob:none --sparse --branch release https://github.com/Loyalsoldier/surge-rules.git .upstream/loyalsoldier-surge-rules
+git -C .upstream/loyalsoldier-surge-rules sparse-checkout set --no-cone /direct.txt
 ```
 
 Profile tool output is optional locally. Point `.upstream/profile` at a checkout
@@ -217,10 +218,9 @@ Without `.upstream/`, local `build_rules.py` falls back to remote upstream fetch
 ```sh
 mihomo
 sing-box
-zstd
 ```
 
-If any CLI is missing, do not hand-edit generated `.mrs` or `.srs` files. Install the CLI or defer generation.
+If either CLI is missing, do not hand-edit generated `.mrs` or `.srs` files. Install the CLI or defer generation.
 
 ## Verification
 
@@ -270,7 +270,7 @@ Expected behavior:
 - AI uses v2fly `category-ai-!cn`; exact upstream `@ads` entries may be preserved, while `regexp:` entries are skipped.
 - Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; Loon outputs preserve `USER-AGENT` and skip `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
 - Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
-- `cn-domain` is generated for Surge/Loon/plain and as an optional Anywhere direct fallback; `not-cn-domain` is Surge/Loon/plain-only. Do not generate local Mihomo or sing-box artifacts for either; Mihomo uses the mirrored MetaCubeX `mihomo/geosite/*.mrs` instead.
+- `cn-domain` is generated for Surge/Loon/Mihomo/plain and as an optional v2fly-only Anywhere direct fallback; `not-cn-domain` is Surge/Loon/plain-only. Do not generate sing-box artifacts for either.
 - Domain rules covered by a `DOMAIN-SUFFIX` in the same set (exact domain equal to or under the suffix, or a child suffix) are dropped from every output. `DOMAIN-KEYWORD` is never used to drop domains.
 - For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
   Keep `telegram-ip` published separately for non-Anywhere clients and legacy

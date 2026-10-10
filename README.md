@@ -284,6 +284,7 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microso
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microsoft-cdn.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct-extra.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/google.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/cn-domain.mrs
 ```
 
 Keyword supplements currently exist for rule sets such as `proxy`, `cdn`,
@@ -302,14 +303,6 @@ Use `behavior: ipcidr` and `format: mrs` for IP rules:
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/telegram-ip.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/lan-ip.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/china-ip.mrs
-```
-
-Broad CN geosite fallback rules are byte-for-byte mirrors of MetaCubeX
-`meta-rules-dat` (`behavior: domain`, `format: mrs`):
-
-```yaml
-url: https://alexkris-rules.pages.dev/mihomo/geosite/cn.mrs
-url: https://alexkris-rules.pages.dev/mihomo/geosite/geolocation-!cn.mrs
 ```
 
 Crypto is generated only as Anywhere and Surge/Loon/plain text rules; use geosite
