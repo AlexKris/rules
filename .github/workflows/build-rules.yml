@@ -69,6 +69,18 @@ jobs:
             /geoip-cn.srs
           persist-credentials: false
 
+      - name: Checkout MetaCubeX geosite mirrors
+        uses: actions/checkout@v7
+        with:
+          repository: MetaCubeX/meta-rules-dat
+          ref: meta
+          path: .upstream/meta-rules-dat
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /geo/geosite/cn.mrs
+            /geo/geosite/geolocation-!cn.mrs
+          persist-credentials: false
+
       - name: Checkout profile tools
         uses: actions/checkout@v7
         with:
@@ -111,8 +123,11 @@ jobs:
           tar -xzf /tmp/sing-box.tar.gz -C /tmp/sing-box
           sudo install -m 0755 "$(find /tmp/sing-box -type f -name sing-box | head -n 1)" /usr/local/bin/sing-box
 
+          command -v zstd >/dev/null || sudo apt-get install -y zstd
+
           mihomo -v
           sing-box version
+          zstd --version
 
       - name: Static checks
         run: |
@@ -171,6 +186,7 @@ jobs:
               ("mihomo/domainset", "domain"),
               ("mihomo/non-ip", "domain"),
               ("mihomo/ip", "ipcidr"),
+              ("mihomo/geosite", "domain"),
           ]:
               for path in sorted(Path(directory).glob("*.mrs")):
                   name = path.with_suffix("").as_posix().replace("/", "-")

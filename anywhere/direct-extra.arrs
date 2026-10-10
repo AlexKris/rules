@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 158
+# RULES: 156
 # SKIPPED: 0
 
 name = Direct Extra
@@ -24,7 +24,6 @@ name = Direct Extra
 2, citic-wealth.com
 2, citicaibank.cn
 2, citicaibank.com
-2, citicbank.citic
 2, citicbank.cn
 2, citicbank.com
 2, citicbank.com.cn
@@ -48,7 +47,6 @@ name = Direct Extra
 2, citicsf.com
 2, citicsinfo.com
 2, goldstone-investment.com
-2, cfhc.citic
 2, citiccapital.com
 2, citiciam.com
 2, citicifh.com

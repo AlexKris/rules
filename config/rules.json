@@ -37,6 +37,16 @@
       "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
     }
   },
+  "mihomo_mirrors": {
+    "geosite/cn.mrs": {
+      "path": ".upstream/meta-rules-dat/geo/geosite/cn.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+    },
+    "geosite/geolocation-!cn.mrs": {
+      "path": ".upstream/meta-rules-dat/geo/geosite/geolocation-!cn.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+    }
+  },
   "sources": {
     "cdn-domainset": {
       "kind": "domainset",
@@ -928,7 +938,8 @@
         "source": "google",
         "clients": [
           "surge",
-          "loon"
+          "loon",
+          "mihomo"
         ]
       },
       "cn-domain": {

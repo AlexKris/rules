@@ -1,12 +1,6 @@
 DOMAIN-SUFFIX,apple.com.cn
-DOMAIN-SUFFIX,cn.apple.com
 DOMAIN-SUFFIX,icloud.com.cn
-DOMAIN-SUFFIX,cn.ls.apple.com
 DOMAIN,api.smoot.apple.cn
-DOMAIN-SUFFIX,cn-ssl.ls.apple.com
-DOMAIN,gs-loc-cn.apple.com
-DOMAIN-SUFFIX,gspe19-cn-ssl.ls.apple.com
-DOMAIN,appleintelligencefeedback.care.apple.com
 DOMAIN-SUFFIX,me.com
 DOMAIN-SUFFIX,apple.co
 DOMAIN-SUFFIX,apple.com
@@ -24,4 +18,3 @@ DOMAIN-SUFFIX,icloud-content.com
 DOMAIN-SUFFIX,organicfruitapps.com
 DOMAIN-SUFFIX,push-apple.com.akadns.net
 DOMAIN-SUFFIX,is1-ssl.mzstatic.com
-DOMAIN-SUFFIX,time.apple.com
