@@ -470,9 +470,29 @@ def load_source_rules(config: dict) -> tuple[dict[str, list[Rule]], dict[str, di
             if detected_marker is not None:
                 marker_domains = source_marker_domains | {detected_marker}
         rules, skipped = parse_lines(lines, default_type, marker_domains)
+        if "keep_ranked" in source_config:
+            ranking_lines = read_configured_lines(f"{source_id}.keep_ranked", source_config["keep_ranked"])
+            ranked = {line.split(",", 1)[1].strip().lower() for line in ranking_lines if "," in line}
+            rules, unranked = keep_ranked_rules(rules, ranked)
+            skipped["UNRANKED"] = unranked
         loaded[source_id] = rules
         skipped_by_source[source_id] = skipped
     return loaded, skipped_by_source
+
+
+def keep_ranked_rules(rules: list[Rule], ranked: set[str]) -> tuple[list[Rule], int]:
+    """Keep rules whose site (last two labels) is listed by the source itself and ranked.
+
+    Subdomains of sites the source does not list, such as China endpoints of
+    Apple, Google or Microsoft, are dropped; those services have their own sets.
+    """
+    values = {rule.value for rule in rules}
+    kept = []
+    for rule in rules:
+        site = ".".join(rule.value.split(".")[-2:])
+        if site in values and site in ranked:
+            kept.append(rule)
+    return kept, len(rules) - len(kept)
 
 
 def remove_redundant_domain_rules(rules: list[Rule]) -> list[Rule]:

@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 156
+# RULES: 158
 # SKIPPED: 0
 
 name = Direct Extra
@@ -9,6 +9,8 @@ name = Direct Extra
 2, wxgateway.com
 2, videocc.net
 2, cache.video.iqiyi.com
+2, caxins.com
+2, fantaike.ai
 2, ocsp.digicert.com
 2, cacerts.digicert.com
 2, crl3.digicert.com

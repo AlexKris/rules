@@ -272,3 +272,5 @@ DOMAIN-KEYWORD,-tiktokcdn-com
 DOMAIN-KEYWORD,tvbanywhere
 DOMAIN,tv.apple.com
 DOMAIN,hls-svod.itunes.apple.com
+DOMAIN-SUFFIX,ytimg.com
+DOMAIN-SUFFIX,youtu.be

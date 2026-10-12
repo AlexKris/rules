@@ -42,9 +42,9 @@ Current generated groups:
 - `apple-services`: SKK Apple Services, with `time.apple.com` added.
 - `speedtest`: SKK Speedtest domainset.
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions. `hf.co` is excluded so that the Hugging Face bulk-download hosts `cdn.hf.co` and `cas-bridge.xethub.hf.co` fall through to `download` instead of the region-restricted AIGC policy; `huggingface.co` stays in `ai`.
-- `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy.
-- `google`: v2fly `google`, generated for Surge/Loon/Mihomo/plain. It includes YouTube via upstream; keep Stream before Google in profiles.
-- `cn-domain`: v2fly `geolocation-cn` plus Loyalsoldier `surge-rules` `direct.txt` (felixonmars dnsmasq-china-list with Apple/Google China domains and Loyalsoldier's own additions; it drops felixonmars' whole-`.top` entry), generated for Surge/Loon/Mihomo/sing-box/plain. The Anywhere `cn-domain.arrs` output stays v2fly-only. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
+- `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy, and `ytimg.com` / `youtu.be` so YouTube thumbnails and short links follow the video policy instead of `google`.
+- `google`: v2fly `google`, generated for Surge/Loon/Mihomo/Anywhere/plain. It includes YouTube via upstream; keep Stream before Google in profiles, and above Google in the Anywhere Routing list (identical patterns go to the higher set).
+- `cn-domain`: v2fly `cn` (`geolocation-cn` plus the China TLDs in `tld-cn`, including `cn`) plus Loyalsoldier `surge-rules` `direct.txt` filtered by the pinned Tranco top-1M list (`keep_ranked`). A Loyalsoldier rule is kept only when its site (last two labels) is itself listed in `direct.txt` and is ranked; this drops the unranked long tail and the China endpoints of foreign sites (Apple, Google, Microsoft, Kaspersky), which have their own rule sets. `analytics.tiktok.com` is excluded because it is deeper than Stream's `tiktok.com` and would win in Anywhere. Generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules. To refresh the ranking, replace the list ID in the `keep_ranked` URL with a current one from tranco-list.eu; do not track the daily latest list, which would churn the rules every build. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
 - `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/Loon/plain.
 - `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
 - `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
@@ -80,10 +80,10 @@ Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or m
 Anywhere:
 
 - Generated from `outputs[*].targets.anywhere` in `config/rules.json`.
-- `domestic`, `direct`, `google`, `not-cn-domain`, `speedtest`, and Microsoft are intentionally not generated for Anywhere.
+- `domestic`, `direct`, `not-cn-domain`, `speedtest`, and Microsoft are intentionally not generated for Anywhere.
 - `domestic` and `direct` SKK sources include client-specific matchers that ARRS cannot represent.
 - `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.
-- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cn-domain` is a broad v2fly `geolocation-cn` direct fallback. `cdn`, split Apple, `lan-ip`, `telegram-ip`, `kuro`, and `citic` Anywhere files remain published only for compatibility.
+- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cn-domain` uses the same rules as the other clients. `apple-proxy` must sit above `apple` in the Routing list because both contain `apple.news`. `cdn`, split Apple, `lan-ip`, `telegram-ip`, `kuro`, and `citic` Anywhere files remain published only for compatibility.
 - `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
 - Format mapping in `scripts/build_rules.py`:
   - `0`: IPv4 CIDR
@@ -162,6 +162,7 @@ v2fly:
 Upstream sources:
 
 - GitHub Actions checks out `SukkaLab/ruleset.skk.moe` to `.upstream/skk` and `v2fly/domain-list-community` to `.upstream/v2fly`.
+- GitHub Actions downloads the pinned Tranco list from the `keep_ranked` URL in `config/rules.json` to `.upstream/tranco/top-1m.csv`. It is only a filter; no ranking data is published.
 - GitHub Actions also checks out a strict whitelist of `AlexKris/profile` tool scripts to `.upstream/profile` for Pages distribution under `/profile/`.
 - `build_rules.py` reads configured `paths` / `local_dir` first and falls back to remote URLs only when local upstreams are absent.
 - CI must run `RULES_REQUIRE_LOCAL_SOURCES=1 python3 scripts/build_rules.py` so missing `.upstream` checkouts fail instead of silently using Raw URLs.
@@ -207,6 +208,8 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-
 git -C .upstream/v2fly sparse-checkout set data
 git clone --depth 1 --filter=blob:none --sparse --branch release https://github.com/Loyalsoldier/surge-rules.git .upstream/loyalsoldier-surge-rules
 git -C .upstream/loyalsoldier-surge-rules sparse-checkout set --no-cone /direct.txt
+mkdir -p .upstream/tranco
+curl -fL -o .upstream/tranco/top-1m.csv "$(python3 -c 'import json; print(json.load(open("config/rules.json"))["sources"]["loyalsoldier-direct"]["keep_ranked"]["urls"][0])')"
 ```
 
 Profile tool output is optional locally. Point `.upstream/profile` at a checkout
@@ -270,7 +273,7 @@ Expected behavior:
 - AI uses v2fly `category-ai-!cn`; exact upstream `@ads` entries may be preserved, while `regexp:` entries are skipped.
 - Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; Loon outputs preserve `USER-AGENT` and skip `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
 - Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
-- `cn-domain` is generated for Surge/Loon/Mihomo/sing-box/plain and as an optional v2fly-only Anywhere direct fallback; `not-cn-domain` is Surge/Loon/plain-only. Do not generate sing-box artifacts for `not-cn-domain`.
+- `cn-domain` is generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules; `not-cn-domain` is Surge/Loon/plain-only. Do not generate sing-box artifacts for `not-cn-domain`.
 - Domain rules covered by a `DOMAIN-SUFFIX` in the same set (exact domain equal to or under the suffix, or a child suffix) are dropped from every output. `DOMAIN-KEYWORD` is never used to drop domains.
 - For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
   Keep `telegram-ip` published separately for non-Anywhere clients and legacy

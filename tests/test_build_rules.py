@@ -95,5 +95,33 @@ class SKKMarkerDetectionTests(unittest.TestCase):
         self.assertEqual([domain], [rule.value for rule in loaded["other"]])
 
 
+class RankedSourceTests(unittest.TestCase):
+    def test_keeps_only_ranked_sites_listed_by_the_source(self) -> None:
+        config = {
+            "source_marker_domains": [],
+            "sources": {
+                "direct": {
+                    "kind": "domainset",
+                    "urls": ["https://example.com/direct.txt"],
+                    "keep_ranked": {"urls": ["https://example.com/top-1m.csv"]},
+                }
+            },
+        }
+        lines = {
+            "direct": ["popular.com", ".cdn.popular.com", "obscure.com", "cn-node.apple.com"],
+            "direct.keep_ranked": ["1,apple.com", "2,popular.com\r", "3,unlisted.com"],
+        }
+
+        with patch.object(
+            build_rules,
+            "read_configured_lines",
+            side_effect=lambda source_id, _: lines[source_id],
+        ):
+            loaded, skipped = build_rules.load_source_rules(config)
+
+        self.assertEqual(["popular.com", "cdn.popular.com"], [rule.value for rule in loaded["direct"]])
+        self.assertEqual(2, skipped["direct"]["UNRANKED"])
+
+
 if __name__ == "__main__":
     unittest.main()

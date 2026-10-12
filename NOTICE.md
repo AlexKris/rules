@@ -22,8 +22,12 @@ Known upstream sources used by the related profiles include:
     `sing-box/NOTICE.md` for attribution and upstream source/license links.
 - MetaCubeX meta-rules-dat: https://github.com/MetaCubeX/meta-rules-dat
 - Loyalsoldier surge-rules: https://github.com/Loyalsoldier/surge-rules
-  - `direct.txt` (GPL-3.0) is merged into `cn-domain`; its data comes mainly
-    from felixonmars dnsmasq-china-list: https://github.com/felixonmars/dnsmasq-china-list
+  - `direct.txt` (GPL-3.0) is merged into `cn-domain` after a Tranco ranking
+    filter; its data comes mainly from felixonmars dnsmasq-china-list:
+    https://github.com/felixonmars/dnsmasq-china-list
+- Tranco: https://tranco-list.eu
+  - A pinned top-1M list is used only to filter `direct.txt` entries; no
+    ranking data is published.
 - blackmatrix7 ios_rule_script: https://github.com/blackmatrix7/ios_rule_script
 - Maasea sgmodule: https://github.com/Maasea/sgmodule
   - `anywhere/mitm/source/vendor/maasea-youtube.response.js` is derived from

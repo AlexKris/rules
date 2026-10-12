@@ -321,3 +321,5 @@ USER-AGENT,com.google.ios.youtubemusic*
 USER-AGENT,YouTubeMusic*
 DOMAIN,tv.apple.com
 DOMAIN,hls-svod.itunes.apple.com
+DOMAIN-SUFFIX,ytimg.com
+DOMAIN-SUFFIX,youtu.be

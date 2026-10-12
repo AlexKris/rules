@@ -1,0 +1,25 @@
+# NAME: Apple Proxy
+# GENERATED-FOR: Anywhere Routing Rule Set
+# DESCRIPTION: Apple domains that must not take the unified Apple direct route
+# RULES: 18
+# SKIPPED: 0
+
+name = Apple Proxy
+2, news-assets.apple.com
+2, events-live.apple.com
+2, events-delivery.apple.com
+2, static.ess.apple.com
+2, pba.apple.com
+2, apple.news
+2, news-edge.apple.com
+2, news-client.apple.com
+2, news-events.apple.com
+2, mask.icloud.com
+2, mask-h2.icloud.com
+2, mask-api.icloud.com
+2, developer.apple.com
+2, appstoreconnect.apple.com
+2, discussions.apple.com
+2, devstreaming-cdn.apple.com
+2, devimages-cdn.apple.com
+2, adcdownload.apple.com

@@ -191,7 +191,7 @@
       "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
-        "geolocation-cn"
+        "cn"
       ]
     },
     "loyalsoldier-direct": {
@@ -201,7 +201,15 @@
       ],
       "urls": [
         "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt"
-      ]
+      ],
+      "keep_ranked": {
+        "paths": [
+          ".upstream/tranco/top-1m.csv"
+        ],
+        "urls": [
+          "https://tranco-list.eu/download/4672X/1000000"
+        ]
+      }
     },
     "not-cn-domain": {
       "kind": "v2fly",
@@ -415,7 +423,10 @@
         "DOMAIN-SUFFIX,devstreaming-cdn.apple.com",
         "DOMAIN-SUFFIX,devimages-cdn.apple.com",
         "DOMAIN-SUFFIX,adcdownload.apple.com"
-      ]
+      ],
+      "targets": {
+        "anywhere": "anywhere/apple-proxy.arrs"
+      }
     },
     "apple-cn": {
       "name": "Apple CN",
@@ -448,6 +459,8 @@
         "DOMAIN-SUFFIX,wxgateway.com",
         "DOMAIN-SUFFIX,videocc.net",
         "DOMAIN,cache.video.iqiyi.com",
+        "DOMAIN-SUFFIX,caxins.com",
+        "DOMAIN-SUFFIX,fantaike.ai",
         "DOMAIN-SUFFIX,ocsp.digicert.com",
         "DOMAIN-SUFFIX,cacerts.digicert.com",
         "DOMAIN-SUFFIX,crl3.digicert.com",
@@ -658,11 +671,25 @@
         "anywhere": "anywhere/china-ip.arrs"
       }
     },
+    "google": {
+      "name": "Google",
+      "description": "Google services routing overlay based on v2fly google, including YouTube; keep Stream above Google",
+      "sources": [
+        "google"
+      ],
+      "targets": {
+        "anywhere": "anywhere/google.arrs"
+      }
+    },
     "cn-domain": {
       "name": "CN Domain",
-      "description": "China domain direct fallback based on v2fly geolocation-cn",
+      "description": "China domain direct fallback based on v2fly cn plus Tranco-ranked Loyalsoldier direct list",
       "sources": [
-        "cn-domain"
+        "cn-domain",
+        "loyalsoldier-direct"
+      ],
+      "exclude": [
+        "analytics.tiktok.com"
       ],
       "targets": {
         "anywhere": "anywhere/cn-domain.arrs"
@@ -712,7 +739,9 @@
       ],
       "add": [
         "DOMAIN,tv.apple.com",
-        "DOMAIN,hls-svod.itunes.apple.com"
+        "DOMAIN,hls-svod.itunes.apple.com",
+        "DOMAIN-SUFFIX,ytimg.com",
+        "DOMAIN-SUFFIX,youtu.be"
       ],
       "targets": {
         "anywhere": "anywhere/stream.arrs"
@@ -935,6 +964,9 @@
           "cn-domain",
           "loyalsoldier-direct"
         ],
+        "exclude": [
+          "analytics.tiktok.com"
+        ],
         "clients": [
           "surge",
           "loon",
@@ -953,7 +985,9 @@
         "source": "stream",
         "add": [
           "DOMAIN,tv.apple.com",
-          "DOMAIN,hls-svod.itunes.apple.com"
+          "DOMAIN,hls-svod.itunes.apple.com",
+          "DOMAIN-SUFFIX,ytimg.com",
+          "DOMAIN-SUFFIX,youtu.be"
         ],
         "surge-client-rules": true
       },

@@ -45,6 +45,8 @@ profile repository or untracked local files.
 
 - `anywhere/proxy.arrs`
 - `anywhere/apple.arrs`
+- `anywhere/apple-proxy.arrs`
+- `anywhere/google.arrs`
 - `anywhere/download.arrs`
 - `anywhere/lan.arrs`
 - `anywhere/lan-ip.arrs`
@@ -72,35 +74,39 @@ profile repository or untracked local files.
 - `anywhere/mitm/google-cn-redirect.amrs`
 - `anywhere/mitm/youtube-enhance-anywhere.amrs`
 
-Import the raw URLs in Anywhere and assign them as follows:
+Import the raw URLs in Anywhere and keep them in this Routing list order (top
+to bottom); identical patterns go to the higher set:
 
 ```text
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/proxy.arrs            -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs            -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs         -> Download
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs     -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs              -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs        -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs           -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/direct-extra.arrs     -> DIRECT
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/crypto.arrs           -> proxy chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream or proxy chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> AI chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs           -> PayPal chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-hk.arrs        -> MediaHK
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-tw.arrs        -> MediaTW
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-jp.arrs        -> MediaJP
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-us.arrs        -> MediaUS
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-kr.arrs        -> MediaKR
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs        -> MediaEU
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> Telegram chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-proxy.arrs      -> PROXY
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs            -> DIRECT
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/download.arrs         -> Download
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/google.arrs           -> Google chain
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs        -> DIRECT
 ```
 
-`proxy` replaces the old separate CDN/global runtime rules for new Anywhere
-profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram`
-contain both domain and IP CIDR rules. `cn-domain` is a broad direct fallback
-based on v2fly `geolocation-cn`. Legacy `cdn`, split Apple, `lan-ip`,
-`telegram-ip`, `kuro`, and `citic` files remain published for compatibility
-but are not recommended for new profiles.
+`apple` replaces the split Apple rule sets; `apple-proxy` must stay above it.
+`google` includes YouTube upstream, so Stream and AI must stay above it.
+`cn-domain` uses the same rules as the other clients and must stay below
+Stream, AI, and Google. `lan` and `telegram` contain both domain and IP CIDR
+rules. `proxy` and `crypto` remain published but are not recommended: with
+unmatched traffic already on the default route they add nothing. Legacy `cdn`,
+split Apple, `lan-ip`, `telegram-ip`, `kuro`, and `citic` files remain published
+for compatibility but are not recommended for new profiles. See
+`profiles/anywhere.md` for built-in service and DNS settings.
 
 `domestic` and `direct` are not published for Anywhere because their SKK
 sources include client-specific matchers that ARRS cannot represent.

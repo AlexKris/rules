@@ -77,6 +77,14 @@ jobs:
             /direct.txt
           persist-credentials: false
 
+      - name: Download Tranco ranking
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="$(python3 -c 'import json; print(json.load(open("config/rules.json"))["sources"]["loyalsoldier-direct"]["keep_ranked"]["urls"][0])')"
+          mkdir -p .upstream/tranco
+          curl -fL --retry 3 -o .upstream/tranco/top-1m.csv "$url"
+
       - name: Checkout profile tools
         uses: actions/checkout@v7
         with:
