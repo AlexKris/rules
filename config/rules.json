@@ -11,18 +11,6 @@
     "geosite/geosite-private.srs": {
       "path": ".upstream/sing-geosite/geosite-private.srs",
       "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs"
-    },
-    "geosite/geosite-telegram.srs": {
-      "path": ".upstream/sing-geosite/geosite-telegram.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs"
-    },
-    "geosite/geosite-google.srs": {
-      "path": ".upstream/sing-geosite/geosite-google.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs"
-    },
-    "geoip/geoip-cn.srs": {
-      "path": ".upstream/sing-geoip/geoip-cn.srs",
-      "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
     }
   },
   "sources": {
@@ -758,7 +746,8 @@
         "clients": [
           "surge",
           "loon",
-          "mihomo"
+          "mihomo",
+          "sing-box"
         ]
       },
       "cn-domain": {

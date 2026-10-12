@@ -285,6 +285,7 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft-
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/game-download.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/download.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/google.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cn-domain.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/telegram-ip.srs
@@ -292,19 +293,17 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/lan-ip.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/china-ip.srs
 ```
 
-Four foundation rule sets are mirrored byte-for-byte from SagerNet, validated
+One foundation rule set is mirrored byte-for-byte from SagerNet, validated
 with sing-box, and published through our Pages endpoint:
 
 ```text
 https://alexkris-rules.pages.dev/sing-box/geosite/geosite-private.srs
-https://alexkris-rules.pages.dev/sing-box/geosite/geosite-telegram.srs
-https://alexkris-rules.pages.dev/sing-box/geosite/geosite-google.srs
-https://alexkris-rules.pages.dev/sing-box/geoip/geoip-cn.srs
 ```
 
-`config/rules.json` lists the exact sources under `sing_box_mirrors`. These
-files bypass the normalized converter, preserving regex rules. They are not
-aliases for SKK Telegram or SKK China IP. Other generated formats and their matching behavior are unchanged.
+`config/rules.json` lists the exact source under `sing_box_mirrors`. The file
+bypasses the normalized converter, preserving its regex rule. It only drives
+local DNS selection for LAN names; Telegram, Google, and China IP come from the
+generated `telegram`, `google`, and `china-ip` sets like every other client.
 See `sing-box/NOTICE.md` for upstream attribution.
 
 ### Plain
@@ -323,7 +322,6 @@ GitHub Actions checks out upstream sources into `.upstream/` before building:
 .upstream/skk/List
 .upstream/v2fly/data
 .upstream/sing-geosite
-.upstream/sing-geoip
 .upstream/profile
 ```
 
@@ -337,7 +335,6 @@ git -C .upstream/skk sparse-checkout set List
 git clone --depth 1 --filter=blob:none --sparse https://github.com/v2fly/domain-list-community.git .upstream/v2fly
 git -C .upstream/v2fly sparse-checkout set data
 git clone --depth 1 --branch rule-set https://github.com/SagerNet/sing-geosite.git .upstream/sing-geosite
-git clone --depth 1 --branch rule-set https://github.com/SagerNet/sing-geoip.git .upstream/sing-geoip
 ```
 
 Profile tool scripts are optional for local site builds. If `.upstream/profile`

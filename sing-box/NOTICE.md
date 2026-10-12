@@ -1,16 +1,14 @@
 # Mirrored Foundation Rule Sets
 
-Files in `geosite/` and `geoip/` are unmodified binary copies of selected files
-from the `rule-set` branches of these projects:
+Files in `geosite/` are unmodified binary copies of selected files from the
+`rule-set` branch of this project:
 
 - https://github.com/SagerNet/sing-geosite/tree/rule-set
-- https://github.com/SagerNet/sing-geoip/tree/rule-set
 
-The generator source is available at the respective projects' `main` branches.
-Both generator projects are GPL-3.0-or-later, copyright (C) 2022 nekohasekai:
+The generator source is available at the project's `main` branch. The
+generator project is GPL-3.0-or-later, copyright (C) 2022 nekohasekai:
 
 - https://github.com/SagerNet/sing-geosite/blob/main/LICENSE
-- https://github.com/SagerNet/sing-geoip/blob/main/LICENSE
 - https://www.gnu.org/licenses/gpl-3.0.html
 
 The geosite data originates from v2fly/domain-list-community:

@@ -64,7 +64,7 @@ Current generated groups:
 - `china-ip`: SKK China IP CIDR rules. Do not restore SKK `ip/domestic.conf`.
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions. `hf.co` is excluded so that the Hugging Face bulk-download hosts `cdn.hf.co` and `cas-bridge.xethub.hf.co` fall through to `download` instead of the region-restricted AIGC policy; `huggingface.co` stays in `ai`.
 - `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy, and `ytimg.com` / `youtu.be` so YouTube thumbnails and short links follow the video policy instead of `google`.
-- `google`: v2fly `google`, generated for Surge/Loon/Mihomo/Anywhere/plain. It includes YouTube via upstream; keep Stream before Google in profiles, and above Google in the Anywhere Routing list (identical patterns go to the higher set).
+- `google`: v2fly `google`, generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain. It includes YouTube via upstream; keep Stream before Google in profiles, and above Google in the Anywhere Routing list (identical patterns go to the higher set).
 - `cn-domain`: v2fly `cn` (`geolocation-cn` plus the China TLDs in `tld-cn`, including `cn`) plus Loyalsoldier `surge-rules` `direct.txt` filtered by the pinned Tranco top-1M list (`keep_ranked`). A Loyalsoldier rule is kept only when its site (last two labels) is itself listed in `direct.txt` and is ranked; this drops the unranked long tail and the China endpoints of foreign sites (Apple, Google, Microsoft, Kaspersky), which have their own rule sets. `analytics.tiktok.com` is excluded because it is deeper than Stream's `tiktok.com` and would win in Anywhere. SKK Domestic non_ip is merged in as well (domains only; its `USER-AGENT` rows and watermark domain are dropped): it is the hand-curated list of services reachable from mainland China, backfills CDN and API hosts the Tranco filter removes (`ccgslb.com`, `12306.com`), and carries a few foreign services with mainland presence (`battle.net`, Steam connection servers). Generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules. To refresh the ranking, replace the list ID in the `keep_ranked` URL with a current one from tranco-list.eu; do not track the daily latest list, which would churn the rules every build. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
 - `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
 - `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
@@ -141,14 +141,17 @@ sing-box:
 - Generated `.srs` rule sets require `sing-box` CLI.
 - JSON files are temporary build inputs and are not published.
 - Published remote rule sets should use `.srs` with `format: binary` in client profiles.
-- Preserve SagerNet semantics for the four foundation rule sets listed in
-  `config/rules.json` under `sing_box_mirrors`. Copy and validate upstream `.srs`
-  bytes into `sing-box/geosite/` and `sing-box/geoip/`, published via our Pages.
-- Do not feed these mirrors through the normalized converter: it skips v2fly
+- Preserve SagerNet semantics for the one foundation rule set listed in
+  `config/rules.json` under `sing_box_mirrors` (`geosite-private`). Copy and
+  validate the upstream `.srs` bytes into `sing-box/geosite/`, published via our
+  Pages. It only selects local DNS for LAN names; Telegram, Google, and China IP
+  use the generated `telegram`, `google`, and `china-ip` sets. Do not bring the
+  `geosite-telegram`, `geosite-google`, or `geoip-cn` mirrors back.
+- Do not feed this mirror through the normalized converter: it skips v2fly
   regex rules.
-- CI checks out the whitelisted `rule-set` branch files into
-  `.upstream/sing-geosite` and `.upstream/sing-geoip`; strict local-source mode
-  must fail if any source is missing. Invalid or empty SRS must fail the build.
+- CI checks out the whitelisted `rule-set` branch file into
+  `.upstream/sing-geosite`; strict local-source mode must fail if the source is
+  missing. Invalid or empty SRS must fail the build.
 
 Plain:
 

@@ -42,7 +42,7 @@ jobs:
             data
           persist-credentials: false
 
-      - name: Checkout sing-box geosite mirrors
+      - name: Checkout sing-box geosite mirror
         uses: actions/checkout@v7
         with:
           repository: SagerNet/sing-geosite
@@ -51,19 +51,6 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /geosite-private.srs
-            /geosite-telegram.srs
-            /geosite-google.srs
-          persist-credentials: false
-
-      - name: Checkout sing-box geoip mirror
-        uses: actions/checkout@v7
-        with:
-          repository: SagerNet/sing-geoip
-          ref: rule-set
-          path: .upstream/sing-geoip
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /geoip-cn.srs
           persist-credentials: false
 
       - name: Checkout Loyalsoldier direct list
