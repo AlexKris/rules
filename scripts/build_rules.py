@@ -686,7 +686,8 @@ def mihomo_domain_lines(rules: list[Rule]) -> list[str]:
     prefixes): `example.com` for exact, `+.example.com` for suffix, and `*`/`?`
     wildcards. Feeding classical-prefixed lines makes Mihomo store the whole
     string (e.g. `domain-suffix,example.com`) as a literal domain that never
-    matches. DOMAIN-KEYWORD cannot be represented in a domain MRS and is dropped.
+    matches. DOMAIN-KEYWORD and wildcards Mihomo cannot store are left out here
+    and published through `mihomo_classical_lines` instead.
     """
     lines = []
     for rule in rules:
@@ -694,8 +695,28 @@ def mihomo_domain_lines(rules: list[Rule]) -> list[str]:
             lines.append(rule.value)
         elif rule.rule_type == "DOMAIN-SUFFIX":
             lines.append(f"+.{rule.value}")
-        elif rule.rule_type == "DOMAIN-WILDCARD":
+        elif rule.rule_type == "DOMAIN-WILDCARD" and mihomo_supports_wildcard(rule.value):
             lines.append(rule.value)
+    return lines
+
+
+def mihomo_supports_wildcard(value: str) -> bool:
+    """Mihomo's domain trie accepts `*` only as a whole label; `?` can sit anywhere.
+
+    `download*.mediafire.com` is skipped by `mihomo convert-ruleset` with a
+    warning, while `ftp.??.debian.org` and `*.example.com` are stored.
+    """
+    return all(label == "*" for label in value.split(".") if "*" in label)
+
+
+def mihomo_classical_lines(rules: list[Rule]) -> list[str]:
+    """Rules a domain MRS cannot hold, as a classical text rule-set."""
+    lines = [f"DOMAIN-KEYWORD,{rule.value}" for rule in rules if rule.rule_type == "DOMAIN-KEYWORD"]
+    lines += [
+        f"DOMAIN-REGEX,{wildcard_to_domain_regex(rule.value)}"
+        for rule in rules
+        if rule.rule_type == "DOMAIN-WILDCARD" and not mihomo_supports_wildcard(rule.value)
+    ]
     return lines
 
 
@@ -776,13 +797,18 @@ def write_mihomo_domain_mrs(path: Path, rules: list[Rule]) -> None:
     src_path = path.with_name(path.name + ".src.txt")
     write_text(src_path, lines)
     try:
-        subprocess.run(
+        result = subprocess.run(
             ["mihomo", "convert-ruleset", "domain", "text", str(src_path), str(path)],
             cwd=ROOT,
-            check=True
+            check=True,
+            capture_output=True,
+            text=True
         )
     finally:
         src_path.unlink(missing_ok=True)
+    if "skip invalid domain" in result.stderr:
+        relative_path = path.relative_to(ROOT)
+        raise ValueError(f"{relative_path}: mihomo skipped rules:\n{result.stderr}")
 
 
 def wildcard_to_domain_regex(value: str) -> str:
@@ -936,14 +962,12 @@ def write_generated_outputs(
             )
         if "mihomo" in clients:
             write_mihomo_domain_mrs(ROOT / "mihomo" / "non-ip" / f"{name}.mrs", rules)
-            # DOMAIN-KEYWORD cannot live in a domain MRS; publish it as a
-            # classical text rule-set so Mihomo can keep keyword matching.
-            keyword_rules = [rule for rule in rules if rule.rule_type == "DOMAIN-KEYWORD"]
-            if keyword_rules:
-                write_text(
-                    ROOT / "mihomo" / "classical" / f"{name}.list",
-                    [f"DOMAIN-KEYWORD,{rule.value}" for rule in keyword_rules],
-                )
+            # DOMAIN-KEYWORD and partial-label wildcards cannot live in a domain
+            # MRS; publish them as a classical text rule-set so Mihomo keeps
+            # matching them.
+            classical_lines = mihomo_classical_lines(rules)
+            if classical_lines:
+                write_text(ROOT / "mihomo" / "classical" / f"{name}.list", classical_lines)
         if "sing-box" in clients:
             write_sing_box_srs(ROOT / "sing-box" / "non-ip" / f"{name}.srs", rules)
 

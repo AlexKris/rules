@@ -2,11 +2,11 @@
 
 Rule sets are matched in profile order, so the sections below are listed in the
 order they must appear in `[Rule]`. Narrow overlays come first, broad
-domestic/global fallbacks come last.
+broad direct fallbacks come last.
 
-The unified `proxy` set is a *fallback*, not a lead rule: it sits after the
-per-service sets and after `cn-domain`, so a service-specific set can claim its
-own domains first.
+There is no proxy-side fallback set: anything no set claims goes to `FINAL`,
+which is the proxy policy. Every IP rule file carries `no-resolve`, so an
+unmatched domain is never resolved locally.
 
 Direct Extra:
 
@@ -14,8 +14,7 @@ Direct Extra:
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
 ```
 
-Do not add `surge/domainset/kuro.conf` here. `direct-extra` already carries all seven Kuro
-domains; the standalone set is published only for legacy subscriptions.
+`direct-extra` carries the Kuro and CITIC direct domains; no separate files exist.
 
 Speedtest:
 
@@ -23,12 +22,11 @@ Speedtest:
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/speedtest.conf,Speedtest,extended-matching
 ```
 
-AI / PayPal / Crypto:
+AI / PayPal:
 
 ```ini
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.conf,AI,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/crypto.conf,Crypto,extended-matching
 ```
 
 Stream:
@@ -53,13 +51,13 @@ Apple:
 
 ```ini
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-proxy.conf,Proxy,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple.conf,DIRECT,extended-matching
 ```
 
-`apple-proxy` must come before `apple`. The unified `apple` set carries the
-broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK
-Apple Services, so anything not carved out ahead of it takes the direct route.
+`apple-proxy` must come before `apple`. The unified `apple` set (one file; the
+SKK Apple CDN domainset is folded in) carries the broad `DOMAIN-SUFFIX,apple.com`,
+`icloud.com`, and `me.com` suffixes from SKK Apple Services, so anything not
+carved out ahead of it takes the direct route.
 Keep Stream before `apple-proxy` as well, so Apple TV+ playback stays on the
 Stream policy.
 
@@ -71,10 +69,9 @@ DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/download.conf,Download,extended-matching
 ```
 
-Microsoft / Google:
+Google:
 
 ```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Proxy,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/google.conf,Google,extended-matching
 ```
 
@@ -84,21 +81,13 @@ should own YouTube routing.
 Base direct:
 
 ```ini
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/domestic.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cn-domain.conf,DIRECT,extended-matching
 ```
 
-Proxy fallback:
-
-```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/proxy.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/proxy.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/lan.conf,DIRECT
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/not-cn-domain.conf,Proxy,extended-matching
-```
-
-`not-cn-domain` is a broad proxy fallback for text-rule clients. `lan` must be ordered before it, otherwise a broad `DOMAIN-SUFFIX` in `not-cn-domain` can steal a LAN management domain and send it to the proxy.
+`direct` is SKK Direct (LAN names, PT trackers, academic sites, downloader
+processes); it already contains every SKK LAN domain rule. `cn-domain` is the
+China domain fallback and already contains SKK Domestic.
 
 IP rules:
 

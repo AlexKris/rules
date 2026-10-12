@@ -1,0 +1,5 @@
+DOMAIN-REGEX,^download.*\.mediafire\.com$
+DOMAIN-REGEX,^cdn\-.*\.comaps\.app$
+DOMAIN-REGEX,^cdn\-.*\.comaps\.tech$
+DOMAIN-REGEX,^cdn\-.*\.organicmaps\.app$
+DOMAIN-REGEX,^dl\-.*\.mypikpak\.com$

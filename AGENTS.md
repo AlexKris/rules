@@ -25,50 +25,62 @@ Mihomo, and sing-box files; artifact patches are explicit and do not inherit
 same-named Anywhere output patches. `artifacts[*].clients` can narrow client
 artifact generation while still writing the matching `plain/` file.
 
+Rule-set taxonomy:
+
+A rule set exists only for one of these reasons. If none applies, do not add it.
+
+1. Its policy differs from `FINAL` (Proxy): `ai`, `paypal`, `stream*`, `telegram`,
+   `google`, `download`, `apple`, `microsoft-cdn`, `direct`, `cn-domain`.
+2. It must pre-empt a broader set ordered after it: `apple-proxy` before `apple`,
+   `stream` before `google`, `direct-extra` first.
+3. It is hand-maintained: `direct-extra` is the only personal overlay.
+4. It would settle a domain before a rule that triggers DNS resolution. Every IP
+   rule published here carries `no-resolve`, so this never applies; a `proxy` or
+   `not-cn-domain` set would only repeat `FINAL`.
+5. It keeps known-proxy domains on a proxy when `FINAL` is switched to DIRECT.
+   The profiles never do that, so this never applies either.
+
+Domain and IP rules of one service (`telegram` / `telegram-ip`, `lan` / `lan-ip`)
+are split only because a Mihomo MRS holds either domains or CIDRs, not both;
+Anywhere outputs combine them. Sets with the same policy and the same meaning
+are merged: SKK Domestic lives inside `cn-domain`, the Apple domainset inside
+`apple`, SKK LAN domains inside `direct`.
+
+Profile order: `direct-extra` > service sets with their own policy > `apple-proxy`
+> `apple` > `microsoft-cdn` > `download` > `google` > `direct` > `cn-domain` > IP
+rules (`no-resolve`) > `FINAL`.
+
 Current generated groups:
 
-- `proxy`: SKK CDN domainset + non_ip + SKK Global, excluding Apple time sync and DigiCert certificate infrastructure.
-- `apple`: SKK Apple CDN + CN + Services, with `is1-ssl.mzstatic.com` and `time.apple.com` added.
+- `apple`: SKK Apple CDN domainset + non_ip + CN + Services, with `is1-ssl.mzstatic.com` and `time.apple.com` added. The domainset rows are folded into the single non-ip set and the ones already covered by the broad suffixes are dropped. It is intended for DIRECT.
+- `apple-proxy`: explicit carve-out of Apple domains that must not take the unified `apple` direct route. Generated for Surge, Loon, Mihomo, and sing-box. It must be ordered before `apple` in every profile.
 - `download`: SKK Download domainset + non_ip. Do not merge Microsoft CDN into it.
-- `domestic`: SKK Domestic non_ip rules.
-- `direct`: SKK Direct non_ip rules. Do not merge `direct-extra` into it.
-- `lan`: SKK LAN non_ip rules. The Anywhere `lan.arrs` output also includes SKK LAN IP CIDR rules.
+- `game-download`: SKK Game Download domainset.
+- `speedtest`: SKK Speedtest domainset.
+- `microsoft-cdn`: SKK Microsoft CDN. Broad Microsoft has no rule set; it falls through to `FINAL`.
+- `direct`: SKK Direct non_ip rules (LAN names, PT trackers, academic sites, downloader processes). It already contains every SKK LAN domain rule. Do not merge `direct-extra` into it.
+- `lan`: Anywhere-only output combining SKK LAN domain and IP CIDR rules.
 - `lan-ip`: SKK LAN IP CIDR rules, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `china-ip`: SKK China IP CIDR rules. Do not restore SKK `ip/domestic.conf`.
-- `cdn`: SKK CDN domainset + non_ip, excluding Apple time sync and DigiCert certificate infrastructure.
-- `apple-proxy`: explicit carve-out of Apple domains that must not take the unified `apple` direct route. Generated for Surge, Mihomo, and sing-box. It must be ordered before `apple` in every profile.
-- `apple-cdn`: SKK Apple CDN domainset + non_ip, with `is1-ssl.mzstatic.com` added.
-- `apple-cn`: SKK Apple CN.
-- `apple-services`: SKK Apple Services, with `time.apple.com` added.
-- `speedtest`: SKK Speedtest domainset.
 - `ai`: v2fly `category-ai-!cn`, with explicit Claude/Anthropic additions. `hf.co` is excluded so that the Hugging Face bulk-download hosts `cdn.hf.co` and `cas-bridge.xethub.hf.co` fall through to `download` instead of the region-restricted AIGC policy; `huggingface.co` stays in `ai`.
 - `stream`, `stream-hk`, `stream-tw`, `stream-jp`, `stream-us`, `stream-kr`, `stream-eu`: SKK Stream Services non_ip rule sets. `stream` adds `tv.apple.com` and `hls-svod.itunes.apple.com` so the Apple TV+ chain stays on one policy, and `ytimg.com` / `youtu.be` so YouTube thumbnails and short links follow the video policy instead of `google`.
 - `google`: v2fly `google`, generated for Surge/Loon/Mihomo/Anywhere/plain. It includes YouTube via upstream; keep Stream before Google in profiles, and above Google in the Anywhere Routing list (identical patterns go to the higher set).
-- `cn-domain`: v2fly `cn` (`geolocation-cn` plus the China TLDs in `tld-cn`, including `cn`) plus Loyalsoldier `surge-rules` `direct.txt` filtered by the pinned Tranco top-1M list (`keep_ranked`). A Loyalsoldier rule is kept only when its site (last two labels) is itself listed in `direct.txt` and is ranked; this drops the unranked long tail and the China endpoints of foreign sites (Apple, Google, Microsoft, Kaspersky), which have their own rule sets. `analytics.tiktok.com` is excluded because it is deeper than Stream's `tiktok.com` and would win in Anywhere. Generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules. To refresh the ranking, replace the list ID in the `keep_ranked` URL with a current one from tranco-list.eu; do not track the daily latest list, which would churn the rules every build. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
-- `not-cn-domain`: v2fly `geolocation-!cn`, generated only for Surge/Loon/plain.
+- `cn-domain`: v2fly `cn` (`geolocation-cn` plus the China TLDs in `tld-cn`, including `cn`) plus Loyalsoldier `surge-rules` `direct.txt` filtered by the pinned Tranco top-1M list (`keep_ranked`). A Loyalsoldier rule is kept only when its site (last two labels) is itself listed in `direct.txt` and is ranked; this drops the unranked long tail and the China endpoints of foreign sites (Apple, Google, Microsoft, Kaspersky), which have their own rule sets. `analytics.tiktok.com` is excluded because it is deeper than Stream's `tiktok.com` and would win in Anywhere. SKK Domestic non_ip is merged in as well (domains only; its `USER-AGENT` rows and watermark domain are dropped): it is the hand-curated list of services reachable from mainland China, backfills CDN and API hosts the Tranco filter removes (`ccgslb.com`, `12306.com`), and carries a few foreign services with mainland presence (`battle.net`, Steam connection servers). Generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules. To refresh the ranking, replace the list ID in the `keep_ranked` URL with a current one from tranco-list.eu; do not track the daily latest list, which would churn the rules every build. Do not switch to MetaCubeX `geosite:cn` / blackmatrix7 ChinaMax: ChinaMax is self-described as experimental, adds clearly non-China entries (whole `.ms` TLD, garmin.com, java.com, bstatic.com), and MetaCubeX drops v2fly `geolocation-cn` entirely.
 - `telegram`: SKK Telegram domains. The Anywhere `telegram.arrs` output also includes SKK Telegram IP CIDR rules.
 - `telegram-ip`: SKK Telegram IP CIDR, kept as a separate generated rule set for non-Anywhere clients and legacy Anywhere subscriptions.
 - `paypal`: v2fly `paypal`.
-- `microsoft`: v2fly `microsoft`.
-- `microsoft-cdn`: SKK Microsoft CDN.
-- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries three carve-outs that would otherwise be stolen by a proxy policy because their rule set is ordered earlier: the 21Vianet China Microsoft `.cn` domains (`microsoft` routes them to a proxy policy), the six mainland speedtest endpoints inside `speedtest`, and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). It also
-carries `apple-dns.cn` and `idms-apple.com.akadns.net`: these are Apple CNAME-target infrastructure
-domains that `not-cn-domain` would otherwise send to a proxy policy. The `apple` set already covers the
-sibling names `apple-dns.net`, `aaplimg.com`, and `itunes-apple.com.akadns.net`, so the `.cn` and IDMS
-names were a coverage gap. Because `direct-extra` is the first rule set in every profile, these take
+- `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries two carve-outs that would otherwise be stolen by a policy whose rule set is ordered earlier: the six mainland speedtest endpoints inside `speedtest`, and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). The 21Vianet China Microsoft `.cn` domains, `apple-dns.cn`, and `idms-apple.com.akadns.net` stay here as explicit direct entries; they used to be stolen by the removed `microsoft` and `not-cn-domain` sets. Because `direct-extra` is the first rule set in every profile, these take
 effect on every client without a per-profile edit.
 
 `apple-proxy` must not contain `statici.icloud.com`. It serves iCloud static assets including the Apple
 ID avatar shown in iOS Settings, and a mainland-China Apple ID needs it direct.
-- `crypto`: v2fly `category-cryptocurrency`, generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list.
+
+Removed groups, do not bring them back: `proxy`, `cdn`, `not-cn-domain`, `crypto`,
+`microsoft`, the split Apple sets, `domestic` (now inside `cn-domain`), `lan` non-ip
+(inside `direct`), and the Kuro / CITIC compatibility files (inside `direct-extra`).
 
 Manual overlays currently outside `config/rules.json`:
 
-- `anywhere/kuro.arrs`
-- `anywhere/citic.arrs`
-- `surge/domainset/kuro.conf` (superseded by `direct-extra`, which covers all seven Kuro
-  domains; kept published only for compatibility with older subscriptions. No profile in the
-  `profile` repository references it anymore.)
 - `anywhere/mitm/google-cn-redirect.amrs`
 - `anywhere/mitm/source/youtube-enhance-anywhere.js`
 - `anywhere/mitm/source/vendor/maasea-youtube.response.js`
@@ -80,10 +92,10 @@ Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or m
 Anywhere:
 
 - Generated from `outputs[*].targets.anywhere` in `config/rules.json`.
-- `domestic`, `direct`, `not-cn-domain`, `speedtest`, and Microsoft are intentionally not generated for Anywhere.
-- `domestic` and `direct` SKK sources include client-specific matchers that ARRS cannot represent.
+- `direct`, `speedtest`, and `microsoft-cdn` are intentionally not generated for Anywhere.
+- `direct` SKK source includes client-specific matchers that ARRS cannot represent.
 - `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.
-- `proxy` replaces the old separate CDN/global runtime rules in new Anywhere profiles. `apple` replaces the split Apple rule sets. `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cn-domain` uses the same rules as the other clients. `apple-proxy` must sit above `apple` in the Routing list because both contain `apple.news`. `cdn`, split Apple, `lan-ip`, `telegram-ip`, `kuro`, and `citic` Anywhere files remain published only for compatibility.
+- `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cn-domain` uses the same rules as the other clients. `apple-proxy` must sit above `apple` in the Routing list because both contain `apple.news`. `lan-ip` and `telegram-ip` Anywhere files remain published only for compatibility.
 - `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
 - Format mapping in `scripts/build_rules.py`:
   - `0`: IPv4 CIDR
@@ -97,11 +109,10 @@ Surge / Shadowrocket:
 - `surge/domainset/*.conf` contains bare exact domains and leading-dot suffixes.
 - `surge/non-ip/*.conf` contains `DOMAIN`, `DOMAIN-SUFFIX`, and `DOMAIN-KEYWORD` rules.
 - `surge/non-ip/*.conf` can also contain `DOMAIN-WILDCARD` and `URL-REGEX` when upstream uses them.
-- `surge/non-ip/direct.conf`, `surge/non-ip/domestic.conf`, and
-  `surge/non-ip/stream*.conf` also preserve SKK `USER-AGENT` and
-  `PROCESS-NAME` rules.
+- `surge/non-ip/direct.conf` and `surge/non-ip/stream*.conf` also preserve SKK
+  `USER-AGENT` and `PROCESS-NAME` rules.
 - `surge/ip/*.conf` contains `IP-CIDR` and `IP-CIDR6` rules with `no-resolve`.
-- Generated from `plain/domainset/*.txt` and `plain/non-ip/*.txt`.
+- Generated from the same in-memory rule model as `plain/`, not from the plain files.
 - Shadowrocket can use the same Surge text files where profile syntax allows it.
 
 Loon:
@@ -119,9 +130,9 @@ Loon:
 Mihomo:
 
 - Generated `.mrs` files require `mihomo` CLI.
-- Domain `.mrs` (`mihomo/domainset/*.mrs`, `mihomo/non-ip/*.mrs`) use `behavior: domain` and are built by `write_mihomo_domain_mrs`, which emits bare domain-set lines: exact domain, `+.` for suffix, `*`/`?` wildcards.
+- Domain `.mrs` (`mihomo/domainset/*.mrs`, `mihomo/non-ip/*.mrs`) use `behavior: domain` and are built by `write_mihomo_domain_mrs`, which emits bare domain-set lines: exact domain, `+.` for suffix, `*`/`?` wildcards. Mihomo only stores `*` as a whole label (`*.example.com`); a partial-label wildcard such as `download*.mediafire.com` is skipped by `mihomo convert-ruleset` with a warning. The build keeps those out of the MRS, publishes them as `DOMAIN-REGEX` in the classical list below, and fails if mihomo still reports a skipped domain.
 - DO NOT feed the classical `DOMAIN,`/`DOMAIN-SUFFIX,`-prefixed `plain/*.txt` to `mihomo convert-ruleset domain`. Mihomo then stores each whole line (e.g. `domain-suffix,steamcontent.com`) as a single literal domain that never matches real queries, silently breaking the whole rule set (traffic falls through to geosite/GEOIP fallbacks). The domain-set format is mandatory.
-- `DOMAIN-KEYWORD` cannot be represented in a domain `.mrs`. For non-ip sets that contain keywords it is published separately as a `behavior: classical` text rule-set at `mihomo/classical/<name>.list` (keyword lines only), so profiles can keep keyword matching via a classical rule-provider. It is still kept inline in Surge/Loon/plain and as `domain_keyword` in sing-box.
+- `DOMAIN-KEYWORD` and partial-label wildcards cannot be represented in a domain `.mrs`. For non-ip sets that contain them, they are published separately as a `behavior: classical` text rule-set at `mihomo/classical/<name>.list` (`DOMAIN-KEYWORD` and `DOMAIN-REGEX` lines), so profiles can keep matching them via a classical rule-provider next to the `.mrs` provider. Keywords are still kept inline in Surge/Loon/plain and as `domain_keyword` in sing-box.
 - IP `.mrs` (`mihomo/ip/*.mrs`) use `behavior: ipcidr`, generated from `plain/ip/*.txt`.
 - `mihomo/non-ip/google.mrs` and `mihomo/non-ip/cn-domain.mrs` are generated locally like other domain sets.
 
@@ -143,7 +154,7 @@ Plain:
 
 - `plain/domainset/*.txt`, `plain/non-ip/*.txt`, and `plain/ip/*.txt` are generated observable artifacts.
 - Plain files use normalized rule syntax such as `DOMAIN` and `DOMAIN-SUFFIX`.
-- Plain domain files may include `DOMAIN-WILDCARD`; these are valid Mihomo domain rules and are converted to sing-box `domain_regex`.
+- Plain domain files may include `DOMAIN-WILDCARD`; these go into the Mihomo domain MRS when `*` fills a whole label, otherwise into the Mihomo classical list as `DOMAIN-REGEX`, and are always converted to sing-box `domain_regex`.
 - `URL-REGEX` is preserved only in Surge and Loon outputs and is intentionally omitted from plain/Mihomo/sing-box artifacts.
 - Plain stream files intentionally omit `USER-AGENT` and `PROCESS-NAME`; `USER-AGENT` is preserved in Surge and Loon outputs, while `PROCESS-NAME` is preserved only in Surge outputs.
 - They are not sources; edit `config/rules.json` and regenerate instead.
@@ -258,22 +269,21 @@ rg -n "time\.apple\.com|ocsp\.digicert\.com|youtube\.com|google\.com|googleapis\
 
 Expected behavior:
 
-- `time.apple.com` belongs in Apple Services, not CDN.
-- Unified `proxy` contains CDN and SKK Global rules, but excludes Apple time sync and DigiCert certificate infrastructure.
-- Unified `apple` contains Apple CDN, CN, Services, `is1-ssl.mzstatic.com`, and `time.apple.com`; it is intended for DIRECT.
+- `time.apple.com` belongs in `apple`.
+- Unified `apple` contains the Apple CDN domainset, Apple CDN non_ip, CN, Services, `is1-ssl.mzstatic.com`, and `time.apple.com`; it is intended for DIRECT. There is no separate Apple domainset file.
 - `apple` inherits the broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK Apple Services, so it captures every Apple subdomain not claimed earlier. `apple-proxy` must be ordered before it, and Stream must be ordered before `apple-proxy` so Apple TV+ playback stays on the Stream policy.
 - `apple-proxy` covers Apple domains SKK routes through CDN/Global (`news-assets.apple.com`, `events-live.apple.com`, `events-delivery.apple.com`, `static.ess.apple.com`, `pba.apple.com`; SKK's `statici.icloud.com` is deliberately left on DIRECT, see above), services unavailable in mainland China (Apple News, iCloud Private Relay `mask*.icloud.com`), and developer endpoints with no mainland CDN presence.
 - Apple TV+ belongs to `stream`, not `apple-proxy`. `tv.apple.com` and `hls-svod.itunes.apple.com` are added to `stream` so the whole TV+ chain (`uts-api`, `play-edge`, `linear.tv`, `hls*`) shares one policy. Splitting the chain across two policy groups with different exit regions breaks TV+ region validation.
 - Keep `time.apple.com`, `gs-loc.apple.com`, `gsp*-cn.ls.apple.com`, `*-courier.push.apple.com`, `albert.apple.com`, Apple software update CDNs, and `*.apple.com.cn` on DIRECT. Do not add them to `apple-proxy`.
 - `download` remains separate from `microsoft-cdn`.
-- `domestic`, `direct`, and `lan` are non-IP direct rule sets and belong before IP rule sets in profiles.
+- `direct` and `cn-domain` are non-IP direct rule sets and belong before IP rule sets in profiles.
 - `lan-ip` and `china-ip` are IP/CIDR direct rule sets; Surge outputs include `no-resolve`.
 - `direct` is upstream base direct; `direct-extra` is the personal direct overlay.
-- DigiCert certificate infrastructure belongs in Direct Extra, not CDN.
+- DigiCert certificate infrastructure belongs in Direct Extra.
 - AI uses v2fly `category-ai-!cn`; exact upstream `@ads` entries may be preserved, while `regexp:` entries are skipped.
 - Stream Surge outputs preserve SKK `USER-AGENT` and `PROCESS-NAME`; Loon outputs preserve `USER-AGENT` and skip `PROCESS-NAME`; plain/Mihomo/sing-box outputs are domain-only.
 - Google uses v2fly `google` and includes YouTube upstream; Stream must be ordered before Google in profiles.
-- `cn-domain` is generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules; `not-cn-domain` is Surge/Loon/plain-only. Do not generate sing-box artifacts for `not-cn-domain`.
+- `cn-domain` is generated for Surge/Loon/Mihomo/sing-box/Anywhere/plain from the same rules and already contains SKK Domestic.
 - Domain rules covered by a `DOMAIN-SUFFIX` in the same set (exact domain equal to or under the suffix, or a child suffix) are dropped from every output. `DOMAIN-KEYWORD` is never used to drop domains.
 - For Anywhere, `telegram.arrs` combines Telegram domain and IP CIDR rules.
   Keep `telegram-ip` published separately for non-Anywhere clients and legacy
@@ -281,17 +291,16 @@ Expected behavior:
 - For Anywhere, `lan.arrs` combines LAN domain and IP CIDR rules. Keep
   `lan-ip` published separately for non-Anywhere clients and legacy Anywhere
   subscriptions.
-- Microsoft CDN remains separate from broad Microsoft.
-- PayPal remains separate from broad CDN and proxy rule sets.
-- Kuro and CITIC remain separate compatibility rule sets; their direct domains also belong in Direct Extra for new Anywhere profiles.
+- Microsoft CDN is the only Microsoft rule set; broad Microsoft falls through to `FINAL`.
+- PayPal remains a separate rule set.
+- Kuro and CITIC direct domains live in Direct Extra; no separate files are published.
 - `getui` remains intentionally excluded unless the user explicitly changes policy.
-- Crypto uses v2fly `category-cryptocurrency`; it is generated for Anywhere and Surge/Loon/plain text only. Do not merge Dler's Crypto list unless the user explicitly accepts its unclear license risk.
 
 ## Change Rules
 
 - Prefer editing `config/rules.json` and regenerating outputs over hand-editing generated files.
 - Keep manual overlays small and explicit. If a manual overlay grows or needs multiple client formats, move it into `config/rules.json` and generation.
-- Preserve lowercase file names and hyphenated rule ids, e.g. `apple-cdn`, `direct-extra`.
+- Preserve lowercase file names and hyphenated rule ids, e.g. `apple-proxy`, `direct-extra`.
 - Do not add unrelated client formats just because a source exists. Add outputs only when the target client profile actually needs them.
 - If adding an upstream source, check its license first and update `NOTICE.md` when appropriate.
 - Avoid Dler or other no-license lists as direct generated sources unless the user explicitly approves the licensing tradeoff.

@@ -1,12 +1,13 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
-# DESCRIPTION: China domain direct fallback based on v2fly cn plus Tranco-ranked Loyalsoldier direct list
-# RULES: 13884
-# SKIPPED: 100705
-# SKIPPED-TYPES: REGEXP=3, UNRANKED=100702
+# DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
+# RULES: 13940
+# SKIPPED: 100709
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100702, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
+# - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/domestic.conf
 
 name = CN Domain
 2, alibaba
@@ -13893,3 +13894,59 @@ name = CN Domain
 2, zzsspnode.com
 2, zzstep.com
 2, zzz4.com
+2, dns.la
+2, mrw.so
+2, id6.com
+2, 6600.org
+2, 7766.org
+2, 8800.org
+2, 9xiu.com
+2, hwht.com
+2, v-56.com
+2, 12306.com
+2, 71.am.com
+2, bdatu.com
+2, futu5.com
+2, klook.com
+2, maoyun.tv
+2, webok.net
+2, wifi8.com
+2, yitao.com
+2, authing.co
+2, battle.net
+2, ccgslb.com
+2, ccgslb.net
+2, i.dell.com
+2, lltskb.com
+2, ourdvs.com
+2, pubyun.net
+2, qhimgs.com
+2, xiaote.net
+2, 52tesla.com
+2, feiliao.com
+2, tnkjmec.com
+2, udqqimg.com
+2, zhangzs.com
+2, blizzard.com
+2, bulicdn2.com
+2, dizzylab.net
+2, ibreader.com
+2, jstarkan.com
+2, s-reader.com
+2, sevencdn.com
+2, staticdn.net
+2, alipaydev.com
+2, cloudglab.com
+2, ibuscloud.com
+2, kaiyanapp.com
+2, meixincdn.com
+2, wmsjsteam.com
+2, 4008823823.com
+2, air-matters.io
+2, onlinedown.com
+2, steamserver.net
+2, www.layuicdn.com
+2, dl.pinyuncloud.com
+2, cm.steampowered.com
+2, cn.download.nvidia.com
+2, dl.delivery.mp.microsoft.com

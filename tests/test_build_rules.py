@@ -123,5 +123,25 @@ class RankedSourceTests(unittest.TestCase):
         self.assertEqual(2, skipped["direct"]["UNRANKED"])
 
 
+class MihomoWildcardTests(unittest.TestCase):
+    def test_partial_label_wildcards_move_from_domain_mrs_to_classical_regex(self) -> None:
+        rules = [
+            build_rules.Rule("DOMAIN-WILDCARD", "download*.mediafire.com"),
+            build_rules.Rule("DOMAIN-WILDCARD", "ftp.??.debian.org"),
+            build_rules.Rule("DOMAIN-WILDCARD", "*.example.com"),
+            build_rules.Rule("DOMAIN-SUFFIX", "example.org"),
+            build_rules.Rule("DOMAIN-KEYWORD", "keyword"),
+        ]
+
+        self.assertEqual(
+            ["ftp.??.debian.org", "*.example.com", "+.example.org"],
+            build_rules.mihomo_domain_lines(rules),
+        )
+        self.assertEqual(
+            ["DOMAIN-KEYWORD,keyword", "DOMAIN-REGEX,^download.*\\.mediafire\\.com$"],
+            build_rules.mihomo_classical_lines(rules),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

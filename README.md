@@ -24,10 +24,10 @@ https://alexkris-rules.pages.dev/
 Example URLs:
 
 ```text
-https://alexkris-rules.pages.dev/anywhere/proxy.arrs
-https://alexkris-rules.pages.dev/surge/non-ip/proxy.conf
-https://alexkris-rules.pages.dev/mihomo/non-ip/proxy.mrs
-https://alexkris-rules.pages.dev/sing-box/non-ip/proxy.srs
+https://alexkris-rules.pages.dev/anywhere/apple.arrs
+https://alexkris-rules.pages.dev/surge/non-ip/apple.conf
+https://alexkris-rules.pages.dev/mihomo/non-ip/apple.mrs
+https://alexkris-rules.pages.dev/sing-box/non-ip/apple.srs
 https://alexkris-rules.pages.dev/profile/tool/setup.sh
 https://alexkris-rules.pages.dev/profile/tool/proxy/heki.sh
 ```
@@ -43,27 +43,20 @@ profile repository or untracked local files.
 
 ### Anywhere
 
-- `anywhere/proxy.arrs`
+- `anywhere/direct-extra.arrs`
 - `anywhere/apple.arrs`
 - `anywhere/apple-proxy.arrs`
 - `anywhere/google.arrs`
 - `anywhere/download.arrs`
+- `anywhere/game-download.arrs`
 - `anywhere/lan.arrs`
 - `anywhere/lan-ip.arrs`
 - `anywhere/china-ip.arrs`
 - `anywhere/cn-domain.arrs`
-- `anywhere/cdn.arrs`
-- `anywhere/apple-cdn.arrs`
-- `anywhere/apple-cn.arrs`
-- `anywhere/apple-services.arrs`
 - `anywhere/ai.arrs`
 - `anywhere/telegram.arrs`
 - `anywhere/telegram-ip.arrs`
 - `anywhere/paypal.arrs`
-- `anywhere/kuro.arrs`
-- `anywhere/citic.arrs`
-- `anywhere/direct-extra.arrs`
-- `anywhere/crypto.arrs`
 - `anywhere/stream.arrs`
 - `anywhere/stream-hk.arrs`
 - `anywhere/stream-tw.arrs`
@@ -98,20 +91,18 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/google.arrs      
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs        -> DIRECT
 ```
 
-`apple` replaces the split Apple rule sets; `apple-proxy` must stay above it.
+`apple` is the single Apple set; `apple-proxy` must stay above it.
 `google` includes YouTube upstream, so Stream and AI must stay above it.
-`cn-domain` uses the same rules as the other clients and must stay below
-Stream, AI, and Google. `lan` and `telegram` contain both domain and IP CIDR
-rules. `proxy` and `crypto` remain published but are not recommended: with
-unmatched traffic already on the default route they add nothing. Legacy `cdn`,
-split Apple, `lan-ip`, `telegram-ip`, `kuro`, and `citic` files remain published
-for compatibility but are not recommended for new profiles. See
-`profiles/anywhere.md` for built-in service and DNS settings.
+`cn-domain` uses the same rules as the other clients (including SKK Domestic)
+and must stay below Stream, AI, and Google. `lan` and `telegram` contain both
+domain and IP CIDR rules. `lan-ip` and `telegram-ip` remain published only for
+older subscriptions. No proxy-side fallback set is published: unmatched traffic
+already takes the default route. See `profiles/anywhere.md` for built-in
+service and DNS settings.
 
-`domestic` and `direct` are not published for Anywhere because their SKK
-sources include client-specific matchers that ARRS cannot represent.
-`not-cn-domain` is intentionally not published for Anywhere. `direct-extra`
-keeps precise personal direct fixes, including Kuro, CITIC, `videocc.net`,
+`direct` is not published for Anywhere because its SKK source includes
+client-specific matchers that ARRS cannot represent. `direct-extra` keeps
+precise personal direct fixes, including Kuro, CITIC, `videocc.net`,
 `cache.video.iqiyi.com`, and DigiCert certificate infrastructure.
 
 Import MITM rule sets separately in Anywhere MITM:
@@ -128,20 +119,10 @@ does not require a JavaScript MITM script.
 
 ### Surge
 
-- `surge/domainset/proxy.conf`
-- `surge/non-ip/proxy.conf`
-- `surge/domainset/apple.conf`
-- `surge/non-ip/apple.conf`
-- `surge/domainset/download.conf`
-- `surge/non-ip/download.conf`
-- `surge/non-ip/domestic.conf`
-- `surge/non-ip/direct.conf`
-- `surge/non-ip/lan.conf`
-- `surge/ip/lan-ip.conf`
-- `surge/ip/china-ip.conf`
-- `surge/domainset/cdn.conf`
+- `surge/non-ip/direct-extra.conf`
 - `surge/domainset/speedtest.conf`
-- `surge/non-ip/cdn.conf`
+- `surge/non-ip/ai.conf`
+- `surge/non-ip/paypal.conf`
 - `surge/non-ip/stream.conf`
 - `surge/non-ip/stream-hk.conf`
 - `surge/non-ip/stream-tw.conf`
@@ -149,70 +130,51 @@ does not require a JavaScript MITM script.
 - `surge/non-ip/stream-us.conf`
 - `surge/non-ip/stream-kr.conf`
 - `surge/non-ip/stream-eu.conf`
-- `surge/non-ip/google.conf`
-- `surge/non-ip/cn-domain.conf`
-- `surge/non-ip/not-cn-domain.conf`
-- `surge/domainset/apple-cdn.conf`
-- `surge/non-ip/apple-cdn.conf`
-- `surge/non-ip/apple-cn.conf`
-- `surge/non-ip/apple-services.conf`
-- `surge/non-ip/ai.conf`
 - `surge/non-ip/telegram.conf`
-- `surge/ip/telegram-ip.conf`
-- `surge/non-ip/crypto.conf`
-- `surge/non-ip/paypal.conf`
-- `surge/non-ip/microsoft.conf`
+- `surge/non-ip/apple-proxy.conf`
+- `surge/non-ip/apple.conf`
 - `surge/non-ip/microsoft-cdn.conf`
-- `surge/non-ip/direct-extra.conf`
-- `surge/domainset/kuro.conf`
+- `surge/domainset/game-download.conf`
+- `surge/domainset/download.conf`
+- `surge/non-ip/download.conf`
+- `surge/non-ip/google.conf`
+- `surge/non-ip/direct.conf`
+- `surge/non-ip/cn-domain.conf`
+- `surge/ip/telegram-ip.conf`
+- `surge/ip/lan-ip.conf`
+- `surge/ip/china-ip.conf`
 
-Use them as remote rule sets:
+Use them as remote rule sets, in this order:
 
 ```ini
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/proxy.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/proxy.conf,Proxy,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
+DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/speedtest.conf,Speedtest,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.conf,AI,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-jp.conf,MediaJP,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-tw.conf,MediaTW,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream.conf,Media,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/telegram.conf,Telegram,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-proxy.conf,Proxy,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple.conf,DIRECT,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft-cdn.conf,DIRECT,extended-matching
 DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/download.conf,Download,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/download.conf,Download,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/domestic.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/lan.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/cdn.conf,CDN,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/speedtest.conf,Speedtest,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cdn.conf,CDN,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream.conf,Media,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-hk.conf,MediaHK,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-tw.conf,MediaTW,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-jp.conf,MediaJP,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-us.conf,MediaUS,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-kr.conf,MediaKR,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/stream-eu.conf,MediaEU,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/google.conf,Google,extended-matching
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct.conf,DIRECT,extended-matching
 RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/cn-domain.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/not-cn-domain.conf,Proxy,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/apple-cdn.conf,AppleCDN,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-cdn.conf,AppleCDN,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-cn.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/apple-services.conf,AppleSvc,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/ai.conf,AI,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/telegram.conf,Telegram,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/crypto.conf,Crypto,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/paypal.conf,PayPal,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft.conf,Proxy,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/microsoft-cdn.conf,DIRECT,extended-matching
-RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/non-ip/direct-extra.conf,DIRECT,extended-matching
-DOMAIN-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/domainset/kuro.conf,DIRECT,extended-matching
+IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/telegram-ip.conf,Telegram,no-resolve
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/lan-ip.conf,DIRECT
+RULE-SET,https://raw.githubusercontent.com/AlexKris/rules/main/surge/ip/china-ip.conf,DIRECT
 ```
 
-`domestic`, `direct`, and `lan` are non-IP direct rule sets and should stay
-before IP rule sets such as `lan-ip` and `china-ip` in profile order. `direct`
-is the upstream base direct rule set; `direct-extra` is the personal overlay.
-Put `stream*` before `google`; v2fly `google` includes YouTube, and stream
-rules should own YouTube routing.
+`direct` and `cn-domain` are non-IP direct rule sets and stay before the IP
+rule sets, whose files carry `no-resolve` on every line. `direct` is the
+upstream base direct rule set; `direct-extra` is the personal overlay. Put
+`stream*` before `google`; v2fly `google` includes YouTube, and stream rules
+should own YouTube routing. `apple-proxy` must stay before `apple`. There is no
+proxy-side fallback set: unmatched traffic goes to `FINAL`.
 
 The same Surge text files can be used by Shadowrocket.
 
@@ -222,56 +184,48 @@ Use generated `.list` files as Loon remote rules:
 
 ```ini
 [Remote Rule]
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/stream.list,policy=Media,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/direct-extra.list,policy=DIRECT,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/domainset/speedtest.list,policy=Speedtest,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/ai.list,policy=AI,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/telegram.list,policy=Telegram,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/ip/telegram-ip.list,policy=Telegram,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/crypto.list,policy=Crypto,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/paypal.list,policy=PayPal,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/microsoft-cdn.list,policy=DIRECT,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/microsoft.list,policy=Proxy,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/google.list,policy=Google,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/domainset/apple.list,policy=DIRECT,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/stream-jp.list,policy=MediaJP,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/stream-tw.list,policy=MediaTW,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/stream.list,policy=Media,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/telegram.list,policy=Telegram,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/apple-proxy.list,policy=Proxy,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/apple.list,policy=DIRECT,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/microsoft-cdn.list,policy=DIRECT,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/domainset/download.list,policy=Download,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/download.list,policy=Download,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/direct-extra.list,policy=DIRECT,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/google.list,policy=Google,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/direct.list,policy=DIRECT,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/cn-domain.list,policy=DIRECT,enabled=true
+https://raw.githubusercontent.com/AlexKris/rules/main/loon/ip/telegram-ip.list,policy=Telegram,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/ip/lan-ip.list,policy=DIRECT,enabled=true
 https://raw.githubusercontent.com/AlexKris/rules/main/loon/ip/china-ip.list,policy=DIRECT,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/domainset/proxy.list,policy=Proxy,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/proxy.list,policy=Proxy,enabled=true
-https://raw.githubusercontent.com/AlexKris/rules/main/loon/non-ip/not-cn-domain.list,policy=Proxy,enabled=true
 ```
 
 Loon domainset outputs are converted to full `DOMAIN` and `DOMAIN-SUFFIX`
 rules. Loon non-IP outputs keep `DOMAIN`, `DOMAIN-SUFFIX`, `DOMAIN-KEYWORD`,
 `URL-REGEX`, and `USER-AGENT` where supported. `DOMAIN-WILDCARD` and
 `PROCESS-NAME` are intentionally omitted from Loon outputs because they are not
-listed in Loon's official rule syntax. Keep broad `proxy` and `not-cn-domain`
-fallback rules after dedicated policy rules.
+listed in Loon's official rule syntax. The IP lists carry `no-resolve` on every
+line.
 
 ### Mihomo
 
 Use the generated `.mrs` files with `behavior: domain` and `format: mrs`.
-Domain `.mrs` files cannot contain `DOMAIN-KEYWORD` rules. Rule sets that need
-keyword matching also publish keyword-only text providers under
-`mihomo/classical/*.list`; use those with `behavior: classical` and
-`format: text` alongside the matching `.mrs` provider.
+Domain `.mrs` files cannot contain `DOMAIN-KEYWORD` rules or wildcards whose
+`*` does not fill a whole label. Rule sets that need them also publish text
+providers under `mihomo/classical/*.list` (`DOMAIN-KEYWORD` and `DOMAIN-REGEX`
+lines); use those with `behavior: classical` and `format: text` alongside the
+matching `.mrs` provider.
 
 ```yaml
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/proxy.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/proxy.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/apple.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/download.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/download.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/domestic.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/lan.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/cdn.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct-extra.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/speedtest.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/cdn.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/ai.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/paypal.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-hk.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-tw.mrs
@@ -279,27 +233,24 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-us.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-kr.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/stream-eu.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/apple-cdn.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple-cdn.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple-cn.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple-services.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/ai.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/telegram.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/paypal.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microsoft.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple-proxy.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/apple.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/microsoft-cdn.mrs
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct-extra.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/game-download.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/domainset/download.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/download.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/google.mrs
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/cn-domain.mrs
 ```
 
-Keyword supplements currently exist for rule sets such as `proxy`, `cdn`,
-`direct`, and some `stream*` files:
+Classical supplements currently exist for `direct` (keywords), `download`
+(partial-label wildcards as regex), and some `stream*` files (keywords):
 
 ```yaml
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/proxy.list
-url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/cdn.list
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/direct.list
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/download.list
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/stream.list
 ```
 
@@ -311,28 +262,15 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/lan-ip.mrs
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/ip/china-ip.mrs
 ```
 
-Crypto is generated only as Anywhere and Surge/Loon/plain text rules; use geosite
-or client-native alternatives if a Mihomo/Stash binary rule is needed.
-
 ### sing-box
 
 Use the generated `.srs` files as remote rule sets.
 
 ```text
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/proxy.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/proxy.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/apple.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-proxy.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/download.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/download.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/domestic.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cn-domain.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/lan.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/cdn.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct-extra.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/speedtest.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cdn.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/ai.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/paypal.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-hk.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-tw.srs
@@ -340,19 +278,18 @@ https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-jp.
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-us.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-kr.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/stream-eu.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/apple-cdn.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-cdn.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-cn.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-services.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/ai.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/telegram.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple-proxy.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/apple.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft-cdn.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/game-download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/domainset/download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/download.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct.srs
+https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/cn-domain.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/telegram-ip.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/lan-ip.srs
 https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/ip/china-ip.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/paypal.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/microsoft-cdn.srs
-https://raw.githubusercontent.com/AlexKris/rules/main/sing-box/non-ip/direct-extra.srs
 ```
 
 Four foundation rule sets are mirrored byte-for-byte from SagerNet, validated

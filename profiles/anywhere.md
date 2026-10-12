@@ -82,8 +82,8 @@ App settings:
   only to literal IP destinations, like `no-resolve` on other clients.
 - Turn off `Country Bypass`. Its bundled per-country rules cannot be audited,
   and `CN Domain` plus `China IP` already cover the same intent.
-- Unmatched traffic takes the default route, so `Proxy` and `Crypto` sets add
-  nothing and are not recommended.
+- Unmatched traffic takes the default route, so no proxy-side fallback set is
+  published.
 
 How Anywhere matches:
 
@@ -102,7 +102,8 @@ How Anywhere matches:
 Notes:
 
 - `CN Domain` uses the same rules as the Surge, Loon, Mihomo, and sing-box
-  outputs: v2fly `cn` plus the Tranco-ranked Loyalsoldier direct list.
+  outputs: v2fly `cn`, the Tranco-ranked Loyalsoldier direct list, and SKK
+  Domestic.
 - `Google` is v2fly `google`, which includes YouTube.
 - `Stream` adds `ytimg.com` and `youtu.be` so YouTube thumbnails and short
   links follow the video policy.
@@ -110,13 +111,10 @@ Notes:
   `Telegram IP` remains published for compatibility.
 - `LAN` contains both LAN domain and IP CIDR rules. Legacy `LAN IP` remains
   published for compatibility.
-- Use `Apple` instead of the split `Apple CDN`, `Apple CN`, and
-  `Apple Services` rule sets. The split Apple files remain published for
-  compatibility.
-- `Proxy`, `Crypto`, legacy `CDN`, `Kuro`, and `CITIC` files remain published
-  for compatibility but are not recommended for new profiles.
-- `Domestic`, upstream `Direct`, `not-cn-domain`, and `Speedtest` are not
-  published for Anywhere.
+- `Apple` is the single Apple set; the split Apple files are no longer
+  published.
+- Upstream `Direct`, `Speedtest`, and `Microsoft CDN` are not published for
+  Anywhere.
 - `Direct Extra` is the personal direct overlay and includes Kuro, CITIC,
   `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate
   infrastructure.

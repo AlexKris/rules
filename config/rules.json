@@ -26,24 +26,6 @@
     }
   },
   "sources": {
-    "cdn-domainset": {
-      "kind": "domainset",
-      "paths": [
-        ".upstream/skk/List/domainset/cdn.conf"
-      ],
-      "urls": [
-        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/cdn.conf"
-      ]
-    },
-    "cdn-non-ip": {
-      "kind": "non-ip",
-      "paths": [
-        ".upstream/skk/List/non_ip/cdn.conf"
-      ],
-      "urls": [
-        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/cdn.conf"
-      ]
-    },
     "apple-cdn-domainset": {
       "kind": "domainset",
       "paths": [
@@ -87,15 +69,6 @@
       ],
       "urls": [
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/speedtest.conf"
-      ]
-    },
-    "global": {
-      "kind": "non-ip",
-      "paths": [
-        ".upstream/skk/List/non_ip/global.conf"
-      ],
-      "urls": [
-        "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/global.conf"
       ]
     },
     "download-domainset": {
@@ -211,14 +184,6 @@
         ]
       }
     },
-    "not-cn-domain": {
-      "kind": "v2fly",
-      "local_dir": ".upstream/v2fly/data",
-      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
-      "lists": [
-        "geolocation-!cn"
-      ]
-    },
     "stream": {
       "kind": "non-ip",
       "paths": [
@@ -300,28 +265,12 @@
         "https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/telegram.conf"
       ]
     },
-    "crypto-category": {
-      "kind": "v2fly",
-      "local_dir": ".upstream/v2fly/data",
-      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
-      "lists": [
-        "category-cryptocurrency"
-      ]
-    },
     "paypal": {
       "kind": "v2fly",
       "local_dir": ".upstream/v2fly/data",
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "paypal"
-      ]
-    },
-    "microsoft": {
-      "kind": "v2fly",
-      "local_dir": ".upstream/v2fly/data",
-      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
-      "lists": [
-        "microsoft"
       ]
     },
     "microsoft-cdn": {
@@ -335,55 +284,6 @@
     }
   },
   "outputs": {
-    "cdn": {
-      "name": "CDN",
-      "description": "SukkaW CDN proxy helper with personal exclusions",
-      "sources": [
-        "cdn-domainset",
-        "cdn-non-ip"
-      ],
-      "exclude": [
-        "time.apple.com",
-        "ocsp.digicert.com",
-        "cacerts.digicert.com",
-        "crl3.digicert.com"
-      ],
-      "targets": {
-        "anywhere": "anywhere/cdn.arrs"
-      }
-    },
-    "proxy": {
-      "name": "Proxy",
-      "description": "Proxy routing overlay based on SukkaW CDN and Global rules",
-      "sources": [
-        "cdn-domainset",
-        "cdn-non-ip",
-        "global"
-      ],
-      "exclude": [
-        "time.apple.com",
-        "ocsp.digicert.com",
-        "cacerts.digicert.com",
-        "crl3.digicert.com"
-      ],
-      "targets": {
-        "anywhere": "anywhere/proxy.arrs"
-      }
-    },
-    "apple-cdn": {
-      "name": "Apple CDN",
-      "description": "Apple CDN direct routing overlay",
-      "sources": [
-        "apple-cdn-domainset",
-        "apple-cdn-non-ip"
-      ],
-      "add": [
-        "DOMAIN-SUFFIX,is1-ssl.mzstatic.com"
-      ],
-      "targets": {
-        "anywhere": "anywhere/apple-cdn.arrs"
-      }
-    },
     "apple": {
       "name": "Apple",
       "description": "Apple direct routing overlay",
@@ -426,29 +326,6 @@
       ],
       "targets": {
         "anywhere": "anywhere/apple-proxy.arrs"
-      }
-    },
-    "apple-cn": {
-      "name": "Apple CN",
-      "description": "Apple China direct routing overlay",
-      "sources": [
-        "apple-cn"
-      ],
-      "targets": {
-        "anywhere": "anywhere/apple-cn.arrs"
-      }
-    },
-    "apple-services": {
-      "name": "Apple Services",
-      "description": "Apple services direct routing overlay",
-      "sources": [
-        "apple-services"
-      ],
-      "add": [
-        "DOMAIN-SUFFIX,time.apple.com"
-      ],
-      "targets": {
-        "anywhere": "anywhere/apple-services.arrs"
       }
     },
     "direct-extra": {
@@ -683,10 +560,11 @@
     },
     "cn-domain": {
       "name": "CN Domain",
-      "description": "China domain direct fallback based on v2fly cn plus Tranco-ranked Loyalsoldier direct list",
+      "description": "China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules",
       "sources": [
         "cn-domain",
-        "loyalsoldier-direct"
+        "loyalsoldier-direct",
+        "domestic"
       ],
       "exclude": [
         "analytics.tiktok.com"
@@ -817,16 +695,6 @@
         "anywhere": "anywhere/telegram-ip.arrs"
       }
     },
-    "crypto": {
-      "name": "Crypto",
-      "description": "Cryptocurrency services routing overlay based on v2fly domain-list-community",
-      "sources": [
-        "crypto-category"
-      ],
-      "targets": {
-        "anywhere": "anywhere/crypto.arrs"
-      }
-    },
     "paypal": {
       "name": "PayPal",
       "description": "PayPal routing overlay based on v2fly domain-list-community",
@@ -840,30 +708,6 @@
   },
   "artifacts": {
     "domainset": {
-      "cdn": {
-        "source": "cdn-domainset",
-        "exclude": [
-          "time.apple.com",
-          "ocsp.digicert.com",
-          "cacerts.digicert.com",
-          "crl3.digicert.com"
-        ]
-      },
-      "apple-cdn": {
-        "source": "apple-cdn-domainset"
-      },
-      "proxy": {
-        "source": "cdn-domainset",
-        "exclude": [
-          "time.apple.com",
-          "ocsp.digicert.com",
-          "cacerts.digicert.com",
-          "crl3.digicert.com"
-        ]
-      },
-      "apple": {
-        "source": "apple-cdn-domainset"
-      },
       "download": {
         "source": "download-domainset"
       },
@@ -875,36 +719,9 @@
       }
     },
     "non-ip": {
-      "cdn": {
-        "source": "cdn-non-ip",
-        "exclude": [
-          "time.apple.com",
-          "ocsp.digicert.com",
-          "cacerts.digicert.com",
-          "crl3.digicert.com"
-        ]
-      },
-      "apple-cdn": {
-        "source": "apple-cdn-non-ip",
-        "add": [
-          "DOMAIN-SUFFIX,is1-ssl.mzstatic.com"
-        ]
-      },
-      "proxy": {
-        "sources": [
-          "cdn-non-ip",
-          "global"
-        ],
-        "exclude": [
-          "time.apple.com",
-          "ocsp.digicert.com",
-          "cacerts.digicert.com",
-          "crl3.digicert.com"
-        ],
-        "surge-client-rules": true
-      },
       "apple": {
         "sources": [
+          "apple-cdn-domainset",
           "apple-cdn-non-ip",
           "apple-cn",
           "apple-services"
@@ -918,6 +735,7 @@
         "source": "apple-proxy",
         "clients": [
           "surge",
+          "loon",
           "mihomo",
           "sing-box"
         ]
@@ -925,25 +743,9 @@
       "download": {
         "source": "download-non-ip"
       },
-      "domestic": {
-        "source": "domestic",
-        "surge-client-rules": true
-      },
       "direct": {
         "source": "direct",
         "surge-client-rules": true
-      },
-      "lan": {
-        "source": "lan"
-      },
-      "apple-cn": {
-        "source": "apple-cn"
-      },
-      "apple-services": {
-        "source": "apple-services",
-        "add": [
-          "DOMAIN-SUFFIX,time.apple.com"
-        ]
       },
       "direct-extra": {
         "source": "direct-extra"
@@ -962,7 +764,8 @@
       "cn-domain": {
         "sources": [
           "cn-domain",
-          "loyalsoldier-direct"
+          "loyalsoldier-direct",
+          "domestic"
         ],
         "exclude": [
           "analytics.tiktok.com"
@@ -972,13 +775,6 @@
           "loon",
           "mihomo",
           "sing-box"
-        ]
-      },
-      "not-cn-domain": {
-        "source": "not-cn-domain",
-        "clients": [
-          "surge",
-          "loon"
         ]
       },
       "stream": {
@@ -1018,18 +814,8 @@
       "telegram": {
         "source": "telegram"
       },
-      "crypto": {
-        "source": "crypto-category",
-        "clients": [
-          "surge",
-          "loon"
-        ]
-      },
       "paypal": {
         "source": "paypal"
-      },
-      "microsoft": {
-        "source": "microsoft"
       },
       "microsoft-cdn": {
         "source": "microsoft-cdn"
