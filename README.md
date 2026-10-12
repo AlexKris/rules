@@ -245,10 +245,12 @@ url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/direct.
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/non-ip/cn-domain.mrs
 ```
 
-Classical supplements currently exist for `direct` (keywords), `download`
-(partial-label wildcards as regex), and some `stream*` files (keywords):
+Classical supplements currently exist for `ai` and `direct` (keywords),
+`download` (partial-label wildcards as regex), and some `stream*` files
+(keywords):
 
 ```yaml
+url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/ai.list
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/direct.list
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/download.list
 url: https://raw.githubusercontent.com/AlexKris/rules/main/mihomo/classical/stream.list

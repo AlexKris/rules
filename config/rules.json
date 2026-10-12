@@ -577,7 +577,10 @@
         "DOMAIN,servd-anthropic-website.b-cdn.net",
         "DOMAIN,anthropic.com.cdn.cloudflare.net",
         "DOMAIN,anthropic.auth0.com",
-        "DOMAIN,anthropic-com.ghost.io"
+        "DOMAIN,anthropic-com.ghost.io",
+        "DOMAIN-KEYWORD,openai",
+        "DOMAIN-KEYWORD,chatgpt-async-webps-prod",
+        "DOMAIN-SUFFIX,ai.com"
       ],
       "exclude": [
         "hf.co"
