@@ -193,7 +193,7 @@ Profile tool distribution:
 MITM:
 
 - `anywhere/mitm/google-cn-redirect.amrs` is maintained directly.
-- It uses native Anywhere transparent rewrite rules, not JavaScript.
+- It uses native Anywhere 302 redirect rules, not JavaScript.
 - `scripts/build_mitm.py` builds `anywhere/mitm/youtube-enhance-anywhere.amrs`
   from local JavaScript sources under `anywhere/mitm/source/`.
 - Edit the JS sources, not the generated YouTube `.amrs`, then run the MITM

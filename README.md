@@ -112,7 +112,7 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/google-cn-re
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/youtube-enhance-anywhere.amrs
 ```
 
-`google-cn-redirect.amrs` uses native Anywhere transparent rewrite rules. It
+`google-cn-redirect.amrs` uses native Anywhere 302 redirect rules. It
 does not require a JavaScript MITM script.
 `youtube-enhance-anywhere.amrs` is generated from local JavaScript sources under
 `anywhere/mitm/source/`.

@@ -1,7 +1,7 @@
-# Google CN Transparent Rewrite - Anywhere MITM RuleSet
+# Google CN 302 Redirect - Anywhere MITM RuleSet
 
-name = Google CN Transparent Rewrite
+name = Google CN 302 Redirect
 hostname = google.cn, g.cn
 
-0, 0, ^https?://(?:www\.)?(?:g|google)\.cn([:/?#].*)?$, 0, https://www.google.com$1
-0, 0, ^https?://(?:ditu|maps)\.google\.cn([:/?#].*)?$, 0, https://maps.google.com$1
+0, 0, ^https?://(?:www\.)?(?:g|google)\.cn([:/?#].*)?$, 1, https://www.google.com$1
+0, 0, ^https?://(?:ditu|maps)\.google\.cn([:/?#].*)?$, 1, https://maps.google.com$1
