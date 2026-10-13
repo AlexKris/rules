@@ -641,6 +641,9 @@ def write_anywhere(path: Path, output_config: dict, rules: list[Rule], skipped: 
         lines.append("# SOURCES:")
         lines.extend(f"# - {source}" for source in sources)
     lines.extend(["", f"name = {output_config['name']}"])
+    if output_config.get("routing") is not None:
+        # Seeds the action on first import only: 0 Default, 1 Direct, 2 Reject.
+        lines.append(f"routing = {output_config['routing']}")
     lines.extend(arrs_lines)
     write_text(path, lines)
 

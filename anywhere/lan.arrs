@@ -8,6 +8,7 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/lan.conf
 
 name = LAN
+routing = 1
 2, lan
 2, home
 2, local

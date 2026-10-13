@@ -11,6 +11,7 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/apple_services.conf
 
 name = Apple
+routing = 1
 2, s.mzstatic.com
 2, a1.mzstatic.com
 2, a2.mzstatic.com

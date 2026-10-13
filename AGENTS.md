@@ -92,6 +92,7 @@ Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or m
 Anywhere:
 
 - Generated from `outputs[*].targets.anywhere` in `config/rules.json`.
+- `outputs[*].routing` emits the ARRS `routing` header (`1` Direct, `2` Reject) so Anywhere seeds the action on first import; it is set on the always-direct sets (`direct-extra`, `cn-domain`, `lan`, `lan-ip`, `china-ip`, `apple`). A subscription refresh never changes an action chosen in the app.
 - `direct`, `speedtest`, and `microsoft-cdn` are intentionally not generated for Anywhere.
 - `direct` SKK source includes client-specific matchers that ARRS cannot represent.
 - `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.

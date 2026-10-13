@@ -274,6 +274,7 @@
   "outputs": {
     "apple": {
       "name": "Apple",
+      "routing": 1,
       "description": "Apple direct routing overlay",
       "sources": [
         "apple-cdn-domainset",
@@ -318,6 +319,7 @@
     },
     "direct-extra": {
       "name": "Direct Extra",
+      "routing": 1,
       "description": "Additional direct routing overlay",
       "rules": [
         "DOMAIN-SUFFIX,servicewechat.com",
@@ -507,6 +509,7 @@
     },
     "lan": {
       "name": "LAN",
+      "routing": 1,
       "description": "LAN routing overlay based on SukkaW LAN domain and IP rules",
       "sources": [
         "lan",
@@ -518,6 +521,7 @@
     },
     "lan-ip": {
       "name": "LAN IP",
+      "routing": 1,
       "description": "LAN IP CIDR routing overlay based on SukkaW LAN IP rules",
       "sources": [
         "lan-ip-cidr"
@@ -528,6 +532,7 @@
     },
     "china-ip": {
       "name": "China IP",
+      "routing": 1,
       "description": "China IP CIDR routing overlay based on SukkaW China IP rules",
       "sources": [
         "china-ip-cidr"
@@ -548,6 +553,7 @@
     },
     "cn-domain": {
       "name": "CN Domain",
+      "routing": 1,
       "description": "China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules",
       "sources": [
         "cn-domain",

@@ -10,6 +10,7 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/non_ip/domestic.conf
 
 name = CN Domain
+routing = 1
 2, alibaba
 2, alipay
 2, anquan

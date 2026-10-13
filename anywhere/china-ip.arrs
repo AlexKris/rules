@@ -7,6 +7,7 @@
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/ip/china_ip.conf
 
 name = China IP
+routing = 1
 0, 1.1.8.0/24
 0, 1.2.4.0/24
 0, 1.8.1.0/24
