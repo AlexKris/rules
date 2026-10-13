@@ -30,6 +30,9 @@ def render_youtube_script() -> str:
 
 def write_youtube_enhance() -> None:
     script_b64 = b64(render_youtube_script().encode("utf-8"))
+    # Upstream also lists log_event and config; those responses only feed the
+    # request-side worker redirect that Anywhere does not run, so they are left
+    # out to avoid evaluating the engine on every telemetry call.
     pattern = r"^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$"
     lines = [
         "# Anywhere MITM - YouTube Enhance",
@@ -46,8 +49,13 @@ def write_youtube_enhance() -> None:
         r"0, 0, ^https?:\/\/[\w-]+\.doubleclick\.net\/.*\/ad, 2",
         r"0, 0, ^https?:\/\/static\.doubleclick\.net\/instream\/, 2",
         "",
-        "# Protobuf response processor with Surge compatibility stubs",
+        "# Maasea protobuf engine inside a Surge environment shim",
         f"1, 100, {pattern}, {script_b64}",
+        "",
+        "[Parameter]",
+        '1, 0, blockUpload, Block Upload Button, , true, "[true, false]"',
+        '1, 0, blockImmersive, Block Immersive Button, , true, "[true, false]"',
+        '1, 0, blockShorts, Block Shorts Button, , false, "[true, false]"',
     ]
     YOUTUBE_OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
