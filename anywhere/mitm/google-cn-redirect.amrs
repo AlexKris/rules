@@ -1,7 +1,8 @@
 # Google CN 302 Redirect - Anywhere MITM RuleSet
 
 name = Google CN 302 Redirect
-hostname = google.cn, g.cn
+hostname = google.cn, g.cn, google.com.hk
 
 0, 0, ^https?://(?:www\.)?(?:g|google)\.cn([:/?#].*)?$, 1, https://www.google.com$1
 0, 0, ^https?://(?:ditu|maps)\.google\.cn([:/?#].*)?$, 1, https://maps.google.com$1
+0, 0, ^https?://(?:www\.)?google\.com\.hk([:/?#].*)?$, 1, https://www.google.com$1
