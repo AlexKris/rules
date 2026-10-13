@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13940
-# SKIPPED: 100709
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100702, USER-AGENT=3
+# RULES: 13936
+# SKIPPED: 100403
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100396, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -7123,7 +7123,6 @@ routing = 1
 2, autodnsv1.com
 2, autodwg.com
 2, autogslb.com
-2, autoitx.com
 2, av380.net
 2, avaryholding.com
 2, avatr.com
@@ -7833,7 +7832,6 @@ routing = 1
 2, chinagwy.org
 2, chinahightech.com
 2, chinahighway.com
-2, chinahiron.ltd
 2, chinahrt.com
 2, chinaielts.org
 2, chinairn.com
@@ -9550,6 +9548,7 @@ routing = 1
 2, hometex114.com
 2, hongboluo.com
 2, hongdianfund.com
+2, hongguoduanju.com
 2, hongjing3.com
 2, hongkongairlines.com
 2, hongmaoshiye.com
@@ -10903,7 +10902,6 @@ routing = 1
 2, moredian.com
 2, moreless.io
 2, moretickets.com
-2, moshua.net
 2, motowoo.com
 2, mouldbbs.com
 2, moutaichina.com
@@ -12366,6 +12364,7 @@ routing = 1
 2, teo-rum.com
 2, teoacc.com
 2, teoacc.net
+2, teodns.com
 2, terra-master.com
 2, tesery.com
 2, testerhome.com
@@ -12788,7 +12787,6 @@ routing = 1
 2, vstecs.com
 2, vtijian.com
 2, vtrois.com
-2, vvhan.com
 2, vvic.com
 2, vvipcdn.com
 2, vvo2o.com
@@ -13056,7 +13054,6 @@ routing = 1
 2, wzcl.net
 2, wzhibo.net
 2, wzrc.net
-2, x-cmd.com
 2, x-mol.com
 2, x-peng.com
 2, x1abo.com
@@ -13069,7 +13066,6 @@ routing = 1
 2, x7sy.com
 2, xa.com
 2, xadlwx.com
-2, xajtl.com
 2, xamama.net
 2, xaminim.com
 2, xaonline.com
