@@ -212,10 +212,13 @@ MITM:
   keeps the newest 4 onesie key pairs captured from `config` / `log_event`
   responses, answers an empty 200 to any initplayback request whose key is not
   stored (the client then uses `v1/player`, which the response engine
-  cleans), and replays one `log_event` without `x-youtube-hot-hash-data`
-  through `Anywhere.http` when no key is known. The UMP shim tries each stored
-  key and passes the stream through untouched when none works. The upstream
-  Cloudflare worker redirect is not ported.
+  cleans). A native `header-delete` drops `x-youtube-hot-hash-data` on every
+  `log_event` so the server keeps sending the hot config that carries the key;
+  do not replay `log_event` through `Anywhere.http` instead, because its browser
+  TLS fingerprint makes Google front ends answer a fatal `unexpected_message`
+  alert. The UMP shim tries each stored key and passes the stream through
+  untouched when none works. The upstream Cloudflare worker redirect is not
+  ported.
 
 ## Build Commands
 

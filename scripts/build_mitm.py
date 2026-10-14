@@ -43,7 +43,6 @@ def write_youtube_enhance() -> None:
     pattern = r"^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$"
     ump_pattern = r"^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*"
     key_pattern = r"^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(config|log_event)(\?.*)?$"
-    log_event_pattern = r"^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event(\?.*)?$"
     lines = [
         "# Anywhere MITM - YouTube Enhance",
         "# GENERATED-FROM:",
@@ -67,11 +66,14 @@ def write_youtube_enhance() -> None:
         "# Maasea protobuf engine inside a Surge environment shim",
         f"1, 100, {pattern}, {script_b64}",
         "",
-        "# Onesie key gate: capture keys, pass only known-key initplayback requests,",
-        "# refresh the key through one replayed log_event when none is known",
+        "# Without the hot-hash header the server keeps sending the hot config that",
+        "# carries the onesie key. A script cannot drop it conditionally, and replaying",
+        "# log_event through Anywhere.http fails against Google front ends.",
+        r"0, 2, ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event, x-youtube-hot-hash-data",
+        "",
+        "# Onesie key gate: capture keys, pass only known-key initplayback requests",
         f"1, 100, {key_pattern}, {onesie_b64}",
         f"0, 100, {ump_pattern}, {onesie_b64}",
-        f"0, 100, {log_event_pattern}, {onesie_b64}",
         "",
         "# Maasea local UMP engine: strips the ads inside the onesie initplayback stream",
         f"1, 100, {ump_pattern}, {ump_b64}",

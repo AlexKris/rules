@@ -4,10 +4,9 @@ var yt_ump_b64 = "__YOUTUBE_UMP_JS_BASE64__";
 // onesie initplayback response. It decrypts the embedded player response with
 // a key captured by youtube-onesie-anywhere.js, strips the ad placements and
 // re-encrypts. Each stored key is tried newest first; if none works the stream
-// passes through untouched and a key refresh is requested.
+// passes through untouched.
 
 var KEY_STORE = "yt:onesie:keys";
-var REFRESH_STORE = "yt:onesie:refresh";
 
 function loadKeys() {
   try {
@@ -72,7 +71,6 @@ async function process(ctx) {
       : "[YT-UMP] no onesie player part, stream unchanged");
     return;
   }
-  try { Anywhere.store.set(REFRESH_STORE, "1", true); } catch (e) {}
   Anywhere.log.info("[YT-UMP] " + (keys.length ? "no stored key decrypts this stream" : "no onesie key yet")
     + ", passing it through" + (errors.length ? " (" + errors[errors.length - 1].substring(0, 80) + ")" : ""));
 }
