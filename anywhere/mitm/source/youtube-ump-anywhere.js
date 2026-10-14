@@ -74,7 +74,18 @@ async function process(ctx) {
     // stream through untouched; the request engine handles the stale-key case.
     Anywhere.log.info("[YT-UMP] left initplayback untouched");
   } else if (result.body) {
+    var before = ctx.body.length;
+    var changed = !sameBytes(ctx.body, result.body);
     ctx.body = result.body;
-    Anywhere.log.debug("[YT-UMP] done: " + ctx.url.substring(0, 60));
+    // Release builds drop debug logs, so report the outcome at info.
+    Anywhere.log.info(changed
+      ? "[YT-UMP] onesie player response rewritten (" + before + " -> " + result.body.length + " bytes)"
+      : "[YT-UMP] no onesie player part, stream unchanged");
   }
+}
+
+function sameBytes(a, b) {
+  if (a.length !== b.length) return false;
+  for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+  return true;
 }

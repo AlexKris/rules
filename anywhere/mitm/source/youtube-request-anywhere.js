@@ -20,6 +20,11 @@ function process(ctx) {
   if (!ctx.body || !ctx.body.length) return;
 
   var result = null;
+  var hadKey = false;
+  try {
+    var cached = JSON.parse(Anywhere.store.getString("YouTubeConfig", true) || "{}");
+    hadKey = !!(cached.youtube && cached.youtube.encryptKey);
+  } catch (e) {}
   try {
     globalThis.$request = {
       url: ctx.url,
@@ -65,5 +70,9 @@ function process(ctx) {
       headers: [["Content-Type", "application/x-protobuf"]],
       body: new Uint8Array(0)
     });
+  } else {
+    Anywhere.log.info(hadKey
+      ? "[YT-REQ] key matches cache, onesie request passes"
+      : "[YT-REQ] no key cached yet, onesie request passes");
   }
 }
