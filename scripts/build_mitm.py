@@ -16,9 +16,7 @@ YOUTUBE_PLACEHOLDER = "__YOUTUBE_RESPONSE_JS_BASE64__"
 YOUTUBE_UMP_ADAPTER = SOURCE_DIR / "youtube-ump-anywhere.js"
 YOUTUBE_UMP_VENDOR = SOURCE_DIR / "vendor" / "maasea-youtube.ump.js"
 YOUTUBE_UMP_PLACEHOLDER = "__YOUTUBE_UMP_JS_BASE64__"
-YOUTUBE_REQUEST_ADAPTER = SOURCE_DIR / "youtube-request-anywhere.js"
-YOUTUBE_REQUEST_VENDOR = SOURCE_DIR / "vendor" / "maasea-youtube.request.js"
-YOUTUBE_REQUEST_PLACEHOLDER = "__YOUTUBE_REQUEST_JS_BASE64__"
+YOUTUBE_ONESIE = SOURCE_DIR / "youtube-onesie-anywhere.js"
 YOUTUBE_OUTPUT = MITM_DIR / "youtube-enhance-anywhere.amrs"
 
 
@@ -41,24 +39,19 @@ def write_youtube_enhance() -> None:
     ump_b64 = b64(
         render_script(YOUTUBE_UMP_ADAPTER, YOUTUBE_UMP_VENDOR, YOUTUBE_UMP_PLACEHOLDER).encode("utf-8")
     )
-    request_b64 = b64(
-        render_script(
-            YOUTUBE_REQUEST_ADAPTER, YOUTUBE_REQUEST_VENDOR, YOUTUBE_REQUEST_PLACEHOLDER
-        ).encode("utf-8")
-    )
-    # config and log_event carry the onesie key the UMP engine needs; the
-    # response engine caches it from them.
-    pattern = r"^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$"
+    onesie_b64 = b64(YOUTUBE_ONESIE.read_bytes())
+    pattern = r"^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$"
     ump_pattern = r"^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*"
+    key_pattern = r"^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(config|log_event)(\?.*)?$"
+    log_event_pattern = r"^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event(\?.*)?$"
     lines = [
         "# Anywhere MITM - YouTube Enhance",
         "# GENERATED-FROM:",
         "# - anywhere/mitm/source/youtube-enhance-anywhere.js",
         "# - anywhere/mitm/source/vendor/maasea-youtube.response.js",
+        "# - anywhere/mitm/source/youtube-onesie-anywhere.js",
         "# - anywhere/mitm/source/youtube-ump-anywhere.js",
         "# - anywhere/mitm/source/vendor/maasea-youtube.ump.js",
-        "# - anywhere/mitm/source/youtube-request-anywhere.js",
-        "# - anywhere/mitm/source/vendor/maasea-youtube.request.js",
         "",
         "name     = YouTube (Music) Enhance - Anywhere",
         "hostname = youtubei.googleapis.com, googlevideo.com, doubleclick.net, googlesyndication.com",
@@ -69,18 +62,16 @@ def write_youtube_enhance() -> None:
         r"0, 0, ^https?:\/\/pagead2\.googlesyndication\.com\/pagead\/, 2",
         r"0, 0, ^https?:\/\/[\w-]+\.doubleclick\.net\/.*\/ad, 2",
         r"0, 0, ^https?:\/\/static\.doubleclick\.net\/instream\/, 2",
-        "",
-        "# Without the hot-hash header the server resends its hot config in the",
-        "# log_event response, which is where the response engine learns the current",
-        "# onesie key. Upstream drops the header only while no key is cached; a",
-        "# native rule cannot be conditional, so it is dropped on every log_event.",
-        r"0, 2, ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event, x-youtube-hot-hash-data",
+        r"0, 0, ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback(\?.*oad=.+)$, 2",
         "",
         "# Maasea protobuf engine inside a Surge environment shim",
         f"1, 100, {pattern}, {script_b64}",
         "",
-        "# Maasea request engine: empty 200 when the client's onesie key is not the cached one",
-        f"0, 100, {ump_pattern}, {request_b64}",
+        "# Onesie key gate: capture keys, pass only known-key initplayback requests,",
+        "# refresh the key through one replayed log_event when none is known",
+        f"1, 100, {key_pattern}, {onesie_b64}",
+        f"0, 100, {ump_pattern}, {onesie_b64}",
+        f"0, 100, {log_event_pattern}, {onesie_b64}",
         "",
         "# Maasea local UMP engine: strips the ads inside the onesie initplayback stream",
         f"1, 100, {ump_pattern}, {ump_b64}",

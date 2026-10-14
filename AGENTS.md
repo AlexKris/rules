@@ -84,10 +84,9 @@ Manual overlays currently outside `config/rules.json`:
 - `anywhere/mitm/google-cn-redirect.amrs`
 - `anywhere/mitm/source/youtube-enhance-anywhere.js`
 - `anywhere/mitm/source/vendor/maasea-youtube.response.js`
+- `anywhere/mitm/source/youtube-onesie-anywhere.js`
 - `anywhere/mitm/source/youtube-ump-anywhere.js`
 - `anywhere/mitm/source/vendor/maasea-youtube.ump.js`
-- `anywhere/mitm/source/youtube-request-anywhere.js`
-- `anywhere/mitm/source/vendor/maasea-youtube.request.js`
 
 Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or manual overlays.
 
@@ -203,17 +202,20 @@ MITM:
   from local JavaScript sources under `anywhere/mitm/source/`.
 - Edit the JS sources, not the generated YouTube `.amrs`, then run the MITM
   build script.
-- The YouTube set carries three Maasea engines (Apache-2.0, vendored
-  unmodified): the response engine for `youtubei.googleapis.com`, and the
-  pre-worker request and UMP engines (upstream commit `2ead6ff`) for
-  `googlevideo.com/initplayback`. The response engine caches the onesie key
-  from `config` / `log_event` responses in `Anywhere.store`; the request
-  engine answers an empty 200 when the client's key is not the cached one
-  (the client then falls back to `v1/player`); the UMP engine strips the ads
-  embedded in the stream and passes it through untouched on any failure. A
-  native `header-delete` drops `x-youtube-hot-hash-data` on `log_event` so the
-  server resends the hot config that carries the key. The upstream Cloudflare
-  worker redirect is not ported.
+- The YouTube set vendors two Maasea engines unmodified (Apache-2.0): the
+  response engine for `youtubei.googleapis.com` and the pre-worker UMP engine
+  (upstream commit `2ead6ff`) for `googlevideo.com/initplayback`. The upstream
+  Surge request / response glue around them is not ported: it needs response
+  scripts that change status and headers and request scripts that drop headers
+  conditionally, which Anywhere does not offer, and it lets onesie playback
+  through when no key is known. `youtube-onesie-anywhere.js` replaces it: it
+  keeps the newest 4 onesie key pairs captured from `config` / `log_event`
+  responses, answers an empty 200 to any initplayback request whose key is not
+  stored (the client then uses `v1/player`, which the response engine
+  cleans), and replays one `log_event` without `x-youtube-hot-hash-data`
+  through `Anywhere.http` when no key is known. The UMP shim tries each stored
+  key and passes the stream through untouched when none works. The upstream
+  Cloudflare worker redirect is not ported.
 
 ## Build Commands
 
