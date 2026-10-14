@@ -115,7 +115,11 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/mitm/youtube-enha
 `google-cn-redirect.amrs` uses native Anywhere 302 redirect rules. It
 does not require a JavaScript MITM script.
 `youtube-enhance-anywhere.amrs` is generated from local JavaScript sources under
-`anywhere/mitm/source/`.
+`anywhere/mitm/source/`. It also strips the ads embedded in the
+`googlevideo.com` initplayback stream locally, so `googlevideo.com` is MITM'd
+and the Anywhere QUIC policy must be `automatic` or `blocked`. The stream key
+is cached from the first `config` response, so relaunch YouTube once after
+importing.
 
 ### Surge
 

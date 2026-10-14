@@ -47,7 +47,8 @@ function process(ctx) {
         var v = Anywhere.store.getString(key, true);
         return v === undefined ? null : v;
       },
-      write: function(key, val) {
+      // Surge order: write(value, key).
+      write: function(val, key) {
         try { Anywhere.store.set(key, String(val), true); }
         catch (e) { Anywhere.log.warning("[YT] store: " + e); }
         return true;
