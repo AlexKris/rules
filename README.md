@@ -120,6 +120,7 @@ does not require a JavaScript MITM script.
 and the Anywhere QUIC policy must be `automatic` or `blocked`. Onesie playback
 is only let through with a key captured from `config` / `log_event`; otherwise
 the client is sent to `v1/player`, whose ads the response engine removes.
+Sponsor preview cards in the browse feed are removed before the response engine runs.
 
 ### Surge
 

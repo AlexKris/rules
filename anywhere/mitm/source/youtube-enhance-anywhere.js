@@ -19,8 +19,79 @@ function flag(name, fallback) {
   return v === "true";
 }
 
+// The engine only inspects richItemContents. Browse responses also carry
+// full-width "preview" sponsor cards one level up (root 10 -> 49399797 -> 32),
+// so those are removed here before the engine runs. A card is dropped only when
+// it uses one of the sponsor layouts and carries ad tracking markers.
+function asciiBytes(s) {
+  var b = new Uint8Array(s.length);
+  for (var i = 0; i < s.length; i++) b[i] = s.charCodeAt(i);
+  return b;
+}
+
+var SPONSOR_LAYOUTS = [
+  "full_width_square_image_layout.eml-fe",
+  "full_width_portrait_image_layout.eml-fe",
+  "video_display_button_group_layout.eml-fe"
+].map(asciiBytes);
+var PAGEAD = asciiBytes("pagead");
+var AD_MARKERS = ["googleads", "adview", "activeview"].map(asciiBytes);
+
+function hasBytes(hay, needle) {
+  var last = hay.length - needle.length;
+  for (var i = hay.indexOf(needle[0]); i >= 0 && i <= last; i = hay.indexOf(needle[0], i + 1)) {
+    var j = 1;
+    while (j < needle.length && hay[i + j] === needle[j]) j++;
+    if (j === needle.length) return true;
+  }
+  return false;
+}
+
+function hasAny(hay, needles) {
+  for (var i = 0; i < needles.length; i++) if (hasBytes(hay, needles[i])) return true;
+  return false;
+}
+
+function isSponsorCard(bytes) {
+  return bytes.length >= 1024 && bytes.length < 900000
+    && hasAny(bytes, SPONSOR_LAYOUTS) && hasBytes(bytes, PAGEAD) && hasAny(bytes, AD_MARKERS);
+}
+
+function stripBrowseSponsorCards(ctx) {
+  if (!/\/youtubei\/v1\/browse(?:\?|$)/.test(ctx.url || "") || !ctx.body || !hasBytes(ctx.body, PAGEAD)) return;
+  try {
+    var pb = Anywhere.codec.protobuf;
+    var root = pb.decode(ctx.body);
+    var removed = 0;
+    for (var i = 0; i < root.length; i++) {
+      if (root[i].field !== 10 || root[i].wire !== 2) continue;
+      var content = pb.decode(root[i].value);
+      var contentChanged = false;
+      for (var j = 0; j < content.length; j++) {
+        if (content[j].field !== 49399797 || content[j].wire !== 2) continue;
+        var items = pb.decode(content[j].value);
+        var kept = items.filter(function(it) {
+          return !(it.field === 32 && it.wire === 2 && isSponsorCard(it.value));
+        });
+        if (kept.length === items.length) continue;
+        removed += items.length - kept.length;
+        content[j] = { field: content[j].field, wire: 2, value: pb.encode(kept) };
+        contentChanged = true;
+      }
+      if (contentChanged) root[i] = { field: root[i].field, wire: 2, value: pb.encode(content) };
+    }
+    if (removed) {
+      ctx.body = pb.encode(root);
+      Anywhere.log.info("[YT] removed " + removed + " sponsor card(s) from browse");
+    }
+  } catch (e) {
+    // Unexpected wire data: leave the response to the engine unchanged.
+  }
+}
+
 function process(ctx) {
   var result = null;
+  stripBrowseSponsorCards(ctx);
   try {
     // Only the response is available here. The engine reads the request
     // user-agent solely to pick a per-platform state key, so a fixed

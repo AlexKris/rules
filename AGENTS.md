@@ -219,6 +219,10 @@ MITM:
   alert. The UMP shim tries each stored key and passes the stream through
   untouched when none works. The upstream Cloudflare worker redirect is not
   ported.
+- The response engine only inspects `richItemContents`. The shim removes the
+  browse sponsor preview cards (root 10 -> 49399797 -> 32) before the engine
+  runs, and only when a card uses a sponsor layout and carries `pagead` plus
+  an ad tracking marker.
 
 ## Build Commands
 
