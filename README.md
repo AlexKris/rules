@@ -118,8 +118,8 @@ does not require a JavaScript MITM script.
 `anywhere/mitm/source/`. It also strips the ads embedded in the
 `googlevideo.com` initplayback stream locally, so `googlevideo.com` is MITM'd
 and the Anywhere QUIC policy must be `automatic` or `blocked`. The stream key
-is cached from the first `config` response, so relaunch YouTube once after
-importing.
+is learned from `config` and `log_event` responses; the `x-youtube-hot-hash-data`
+request header is dropped on `log_event` so the server keeps resending it.
 
 ### Surge
 

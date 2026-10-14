@@ -210,8 +210,10 @@ MITM:
   from `config` / `log_event` responses in `Anywhere.store`; the request
   engine answers an empty 200 when the client's key is not the cached one
   (the client then falls back to `v1/player`); the UMP engine strips the ads
-  embedded in the stream and passes it through untouched on any failure. The
-  upstream Cloudflare worker redirect is not ported.
+  embedded in the stream and passes it through untouched on any failure. A
+  native `header-delete` drops `x-youtube-hot-hash-data` on `log_event` so the
+  server resends the hot config that carries the key. The upstream Cloudflare
+  worker redirect is not ported.
 
 ## Build Commands
 
