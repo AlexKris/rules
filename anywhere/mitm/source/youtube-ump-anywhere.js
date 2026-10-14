@@ -3,8 +3,7 @@ var yt_ump_b64 = "__YOUTUBE_UMP_JS_BASE64__";
 // Anywhere runs the Maasea UMP engine (the pre-worker local build) inside a
 // Surge environment shim. It decrypts the onesie initplayback stream with the
 // key the response engine cached in $persistentStore, strips the ad placements
-// and re-encrypts; on any failure it hands back an empty body so the client
-// falls back to v1/player, which the response engine already cleans.
+// and re-encrypts; on any failure the stream is passed through untouched.
 
 function headerObject(list) {
   var o = {};
@@ -70,9 +69,10 @@ async function process(ctx) {
 
   if (!result) return;
   if (result.status) {
-    // Upstream's failure path: an empty 200 makes the client retry via v1/player.
-    ctx.body = new Uint8Array(0);
-    Anywhere.log.info("[YT-UMP] emptied initplayback, client falls back to v1/player");
+    // Upstream answers an empty text/plain 200 here. A response script cannot
+    // change headers, and an empty UMP body stalls the player, so pass the
+    // stream through untouched; the request engine handles the stale-key case.
+    Anywhere.log.info("[YT-UMP] left initplayback untouched");
   } else if (result.body) {
     ctx.body = result.body;
     Anywhere.log.debug("[YT-UMP] done: " + ctx.url.substring(0, 60));

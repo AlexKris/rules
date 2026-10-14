@@ -86,6 +86,8 @@ Manual overlays currently outside `config/rules.json`:
 - `anywhere/mitm/source/vendor/maasea-youtube.response.js`
 - `anywhere/mitm/source/youtube-ump-anywhere.js`
 - `anywhere/mitm/source/vendor/maasea-youtube.ump.js`
+- `anywhere/mitm/source/youtube-request-anywhere.js`
+- `anywhere/mitm/source/vendor/maasea-youtube.request.js`
 
 Do not treat `anywhere/*.arrs` as upstream input. They are client artifacts or manual overlays.
 
@@ -201,13 +203,15 @@ MITM:
   from local JavaScript sources under `anywhere/mitm/source/`.
 - Edit the JS sources, not the generated YouTube `.amrs`, then run the MITM
   build script.
-- The YouTube set carries two Maasea engines (Apache-2.0, vendored unmodified):
-  the response engine for `youtubei.googleapis.com` and the local UMP engine
-  (the pre-worker build, upstream commit `2ead6ff`) for
+- The YouTube set carries three Maasea engines (Apache-2.0, vendored
+  unmodified): the response engine for `youtubei.googleapis.com`, and the
+  pre-worker request and UMP engines (upstream commit `2ead6ff`) for
   `googlevideo.com/initplayback`. The response engine caches the onesie key
-  from `config` / `log_event` responses in `Anywhere.store`; the UMP engine
-  reads it to strip the ads embedded in the stream. Do not port the upstream
-  request script or its Cloudflare worker redirect.
+  from `config` / `log_event` responses in `Anywhere.store`; the request
+  engine answers an empty 200 when the client's key is not the cached one
+  (the client then falls back to `v1/player`); the UMP engine strips the ads
+  embedded in the stream and passes it through untouched on any failure. The
+  upstream Cloudflare worker redirect is not ported.
 
 ## Build Commands
 

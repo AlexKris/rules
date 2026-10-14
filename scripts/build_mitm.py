@@ -16,6 +16,9 @@ YOUTUBE_PLACEHOLDER = "__YOUTUBE_RESPONSE_JS_BASE64__"
 YOUTUBE_UMP_ADAPTER = SOURCE_DIR / "youtube-ump-anywhere.js"
 YOUTUBE_UMP_VENDOR = SOURCE_DIR / "vendor" / "maasea-youtube.ump.js"
 YOUTUBE_UMP_PLACEHOLDER = "__YOUTUBE_UMP_JS_BASE64__"
+YOUTUBE_REQUEST_ADAPTER = SOURCE_DIR / "youtube-request-anywhere.js"
+YOUTUBE_REQUEST_VENDOR = SOURCE_DIR / "vendor" / "maasea-youtube.request.js"
+YOUTUBE_REQUEST_PLACEHOLDER = "__YOUTUBE_REQUEST_JS_BASE64__"
 YOUTUBE_OUTPUT = MITM_DIR / "youtube-enhance-anywhere.amrs"
 
 
@@ -38,6 +41,11 @@ def write_youtube_enhance() -> None:
     ump_b64 = b64(
         render_script(YOUTUBE_UMP_ADAPTER, YOUTUBE_UMP_VENDOR, YOUTUBE_UMP_PLACEHOLDER).encode("utf-8")
     )
+    request_b64 = b64(
+        render_script(
+            YOUTUBE_REQUEST_ADAPTER, YOUTUBE_REQUEST_VENDOR, YOUTUBE_REQUEST_PLACEHOLDER
+        ).encode("utf-8")
+    )
     # config and log_event carry the onesie key the UMP engine needs; the
     # response engine caches it from them.
     pattern = r"^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$"
@@ -49,6 +57,8 @@ def write_youtube_enhance() -> None:
         "# - anywhere/mitm/source/vendor/maasea-youtube.response.js",
         "# - anywhere/mitm/source/youtube-ump-anywhere.js",
         "# - anywhere/mitm/source/vendor/maasea-youtube.ump.js",
+        "# - anywhere/mitm/source/youtube-request-anywhere.js",
+        "# - anywhere/mitm/source/vendor/maasea-youtube.request.js",
         "",
         "name     = YouTube (Music) Enhance - Anywhere",
         "hostname = youtubei.googleapis.com, googlevideo.com, doubleclick.net, googlesyndication.com",
@@ -62,6 +72,9 @@ def write_youtube_enhance() -> None:
         "",
         "# Maasea protobuf engine inside a Surge environment shim",
         f"1, 100, {pattern}, {script_b64}",
+        "",
+        "# Maasea request engine: empty 200 when the client's onesie key is not the cached one",
+        f"0, 100, {ump_pattern}, {request_b64}",
         "",
         "# Maasea local UMP engine: strips the ads inside the onesie initplayback stream",
         f"1, 100, {ump_pattern}, {ump_b64}",
