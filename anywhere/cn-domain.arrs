@@ -2,8 +2,8 @@
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
 # RULES: 13935
-# SKIPPED: 100350
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100343, USER-AGENT=3
+# SKIPPED: 100306
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100299, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -6766,6 +6766,7 @@ routing = 1
 2, 99ys.com
 2, 9air.com
 2, 9ddm.com
+2, 9fe06a.fyi
 2, 9fzt.com
 2, 9ihome.com
 2, 9k9k.com
@@ -7774,7 +7775,6 @@ routing = 1
 2, chetx.com
 2, chetxia.com
 2, chexun.com
-2, chiheshan.com
 2, chillyroom.com
 2, chimelong.com
 2, china-b.com
@@ -10445,7 +10445,6 @@ routing = 1
 2, laoxuezhuji.com
 2, laoyaoba.com
 2, laoyoujiaju.com
-2, large.net
 2, laruence.com
 2, lashou.com
 2, latexstudio.net
@@ -13111,6 +13110,7 @@ routing = 1
 2, xhgamesdk.com
 2, xhj.com
 2, xhjj.com
+2, xhlylx.com
 2, xiagepian.com
 2, xianbao.fun
 2, xianbao.net
