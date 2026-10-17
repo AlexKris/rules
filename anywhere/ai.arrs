@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 194
+# RULES: 197
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -33,6 +33,7 @@ name = AI
 2, cursor.com
 2, cursor.sh
 2, cursorapi.com
+2, cursorvm.com
 2, elevenlabs.com
 2, elevenlabs.io
 2, envato-static.com
@@ -109,6 +110,7 @@ name = AI
 2, oaistatsig.com
 2, oaiusercontent.com
 2, openai.com
+2, openai.org
 2, sora.com
 2, openai.com.cdn.cloudflare.net
 2, openaiapi-site.azureedge.net
@@ -153,6 +155,7 @@ name = AI
 2, deepwiki.org
 2, clipdrop.co
 2, jasper.ai
+2, typesafe.ai
 2, kimi.ai
 2, moonshot.ai
 2, meta.ai
