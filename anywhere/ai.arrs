@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 197
+# RULES: 198
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -179,6 +179,7 @@ name = AI
 2, langchain.com
 2, lmstudio.ai
 2, lovart.ai
+2, magnific.com
 2, midjourney.com
 2, minimax.io
 2, mistral.ai
