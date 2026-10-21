@@ -1,20 +1,30 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 198
+# RULES: 209
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-ai-!cn
 
 name = AI
+2, ant.dev
 2, anthropic.com
+2, anthropic.team
+2, antspace.dev
+2, chatbotclaude.com
 2, clau.de
 2, claude.ai
+2, claude.app
 2, claude.com
 2, claude.dev
+2, claude.new
+2, claude.site
+2, claudeacademy.com
 2, claudemcpclient.com
 2, claudemcpcontent.com
+2, claudepages.dev
+2, claudestudio.com
 2, claudeusercontent.com
 2, servd-anthropic-website.b-cdn.net
 2, cici.com
@@ -121,6 +131,7 @@ name = AI
 2, production-openaicom-storage.azureedge.net
 2, browser-intake-datadoghq.com
 2, o33249.ingest.sentry.io
+2, o33249.ingest.us.sentry.io
 2, openai.qualtrics.com
 2, chatgpt.livekit.cloud
 2, host.livekit.cloud
