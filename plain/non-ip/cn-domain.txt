@@ -6489,7 +6489,6 @@ DOMAIN-SUFFIX,51jiemeng.com
 DOMAIN-SUFFIX,51jiuhuo.com
 DOMAIN-SUFFIX,51jobapp.com
 DOMAIN-SUFFIX,51jobdns.com
-DOMAIN-SUFFIX,51livetv.com
 DOMAIN-SUFFIX,51microshop.com
 DOMAIN-SUFFIX,51miz.com
 DOMAIN-SUFFIX,51mmt.com
@@ -6818,6 +6817,7 @@ DOMAIN-SUFFIX,adseyeservice.com
 DOMAIN-SUFFIX,adsmogo.mobi
 DOMAIN-SUFFIX,adsmogo.net
 DOMAIN-SUFFIX,adups.com
+DOMAIN-SUFFIX,advance.ai
 DOMAIN-SUFFIX,advertcn.com
 DOMAIN-SUFFIX,adview.com
 DOMAIN-SUFFIX,advlion.com
@@ -7386,6 +7386,7 @@ DOMAIN-SUFFIX,bggd.com
 DOMAIN-SUFFIX,bgi.com
 DOMAIN-SUFFIX,bhccn.com
 DOMAIN-SUFFIX,bhdata.com
+DOMAIN-SUFFIX,bhgcdn.com
 DOMAIN-SUFFIX,bi-sage.site
 DOMAIN-SUFFIX,bianfeng.com
 DOMAIN-SUFFIX,bianzhirensheng.com
@@ -8491,7 +8492,6 @@ DOMAIN-SUFFIX,dongyouyuzhou.com
 DOMAIN-SUFFIX,donlim.com
 DOMAIN-SUFFIX,dooland.com
 DOMAIN-SUFFIX,doooor.com
-DOMAIN-SUFFIX,doorzo.net
 DOMAIN-SUFFIX,doseeing.com
 DOMAIN-SUFFIX,dospy.com
 DOMAIN-SUFFIX,dotcpp.com
@@ -10306,6 +10306,7 @@ DOMAIN-SUFFIX,kf9977.com
 DOMAIN-SUFFIX,khlgamen.com
 DOMAIN-SUFFIX,kickoffo.site
 DOMAIN-SUFFIX,kidsdown.com
+DOMAIN-SUFFIX,kiko-play-niptan.one
 DOMAIN-SUFFIX,kikuu.com
 DOMAIN-SUFFIX,kimi.ai
 DOMAIN-SUFFIX,kimi.link
@@ -11185,6 +11186,7 @@ DOMAIN-SUFFIX,omicshare.com
 DOMAIN-SUFFIX,onaliyun.com
 DOMAIN-SUFFIX,onegg.site
 DOMAIN-SUFFIX,oneic.com
+DOMAIN-SUFFIX,onesec.net
 DOMAIN-SUFFIX,onething.net
 DOMAIN-SUFFIX,onethingpcs.com
 DOMAIN-SUFFIX,onewsimg.com
@@ -11492,6 +11494,7 @@ DOMAIN-SUFFIX,qikan.com
 DOMAIN-SUFFIX,qikanchina.com
 DOMAIN-SUFFIX,qikula.com
 DOMAIN-SUFFIX,qilong.com
+DOMAIN-SUFFIX,qilongnianzsq.com
 DOMAIN-SUFFIX,qima-inc.com
 DOMAIN-SUFFIX,qinbei.com
 DOMAIN-SUFFIX,qingflow.com
@@ -13457,7 +13460,6 @@ DOMAIN-SUFFIX,youjindi.com
 DOMAIN-SUFFIX,youkia.net
 DOMAIN-SUFFIX,youkupic.com
 DOMAIN-SUFFIX,youlesp.com
-DOMAIN-SUFFIX,youleyou.com
 DOMAIN-SUFFIX,youlishipin.com
 DOMAIN-SUFFIX,youlu.com
 DOMAIN-SUFFIX,youlu.net

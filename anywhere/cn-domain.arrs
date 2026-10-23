@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13937
-# SKIPPED: 100308
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100301, USER-AGENT=3
+# RULES: 13939
+# SKIPPED: 100023
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100016, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -6502,7 +6502,6 @@ routing = 1
 2, 51jiuhuo.com
 2, 51jobapp.com
 2, 51jobdns.com
-2, 51livetv.com
 2, 51microshop.com
 2, 51miz.com
 2, 51mmt.com
@@ -6831,6 +6830,7 @@ routing = 1
 2, adsmogo.mobi
 2, adsmogo.net
 2, adups.com
+2, advance.ai
 2, advertcn.com
 2, adview.com
 2, advlion.com
@@ -7399,6 +7399,7 @@ routing = 1
 2, bgi.com
 2, bhccn.com
 2, bhdata.com
+2, bhgcdn.com
 2, bi-sage.site
 2, bianfeng.com
 2, bianzhirensheng.com
@@ -8504,7 +8505,6 @@ routing = 1
 2, donlim.com
 2, dooland.com
 2, doooor.com
-2, doorzo.net
 2, doseeing.com
 2, dospy.com
 2, dotcpp.com
@@ -10319,6 +10319,7 @@ routing = 1
 2, khlgamen.com
 2, kickoffo.site
 2, kidsdown.com
+2, kiko-play-niptan.one
 2, kikuu.com
 2, kimi.ai
 2, kimi.link
@@ -11198,6 +11199,7 @@ routing = 1
 2, onaliyun.com
 2, onegg.site
 2, oneic.com
+2, onesec.net
 2, onething.net
 2, onethingpcs.com
 2, onewsimg.com
@@ -11505,6 +11507,7 @@ routing = 1
 2, qikanchina.com
 2, qikula.com
 2, qilong.com
+2, qilongnianzsq.com
 2, qima-inc.com
 2, qinbei.com
 2, qingflow.com
@@ -13470,7 +13473,6 @@ routing = 1
 2, youkia.net
 2, youkupic.com
 2, youlesp.com
-2, youleyou.com
 2, youlishipin.com
 2, youlu.com
 2, youlu.net
