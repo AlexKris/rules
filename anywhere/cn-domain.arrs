@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13939
-# SKIPPED: 100023
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100016, USER-AGENT=3
+# RULES: 13947
+# SKIPPED: 100030
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100023, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -227,6 +227,7 @@ routing = 1
 2, unisoc.com
 2, unispc.com
 2, uniswdc.com
+2, iotronic.tech
 2, fa-part.com
 2, forface3d.com
 2, jlc-3dp.com
@@ -265,7 +266,7 @@ routing = 1
 2, zs-jlc.com
 2, zxhgroup.com
 2, listenai.com
-2, iotronic.tech
+2, nanocorechip.com
 2, rock-chips.com
 2, seeed.cc
 2, sipeed.com
@@ -392,7 +393,6 @@ routing = 1
 2, gclouddolphin.com
 2, gcloudsdk.com
 2, gcloudsvcs.com
-2, gdtimg.com
 2, goto-game.com
 2, goto-game.mobi
 2, goto-game.org
@@ -1527,7 +1527,10 @@ routing = 1
 2, unionpayintl.com
 2, abchina.com
 2, bankcomm.com
+2, cdrcb.com
+2, cdrcbank.com
 2, cebbank.com
+2, ibangbank.com
 2, psbc.com
 2, whccb.com
 2, kcbebank.com
@@ -2385,6 +2388,10 @@ routing = 1
 2, yayi360.com
 2, zhongliujie.com
 2, acftu.org
+2, bigdatacq.com
+2, cqdcg.com
+2, cqyyxc.com
+2, digitalcnzz.com
 2, fnrrc.com
 2, sqqmtj.com
 2, airchina.com
@@ -2584,6 +2591,7 @@ routing = 1
 2, chaoxing.cc
 2, chaoxing.com
 2, chaoxingv.com
+2, cldisk.com
 2, cxbiji.com
 2, dayainfo.com
 2, hongbo100.com
@@ -2599,6 +2607,7 @@ routing = 1
 2, uonline-sh.net
 2, xuexi365.com
 2, xuexi365.net
+2, xuexitong.com
 2, xxtmail.com
 2, ylike.net
 2, zaifan.com
@@ -2650,7 +2659,6 @@ routing = 1
 2, chaz.fun
 2, huijistatic.com
 2, huijiwiki.com
-2, moegirl.org
 2, pwsannong.com
 2, qiuwen.wiki
 2, zdic.net
@@ -2923,6 +2931,7 @@ routing = 1
 2, ifdian.net
 2, agora.io
 2, agoralab.co
+2, easemob.com
 2, capitalonline.net
 2, chinaso.com
 2, chinaz.com
@@ -3075,6 +3084,7 @@ routing = 1
 2, zhangyue.com
 2, zhangyue01.com
 2, zhangyuecdn.com
+2, isigning.com
 2, jobui.com
 2, meishichina.com
 2, meishitx.com
@@ -4802,6 +4812,7 @@ routing = 1
 2, fymallqa4.com
 2, fymallqa7.com
 2, fymallqa9.com
+2, gdtimg.com
 2, ugdtimg.com
 2, 51ssl.com
 2, litessl.com
@@ -7414,7 +7425,6 @@ routing = 1
 2, bigbigwork.com
 2, bigcakegame.com
 2, bigda.com
-2, bigdatacq.com
 2, bigemap.com
 2, bigesj.com
 2, biggerlens.com
@@ -7938,7 +7948,6 @@ routing = 1
 2, ckj1000.com
 2, cl2009.com
 2, classin.com
-2, cldisk.com
 2, clickwifi.net
 2, clngaa.com
 2, cloud-dahua.com
@@ -8604,7 +8613,6 @@ routing = 1
 2, eachnet.com
 2, eagllwin.com
 2, ear0.com
-2, easemob.com
 2, easeslb.com
 2, easeus.com
 2, easipass.com
