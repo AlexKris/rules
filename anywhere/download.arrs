@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1971
+# RULES: 1968
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -138,7 +138,6 @@ name = Download
 2, gotest.tools
 2, lib.ugent.be
 2, mir.linux.kg
-2, mirror.0x.sg
 2, mirror.5i.fi
 2, mirror.a1.mk
 2, mirror.ac.ke
@@ -835,7 +834,6 @@ name = Download
 2, mirror.karneval.cz
 2, mirror.katapult.io
 2, mirror.liquidrp.de
-2, mirror.marcusn.net
 2, mirror.papua.go.id
 2, mirror.previder.nl
 2, mirror.reverse.net
@@ -1021,6 +1019,7 @@ name = Download
 2, opensource.xtdv.net
 2, packages.termux.dev
 2, pubmirror.plutex.de
+2, registry.gitlab.com
 2, release.runcloud.io
 2, releases.claude.com
 2, replicate.npmjs.com
@@ -1283,7 +1282,6 @@ name = Download
 2, downloads.portainer.io
 2, enterprise.proxmox.com
 2, fdroid.tetaneutral.net
-2, ftp.tsukuba.wide.ad.jp
 2, ftpmirror1.infania.net
 2, gog-cdn-fastly.gog.com
 2, i18n.prismlauncher.org
@@ -1353,7 +1351,6 @@ name = Download
 2, vn-mirrors.techhost.vn
 2, wup.eshop.nintendo.net
 2, www.gutscheinrausch.de
-2, www2.aomeisoftware.com
 2, apache.ip-connect.vn.ua
 2, apache.miloslavbrada.cz
 2, archive.raspberrypi.com
