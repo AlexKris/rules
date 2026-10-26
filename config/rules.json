@@ -496,10 +496,17 @@
         "DOMAIN,anthropic-com.ghost.io",
         "DOMAIN-KEYWORD,openai",
         "DOMAIN-KEYWORD,chatgpt-async-webps-prod",
-        "DOMAIN-SUFFIX,ai.com"
+        "DOMAIN-SUFFIX,ai.com",
+        "DOMAIN-SUFFIX,g.ai"
       ],
       "exclude": [
-        "hf.co"
+        "hf.co",
+        "envato.com",
+        "envato-static.com",
+        "envatousercontent.com",
+        "themeforest.net",
+        "liveperson.net",
+        "lpsnmedia.net"
       ],
       "targets": {
         "anywhere": "anywhere/ai.arrs"
