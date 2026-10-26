@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13947
+# RULES: 13926
 # SKIPPED: 100030
 # SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100023, USER-AGENT=3
 # SOURCES:
@@ -400,7 +400,6 @@ routing = 1
 2, hdyxgame.com
 2, hkgcloudcs.com
 2, ihappystudio.com
-2, in.th
 2, ludoworld.net
 2, mahjongai.net
 2, mahjongcup.com
@@ -7438,7 +7437,6 @@ routing = 1
 2, bilibilihelper.com
 2, biliintl.com
 2, bilimanga.net
-2, bilinovel.com
 2, billionconnect.com
 2, bingdoc.com
 2, binhaiwater.com
@@ -8989,11 +8987,6 @@ routing = 1
 2, funnyplaying.com
 2, funnysphere.com
 2, fupanwang.com
-2, futuau.com
-2, futufin.com
-2, futuhn.com
-2, futunn.com
-2, futustatic.com
 2, fuwucms.com
 2, fuyunjiasu.com
 2, fuzhuangwang.com
@@ -9583,7 +9576,6 @@ routing = 1
 2, hostadm.net
 2, hostbbs.net
 2, hostbuf.com
-2, hotcoin.com
 2, hotelgg.com
 2, hotelincn.com
 2, hotoneaudio.com
@@ -9999,7 +9991,6 @@ routing = 1
 2, itheat.com
 2, itheima.com
 2, itigergrowtha.com
-2, itigerup.com
 2, itongcheng.cc
 2, itotii.com
 2, itoutiaostatic.com
@@ -10452,7 +10443,6 @@ routing = 1
 2, lansors.com
 2, lanzn.com
 2, laobangban.com
-2, laohu8.com
 2, laoxuezhuji.com
 2, laoyaoba.com
 2, laoyoujiaju.com
@@ -10469,16 +10459,13 @@ routing = 1
 2, laze.cc
 2, lazystones.com
 2, lb-yz.com
-2, lbctrl.com
 2, lbesec.com
-2, lbkrs.com
 2, lc123.net
 2, lcayun.com
 2, lcftech.com
 2, lddgo.net
 2, ldgslb.com
 2, ldhy.click
-2, ldplayer.net
 2, ldqxn.com
 2, ldtec.com
 2, ldycdn.com
@@ -10611,7 +10598,6 @@ routing = 1
 2, loj.ac
 2, lolaroseglobal.com
 2, lolbuku.com
-2, longbridgeapp.com
 2, longcai.com
 2, longcat.chat
 2, longdian.com
@@ -10900,7 +10886,6 @@ routing = 1
 2, mongac.com
 2, monknow.com
 2, monsterhunteroutlanders.com
-2, moomoo.com
 2, moonbasa.com
 2, moondroplab.tech
 2, moonshot.ai
@@ -11196,7 +11181,6 @@ routing = 1
 2, okeycar.com
 2, okii.com
 2, okki.com
-2, oklink.com
 2, okmao.com
 2, okmart.com
 2, oktukids.com
@@ -12430,10 +12414,7 @@ routing = 1
 2, tielingcn.com
 2, tiens.com
 2, tiexuedanxin.net
-2, tigerbbs.com
-2, tigerbrokers.net
 2, tigerdns.com
-2, tigerfintech.com
 2, tik-tokapi.com
 2, tiktokrow-cdn.com
 2, timecloud.us
@@ -12843,7 +12824,6 @@ routing = 1
 2, wayos.com
 2, waytoagi.com
 2, wbolt.com
-2, wbrks.com
 2, wbxcx.net
 2, wcd.im
 2, wcsapi.com
@@ -13914,7 +13894,6 @@ routing = 1
 2, 12306.com
 2, 71.am.com
 2, bdatu.com
-2, futu5.com
 2, klook.com
 2, maoyun.tv
 2, webok.net

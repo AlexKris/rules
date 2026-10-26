@@ -521,6 +521,24 @@ def remove_redundant_domain_rules(rules: list[Rule]) -> list[Rule]:
     return result
 
 
+def drop_listed_rules(rules: list[Rule], listed: list[Rule]) -> list[Rule]:
+    """Drop domain rules equal to or under a DOMAIN-SUFFIX of a listed source.
+
+    Used to keep GFW-listed domains out of cn-domain. A parent of a listed
+    domain is kept, so listing `c.mi.com` does not drop `mi.com`.
+    """
+    suffixes = {rule.value for rule in listed if rule.rule_type == "DOMAIN-SUFFIX"}
+
+    def is_listed(value: str) -> bool:
+        labels = value.split(".")
+        return any(".".join(labels[index:]) in suffixes for index in range(len(labels)))
+
+    return [
+        rule for rule in rules
+        if rule.rule_type not in ("DOMAIN", "DOMAIN-SUFFIX") or not is_listed(rule.value)
+    ]
+
+
 def collect_output_rules(
     output_id: str,
     output_config: dict,
@@ -560,6 +578,9 @@ def collect_output_rules(
     excludes.discard(None)
     if excludes:
         rules = [rule for rule in rules if rule.value not in excludes]
+
+    for source_id in output_config.get("exclude_listed_by", []):
+        rules = drop_listed_rules(rules, source_rules[source_id])
 
     rules = remove_redundant_domain_rules(rules)
 
@@ -903,7 +924,10 @@ def artifact_rules(
                 rules.append(rule)
                 seen.add(rule.key)
 
-    return remove_redundant_domain_rules(apply_rule_overrides(rules, artifact_config, source_marker_domains))
+    rules = apply_rule_overrides(rules, artifact_config, source_marker_domains)
+    for source_id in artifact_config.get("exclude_listed_by", []):
+        rules = drop_listed_rules(rules, source_rules[source_id])
+    return remove_redundant_domain_rules(rules)
 
 
 def write_generated_outputs(

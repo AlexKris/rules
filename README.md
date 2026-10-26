@@ -76,13 +76,13 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs         
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs         -> DIRECT
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs               -> AI chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs           -> PayPal chain
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-hk.arrs        -> MediaHK
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-tw.arrs        -> MediaTW
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-jp.arrs        -> MediaJP
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-us.arrs        -> MediaUS
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-kr.arrs        -> MediaKR
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs        -> MediaEU
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs           -> Stream chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs         -> Telegram chain
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-proxy.arrs      -> PROXY
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs            -> DIRECT
@@ -92,6 +92,8 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs   
 ```
 
 `apple` is the single Apple set; `apple-proxy` must stay above it.
+The regional `stream-*` sets must stay above `stream`, which contains nearly all
+of their patterns.
 `google` includes YouTube upstream, so Stream and AI must stay above it.
 `cn-domain` uses the same rules as the other clients (including SKK Domestic)
 and must stay below Stream, AI, and Google. `lan` and `telegram` contain both

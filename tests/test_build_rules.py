@@ -123,6 +123,29 @@ class RankedSourceTests(unittest.TestCase):
         self.assertEqual(2, skipped["direct"]["UNRANKED"])
 
 
+class ListedRuleFilterTests(unittest.TestCase):
+    def test_drops_listed_domains_and_their_subdomains_but_keeps_parents(self) -> None:
+        rules = [
+            build_rules.Rule("DOMAIN-SUFFIX", "cn"),
+            build_rules.Rule("DOMAIN-SUFFIX", "mi.com"),
+            build_rules.Rule("DOMAIN-SUFFIX", "broker.com"),
+            build_rules.Rule("DOMAIN", "api.broker.com"),
+            build_rules.Rule("DOMAIN-KEYWORD", "broker"),
+        ]
+        listed = [
+            build_rules.Rule("DOMAIN-SUFFIX", "broker.com"),
+            build_rules.Rule("DOMAIN-SUFFIX", "c.mi.com"),
+            build_rules.Rule("DOMAIN-SUFFIX", "blocked.cn"),
+        ]
+
+        kept = build_rules.drop_listed_rules(rules, listed)
+
+        self.assertEqual(
+            [("DOMAIN-SUFFIX", "cn"), ("DOMAIN-SUFFIX", "mi.com"), ("DOMAIN-KEYWORD", "broker")],
+            [rule.key for rule in kept],
+        )
+
+
 class MihomoWildcardTests(unittest.TestCase):
     def test_partial_label_wildcards_move_from_domain_mrs_to_classical_regex(self) -> None:
         rules = [

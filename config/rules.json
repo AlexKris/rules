@@ -172,6 +172,15 @@
         ]
       }
     },
+    "loyalsoldier-gfw": {
+      "kind": "domainset",
+      "paths": [
+        ".upstream/loyalsoldier-surge-rules/gfw.txt"
+      ],
+      "urls": [
+        "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/gfw.txt"
+      ]
+    },
     "stream": {
       "kind": "non-ip",
       "paths": [
@@ -259,6 +268,14 @@
       "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
       "lists": [
         "paypal"
+      ]
+    },
+    "tiktok": {
+      "kind": "v2fly",
+      "local_dir": ".upstream/v2fly/data",
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data",
+      "lists": [
+        "tiktok"
       ]
     },
     "microsoft-cdn": {
@@ -369,7 +386,15 @@
         "DOMAIN,speedtest-net.xjtlu.edu.cn",
         "DOMAIN,speedtest.dukekunshan.edu.cn",
         "DOMAIN,cn.download.nvidia.com",
-        "DOMAIN-SUFFIX,idms-apple.com.akadns.net"
+        "DOMAIN-SUFFIX,idms-apple.com.akadns.net",
+        "DOMAIN,mirrors.aliyun.com",
+        "DOMAIN,dl.wechat.com",
+        "DOMAIN,bn.d.miui.com",
+        "DOMAIN,cdnorg.d.miui.com",
+        "DOMAIN,csfw.fj.chinamobile.com",
+        "DOMAIN,cuscspeed.169ol.com",
+        "DOMAIN-SUFFIX,speedtest.jsinfo.net",
+        "DOMAIN,speedtest1.sc.chinamobile.com"
       ],
       "targets": {
         "anywhere": "anywhere/direct-extra.arrs"
@@ -449,7 +474,11 @@
         "domestic"
       ],
       "exclude": [
-        "analytics.tiktok.com"
+        "analytics.tiktok.com",
+        "in.th"
+      ],
+      "exclude_listed_by": [
+        "loyalsoldier-gfw"
       ],
       "targets": {
         "anywhere": "anywhere/cn-domain.arrs"
@@ -496,9 +525,10 @@
     },
     "stream": {
       "name": "Stream",
-      "description": "Stream services routing overlay based on SukkaW Stream rules",
+      "description": "Stream services routing overlay based on SukkaW Stream rules and v2fly tiktok",
       "sources": [
-        "stream"
+        "stream",
+        "tiktok"
       ],
       "add": [
         "DOMAIN,tv.apple.com",
@@ -654,7 +684,11 @@
           "domestic"
         ],
         "exclude": [
-          "analytics.tiktok.com"
+          "analytics.tiktok.com",
+          "in.th"
+        ],
+        "exclude_listed_by": [
+          "loyalsoldier-gfw"
         ],
         "clients": [
           "surge",
@@ -664,7 +698,10 @@
         ]
       },
       "stream": {
-        "source": "stream",
+        "sources": [
+          "stream",
+          "tiktok"
+        ],
         "add": [
           "DOMAIN,tv.apple.com",
           "DOMAIN,hls-svod.itunes.apple.com",

@@ -53,7 +53,7 @@ jobs:
             /geosite-private.srs
           persist-credentials: false
 
-      - name: Checkout Loyalsoldier direct list
+      - name: Checkout Loyalsoldier lists
         uses: actions/checkout@v7
         with:
           repository: Loyalsoldier/surge-rules
@@ -62,6 +62,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /direct.txt
+            /gfw.txt
           persist-credentials: false
 
       - name: Download Tranco ranking

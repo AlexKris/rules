@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 48
+# RULES: 56
 # SKIPPED: 0
 
 name = Direct Extra
@@ -54,3 +54,11 @@ routing = 1
 2, speedtest.dukekunshan.edu.cn
 2, cn.download.nvidia.com
 2, idms-apple.com.akadns.net
+2, mirrors.aliyun.com
+2, dl.wechat.com
+2, bn.d.miui.com
+2, cdnorg.d.miui.com
+2, csfw.fj.chinamobile.com
+2, cuscspeed.169ol.com
+2, speedtest.jsinfo.net
+2, speedtest1.sc.chinamobile.com

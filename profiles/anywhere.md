@@ -10,13 +10,13 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/lan.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/china-ip.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/ai.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/paypal.arrs
-https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-hk.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-tw.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-jp.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-us.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-kr.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream-eu.arrs
+https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/stream.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/telegram.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple-proxy.arrs
 https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/apple.arrs
@@ -45,13 +45,13 @@ LAN             -> DIRECT
 China IP        -> DIRECT
 AI              -> AI chain
 PayPal          -> PayPal chain
-Stream          -> Stream chain
 Stream HK       -> MediaHK
 Stream TW       -> MediaTW
 Stream JP       -> MediaJP
 Stream US       -> MediaUS
 Stream KR       -> MediaKR
 Stream EU       -> MediaEU
+Stream          -> Stream chain
 Telegram        -> Telegram chain
 Apple Proxy     -> PROXY
 Apple           -> DIRECT
@@ -63,6 +63,8 @@ CN Domain       -> DIRECT
 Required ordering:
 
 - `Apple Proxy` above `Apple`: both contain `apple.news`.
+- Regional `Stream HK/TW/JP/US/KR/EU` above `Stream`: `Stream` contains nearly
+  all of their patterns, so below it they never match.
 - `Stream` and `AI` above `Google`: `Google` also contains `youtube.com`,
   `googlevideo.com`, `ai.studio`, and `deepmind.com`.
 - `CN Domain` below `Stream`, `AI`, and `Google`: it shares a few identical
