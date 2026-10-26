@@ -303,6 +303,9 @@
         "DOMAIN-SUFFIX,is1-ssl.mzstatic.com",
         "DOMAIN-SUFFIX,time.apple.com"
       ],
+      "exclude_listed_by": [
+        "loyalsoldier-gfw"
+      ],
       "targets": {
         "anywhere": "anywhere/apple.arrs"
       }
@@ -398,16 +401,6 @@
       ],
       "targets": {
         "anywhere": "anywhere/direct-extra.arrs"
-      }
-    },
-    "download": {
-      "name": "Download",
-      "description": "Download and large file hosting overlay based on SukkaW Download rules",
-      "sources": [
-        "download-domainset"
-      ],
-      "targets": {
-        "anywhere": "anywhere/download.arrs"
       }
     },
     "game-download": {
@@ -510,6 +503,19 @@
       ],
       "targets": {
         "anywhere": "anywhere/ai.arrs"
+      }
+    },
+    "download": {
+      "name": "Download",
+      "description": "Download and large file hosting overlay based on SukkaW Download rules",
+      "sources": [
+        "download-domainset"
+      ],
+      "exclude_listed_by": [
+        "ai"
+      ],
+      "targets": {
+        "anywhere": "anywhere/download.arrs"
       }
     },
     "telegram": {
@@ -644,6 +650,9 @@
         "add": [
           "DOMAIN-SUFFIX,is1-ssl.mzstatic.com",
           "DOMAIN-SUFFIX,time.apple.com"
+        ],
+        "exclude_listed_by": [
+          "loyalsoldier-gfw"
         ]
       },
       "apple-proxy": {

@@ -145,6 +145,26 @@ class ListedRuleFilterTests(unittest.TestCase):
             [rule.key for rule in kept],
         )
 
+    def test_output_can_exclude_rules_listed_by_a_built_output(self) -> None:
+        source_rules = {
+            "downloads": [
+                build_rules.Rule("DOMAIN", "downloads.claude.ai"),
+                build_rules.Rule("DOMAIN-SUFFIX", "cdn.hf.co"),
+            ]
+        }
+        built_outputs = {"ai": [build_rules.Rule("DOMAIN-SUFFIX", "claude.ai")]}
+
+        rules, _ = build_rules.collect_output_rules(
+            "download",
+            {"sources": ["downloads"], "exclude_listed_by": ["ai"]},
+            source_rules,
+            {},
+            set(),
+            built_outputs,
+        )
+
+        self.assertEqual([("DOMAIN-SUFFIX", "cdn.hf.co")], [rule.key for rule in rules])
+
 
 class MihomoWildcardTests(unittest.TestCase):
     def test_partial_label_wildcards_move_from_domain_mrs_to_classical_regex(self) -> None:

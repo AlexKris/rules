@@ -1,7 +1,7 @@
 # NAME: Apple
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Apple direct routing overlay
-# RULES: 69
+# RULES: 68
 # SKIPPED: 8
 # SKIPPED-TYPES: PROCESS-NAME=8
 # SOURCES:
@@ -67,7 +67,6 @@ routing = 1
 2, me.com
 2, apple.co
 2, apple.com
-2, appsto.re
 2, apple.news
 2, icloud.com
 2, itunes.com

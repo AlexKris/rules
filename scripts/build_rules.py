@@ -524,8 +524,9 @@ def remove_redundant_domain_rules(rules: list[Rule]) -> list[Rule]:
 def drop_listed_rules(rules: list[Rule], listed: list[Rule]) -> list[Rule]:
     """Drop domain rules equal to or under a DOMAIN-SUFFIX of a listed source.
 
-    Used to keep GFW-listed domains out of cn-domain. A parent of a listed
-    domain is kept, so listing `c.mi.com` does not drop `mi.com`.
+    Used to keep GFW-listed domains out of direct sets, and AI-covered hosts out
+    of the Anywhere download set. A parent of a listed domain is kept, so
+    listing `c.mi.com` does not drop `mi.com`.
     """
     suffixes = {rule.value for rule in listed if rule.rule_type == "DOMAIN-SUFFIX"}
 
@@ -544,7 +545,8 @@ def collect_output_rules(
     output_config: dict,
     source_rules: dict[str, list[Rule]],
     source_skipped: dict[str, dict[str, int]],
-    source_marker_domains: set[str]
+    source_marker_domains: set[str],
+    built_outputs: dict[str, list[Rule]]
 ) -> tuple[list[Rule], dict[str, int]]:
     rules: list[Rule] = []
     skipped: dict[str, int] = {}
@@ -579,8 +581,14 @@ def collect_output_rules(
     if excludes:
         rules = [rule for rule in rules if rule.value not in excludes]
 
-    for source_id in output_config.get("exclude_listed_by", []):
-        rules = drop_listed_rules(rules, source_rules[source_id])
+    for listed_id in output_config.get("exclude_listed_by", []):
+        if listed_id in source_rules:
+            listed = source_rules[listed_id]
+        elif listed_id in built_outputs:
+            listed = built_outputs[listed_id]
+        else:
+            raise KeyError(f"{output_id} excludes rules listed by an unknown or later output: {listed_id}")
+        rules = drop_listed_rules(rules, listed)
 
     rules = remove_redundant_domain_rules(rules)
 
@@ -944,7 +952,9 @@ def write_generated_outputs(
         return set(artifact_config.get("clients", ["surge", "mihomo", "sing-box", "loon"]))
 
     for output_id, output_config in config["outputs"].items():
-        rules, skipped = collect_output_rules(output_id, output_config, source_rules, source_skipped, source_marker_domains)
+        rules, skipped = collect_output_rules(
+            output_id, output_config, source_rules, source_skipped, source_marker_domains, built_outputs
+        )
         built_outputs[output_id] = rules
         skipped_outputs[output_id] = skipped
         if "anywhere" in output_config.get("targets", {}):

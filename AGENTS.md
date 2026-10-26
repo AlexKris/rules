@@ -100,7 +100,7 @@ Anywhere:
 - `direct` SKK source includes client-specific matchers that ARRS cannot represent.
 - `stream*` is generated for Anywhere because its SKK sources are domain/non-IP rules that map cleanly to ARRS.
 - `lan` and `telegram` combine domain and IP CIDR rules for Anywhere. `cn-domain` uses the same rules as the other clients. `apple-proxy` must sit above `apple` in the Routing list because both contain `apple.news`. The regional `stream-*` sets must sit above `stream`, because SKK `stream` contains nearly all of their patterns and identical patterns go to the higher set. `lan-ip` and `telegram-ip` Anywhere files remain published only for compatibility.
-- `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS.
+- `download` Anywhere output contains the domainset portion only; SKK Download non_ip includes wildcard and URL regex rules that do not map cleanly to ARRS. It also drops hosts covered by an `ai` suffix (`exclude_listed_by: ["ai"]`, so the `download` output must stay after `ai` in `config/rules.json`): `downloads.claude.ai` is deeper than `ai`'s `claude.ai` and would otherwise win in Anywhere, while every other client matches `ai` first. HuggingFace hosts are unaffected because `ai` excludes `hf.co`.
 - Format mapping in `scripts/build_rules.py`:
   - `0`: IPv4 CIDR
   - `1`: IPv6 CIDR
@@ -179,7 +179,7 @@ v2fly:
 
 Upstream sources:
 
-- GitHub Actions checks out `SukkaLab/ruleset.skk.moe` to `.upstream/skk`, `v2fly/domain-list-community` to `.upstream/v2fly`, and Loyalsoldier `surge-rules` (`direct.txt`, `gfw.txt`) to `.upstream/loyalsoldier-surge-rules`. `gfw.txt` is only a filter for `cn-domain`; none of its data is published.
+- GitHub Actions checks out `SukkaLab/ruleset.skk.moe` to `.upstream/skk`, `v2fly/domain-list-community` to `.upstream/v2fly`, and Loyalsoldier `surge-rules` (`direct.txt`, `gfw.txt`) to `.upstream/loyalsoldier-surge-rules`. `gfw.txt` is only a filter for `cn-domain` and `apple`; none of its data is published.
 - GitHub Actions downloads the pinned Tranco list from the `keep_ranked` URL in `config/rules.json` to `.upstream/tranco/top-1m.csv`. It is only a filter; no ranking data is published.
 - GitHub Actions also checks out a strict whitelist of `AlexKris/profile` tool scripts to `.upstream/profile` for Pages distribution under `/profile/`.
 - `build_rules.py` reads configured `paths` / `local_dir` first and falls back to remote URLs only when local upstreams are absent.
@@ -299,7 +299,7 @@ Expected behavior:
 
 - `time.apple.com` belongs in `apple`.
 - Unified `apple` contains the Apple CDN domainset, Apple CDN non_ip, CN, Services, `is1-ssl.mzstatic.com`, and `time.apple.com`; it is intended for DIRECT. There is no separate Apple domainset file.
-- `apple` inherits the broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK Apple Services, so it captures every Apple subdomain not claimed earlier. `apple-proxy` must be ordered before it, and Stream must be ordered before `apple-proxy` so Apple TV+ playback stays on the Stream policy.
+- `apple` inherits the broad `DOMAIN-SUFFIX,apple.com`, `icloud.com`, and `me.com` suffixes from SKK Apple Services, so it captures every Apple subdomain not claimed earlier. `apple-proxy` must be ordered before it, and Stream must be ordered before `apple-proxy` so Apple TV+ playback stays on the Stream policy. Like `cn-domain`, `apple` drops entries listed on Loyalsoldier `gfw.txt` (currently `appsto.re`), which fall through to `FINAL`. Apple services that are unavailable in mainland China but not GFW-listed still belong in `apple-proxy`.
 - `apple-proxy` covers Apple domains SKK routes through CDN/Global (`news-assets.apple.com`, `events-live.apple.com`, `events-delivery.apple.com`, `static.ess.apple.com`, `pba.apple.com`; SKK's `statici.icloud.com` is deliberately left on DIRECT, see above), services unavailable in mainland China (Apple News, iCloud Private Relay `mask*.icloud.com`), and developer endpoints with no mainland CDN presence.
 - Apple TV+ belongs to `stream`, not `apple-proxy`. `tv.apple.com` and `hls-svod.itunes.apple.com` are added to `stream` so the whole TV+ chain (`uts-api`, `play-edge`, `linear.tv`, `hls*`) shares one policy. Splitting the chain across two policy groups with different exit regions breaks TV+ region validation.
 - Keep `time.apple.com`, `gs-loc.apple.com`, `gsp*-cn.ls.apple.com`, `*-courier.push.apple.com`, `albert.apple.com`, Apple software update CDNs, and `*.apple.com.cn` on DIRECT. Do not add them to `apple-proxy`.

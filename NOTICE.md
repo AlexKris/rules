@@ -22,7 +22,7 @@ Known upstream sources used by the related profiles include:
     filter; its data comes mainly from felixonmars dnsmasq-china-list:
     https://github.com/felixonmars/dnsmasq-china-list
   - `gfw.txt` (GPL-3.0) is used only to drop GFW-listed domains from
-    `cn-domain`; none of its data is published.
+    `cn-domain` and `apple`; none of its data is published.
 - Tranco: https://tranco-list.eu
   - A pinned top-1M list is used only to filter `direct.txt` entries; no
     ranking data is published.

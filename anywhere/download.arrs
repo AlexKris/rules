@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1968
+# RULES: 1963
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -625,7 +625,6 @@ name = Download
 2, dlcdnets.asus.com
 2, download.cnet.com
 2, download.gimp.org
-2, download.manus.im
 2, download.xbox.com
 2, fastly.docker.com
 2, files.ghostty.org
@@ -926,7 +925,6 @@ name = Download
 2, download.sketch.com
 2, download.umbrel.com
 2, download01.logi.com
-2, downloads.claude.ai
 2, downloads.x-wrt.com
 2, downloads.xrite.com
 2, filters.cdn.skk.moe
@@ -1021,7 +1019,6 @@ name = Download
 2, pubmirror.plutex.de
 2, registry.gitlab.com
 2, release.runcloud.io
-2, releases.claude.com
 2, replicate.npmjs.com
 2, repo.extreme-ix.org
 2, s3-website.cloud.ru
@@ -1083,7 +1080,6 @@ name = Download
 2, download.mozilla.org
 2, download.nektony.com
 2, download.nodecdn.net
-2, downloads.cursor.com
 2, espejito.fder.edu.uy
 2, fosszone.csd.auth.gr
 2, ftp.gtlib.gatech.edu
@@ -1471,7 +1467,6 @@ name = Download
 2, mirrors.gethosted.online
 2, mirrors.ocf.berkeley.edu
 2, ota-cache1.googlezip.net
-2, persistent.oaistatic.com
 2, pkg.cloudflareclient.com
 2, planet.openstreetmap.org
 2, playwright.azureedge.net
