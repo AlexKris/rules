@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 204
+# RULES: 207
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -72,6 +72,9 @@ name = AI
 2, gemini.gstatic.com
 2, geminiweb-pa.clients.google.com
 2, geminiweb-pa.clients6.google.com
+2, appsgenaiserver-pa.clients.google.com
+2, appsgenaiserver-pa.clients6.google.com
+2, appsgenaiserver-pa.googleapis.com
 2, cloudaicompanion.googleapis.com
 2, cloudcode-pa.googleapis.com
 2, daily-cloudcode-pa.googleapis.com
