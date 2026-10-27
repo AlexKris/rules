@@ -2,8 +2,8 @@
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
 # RULES: 13928
-# SKIPPED: 100032
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100025, USER-AGENT=3
+# SKIPPED: 100033
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100026, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
