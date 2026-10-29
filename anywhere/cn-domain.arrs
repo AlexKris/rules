@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13928
-# SKIPPED: 100033
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100026, USER-AGENT=3
+# RULES: 13947
+# SKIPPED: 100331
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100324, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -6668,6 +6668,7 @@ routing = 1
 2, 7788js.com
 2, 77991.com
 2, 77bike.com
+2, 77shuku.info
 2, 7881.com
 2, 788v.com
 2, 78dm.net
@@ -7027,6 +7028,7 @@ routing = 1
 2, ameya360.com
 2, amflowbikes.com
 2, amh.sh
+2, amobbs.com
 2, ampcn.com
 2, amphenol-industrial.com
 2, ampmake.com
@@ -7087,6 +7089,7 @@ routing = 1
 2, app17.com
 2, appletuan.com
 2, applinzi.com
+2, appmiaoda.com
 2, appmifile.com
 2, appsflyer-cn.com
 2, apptaxi.net
@@ -7451,6 +7454,7 @@ routing = 1
 2, biqubao10.com
 2, biqusa.com
 2, bitahub.com
+2, bitauto.hk
 2, bitautotech.com
 2, bitbrowser.net
 2, biz-email.net
@@ -8213,6 +8217,7 @@ routing = 1
 2, cttq.com
 2, ctycdn.com
 2, cubing.com
+2, cubot.net
 2, cubox.pro
 2, cupdapp.com
 2, cupddns.com
@@ -9674,6 +9679,7 @@ routing = 1
 2, hudongba.com
 2, huians.com
 2, huibo.com
+2, huichenglawyer.com
 2, huifachina.com
 2, huifu.com
 2, huijidata.com
@@ -9962,6 +9968,7 @@ routing = 1
 2, iposeidoncdn.com
 2, ipostalcode.com
 2, ipts.com
+2, iq.com
 2, iqihang.com
 2, iqinshuo.com
 2, iqunix.com
@@ -10117,6 +10124,7 @@ routing = 1
 2, jihuoniao.com
 2, jijiagames.com
 2, jikedata.com
+2, jimxtc.com
 2, jinbiaochi.com
 2, jindao.tv
 2, jindoushiqi.com
@@ -10399,6 +10407,7 @@ routing = 1
 2, kuaisushu-cnd.com
 2, kuajingmaihuo.com
 2, kuakao.com
+2, kuakeng.com
 2, kuguanyi.com
 2, kuiniuca.com
 2, kuke.com
@@ -10584,6 +10593,7 @@ routing = 1
 2, lkme.cc
 2, lkong.com
 2, ll1024.com
+2, lm-dns.com
 2, lmjx.net
 2, lmtw.com
 2, lnk0.com
@@ -10631,6 +10641,7 @@ routing = 1
 2, lszjy.com
 2, ltd.com
 2, ltdcdn.com
+2, ltdzz.com
 2, ltxjob.com
 2, lua99.com
 2, luaninfo.com
@@ -10655,6 +10666,7 @@ routing = 1
 2, lxcvc.com
 2, ly200-cdn.com
 2, ly200.com
+2, ly870.com
 2, lygmedia.com
 2, lylme.com
 2, lynkco.com
@@ -10995,6 +11007,7 @@ routing = 1
 2, mzyfz.com
 2, n0808.com
 2, n63.com
+2, naitanghuyu.com
 2, name321.net
 2, namitiyu.com
 2, namoc.org
@@ -11717,6 +11730,7 @@ routing = 1
 2, rj.link
 2, rjghome.com
 2, rkdatabase.com
+2, rkgamingstore.com
 2, rlzyxa.com
 2, rmbbk.com
 2, rmjtxw.com
@@ -12153,6 +12167,7 @@ routing = 1
 2, spiiker.com
 2, sportnanoapi.com
 2, spoto.net
+2, spst1.com
 2, spst2.com
 2, spsy.org
 2, spzs.com
@@ -12299,6 +12314,7 @@ routing = 1
 2, taluo.com
 2, tan8.com
 2, tangdou.com
+2, tange365.com
 2, tanshudata.com
 2, tantaly.com
 2, tantuw.com
@@ -12455,6 +12471,7 @@ routing = 1
 2, tobaccochina.com
 2, tobsnssdk.com
 2, tohosting.com
+2, tokenrhythm.studio
 2, tom61.com
 2, tomatogames.com
 2, tomoremusic.com
@@ -12572,6 +12589,7 @@ routing = 1
 2, txcdns.net
 2, txfund.com
 2, txitech.com
+2, txssysp.com
 2, txtduo.com
 2, txzing.com
 2, txzqzb.com
@@ -12936,6 +12954,7 @@ routing = 1
 2, winvk.com
 2, wisder.net
 2, wiseasy.com
+2, wisecleaner.net
 2, wisevector.com
 2, wishisp.com
 2, witcp.com
