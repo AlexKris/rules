@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13947
-# SKIPPED: 100331
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100324, USER-AGENT=3
+# RULES: 13948
+# SKIPPED: 99959
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=99952, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -2743,6 +2743,9 @@ routing = 1
 2, yzsgo.com
 2, shunjing.xin
 2, kakaxing.com
+2, favonis.cloud
+2, favonis.com
+2, favonis.space
 2, asklink.com
 2, feihengip.com
 2, oray.com
@@ -6240,7 +6243,6 @@ routing = 1
 2, 10yan.com
 2, 110.com
 2, 110ask.com
-2, 112998.xyz
 2, 11315.com
 2, 11478.com
 2, 114best.com
@@ -6674,7 +6676,6 @@ routing = 1
 2, 78dm.net
 2, 78gk.com
 2, 79abc.com
-2, 7cxk.com
 2, 7n14yrl1.lol
 2, 7road.net
 2, 7wsh.com
@@ -6735,6 +6736,7 @@ routing = 1
 2, 925g.com
 2, 926kf.com
 2, 92cloud.com
+2, 92kun.com
 2, 9377.com
 2, 93soso.com
 2, 9453job.com
@@ -7028,7 +7030,6 @@ routing = 1
 2, ameya360.com
 2, amflowbikes.com
 2, amh.sh
-2, amobbs.com
 2, ampcn.com
 2, amphenol-industrial.com
 2, ampmake.com

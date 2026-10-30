@@ -1,7 +1,7 @@
 # NAME: Stream
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Stream services routing overlay based on SukkaW Stream rules and v2fly tiktok
-# RULES: 306
+# RULES: 309
 # SKIPPED: 63
 # SKIPPED-TYPES: PROCESS-NAME=14, USER-AGENT=49
 # SOURCES:
@@ -293,7 +293,10 @@ name = Stream
 2, tiktokglobalshopv.com
 2, tiktokminis.us
 2, tiktokrow-cdn.com
+2, tiktokshop.com
+2, tiktokstaticb.com
 2, tiktokv.eu
+2, tiktokvapp.com
 2, tiktokw.eu
 2, tiktokw.us
 2, ttcdn-us.com
