@@ -84,6 +84,10 @@ App settings:
   only to literal IP destinations, like `no-resolve` on other clients.
 - Turn off `Country Bypass`. Its bundled per-country rules cannot be audited,
   and `CN Domain` plus `China IP` already cover the same intent.
+- Keep `Synthetic Addressing` (FakeIP before 2.5) exclusions empty unless an
+  app needs a real address. An A query under an excluded suffix gets a real
+  IPv4 answer from upstream, so its connections lose the domain lookup and are
+  matched only by sniffed SNI/Host and IP rules.
 - Unmatched traffic takes the default route, so no proxy-side fallback set is
   published.
 
@@ -98,8 +102,12 @@ How Anywhere matches:
 - Within a tier: deepest suffix, then longest keyword, then longest CIDR
   prefix; suffix before keyword; identical patterns go to the set higher in
   the Routing list.
-- Each custom set is limited to 100,000 rules; an import or refresh above that
-  is rejected.
+- A connection to a literal IP is first matched against IP rules; a sniffed
+  TLS SNI or HTTP Host (TCP) or, since 2.5, QUIC SNI (UDP) that matches a
+  domain rule overrides that result.
+- Each custom set is limited to 200,000 rules since 2.5 (100,000 before); an
+  import or refresh above that is rejected. The build still fails above
+  100,000 so the sets also import on older versions.
 
 Notes:
 
