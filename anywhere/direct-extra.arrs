@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 56
+# RULES: 59
 # SKIPPED: 0
 
 name = Direct Extra
@@ -62,3 +62,6 @@ routing = 1
 2, cuscspeed.169ol.com
 2, speedtest.jsinfo.net
 2, speedtest1.sc.chinamobile.com
+2, qipiao.net
+2, zhongpiaoyule.com
+2, lzgame.top
