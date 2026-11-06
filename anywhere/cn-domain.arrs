@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13962
+# RULES: 13964
 # SKIPPED: 99962
 # SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=99955, USER-AGENT=3
 # SOURCES:
@@ -4406,6 +4406,7 @@ routing = 1
 2, h2os.com
 2, allawnfs.com
 2, allawno.com
+2, allawnofs.com
 2, allawntech.com
 2, coloros.com
 2, coloros.net
@@ -13952,6 +13953,7 @@ routing = 1
 2, zhangzs.com
 2, blizzard.com
 2, bulicdn2.com
+2, dittocdn.com
 2, dizzylab.net
 2, ibreader.com
 2, jstarkan.com
