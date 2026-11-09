@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 59
+# RULES: 60
 # SKIPPED: 0
 
 name = Direct Extra
@@ -46,6 +46,7 @@ routing = 1
 2, citiciam.com
 2, citicifh.com
 2, eciticcfc.com
+2, abcchina.com
 2, speedtest.bmcc.com.cn
 2, ookla.speedtest.cnix.cn
 2, cesu-hz.zjtelecom.com.cn
