@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1963
+# RULES: 1964
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -352,6 +352,7 @@ name = Download
 2, apache.uvigo.es
 2, apt.izzysoft.de
 2, c.1password.com
+2, cdn.altstore.io
 2, cpan.stu.edu.tw
 2, cpan.webdesk.ru
 2, ctan.ebinger.cc

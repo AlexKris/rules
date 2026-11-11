@@ -2765,6 +2765,7 @@ DOMAIN-SUFFIX,hailuoai.com
 DOMAIN-SUFFIX,minimaxi.com
 DOMAIN-SUFFIX,xingyeai.com
 DOMAIN-SUFFIX,baichuan-ai.com
+DOMAIN-SUFFIX,nia-teams.com
 DOMAIN-SUFFIX,namiso.com
 DOMAIN-SUFFIX,miaoyanai.com
 DOMAIN-SUFFIX,faxingbao.com
