@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13990
-# SKIPPED: 99964
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=99957, USER-AGENT=3
+# RULES: 13997
+# SKIPPED: 100056
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100049, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -7015,6 +7015,7 @@ routing = 1
 2, alibtrip.com
 2, alicaptcha.com
 2, alicloudwaf.com
+2, alidns-2.com
 2, alidnsv122.com
 2, aliexpress.ru
 2, aliexpress.us
@@ -8454,6 +8455,7 @@ routing = 1
 2, diaochapai.com
 2, diaoyu.com
 2, dichan.com
+2, dida.com
 2, didatravel.com
 2, didi-food.com
 2, didiapp.com
@@ -9460,6 +9462,7 @@ routing = 1
 2, haodou.com
 2, haoduofangs.com
 2, haohanpower.tech
+2, haohuxx.com
 2, haojiaolian.com
 2, haoling.cc
 2, haoma.com
@@ -11281,6 +11284,7 @@ routing = 1
 2, openwrt.ai
 2, operachina.com
 2, opinstallinit.com
+2, opinstallres.com
 2, oplay.net
 2, opp2.com
 2, oppofind.com
@@ -11617,6 +11621,7 @@ routing = 1
 2, qnqcdn.net
 2, qnydns.com
 2, qoder.com
+2, qoder.sh
 2, qooic.com
 2, qookkagames.com
 2, qp110.com
@@ -12004,6 +12009,7 @@ routing = 1
 2, shfq.com
 2, shgjj.com
 2, shhugong.com
+2, shiabank.com
 2, shiciyun.com
 2, shifair.com
 2, shijicloud.com
@@ -12622,6 +12628,7 @@ routing = 1
 2, tushare.pro
 2, tushumi.cc
 2, tushuokeji.net
+2, tusiart.com
 2, tusij.com
 2, tutengcloud.com
 2, tuya.com
