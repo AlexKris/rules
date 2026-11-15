@@ -2620,6 +2620,7 @@ DOMAIN,speedtest10g.atl.as13760.net
 DOMAIN,speedtest10g.bhm.as13760.net
 DOMAIN,speedtest10g.tpa.as13760.net
 DOMAIN,speedtest2.bitsandbyte.co.in
+DOMAIN,speedtest2.par2.as216190.net
 DOMAIN,speedtest2.phx.1gservers.com
 DOMAIN,speedtestalbq.vexusfiber.com
 DOMAIN,speedtestapf.gethotwired.com
