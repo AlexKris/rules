@@ -1,7 +1,7 @@
 # NAME: Direct Extra
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Additional direct routing overlay
-# RULES: 60
+# RULES: 62
 # SKIPPED: 0
 
 name = Direct Extra
@@ -66,3 +66,5 @@ routing = 1
 2, qipiao.net
 2, zhongpiaoyule.com
 2, lzgame.top
+2, msftconnecttest.com
+2, msftncsi.com

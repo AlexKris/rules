@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 13997
+# RULES: 14003
 # SKIPPED: 100011
 # SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100004, USER-AGENT=3
 # SOURCES:
@@ -366,6 +366,14 @@ routing = 1
 2, heroesports.com
 2, shyxhy.com
 2, yingxiong.com
+2, hgto.cc
+2, hypergryph.com
+2, hypergryph.net
+2, hycdn.com
+2, arknights.com
+2, skland.com
+2, skland.net
+2, octavedge.com
 2, kurobbs.com
 2, kurogame.com
 2, kurogame.xyz
@@ -9795,7 +9803,6 @@ routing = 1
 2, hxsd.tv
 2, hybbs.net
 2, hyhcdn.com
-2, hypergryph.com
 2, hyperstrong.com
 2, hytera.com
 2, hyzc.com
@@ -12122,7 +12129,6 @@ routing = 1
 2, sk1999.com
 2, sketchupbar.com
 2, skinme.cc
-2, skland.com
 2, skongmx.com
 2, skr003.cc
 2, sky123th.com
