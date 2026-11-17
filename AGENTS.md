@@ -72,6 +72,14 @@ Current generated groups:
 - `direct-extra`: explicit direct overlay for WeChat service domains, Kuro, CITIC, `videocc.net`, `cache.video.iqiyi.com`, and DigiCert certificate infrastructure. It also carries carve-outs that would otherwise be stolen by a policy whose rule set is ordered earlier: the mainland speedtest endpoints inside `speedtest`, the mainland download hosts inside `download` (`mirrors.aliyun.com`, `dl.wechat.com`, `bn.d.miui.com`, `cdnorg.d.miui.com`), and `cn.download.nvidia.com` (`download` matches it via `DOMAIN-SUFFIX,download.nvidia.com`). SKK collects speedtest and download hosts regardless of region. `idms-apple.com.akadns.net` stays here as an explicit direct entry. Do not add `DOMAIN-SUFFIX` rules for `.cn` domains: `cn-domain` already carries `DOMAIN-SUFFIX,cn` and no earlier set matches them. Do not add personal or workplace domains; this repository is public, so keep those in local client settings. Because `direct-extra` is the first rule set in every profile, these take
 effect on every client without a per-profile edit.
 
+Google AI scope: `ai` explicitly adds the exact service endpoints in the Antigravity
+enterprise network allowlist (`businessaicode`, `aiplatform`, and `discoveryengine`,
+including the listed regional and mTLS hosts) and `antigravity.google.com` for Remote
+Control. Keep shared Google sign-in, OAuth, storage, static assets, and update hosts
+out of `ai`; domain rules cannot distinguish their AI requests from other Google
+services. Do not add broad `googleapis.com`, `google.com`, `gstatic.com`, or
+`googleusercontent.com` suffixes to `ai`.
+
 `apple-proxy` must not contain `statici.icloud.com`. It serves iCloud static assets including the Apple
 ID avatar shown in iOS Settings, and a mainland-China Apple ID needs it direct.
 

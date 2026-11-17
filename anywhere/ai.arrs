@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
-# DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude additions
-# RULES: 217
+# DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude and Google AI additions
+# RULES: 232
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -225,3 +225,18 @@ name = AI
 3, chatgpt-async-webps-prod
 2, ai.com
 2, g.ai
+2, antigravity.google.com
+2, businessaicode.googleapis.com
+2, businessaicode.us.rep.googleapis.com
+2, businessaicode.eu.rep.googleapis.com
+2, businessaicode.mtls.googleapis.com
+2, aiplatform.googleapis.com
+2, aiplatform.us.rep.googleapis.com
+2, aiplatform.eu.rep.googleapis.com
+2, aiplatform.mtls.googleapis.com
+2, discoveryengine.googleapis.com
+2, us-discoveryengine.googleapis.com
+2, eu-discoveryengine.googleapis.com
+2, discoveryengine.mtls.googleapis.com
+2, us-discoveryengine.mtls.googleapis.com
+2, eu-discoveryengine.mtls.googleapis.com

@@ -95,6 +95,12 @@ https://raw.githubusercontent.com/AlexKris/rules/main/anywhere/cn-domain.arrs   
 The regional `stream-*` sets must stay above `stream`, which contains nearly all
 of their patterns.
 `google` includes YouTube upstream, so Stream and AI must stay above it.
+AI includes Gemini/Antigravity service hosts, the exact endpoints in the
+[Antigravity enterprise allowlist](https://antigravity.google/docs/enterprise#network-allowlists-and-mtls-endpoints),
+and its [Remote Control host](https://antigravity.google/docs/remote-control).
+Shared Google sign-in, OAuth, storage, static assets, and update hosts retain their
+existing policies. Domain rules cannot isolate AI requests on those shared hosts;
+the added Vertex AI and Discovery Engine endpoints also cover their other workloads.
 `cn-domain` uses the same rules as the other clients (including SKK Domestic)
 and must stay below Stream, AI, and Google. `lan` and `telegram` contain both
 domain and IP CIDR rules. `lan-ip` and `telegram-ip` remain published only for
