@@ -1,7 +1,7 @@
 # NAME: AI
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: AI services routing overlay based on v2fly domain-list-community with Claude and Google AI additions
-# RULES: 232
+# RULES: 233
 # SKIPPED: 1
 # SKIPPED-TYPES: REGEXP=1
 # SOURCES:
@@ -48,6 +48,7 @@ name = AI
 2, cursorvm.com
 2, elevenlabs.com
 2, elevenlabs.io
+2, elevenlabsusercontent.com
 2, githubcopilot.com
 2, copilot-proxy.githubusercontent.com
 2, copilot-workspace.githubnext.com
