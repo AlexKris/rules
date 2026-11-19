@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 14003
-# SKIPPED: 100011
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100004, USER-AGENT=3
+# RULES: 14019
+# SKIPPED: 100015
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100008, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -354,6 +354,8 @@ routing = 1
 2, sl916.com
 2, 17173.com
 2, 17173cdn.com
+2, 1y.com
+2, 1ycdn.com
 2, changyou.com
 2, cy.com
 2, playcool.com
@@ -1688,8 +1690,20 @@ routing = 1
 2, everbright.com
 2, secec.com
 2, sunlife-everbright.com
+2, 4008000000.com
 2, pingan.com
+2, 172.com
+2, 1qianbao.com
+2, yiqianbao.com
 2, yqb.com
+2, yqbimg.net
+2, yqbmall.com
+2, pacfc.com
+2, lu.com
+2, lufax.com
+2, lufaxcdn.com
+2, lujincaifu.com
+2, mingyuanfund.com
 2, taikang.com
 2, taikanglife.com
 2, taikangzhijia.com
@@ -1710,9 +1724,6 @@ routing = 1
 2, lehuipay.com
 2, lianlian.com
 2, lianlianpay.com
-2, lu.com
-2, lufax.com
-2, lufaxcdn.com
 2, qudian.com
 2, rong360.com
 2, shengpay.com
@@ -1721,8 +1732,13 @@ routing = 1
 2, wosaimg.com
 2, yeepay.com
 2, ysepay.com
+2, baishan.com
+2, baishancloud.com
 2, qingcdn.com
+2, trpcdn.com
 2, trpcdn.net
+2, yundun.com
+2, saxyit.com
 2, bootcdn.net
 2, bootcss.com
 2, phpcomposer.com
@@ -1930,6 +1946,7 @@ routing = 1
 2, 58uxd.com
 2, 58xinghuo.com
 2, 58xueche.com
+2, ajkimg.com
 2, anjuke.com
 2, anjukestatic.com
 2, chinahr.com
@@ -1945,6 +1962,9 @@ routing = 1
 2, zhuanspirit.com
 2, zhuanstatic.com
 2, zhuanzhuan.com
+2, zhaoliangji.com
+2, zhaoliangjipc.com
+2, qpmcn.com
 2, kaoshibao.com
 2, zaixiankaoshi.com
 2, c-ctrip.com
@@ -4393,6 +4413,7 @@ routing = 1
 2, lxzjjt.com
 2, thinkcloudlab.com
 2, thinkpad.com
+2, lenovofuturecenter.com
 2, lecoo.com
 2, blurdev.com
 2, chainedbox.com
@@ -4861,6 +4882,7 @@ routing = 1
 2, servicewechat.com
 2, tencent.com
 2, tencent.net
+2, tencentads.com
 2, tencentmiying.com
 2, tengmed.com
 2, tenpay.com
@@ -4954,7 +4976,6 @@ routing = 1
 2, duokanbox.com
 2, xiaomiyoupin.com
 2, zmifi.com
-2, saxyit.com
 2, kanimg.com
 2, sandai.net
 2, thunderurl.com
@@ -6159,7 +6180,6 @@ routing = 1
 2, ysten.com
 2, yuanzhiyijiantong.com
 2, yunba.io
-2, yundun.com
 2, yunkanpan.com
 2, yunqishi.net
 2, yunshipei.com
@@ -6412,7 +6432,6 @@ routing = 1
 2, 1more.com
 2, 1mpi.com
 2, 1ms.run
-2, 1qianbao.com
 2, 1r1g.com
 2, 1rtb.com
 2, 1rtb.net
@@ -7000,7 +7019,6 @@ routing = 1
 2, aiyuke.com
 2, aizhantj.com
 2, ajcass.com
-2, ajkimg.com
 2, ajupf.com
 2, ak005.com
 2, aka700.net
@@ -7402,7 +7420,6 @@ routing = 1
 2, baineng.cc
 2, baishan-cloud.net
 2, baishancdnx.com
-2, baishancloud.com
 2, baishuku.la
 2, baisiweiting.com
 2, baiwang.com
@@ -13566,7 +13583,6 @@ routing = 1
 2, yoxuba.com
 2, yoybuy.com
 2, ypiao.com
-2, yqbimg.net
 2, yqkk.link
 2, yqmengyou.com
 2, yqn.com
