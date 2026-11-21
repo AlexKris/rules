@@ -1,9 +1,9 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 14019
-# SKIPPED: 100015
-# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100008, USER-AGENT=3
+# RULES: 14022
+# SKIPPED: 100018
+# SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100011, USER-AGENT=3
 # SOURCES:
 # - https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/cn
 # - https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/direct.txt
@@ -80,6 +80,7 @@ routing = 1
 2, kakamobi.com
 2, maiche.com
 2, byd.com
+2, faw-vw.com
 2, geely.com
 2, lixiang.com
 2, xiaopeng.com
@@ -2321,6 +2322,9 @@ routing = 1
 2, didapinche.com
 2, dmall.com
 2, dmallcdn.com
+2, echooai.com
+2, fazhipro.com
+2, saasfz.com
 2, fang.com
 2, soufun.com
 2, soufunimg.com
@@ -8943,7 +8947,6 @@ routing = 1
 2, fastliii.com
 2, fastsdwan.com
 2, faststatics.com
-2, faw-vw.com
 2, faw.com
 2, fawan.com
 2, faxingzhan.com
