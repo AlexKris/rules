@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 14022
+# RULES: 14023
 # SKIPPED: 100018
 # SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100011, USER-AGENT=3
 # SOURCES:
@@ -1497,6 +1497,7 @@ routing = 1
 2, jpushoa.com
 2, pushcfg.com
 2, bayescom.com
+2, icc.link
 2, linkflowtech.com
 2, openinstall.com
 2, openinstall.io
