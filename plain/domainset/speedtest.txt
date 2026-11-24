@@ -288,6 +288,7 @@ DOMAIN,www.librespeed.fi
 DOMAIN,ch1.chtm.hinet.net
 DOMAIN,ds19.vipconnect.mx
 DOMAIN,eregli.flix.net.tr
+DOMAIN,fetdl2.seed.net.tw
 DOMAIN,fetkt1.seed.net.tw
 DOMAIN,fetml1.seed.net.tw
 DOMAIN,fetnt1.seed.net.tw
@@ -706,6 +707,7 @@ DOMAIN,speedtest.grootop.in
 DOMAIN,speedtest.honest.net
 DOMAIN,speedtest.ibertic.es
 DOMAIN,speedtest.idsi.co.uk
+DOMAIN,speedtest.ilitha.com
 DOMAIN,speedtest.imcloud.tw
 DOMAIN,speedtest.infraly.co
 DOMAIN,speedtest.ipcore.com
@@ -2500,6 +2502,7 @@ DOMAIN,ks-speedtest.homeplus.net.tw
 DOMAIN,kzspeedtest01.aunalytics.com
 DOMAIN,ldc01-speedtest.whipcord.com
 DOMAIN,lg-speedtest.homeplus.net.tw
+DOMAIN,lhr.speedtest.rustbanned.net
 DOMAIN,lifitelecom.brsserver.com.br
 DOMAIN,mia-speedtest.northstate.net
 DOMAIN,myspeedtest.atcbroadband.com
@@ -3483,6 +3486,7 @@ DOMAIN,speedtest.mirror.serversaustralia.com.au
 DOMAIN,st-zonguldakeregli-1.turksatkablo.com.tr
 DOMAIN,tampfl-speedtest-ookla-01.st.charter.com
 DOMAIN,ukms-speedtest-newyork.tropicalgames.net
+DOMAIN,speedtest-albuquerque.resoundnetworks.com
 DOMAIN,speedtest-mel.vic.au.hostuniversal.com.au
 DOMAIN,speedtest-syd.nsw.au.hostuniversal.com.au
 DOMAIN,chich0003ooklaspeedtestserver01.wiline.com

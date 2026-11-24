@@ -1,7 +1,7 @@
 # NAME: CN Domain
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: China domain direct fallback based on v2fly cn, the Tranco-ranked Loyalsoldier direct list, and SukkaW Domestic rules
-# RULES: 14023
+# RULES: 14026
 # SKIPPED: 100018
 # SKIPPED-TYPES: DOMAIN-WILDCARD=1, REGEXP=3, UNRANKED=100011, USER-AGENT=3
 # SOURCES:
@@ -519,6 +519,10 @@ routing = 1
 2, zx.com
 2, tgpro.top
 2, tgprocs.net
+2, wahlap.net
+2, tgk-wcaime.wahlap.com
+2, maimai.wahlap.com
+2, chunithm.wahlap.com
 2, winegame.net
 2, wo1wan.com
 2, ycgame.com
@@ -12891,7 +12895,6 @@ routing = 1
 2, vzkoo.com
 2, w7.cc
 2, wacai.com
-2, wahlap.net
 2, waiguofang.com
 2, waimaoniu.com
 2, waimaoniu.net

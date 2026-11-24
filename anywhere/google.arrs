@@ -1,7 +1,7 @@
 # NAME: Google
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Google services routing overlay based on v2fly google, including YouTube; keep Stream above Google
-# RULES: 847
+# RULES: 848
 # SKIPPED: 2
 # SKIPPED-TYPES: REGEXP=2
 # SOURCES:
@@ -110,6 +110,7 @@ name = Google
 2, golang.org
 2, deepmind.com
 2, ai.studio
+2, gemma.ai
 2, googleplay.com
 2, xn--ngstr-lra8j.com
 2, charlestonroadregistry.com
