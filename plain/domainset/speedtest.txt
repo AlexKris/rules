@@ -3264,6 +3264,7 @@ DOMAIN,lcrs-speedtest-02.brightspeed.com
 DOMAIN,lnk-speedtest.networknebraska.net
 DOMAIN,mum-speedtest.digianaspeednet.com
 DOMAIN,mumbaispeedtest.pioneeronline.com
+DOMAIN,ookla-london3.tropicalhosting.net
 DOMAIN,ookla-speedtest.starverse.network
 DOMAIN,ooklaspeedtest-ist1.quickzone.net
 DOMAIN,poitiers3.d2m.c2d.liveservices.fr
