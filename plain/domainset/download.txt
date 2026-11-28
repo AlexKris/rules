@@ -217,6 +217,7 @@ DOMAIN-SUFFIX,packagist.org
 DOMAIN,repo.xtom.com
 DOMAIN,repository.su
 DOMAIN-SUFFIX,s3.yandex.net
+DOMAIN-SUFFIX,sbcmirror.org
 DOMAIN,sft.if.usp.br
 DOMAIN,ubuntu.dts.mg
 DOMAIN,ubuntu.nic.cz
@@ -340,6 +341,7 @@ DOMAIN,apache.hippo.nl
 DOMAIN,apache.is.co.za
 DOMAIN,apache.saix.net
 DOMAIN,apache.uvigo.es
+DOMAIN,apt.armbian.com
 DOMAIN,apt.izzysoft.de
 DOMAIN,c.1password.com
 DOMAIN,cdn.altstore.io
@@ -462,6 +464,7 @@ DOMAIN,archlinux.nic.cz
 DOMAIN-SUFFIX,artifacts.ui.com
 DOMAIN,aus5.mozilla.org
 DOMAIN,b2.mcarchive.net
+DOMAIN,beta.armbian.com
 DOMAIN,boot.netboot.xyz
 DOMAIN,cdimage.kali.org
 DOMAIN-SUFFIX,cdn.blizzard.com
@@ -794,6 +797,7 @@ DOMAIN,ftp.tu-chemnitz.de
 DOMAIN-SUFFIX,ftp2.de.debian.org
 DOMAIN,ftpmirror.your.org
 DOMAIN,ftpserv.tudelft.nl
+DOMAIN,github.armbian.com
 DOMAIN,index.rubygems.org
 DOMAIN,maven.fabricmc.net
 DOMAIN,maven.is-quite.gay

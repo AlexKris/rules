@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1959
+# RULES: 1963
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -226,6 +226,7 @@ name = Download
 2, repo.xtom.com
 2, repository.su
 2, s3.yandex.net
+2, sbcmirror.org
 2, sft.if.usp.br
 2, ubuntu.dts.mg
 2, ubuntu.nic.cz
@@ -349,6 +350,7 @@ name = Download
 2, apache.is.co.za
 2, apache.saix.net
 2, apache.uvigo.es
+2, apt.armbian.com
 2, apt.izzysoft.de
 2, c.1password.com
 2, cdn.altstore.io
@@ -471,6 +473,7 @@ name = Download
 2, artifacts.ui.com
 2, aus5.mozilla.org
 2, b2.mcarchive.net
+2, beta.armbian.com
 2, boot.netboot.xyz
 2, cdimage.kali.org
 2, cdn.blizzard.com
@@ -802,6 +805,7 @@ name = Download
 2, ftp2.de.debian.org
 2, ftpmirror.your.org
 2, ftpserv.tudelft.nl
+2, github.armbian.com
 2, index.rubygems.org
 2, maven.fabricmc.net
 2, maven.is-quite.gay
