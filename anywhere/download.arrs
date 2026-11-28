@@ -1,7 +1,7 @@
 # NAME: Download
 # GENERATED-FOR: Anywhere Routing Rule Set
 # DESCRIPTION: Download and large file hosting overlay based on SukkaW Download rules
-# RULES: 1964
+# RULES: 1959
 # SKIPPED: 0
 # SOURCES:
 # - https://raw.githubusercontent.com/SukkaLab/ruleset.skk.moe/master/List/domainset/download.conf
@@ -124,7 +124,6 @@ name = Download
 2, ftp.eq.uc.pt
 2, ftp.funet.fi
 2, ftp.is.co.za
-2, ftp.ktug.org
 2, ftp.lanet.kr
 2, ftp.linux.cz
 2, ftp.linux.it
@@ -769,7 +768,6 @@ name = Download
 2, cisco.yuntu.com.tw
 2, cpan-mirror.rbc.ru
 2, cpan.dcc.uchile.cl
-2, cpan.mines-albi.fr
 2, ctan.dcc.uchile.cl
 2, ctan.math.utah.edu
 2, ctan.mines-albi.fr
@@ -1455,10 +1453,8 @@ name = Download
 2, mirror.digitaloceans.dev
 2, mirror.dimensiondata.com
 2, mirror.grid.uchicago.edu
-2, mirror.library.ucy.ac.cy
 2, mirror.liquidtelecom.com
 2, mirror.mythic-beasts.com
-2, mirror.netcologne.de.org
 2, mirror.ubuntu.ikoula.com
 2, mirror.unix-solutions.be
 2, mirror.us.mirhosting.net
@@ -1596,7 +1592,6 @@ name = Download
 2, mirror.domainhizmetleri.com
 2, mirror.improve.nordlo.cloud
 2, mirror.retentionrange.co.bw
-2, mirror.thunderhosting.cloud
 2, mirror.united-gameserver.de
 2, mirrors.advancedhosters.com
 2, oss-ap-south-1.aliyuncs.com
